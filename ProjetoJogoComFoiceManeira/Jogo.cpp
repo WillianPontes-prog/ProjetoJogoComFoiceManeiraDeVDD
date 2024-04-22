@@ -8,12 +8,17 @@ Jogo::~Jogo()
 {
 }
 
-Jogo Jogo::Inicializa()
+void Jogo::Inicializa()
 {
-	return Jogo();
+	
 }
 
-Jogo Jogo::Atualiza()
+void Jogo::Atualiza()
 {
-	return Jogo();
+	
+}
+
+void Jogo::AtualizaWIndow()
+{
+	
 }

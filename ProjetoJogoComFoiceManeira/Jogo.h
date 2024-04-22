@@ -1,12 +1,13 @@
 #pragma once
 class Jogo {
 private:
-	Jogador player1, player2;
+	Window Tela;
 
 public:
 	Jogo();
 	~Jogo();
-	Jogo Inicializa();
-	Jogo Atualiza();
+	void Inicializa();
+	void Atualiza();
+    void AtualizaWIndow();
 
 };

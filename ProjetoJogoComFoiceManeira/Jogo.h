@@ -1,14 +1,18 @@
 #pragma once
+#include <SFML/Graphics.hpp>
+#include "Jogador.h"
+
 class Jogo {
 
 private:
-	Window Tela;
+	sf::RenderWindow window;
+
+	Jogador Player1;
 
 public:
 	Jogo();
 	~Jogo();
-	void Inicializa();
+
 	void Atualiza();
-    void AtualizaWIndow();
 
 };

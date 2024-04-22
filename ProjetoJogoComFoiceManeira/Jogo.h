@@ -1,7 +1,8 @@
 #pragma once
 class Jogo {
+
 private:
-	Jogador player1, player2;
+	//Jogador player1, player2;
 
 public:
 	Jogo();

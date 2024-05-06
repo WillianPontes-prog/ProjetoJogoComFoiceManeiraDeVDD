@@ -15,5 +15,6 @@ public:
 	void set_Window(sf::RenderWindow* w) {this->window = w; };
 	void draw() { window->draw(body); }
 	virtual void atualiza() { draw(); }
+	sf::RectangleShape get_body() { return body; }
 
 };

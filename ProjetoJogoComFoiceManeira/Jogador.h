@@ -1,7 +1,7 @@
 #pragma once
-#include "Entidade.h"
+#include "EntidadesColision.h"
 
-class Jogador : public Entidade {
+class Jogador : public EntidadesColision {
 private:
 	float speedP = 3;
 

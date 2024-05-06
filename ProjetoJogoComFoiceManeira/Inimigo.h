@@ -1,7 +1,7 @@
 #pragma once
-#include"Entidade.h"
+#include"EntidadesColision.h"
 
-class Inimigo : public Entidade {
+class Inimigo : public EntidadesColision {
 
 private:
 

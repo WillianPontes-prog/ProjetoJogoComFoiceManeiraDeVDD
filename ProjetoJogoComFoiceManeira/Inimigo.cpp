@@ -9,3 +9,8 @@ Inimigo::Inimigo(float posX, float posY)
 Inimigo::~Inimigo()
 {
 }
+
+void Inimigo::atualiza()
+{
+	draw();
+}

@@ -28,3 +28,9 @@ void Jogador::Move()
 		body.move(sf::Vector2f(speedP,0.f));
 	}
 }
+
+void Jogador::atualiza()
+{
+	Move();
+	draw();
+}

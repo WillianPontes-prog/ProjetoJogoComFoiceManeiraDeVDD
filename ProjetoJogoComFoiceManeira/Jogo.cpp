@@ -36,7 +36,7 @@ void Jogo::Atualiza()
             
 
 
-            temp->draw();
+            temp->atualiza();
         }
 
         window.display();

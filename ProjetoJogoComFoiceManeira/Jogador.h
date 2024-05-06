@@ -11,4 +11,6 @@ public:
 
 	void Move();
 
+	void atualiza() override;
+
 };

@@ -6,7 +6,7 @@ class Inimigo : public Entidade {
 private:
 
 public:
-	Inimigo();
+	Inimigo(float posX = 0, float posY = 0);
 	~Inimigo();
 
 };

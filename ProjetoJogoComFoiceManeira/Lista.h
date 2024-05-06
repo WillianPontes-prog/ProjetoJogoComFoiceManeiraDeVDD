@@ -32,9 +32,10 @@ public:
 	}
 
 	void push(TL* item) {
-		if (pPrimeiro == NULL) {
+		if (pPrimeiro == nullptr) {
 			pPrimeiro = new Elemento<TL>;
 			pPrimeiro->set_item(item);
+			pUltimo = pPrimeiro;
 		}
 		else {
 			Elemento<TL>* temp = new Elemento<TL>;
@@ -48,9 +49,9 @@ public:
 
 	void pop(TL* item) {
 		Elemento<TL>* temp = pPrimeiro;
-		Elemento<TL>* tempAnt = NULL;
+		Elemento<TL>* tempAnt = nullptr;
 
-		while (temp != NULL && temp->get_item() != item) {
+		while (temp != nullptr && temp->get_item() != item) {
 			tempAnt = temp;
 			temp = temp->get_pProx();
 		}
@@ -59,7 +60,7 @@ public:
 			pPrimeiro = temp->get_pProx();
 		}
 		else if (temp == pUltimo) {
-			tempAnt->set_pProx(NULL);
+			tempAnt->set_pProx(nullptr);
 			pUltimo = tempAnt;
 		}
 		else {
@@ -76,8 +77,8 @@ public:
 template<class TL>
 inline Lista<TL>::Lista()
 {
-	pPrimeiro = NULL;
-	pUltimo = NULL;
+	pPrimeiro = nullptr;
+	pUltimo = nullptr;
 
 	len = 0;
 }

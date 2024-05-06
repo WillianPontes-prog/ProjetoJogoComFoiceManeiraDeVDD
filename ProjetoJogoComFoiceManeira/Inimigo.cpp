@@ -1,9 +1,9 @@
 #include "Inimigo.h"
 
-Inimigo::Inimigo()
+Inimigo::Inimigo(float posX, float posY)
 {
 	body.setFillColor(sf::Color::Cyan);
-	body.setPosition(sf::Vector2f(300.f, 278.f));
+	body.setPosition(sf::Vector2f(posX, posY));
 }
 
 Inimigo::~Inimigo()

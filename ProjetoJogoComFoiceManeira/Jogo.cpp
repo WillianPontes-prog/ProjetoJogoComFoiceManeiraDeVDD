@@ -1,10 +1,13 @@
 #include "Jogo.h"
 
 Jogo::Jogo() :
-	window(sf::VideoMode(1920, 1080, 32), "JogoFoiceFodaWOOOOOOOOOOOOOOOOOOOOOOOWN", sf::Style::Default)
+    window(sf::VideoMode(1920, 1080, 32), "JogoFoiceFodaWOOOOOOOOOOOOOOOOOOOOOOOWN", sf::Style::Default)
 {
     Player1 = new Jogador();
     Player1->set_Window(&window);
+
+    fase1 = new Fase(Player1, &window);
+    LEs = fase1->getAllEntidade();
 
     Atualiza();
 }
@@ -28,8 +31,13 @@ void Jogo::Atualiza()
 
         window.clear();
 
-        Player1->Move();
-        Player1->draw();
+        for (int i = 0; i < LEs->LEs.get_len(); i++) {
+            Entidade* temp = LEs->LEs.get_item(i);
+            
+
+
+            temp->draw();
+        }
 
         window.display();
     }

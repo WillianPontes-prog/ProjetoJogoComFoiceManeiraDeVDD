@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Jogador.h"
+#include "Inimigo.h"
 
 class Jogo {
 

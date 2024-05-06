@@ -10,6 +10,7 @@ Jogo::Jogo() :
 
 Jogo::~Jogo()
 {
+
 }
 
 void Jogo::Atualiza()

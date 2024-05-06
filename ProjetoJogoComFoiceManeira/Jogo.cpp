@@ -3,7 +3,8 @@
 Jogo::Jogo() :
 	window(sf::VideoMode(1920, 1080, 32), "JogoFoiceFodaWOOOOOOOOOOOOOOOOOOOOOOOWN", sf::Style::Default)
 {
-    Player1.set_Window(&window);
+    Player1 = new Jogador();
+    Player1->set_Window(&window);
 
     Atualiza();
 }
@@ -27,8 +28,8 @@ void Jogo::Atualiza()
 
         window.clear();
 
-        Player1.Move();
-        Player1.draw();
+        Player1->Move();
+        Player1->draw();
 
         window.display();
     }

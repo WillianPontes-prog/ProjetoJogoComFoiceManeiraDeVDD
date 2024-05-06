@@ -7,7 +7,7 @@ class Jogo {
 private:
 	sf::RenderWindow window;
 
-	Jogador Player1;
+	Jogador* Player1;
 
 public:
 	Jogo();

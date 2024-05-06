@@ -4,6 +4,7 @@ Jogo::Jogo() :
 	window(sf::VideoMode(1920, 1080, 32), "JogoFoiceFodaWOOOOOOOOOOOOOOOOOOOOOOOWN", sf::Style::Default)
 {
     Player1.set_Window(&window);
+    Malvadao.set_Window(&window);
 
     Atualiza();
 }
@@ -29,6 +30,7 @@ void Jogo::Atualiza()
 
         Player1.Move();
         Player1.draw();
+        Malvadao.draw();
 
         window.display();
     }

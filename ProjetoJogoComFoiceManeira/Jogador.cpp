@@ -31,34 +31,27 @@ void Jogador::Move()
 		hspd += speedP;
 	}
 
-	Entidade* temp;
+	Entidade* entidadeTemp;
 
 	for (int i = 0; i < LEs->LEs.get_len(); i++) {
 
-		temp = LEs->LEs.get_item(i);
+		entidadeTemp = LEs->LEs.get_item(i);
 		
 
-		if (temp->get_body().getPosition() != body.getPosition()) {
+		if (entidadeTemp->get_body().getPosition() != body.getPosition()) {
 
-			//colisão horizontal
-			if ((body.getPosition().y + vspd >= temp->get_body().getPosition().y) && (body.getPosition().y + vspd <= temp->get_body().getPosition().y + temp->get_body().getSize().y) ||
-				(body.getPosition().y + vspd + body.getSize().y >= temp->get_body().getPosition().y) && (body.getPosition().y + vspd + body.getSize().y <= temp->get_body().getPosition().y + temp->get_body().getSize().y)){
-				if (hspd + body.getPosition().x + body.getSize().x >= temp->get_body().getPosition().x &&
-					hspd + body.getPosition().x <= temp->get_body().getPosition().x + temp->get_body().getSize().x) {
+			sf::RectangleShape bodyTemp = body;
+			bodyTemp.move(sf::Vector2f(hspd, vspd));
 
-					hspd = 0;
-				}
+			if (CollisionH(bodyTemp, entidadeTemp->get_body())) {
+				hspd = 0;
 			}
 
-			//colisao vertical
-			if ((body.getPosition().x + hspd >= temp->get_body().getPosition().x) && (body.getPosition().x + hspd <= temp->get_body().getPosition().x + temp->get_body().getSize().x) ||
-				(body.getPosition().x + hspd + body.getSize().x >= temp->get_body().getPosition().x) && (body.getPosition().x + hspd + body.getSize().x <= temp->get_body().getPosition().x + temp->get_body().getSize().x)) {
-				if (vspd + body.getPosition().y + body.getSize().y >= temp->get_body().getPosition().y &&
-					vspd + body.getPosition().y <= temp->get_body().getPosition().y + temp->get_body().getSize().y) {
-
-					vspd = 0;
-				}
+			if (CollisionV(bodyTemp, entidadeTemp->get_body())) {
+				vspd = 0;
 			}
+
+
 		}
 
 	}

@@ -1,4 +1,6 @@
 #include "Jogo.h"
+#include<iostream>
+
 
 Jogo::Jogo() :
     window(sf::VideoMode(1920, 1080, 32), "JogoFoiceFodaWOOOOOOOOOOOOOOOOOOOOOOOWN", sf::Style::Default)
@@ -20,9 +22,16 @@ Jogo::~Jogo()
 
 void Jogo::Atualiza()
 {
+    /* mostrar FPS
+    int frameCount=0;
+    sf::Clock clock;
+    */
 
     while (window.isOpen())
     {
+        //limitador FPS
+        window.setFramerateLimit(60);
+
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -43,6 +52,15 @@ void Jogo::Atualiza()
             it->atualiza();
         }
 
+        /* Mostrar FPS
+        frameCount++;
+        if (clock.getElapsedTime().asSeconds() >= 1.f)
+        {
+            std::cout << "FPS: " << frameCount << std::endl;
+            frameCount = 0;
+            clock.restart();
+        }
+        */
 
 
         window.display();

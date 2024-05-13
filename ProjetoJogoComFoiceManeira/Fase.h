@@ -3,8 +3,11 @@
 #include "Jogador.h"
 #include "Inimigo.h"
 #include "ListaEntidade.h"
+#include "Plataforma.h"
 
 #include <SFML/Graphics.hpp>
+#include <cstdlib>
+#include <ctime>
 
 class Fase {
 

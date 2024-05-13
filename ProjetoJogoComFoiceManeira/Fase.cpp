@@ -5,26 +5,19 @@ void Fase::inicializaElementos()
 {
 	std::srand(std::time(nullptr));
 
-	listaEntidades->LEs.push(j1);
-	j1->set_LEs(listaEntidades);
-
-	/*
-	for (int i = 0; i < 3; i++) {
-		
-		Inimigo* iniTemp = new Inimigo(rand() % (window->getSize().x), rand() % (window->getSize().y));
-		iniTemp->set_Window(window);
-
-		listaEntidades->LEs.push(iniTemp);
-	}
-	*/
+	listaJogadores->push_back(*j1);
+	j1->set_listPlat(listaPlataforma);
 
 	Plataforma* chao = new Plataforma(window->getSize().x, 100.f, 0, window->getSize().y - 200.f);
 	chao->set_Window(window);
-	listaEntidades->LEs.push(chao);
+	listaPlataforma->push_back(*chao);
 
 	chao = new Plataforma(window->getSize().x, 50.f, 300, window->getSize().y - 390.f);
 	chao->set_Window(window);
-	listaEntidades->LEs.push(chao);
+	listaPlataforma->push_back(*chao);
+
+	
+
 
 }
 
@@ -33,7 +26,9 @@ Fase::Fase(Jogador* j1, sf::RenderWindow* window)
 	this->window = window;
 
 	this->j1 = j1;
-	listaEntidades = new ListaEntidade();
+
+	listaPlataforma		= new std::list<Plataforma>();
+	listaJogadores		= new std::list<Jogador>();
 
 	inicializaElementos();
 }

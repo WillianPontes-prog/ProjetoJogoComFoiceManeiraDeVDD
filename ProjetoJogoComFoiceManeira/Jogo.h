@@ -5,6 +5,8 @@
 #include "ListaEntidade.h"
 #include "Fase.h"
 
+#include<list>
+
 class Jogo {
 
 private:
@@ -12,7 +14,8 @@ private:
 
 	Jogador* Player1;
 
-	ListaEntidade* LEs;
+	std::list<Plataforma>* listaPlataforma;
+	std::list<Jogador>* listaJogadores;
 
 	Fase* fase1;
 

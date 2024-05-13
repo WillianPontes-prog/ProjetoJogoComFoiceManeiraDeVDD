@@ -26,37 +26,32 @@ void Jogador::Move()
 		hspd = 0;
 	}
 
-	Entidade* entidadeTemp;
-
 	vspd += GRAVIDADE;
 
-	for (int i = 0; i < LEs->LEs.get_len(); i++) {
-
-		entidadeTemp = LEs->LEs.get_item(i);
+	if(listPlat != nullptr){
 		
-
-		if (entidadeTemp->get_body().getPosition() != body.getPosition()) {
+		for (std::list<Plataforma>::iterator it = listPlat->begin(); it != listPlat->end(); ++it) {
 
 			sf::RectangleShape bodyTemp;
-				
+
 			bodyTemp = body;
 			bodyTemp.move(sf::Vector2f(hspd, 0));
 
-			if (CheckCollision(bodyTemp, entidadeTemp->get_body())) {
+			if (CheckCollision(bodyTemp, it->get_body())) {
 				hspd = 0;
 			}
 
 			bodyTemp = body;
 			bodyTemp.move(sf::Vector2f(0, vspd));
 
-			if (CheckCollision(bodyTemp, entidadeTemp->get_body())) {
+			if (CheckCollision(bodyTemp, it->get_body())) {
 				vspd = 0;
 			}
 
 			bodyTemp = body;
 			bodyTemp.move(sf::Vector2f(0, 1));
 
-			if (CheckCollision(bodyTemp, entidadeTemp->get_body())) {
+			if (CheckCollision(bodyTemp, it->get_body())) {
 				//pulo
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
 					vspd = -5;

@@ -5,24 +5,29 @@
 #include "ListaEntidade.h"
 #include "Plataforma.h"
 
+
 #include <SFML/Graphics.hpp>
 #include <cstdlib>
 #include <ctime>
+#include <list>
 
 class Fase {
 
 private:
-	ListaEntidade* listaEntidades;
+	std::list<Plataforma>* listaPlataforma;
+	std::list<Jogador>* listaJogadores;
 
 	Jogador* j1;
 
 	void inicializaElementos();
+
 
 public:
 	Fase(Jogador* j1 = NULL, sf::RenderWindow* window = NULL);
 	~Fase();
 
 	sf::RenderWindow* window;
-	ListaEntidade* getAllEntidade() { return listaEntidades; }
+	std::list<Plataforma>* get_listaPlataforma() { return listaPlataforma; }
+	std::list<Jogador>* get_listaJogadores() { return listaJogadores; }
 
 };

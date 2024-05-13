@@ -1,19 +1,19 @@
 #include "EntidadesColision.h"
 
-ListaEntidade* EntidadesColision::get_LEs()
+std::list<Plataforma>* EntidadesColision::get_listPlat()
 {
-	return LEs;
+	return listPlat;
 }
 
-void EntidadesColision::set_LEs(ListaEntidade* LEs)
+void EntidadesColision::set_listPlat(std::list<Plataforma>* listPlat)
 {
-	this->LEs = LEs;
+	this->listPlat = listPlat;
 }
 
-EntidadesColision::EntidadesColision(float dimensionX, float dimensionY, ListaEntidade* LEs):
+EntidadesColision::EntidadesColision(float dimensionX, float dimensionY, std::list<Plataforma>* listPlat):
 	Entidade(dimensionX, dimensionY)
 {
-	this->LEs = LEs;
+	this->listPlat = listPlat;
 }
 
 EntidadesColision::~EntidadesColision()

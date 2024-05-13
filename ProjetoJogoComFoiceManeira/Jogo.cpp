@@ -7,7 +7,8 @@ Jogo::Jogo() :
     Player1->set_Window(&window);
 
     fase1 = new Fase(Player1, &window);
-    LEs = fase1->getAllEntidade();
+    listaPlataforma = fase1->get_listaPlataforma();
+    listaJogadores = fase1->get_listaJogadores();
 
     Atualiza();
 }
@@ -32,11 +33,16 @@ void Jogo::Atualiza()
         window.clear();
 
         //desenha todas outras entidades
-        for (int i = 0; i < LEs->LEs.get_len(); i++) {
-            Entidade* temp = LEs->LEs.get_item(i);
-         
-            temp->atualiza();
+        for (std::list<Plataforma>::iterator it = listaPlataforma->begin(); it != listaPlataforma->end(); ++it) {
+            
+            it->atualiza();
         }
+
+        for (std::list<Jogador>::iterator it = listaJogadores->begin(); it != listaJogadores->end(); ++it) {
+
+            it->atualiza();
+        }
+
 
 
         window.display();

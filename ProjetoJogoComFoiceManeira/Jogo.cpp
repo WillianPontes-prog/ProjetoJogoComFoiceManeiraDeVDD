@@ -21,10 +21,10 @@ Jogo::~Jogo()
 
 void Jogo::Atualiza()
 {
-    //mostrar FPS
+    /* mostrar FPS
     int frameCount=0;
     sf::Clock clock;
-
+    */
 
     while (window.isOpen())
     {
@@ -47,7 +47,7 @@ void Jogo::Atualiza()
             temp->atualiza();
         }
 
-        //Mostrar FPS
+        /* Mostrar FPS
         frameCount++;
         if (clock.getElapsedTime().asSeconds() >= 1.f)
         {
@@ -55,7 +55,7 @@ void Jogo::Atualiza()
             frameCount = 0;
             clock.restart();
         }
-
+        */
 
         window.display();
     }

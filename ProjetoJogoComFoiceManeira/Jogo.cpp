@@ -1,11 +1,15 @@
 #include "Jogo.h"
 #include<iostream>
 
+#define FPS 60
+
+//descomente abaixo para mostrar o FPS
+//#define SHOW_FPS
 
 Jogo::Jogo() :
     window(sf::VideoMode(1920, 1080, 32), "JogoFoiceFodaWOOOOOOOOOOOOOOOOOOOOOOOWN", sf::Style::Default)
 {
-    Player1 = new Jogador();
+    Player1 = new Jogador(50,50);
     Player1->set_Window(&window);
 
     fase1 = new Fase(Player1, &window);
@@ -22,15 +26,16 @@ Jogo::~Jogo()
 
 void Jogo::Atualiza()
 {
-    /* mostrar FPS
-    int frameCount=0;
+#ifdef SHOW_FPS
+    //mostrar FPS
+    int frameCount = 0;
     sf::Clock clock;
-    */
+#endif // SHOW_FPS
 
     while (window.isOpen())
     {
         //limitador FPS
-        window.setFramerateLimit(60);
+        window.setFramerateLimit(FPS);
 
         sf::Event event;
         while (window.pollEvent(event))
@@ -42,17 +47,19 @@ void Jogo::Atualiza()
         window.clear();
 
         //desenha todas outras entidades
-        for (std::list<Plataforma>::iterator it = listaPlataforma->begin(); it != listaPlataforma->end(); ++it) {
+        for (std::list<Plataforma*>::iterator it = listaPlataforma->begin(); it != listaPlataforma->end(); ++it) {
             
-            it->atualiza();
+            (*it)->atualiza();
         }
 
-        for (std::list<Jogador>::iterator it = listaJogadores->begin(); it != listaJogadores->end(); ++it) {
 
-            it->atualiza();
+        for (std::list<Jogador*>::iterator it = listaJogadores->begin(); it != listaJogadores->end(); ++it) {
+
+            (*it)->atualiza();
         }
-
-        /* Mostrar FPS
+        
+#ifdef SHOW_FPS
+        /* Mostrar FPS*/
         frameCount++;
         if (clock.getElapsedTime().asSeconds() >= 1.f)
         {
@@ -60,7 +67,7 @@ void Jogo::Atualiza()
             frameCount = 0;
             clock.restart();
         }
-        */
+#endif
 
 
         window.display();

@@ -14,8 +14,8 @@ private:
 
 	Jogador* Player1;
 
-	std::list<Plataforma>* listaPlataforma;
-	std::list<Jogador>* listaJogadores;
+	std::list<Plataforma*>* listaPlataforma;
+	std::list<Jogador*>* listaJogadores;
 
 	Fase* fase1;
 

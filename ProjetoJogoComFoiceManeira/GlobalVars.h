@@ -1,4 +1,4 @@
 #pragma once
 
-#define GRAVIDADE 0.05
+#define GRAVIDADE 0.6
 

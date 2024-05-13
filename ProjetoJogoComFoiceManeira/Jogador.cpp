@@ -1,7 +1,7 @@
 #include "Jogador.h"
 
-Jogador::Jogador():
-	EntidadesColision()
+Jogador::Jogador(float dimensionX, float dimensionY):
+	EntidadesColision(dimensionX, dimensionY)
 {
 }
 
@@ -9,29 +9,26 @@ Jogador::~Jogador()
 {
 }
 
+
 void Jogador::Move()
 {
-	float hspd = 0;
-	float vspd = 0;
 
-	//movimentação Cima
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-		vspd -= speedP;
-	}
-	//movimentação direita
+
+	//movimentação Esquerda
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-		hspd -= speedP;
+		hspd = -speedP;
 	}
-	//movimentação direita
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-		vspd += speedP;
+	//movimentação Direita
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+		hspd = speedP;
 	}
-	//movimentação direita
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-		hspd += speedP;
+	else {
+		hspd = 0;
 	}
 
 	Entidade* entidadeTemp;
+
+	vspd += GRAVIDADE;
 
 	for (int i = 0; i < LEs->LEs.get_len(); i++) {
 
@@ -40,17 +37,31 @@ void Jogador::Move()
 
 		if (entidadeTemp->get_body().getPosition() != body.getPosition()) {
 
-			sf::RectangleShape bodyTemp = body;
-			bodyTemp.move(sf::Vector2f(hspd, vspd));
+			sf::RectangleShape bodyTemp;
+				
+			bodyTemp = body;
+			bodyTemp.move(sf::Vector2f(hspd, 0));
 
-			if (CollisionH(bodyTemp, entidadeTemp->get_body())) {
+			if (CheckCollision(bodyTemp, entidadeTemp->get_body())) {
 				hspd = 0;
 			}
 
-			if (CollisionV(bodyTemp, entidadeTemp->get_body())) {
+			bodyTemp = body;
+			bodyTemp.move(sf::Vector2f(0, vspd));
+
+			if (CheckCollision(bodyTemp, entidadeTemp->get_body())) {
 				vspd = 0;
 			}
 
+			bodyTemp = body;
+			bodyTemp.move(sf::Vector2f(0, 1));
+
+			if (CheckCollision(bodyTemp, entidadeTemp->get_body())) {
+				//pulo
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+					vspd = -5;
+				}
+			}
 
 		}
 

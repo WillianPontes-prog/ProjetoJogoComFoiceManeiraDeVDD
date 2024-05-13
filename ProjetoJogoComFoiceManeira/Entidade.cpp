@@ -1,7 +1,7 @@
 #include "Entidade.h"
 
-Entidade::Entidade() :
-	body(sf::Vector2f(100.f,100.f)),
+Entidade::Entidade(float dimensionX, float dimensionY) :
+	body(sf::Vector2f(dimensionX, dimensionY)),
 	window(NULL)
 {
 	

@@ -1,6 +1,7 @@
 #include "Plataforma.h"
 
-Plataforma::Plataforma(float posX, float posY)
+Plataforma::Plataforma(float dimensionX, float dimensionY ,float posX, float posY):
+	Entidade(dimensionX, dimensionY)
 {
 	body.setFillColor(sf::Color::Red);
 	body.setPosition(sf::Vector2f(posX, posY));

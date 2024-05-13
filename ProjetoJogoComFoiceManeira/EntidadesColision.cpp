@@ -10,7 +10,8 @@ void EntidadesColision::set_LEs(ListaEntidade* LEs)
 	this->LEs = LEs;
 }
 
-EntidadesColision::EntidadesColision(ListaEntidade* LEs)
+EntidadesColision::EntidadesColision(float dimensionX, float dimensionY, ListaEntidade* LEs):
+	Entidade(dimensionX, dimensionY)
 {
 	this->LEs = LEs;
 }

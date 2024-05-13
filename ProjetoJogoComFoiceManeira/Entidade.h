@@ -9,7 +9,7 @@ protected:
 	sf::RenderWindow *window;
 
 public:
-	Entidade();
+	Entidade(float dimensionX = 100.f, float dimensionY = 100.f);
 	~Entidade();
 
 	void set_Window(sf::RenderWindow* w) {this->window = w; };

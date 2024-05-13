@@ -31,13 +31,13 @@ void Jogo::Atualiza()
 
         window.clear();
 
+        //desenha todas outras entidades
         for (int i = 0; i < LEs->LEs.get_len(); i++) {
             Entidade* temp = LEs->LEs.get_item(i);
-            
-
-            
-            temp->draw();
+         
+            temp->atualiza();
         }
+
 
         window.display();
     }

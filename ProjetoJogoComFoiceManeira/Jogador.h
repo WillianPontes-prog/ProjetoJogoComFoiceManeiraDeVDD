@@ -1,14 +1,17 @@
 #pragma once
-#include "Entidade.h"
+#include "EntidadesColision.h"
+#include "FIsica.h"
 
-class Jogador : public Entidade {
+class Jogador : public EntidadesColision {
 private:
-	float speedP = 3;
+	float speedP = 6;
 
 public:
 	Jogador();
 	~Jogador();
 
 	void Move();
+
+	void atualiza() override;
 
 };

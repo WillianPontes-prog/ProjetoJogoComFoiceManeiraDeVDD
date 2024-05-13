@@ -1,14 +1,22 @@
 #include "Fase.h"
+#include <cstdlib>
+#include <ctime>
 
 void Fase::inicializaElementos()
 {
+	std::srand(std::time(nullptr));
+
 	listaEntidades->LEs.push(j1);
+	j1->set_LEs(listaEntidades);
+
 	for (int i = 0; i < 3; i++) {
-		Inimigo* iniTemp = new Inimigo(20.0 * i, 10.0 * i);
+		
+		Inimigo* iniTemp = new Inimigo(rand() % (window->getSize().x), rand() % (window->getSize().y));
 		iniTemp->set_Window(window);
 
 		listaEntidades->LEs.push(iniTemp);
 	}
+
 }
 
 Fase::Fase(Jogador* j1, sf::RenderWindow* window)

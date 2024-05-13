@@ -1,7 +1,7 @@
 #pragma once
-#include"Entidade.h"
+#include"EntidadesColision.h"
 
-class Inimigo : public Entidade {
+class Inimigo : public EntidadesColision {
 
 private:
 
@@ -9,4 +9,5 @@ public:
 	Inimigo(float posX = 0, float posY = 0);
 	~Inimigo();
 
+	void atualiza() override;
 };

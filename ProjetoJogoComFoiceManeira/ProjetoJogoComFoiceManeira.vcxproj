@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Ataque.cpp" />
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="EntidadesColision.cpp" />
     <ClCompile Include="Fisica.cpp" />
@@ -151,6 +152,7 @@
     <ClCompile Include="ProjetoJogoComFoiceManeira.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Ataque.h" />
     <ClInclude Include="Elemento.h" />
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="EntidadesColision.h" />

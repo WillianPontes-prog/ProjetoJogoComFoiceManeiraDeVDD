@@ -142,7 +142,6 @@
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="Inimigo.cpp" />
     <ClCompile Include="Fase.cpp" />
-    <ClCompile Include="inimigo.cpp.cpp" />
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="ListaEntidade.cpp" />

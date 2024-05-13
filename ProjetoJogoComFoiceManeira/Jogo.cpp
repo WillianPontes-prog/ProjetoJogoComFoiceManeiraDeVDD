@@ -35,7 +35,7 @@ void Jogo::Atualiza()
             Entidade* temp = LEs->LEs.get_item(i);
             
 
-
+            
             temp->draw();
         }
 

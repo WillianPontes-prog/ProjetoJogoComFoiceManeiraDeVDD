@@ -1,33 +1,76 @@
 #include "Jogador.h"
 
-Jogador::Jogador(float dimensionX, float dimensionY, float posX, float posY, std::list<Plataforma*>* listPlat):
-	EntidadesColision(dimensionX, dimensionY,posX, posY, listPlat)
+Jogador::Jogador(float dimensionX, float dimensionY, float posX, float posY, std::list<Plataforma*>* listPlat) :
+	EntidadesColision(dimensionX, dimensionY, posX, posY, listPlat)
 {
+	listPlayerAtaque = new std::list<Ataque*>();
 }
 
 Jogador::~Jogador()
 {
 }
 
+void Jogador::atualiza()
+{
+	switch (state)
+	{
+	case Stand: {
+		Move();
+		BasicAtk();
+	}
+		break;
+
+	case Atk: {
+		Move();
+		
+		if (cooldown <= 0) {
+			state = Stand;
+		}
+		else {
+			cooldown--;
+		}
+	}
+		break;
+
+	default: {
+
+	}
+		break;
+	}
+
+	for (auto it = listPlayerAtaque->begin(); it != listPlayerAtaque->end();) {
+		if ((*it)->OverTime()) {
+			delete* it; // Liberar memória
+			it = listPlayerAtaque->erase(it); // Remover elemento e atualizar iterador
+		}
+		else {
+			(*it)->atualiza();
+			++it;
+		}
+	}
+
+	draw();
+}
 
 void Jogador::Move()
 {
 
-
 	//movimentação Esquerda
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+	if (KeyLeft()) {
 		hspd = -speedP;
+		dir = PI;
 	}
 	//movimentação Direita
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+	else if (KeyRight()) {
 		hspd = speedP;
+		dir = 0;
 	}
 	else {
 		hspd = 0;
 	}
 
 	vspd += GRAVIDADE;
-		
+
 	for (std::list<Plataforma*>::iterator it = listPlat->begin(); it != listPlat->end(); ++it) {
 
 		sf::RectangleShape bodyTemp;
@@ -41,7 +84,7 @@ void Jogador::Move()
 
 			while (!CheckCollision(bodyTemp, (*it)->get_body())) {
 				body.move(sf::Vector2f(MinimalNumber(hspd), 0));
-				
+
 				bodyTemp = body;
 				bodyTemp.move(sf::Vector2f(MinimalNumber(hspd), 0));
 			}
@@ -71,25 +114,26 @@ void Jogador::Move()
 
 		if (CheckCollision(bodyTemp, (*it)->get_body())) {
 			coyteTime = MAXcoyteTime;
-		}else if(coyteTime > 0){
+		}
+		else if (coyteTime > 0) {
 			coyteTime--;
 		}
 
 		if (coyteTime) {
 			//pulo
 			flagJump = 1;
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+			if (KeyJump()) {
 				vspd = -jump;
 			}
 		}
 		else if (flagJump) {
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && !flagW){
+			if (KeyJump() && !flagW) {
 				vspd = -jump;
 				flagJump = 0;
 			}
 		}
 
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+		if (KeyJump()) {
 			flagW = 1;
 		}
 		else {
@@ -102,8 +146,21 @@ void Jogador::Move()
 	body.move(sf::Vector2f(hspd, vspd));
 }
 
-void Jogador::atualiza()
+void Jogador::BasicAtk(){
+
+	if (KeyBasicAtk()){
+		state = Atk;
+		Ataque* corte = new Ataque(100,100,get_body().getPosition().x,get_body().getPosition().y, 20.f, dir, 20.f, 90.f);
+		corte->set_Window(window);
+		listPlayerAtaque->push_back(corte);
+
+		vspd = 0;
+
+		cooldown = 150;
+	}
+}
+
+std::list<Ataque*>* Jogador::getListAtk()
 {
-	Move();
-	draw();
+	return listPlayerAtaque;
 }

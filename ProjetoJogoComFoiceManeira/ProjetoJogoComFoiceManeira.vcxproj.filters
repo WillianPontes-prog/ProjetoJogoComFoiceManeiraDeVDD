@@ -51,6 +51,9 @@
     <ClCompile Include="Ataque.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="Keys.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.h">
@@ -100,6 +103,9 @@
     </ClInclude>
     <ClInclude Include="json_fwd.hpp">
       <Filter>dados</Filter>
+    </ClInclude>
+    <ClInclude Include="Keys.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

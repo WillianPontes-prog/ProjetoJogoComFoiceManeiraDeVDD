@@ -8,7 +8,12 @@ void Fase::inicializaElementos()
 	listaJogadores->push_back(j1);
 	j1->set_listPlat(listaPlataforma);
 
+
 	Plataforma* chao = new Plataforma(window->getSize().x, 100.f, 0, window->getSize().y - 200.f);
+	chao->set_Window(window);
+	listaPlataforma->push_back(chao);
+
+	chao = new Plataforma(100.f, window->getSize().y, 0, 150.f);
 	chao->set_Window(window);
 	listaPlataforma->push_back(chao);
 

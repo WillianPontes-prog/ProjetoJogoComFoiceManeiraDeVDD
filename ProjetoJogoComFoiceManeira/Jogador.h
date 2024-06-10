@@ -1,9 +1,21 @@
 #pragma once
 #include "EntidadesColision.h"
 #include "FIsica.h"
+#include "Ataque.h"
+#include "Keys.h"
+
 
 class Jogador : public EntidadesColision {
 private:
+
+	std::list<Ataque*>* listPlayerAtaque;
+
+	enum palyerState {
+		Stand,
+		Atk
+	};
+	int state = Stand;
+
 	float speedP = 10;
 
 	float jump = 16;
@@ -17,6 +29,10 @@ private:
 
 	int coyteTime = 0;
 	int MAXcoyteTime = 10;
+
+	float dir = 0;
+
+	int cooldown = 0;
 
 public:
 	Jogador(float dimensionX = 100.f, float dimensionY = 100.f, float posX = 0, float posY = 0, std::list<Plataforma*>* listPlat = nullptr);
@@ -32,5 +48,9 @@ public:
 	void Move();
 
 	void atualiza() override;
+
+	void BasicAtk();
+
+	std::list<Ataque*>* getListAtk();
 
 };

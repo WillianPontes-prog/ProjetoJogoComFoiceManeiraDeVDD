@@ -4,7 +4,7 @@
 #include "Inimigo.h"
 #include "ListaEntidade.h"
 #include "Plataforma.h"
-
+#include "Ataque.h"
 
 #include <SFML/Graphics.hpp>
 #include <cstdlib>
@@ -15,7 +15,8 @@ class Fase {
 
 private:
 	std::list<Plataforma*>* listaPlataforma;
-	std::list<Jogador*>* listaJogadores;
+	std::list<Jogador*>*	listaJogadores;
+
 
 	Jogador* j1;
 

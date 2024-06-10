@@ -1,7 +1,7 @@
 #include "Jogador.h"
 
-Jogador::Jogador(float dimensionX, float dimensionY, std::list<Plataforma*>* listPlat):
-	EntidadesColision(dimensionX, dimensionY, listPlat)
+Jogador::Jogador(float dimensionX, float dimensionY, float posX, float posY, std::list<Plataforma*>* listPlat):
+	EntidadesColision(dimensionX, dimensionY,posX, posY, listPlat)
 {
 }
 

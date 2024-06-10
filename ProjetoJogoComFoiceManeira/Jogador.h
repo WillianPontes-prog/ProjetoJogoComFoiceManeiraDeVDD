@@ -19,7 +19,7 @@ private:
 	int MAXcoyteTime = 10;
 
 public:
-	Jogador(float dimensionX = 100.f, float dimensionY = 100.f, std::list<Plataforma*>* listPlat = nullptr);
+	Jogador(float dimensionX = 100.f, float dimensionY = 100.f, float posX = 0, float posY = 0, std::list<Plataforma*>* listPlat = nullptr);
 	~Jogador();
 
 	sf::Vector2f MidleButton() {

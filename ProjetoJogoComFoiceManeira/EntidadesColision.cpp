@@ -10,8 +10,8 @@ void EntidadesColision::set_listPlat(std::list<Plataforma*>* listPlat)
 	this->listPlat = listPlat;
 }
 
-EntidadesColision::EntidadesColision(float dimensionX, float dimensionY, std::list<Plataforma*>* listPlat):
-	Entidade(dimensionX, dimensionY)
+EntidadesColision::EntidadesColision(float dimensionX, float dimensionY,float posX, float posY, std::list<Plataforma*>* listPlat):
+	Entidade(dimensionX, dimensionY,posX, posY)
 {
 	this->listPlat = listPlat;
 }

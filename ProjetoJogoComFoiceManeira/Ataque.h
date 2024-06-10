@@ -1,11 +1,16 @@
 #pragma once
 #include"Entidade.h"
-class Ataque : protected Entidade {
+#include <cmath>
+class Ataque : public Entidade {
 private:
-	float tamanho, velocidade, direção, dano;
+	float velocidade, direc, dano;
+	
 
 public:
-	Ataque(float tam = 0, float vel = 0, float dir = 0, float dan = 0);
+	Ataque(float dimensionX = 100.f, float dimensionY = 100.f, float posX = 0, float posY = 0, float vel = 0, float dir = 0, float dan = 0);
 	~Ataque();
+	void Move();
+	void Atualiza();
+	
 
 };

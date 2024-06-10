@@ -14,7 +14,7 @@ public:
 	
 	void set_listPlat(std::list<Plataforma*>* listPlat);
 
-	EntidadesColision(float dimensionX = 100.f, float dimensionY = 100.f, std::list<Plataforma*>* listPlat = nullptr);
+	EntidadesColision(float dimensionX = 100.f, float dimensionY = 100.f,float posX=0, float posY=0, std::list<Plataforma*>* listPlat = nullptr);
 	~EntidadesColision();
 
 protected:

@@ -150,13 +150,13 @@ void Jogador::BasicAtk(){
 
 	if (KeyBasicAtk()){
 		state = Atk;
-		Ataque* corte = new Ataque(100,100,get_body().getPosition().x,get_body().getPosition().y, 20.f, dir, 20.f, 90.f);
+		Ataque* corte = new Ataque(40,100,get_body().getPosition().x,get_body().getPosition().y - 30, 40.f, dir, 20.f, 7.f);
 		corte->set_Window(window);
 		listPlayerAtaque->push_back(corte);
 
 		vspd = 0;
 
-		cooldown = 150;
+		cooldown = 30;
 	}
 }
 

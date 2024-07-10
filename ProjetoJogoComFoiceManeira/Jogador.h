@@ -3,13 +3,13 @@
 #include "FIsica.h"
 #include "Ataque.h"
 #include "Keys.h"
-
+#include "Weapons.h"
 
 class Jogador : public EntidadesColision {
 private:
 
 	std::list<Ataque*>* listPlayerAtaque;
-
+	Weapons* armas[3];
 	enum palyerState {
 		Stand,
 		Atk

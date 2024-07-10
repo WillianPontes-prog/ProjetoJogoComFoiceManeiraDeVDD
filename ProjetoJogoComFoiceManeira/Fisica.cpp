@@ -72,7 +72,7 @@ int CollisionVH(sf::RectangleShape body, sf::RectangleShape collider)
 int MinimalNumber(float valor)
 {
 	if (valor == 0) { return 0; } 
-	else { return(valor / abs(valor)); }
+	else { return (valor / abs(valor)); }
 }
 
 

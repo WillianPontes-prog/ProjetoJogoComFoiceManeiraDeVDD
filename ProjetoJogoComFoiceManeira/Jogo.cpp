@@ -1,5 +1,6 @@
 #include "Jogo.h"
 #include<iostream>
+#include"Menu.h"
 
 #define FPS 60
 
@@ -44,19 +45,23 @@ void Jogo::Atualiza()
                 window.close();
         }
 
+        switch (state)
+        {
+        case Jogo::InitialMenu: {
+            ;
+        }
+            break;
+        case Jogo::InGame: {
+            fase1->atualiza();
+        }
+            break;
+        default: {
+        }
+            break;
+        }
         window.clear();
 
-        //desenha todas outras entidades
-        for (std::list<Plataforma*>::iterator it = listaPlataforma->begin(); it != listaPlataforma->end(); ++it) {
-            
-            (*it)->atualiza();
-        }
-
-
-        for (std::list<Jogador*>::iterator it = listaJogadores->begin(); it != listaJogadores->end(); ++it) {
-
-            (*it)->atualiza();
-        }
+        
         
 #ifdef SHOW_FPS
         /* Mostrar FPS*/

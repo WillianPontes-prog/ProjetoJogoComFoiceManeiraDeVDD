@@ -30,5 +30,7 @@ public:
 	sf::RenderWindow* window;
 	std::list<Plataforma*>* get_listaPlataforma() { return listaPlataforma; }
 	std::list<Jogador*>* get_listaJogadores() { return listaJogadores; }
+	void atualiza();
+
 
 };

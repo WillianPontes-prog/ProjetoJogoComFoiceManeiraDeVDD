@@ -149,6 +149,7 @@
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="Keys.cpp" />
     <ClCompile Include="ListaEntidade.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Plataforma.cpp" />
     <ClCompile Include="ProjetoJogoComFoiceManeira.cpp" />
   </ItemGroup>
@@ -168,6 +169,7 @@
     <ClInclude Include="Keys.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="ListaEntidade.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Personagens.h" />
     <ClInclude Include="Plataforma.h" />
   </ItemGroup>

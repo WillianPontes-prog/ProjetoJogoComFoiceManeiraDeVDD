@@ -41,3 +41,18 @@ Fase::Fase(Jogador* j1, sf::RenderWindow* window)
 Fase::~Fase()
 {
 }
+
+void Fase::atualiza()
+{
+	//desenha todas entidades
+	for (std::list<Plataforma*>::iterator it = listaPlataforma->begin(); it != listaPlataforma->end(); ++it) {
+
+		(*it)->atualiza();
+	}
+
+
+	for (std::list<Jogador*>::iterator it = listaJogadores->begin(); it != listaJogadores->end(); ++it) {
+
+		(*it)->atualiza();
+	}
+}

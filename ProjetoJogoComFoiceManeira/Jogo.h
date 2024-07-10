@@ -10,6 +10,14 @@
 class Jogo {
 
 private:
+
+	enum page {
+		InitialMenu,
+		InGame
+	};
+
+	page state = InitialMenu;
+
 	sf::RenderWindow window;
 
 	Jogador* Player1;

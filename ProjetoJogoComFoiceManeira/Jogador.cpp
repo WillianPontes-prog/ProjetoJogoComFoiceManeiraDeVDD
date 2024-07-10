@@ -109,8 +109,6 @@ void Jogador::Move()
 			vspd = 0;
 		}
 
-		bodyTemp = body;
-		bodyTemp.move(sf::Vector2f(0, 1));
 
 		if (CheckCollision(bodyTemp, (*it)->get_body())) {
 			coyteTime = MAXcoyteTime;

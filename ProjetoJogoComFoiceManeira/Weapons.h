@@ -1,4 +1,5 @@
 #pragma once
+#include "Ataque.h"
 class Weapons {
 private:
     int Id;
@@ -7,14 +8,19 @@ private:
     float tam_Y;
     float velocidade;
     float tempo;
-    float pos_X;
-    float pos_Y;
     float direc;
     float especial;
 
 public:
     // Constructor
-    Weapons(float tam_X = 100.f, float tam_Y = 100.f, float pos_X = 0.f, float pos_Y = 0.f, float velocidade = 0.f, float direc = 0.f, float dano = 0.f,float temp=0, float id= 0, float espec = 1);
+    Weapons(float tam_X = 100.f, float tam_Y = 100.f, float velocidade = 0.f, float direc = 1.f, float dano = 0.f,float temp=0, float id= 0, float espec = 1);
+    ~Weapons();
+
+    Ataque* atack(float x, float y) {
+        Ataque* corte = new Ataque(tam_X, tam_Y,x,y- 30, velocidade, direc, dano, tempo);
+        return corte;
+    }
+    
     void NEW_DMG(float dmg) {
         dano *= dmg;
     }

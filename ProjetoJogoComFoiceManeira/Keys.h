@@ -2,10 +2,12 @@
 
 int KeyLeft();
 int KeyRight();
-int KeyJump();
 int keyDown();
 int KeyUp();
+int KeyClick();
 
 int KeyBasicAtk();
 int KeySpecialAtk();
+int KeyJump();
+
 

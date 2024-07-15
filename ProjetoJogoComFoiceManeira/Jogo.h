@@ -8,14 +8,17 @@
 
 #include<list>
 
+class Menu;
+
 class Jogo {
 
-private:
-
+public:
 	enum page {
 		InitialMenu,
 		InGame
 	};
+
+private:
 
 	page state = InitialMenu;
 
@@ -35,5 +38,7 @@ public:
 	~Jogo();
 
 	void Atualiza();
+
+	void setGameState(page _state) { state = _state; }
 
 };

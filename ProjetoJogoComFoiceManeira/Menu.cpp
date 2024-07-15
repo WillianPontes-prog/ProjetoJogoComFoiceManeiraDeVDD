@@ -28,25 +28,7 @@ void Menu::set_Window(sf::RenderWindow* window)
 	}
 }
 
-void Menu::move()
-{
-	if (KeyUp()) {
-		if (buttonSelected > botoes.size() - 1) {
-			buttonSelected = 0;
-		}
-		else {
-			buttonSelected++;
-		}
-	}
-	if (keyDown()) {
-		if (buttonSelected < 0) {
-			buttonSelected = botoes.size() - 1;
-		}
-		else {
-			buttonSelected--;
-		}
-	}
-}
+
 
 void Menu::move()
 {

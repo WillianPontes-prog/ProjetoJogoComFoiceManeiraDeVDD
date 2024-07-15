@@ -123,4 +123,9 @@
   <ItemGroup>
     <None Include="Save.json" />
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="PIXEAB.TTF">
+      <Filter>Arquivos de Recurso</Filter>
+    </Font>
+  </ItemGroup>
 </Project>

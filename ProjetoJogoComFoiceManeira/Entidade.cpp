@@ -9,5 +9,5 @@ Entidade::Entidade(float dimensionX, float dimensionY, float posX , float posY )
 
 Entidade::~Entidade()
 {
-
 }
+

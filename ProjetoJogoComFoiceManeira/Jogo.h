@@ -4,6 +4,7 @@
 #include "Inimigo.h"
 #include "ListaEntidade.h"
 #include "Fase.h"
+#include "Menu.h"
 
 #include<list>
 
@@ -26,7 +27,9 @@ private:
 	std::list<Jogador*>* listaJogadores;
 	std::list<Inimigo*>* listaInimigos;
 
+
 	Fase* fase1;
+	Menu* menu;
 
 public:
 	Jogo();

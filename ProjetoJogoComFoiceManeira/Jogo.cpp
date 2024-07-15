@@ -22,6 +22,8 @@ Jogo::Jogo() :
     fase1 = new Fase(Player1, &window);
     listaPlataforma = fase1->get_listaPlataforma();
     listaJogadores = fase1->get_listaJogadores();
+    listaInimigos = fase1->get_listaInimigos();
+
 
     ///////////////////////////////////////////////////////////////////////////
     Atualiza();

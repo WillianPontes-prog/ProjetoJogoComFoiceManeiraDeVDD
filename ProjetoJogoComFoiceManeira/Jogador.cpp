@@ -4,6 +4,9 @@ Jogador::Jogador(float dimensionX, float dimensionY, float posX, float posY, std
 	EntidadesColision(dimensionX, dimensionY, posX, posY, listPlat)
 {
 	listPlayerAtaque = new std::list<Ataque*>();
+	for (int i = 0; i < 3; i++) {
+		armas[i] = NULL;
+	}
 }
 
 Jogador::~Jogador()

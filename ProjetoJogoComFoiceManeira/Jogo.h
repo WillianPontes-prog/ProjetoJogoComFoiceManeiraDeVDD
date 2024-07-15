@@ -28,6 +28,7 @@ private:
 
 	std::list<Plataforma*>* listaPlataforma;
 	std::list<Jogador*>* listaJogadores;
+	std::list<Inimigo*>* listaInimigos;
 
 
 	Fase* fase1;

@@ -16,6 +16,7 @@ class Fase {
 private:
 	std::list<Plataforma*>* listaPlataforma;
 	std::list<Jogador*>*	listaJogadores;
+	std::list<Inimigo*>*	listaInimigos;
 
 
 	Jogador* j1;
@@ -30,6 +31,7 @@ public:
 	sf::RenderWindow* window;
 	std::list<Plataforma*>* get_listaPlataforma() { return listaPlataforma; }
 	std::list<Jogador*>* get_listaJogadores() { return listaJogadores; }
+	std::list<Inimigo*>* get_listaInimigos() { return listaInimigos; }
 	void atualiza();
 
 

@@ -21,6 +21,10 @@ void Fase::inicializaElementos()
 	chao->set_Window(window);
 	listaPlataforma->push_back(chao);
 
+	//Inimigo* inimigo = new Inimigo(60.0,80.0, 50.0, 50.0, listaPlataforma);
+	//inimigo->set_Window(window);
+	//listaInimigos->push_back(inimigo);
+
 	
 
 

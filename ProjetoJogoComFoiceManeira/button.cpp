@@ -6,7 +6,7 @@ Button::Button(sf::RenderWindow* w ,float x, float y, float width, float height,
 	body.setSize(sf::Vector2f(width, height));
 	set_Color(sf::Color::White);
 
-	font.loadFromFile("arial.ttf");
+	font.loadFromFile("PIXEAB.TTF");
 	this->text.setFont(font);
 	this->text.setString(text);
 	this->text.setCharacterSize(24);

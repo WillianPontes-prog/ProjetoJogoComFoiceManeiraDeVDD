@@ -10,6 +10,8 @@ private:
 	int buttonSelected;
 	sf::RenderWindow* window;
 	std::vector<Button*> botoes;
+
+	int flagButtonPressed;
 public:
 	Menu();
 	~Menu();

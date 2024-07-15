@@ -10,13 +10,20 @@
 Jogo::Jogo() :
     window(sf::VideoMode(1920, 1080, 32), "JogoFoiceFodaWOOOOOOOOOOOOOOOOOOOOOOOWN", sf::Style::Default)
 {
+    //players//////////////////////////////////////////////////////////////////
     Player1 = new Jogador(50,50);
     Player1->set_Window(&window);
 
+    //menu/////////////////////////////////////////////////////////////////////
+    menu = new Menu();
+    menu->set_Window(&window);
+
+    //fases////////////////////////////////////////////////////////////////////
     fase1 = new Fase(Player1, &window);
     listaPlataforma = fase1->get_listaPlataforma();
     listaJogadores = fase1->get_listaJogadores();
 
+    ///////////////////////////////////////////////////////////////////////////
     Atualiza();
 }
 
@@ -35,6 +42,8 @@ void Jogo::Atualiza()
 
     while (window.isOpen())
     {
+        
+
         //limitador FPS
         window.setFramerateLimit(FPS);
 
@@ -48,7 +57,7 @@ void Jogo::Atualiza()
         switch (state)
         {
         case Jogo::InitialMenu: {
-            ;
+            menu->atualiza();
         }
             break;
         case Jogo::InGame: {
@@ -59,7 +68,10 @@ void Jogo::Atualiza()
         }
             break;
         }
-        window.clear();
+
+        
+        
+
 
         
         
@@ -76,6 +88,7 @@ void Jogo::Atualiza()
 
 
         window.display();
+        window.clear();
     }
 	
 }

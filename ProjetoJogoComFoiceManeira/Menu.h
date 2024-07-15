@@ -1,8 +1,12 @@
 #pragma once
 #include "Button.h"
 #include "Keys.h"
+#include "Jogo.h"
 #include <vector>
 #include <SFML/Graphics.hpp>
+
+class Jogo;
+class Button;
 
 class Menu {
 private:
@@ -12,8 +16,11 @@ private:
 	std::vector<Button*> botoes;
 
 	int flagButtonPressed;
+
+	Jogo* jogo;
+	
 public:
-	Menu();
+	Menu(Jogo* jg);
 	~Menu();
 	void set_Window(sf::RenderWindow* window);
 	void move();

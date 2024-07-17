@@ -14,6 +14,7 @@ private:
 		Stand,
 		Atk
 	};
+	int armatual;
 	int state = Stand;
 
 	float speedP = 10;
@@ -24,6 +25,7 @@ private:
 	float vspd = 0;
 
 	int flagJump = 0;
+	int flagWeapon = 0;	
 
 	int flagW = 0;
 
@@ -47,10 +49,12 @@ public:
 
 	void Move();
 
-	void atualiza() override;
-
 	void BasicAtk();
 
+	void ChangeWeapon();
+
 	std::list<Ataque*>* getListAtk();
+
+	void atualiza() override;
 
 };

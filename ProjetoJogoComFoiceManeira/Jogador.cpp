@@ -4,13 +4,29 @@ Jogador::Jogador(float dimensionX, float dimensionY, float posX, float posY, std
 	EntidadesColision(dimensionX, dimensionY, posX, posY, listPlat)
 {
 	listPlayerAtaque = new std::list<Ataque*>();
-	for (int i = 0; i < 3; i++) {
-		armas[i] = NULL;
-	}
+	armas[0] = new Weapons(40, 100, 40.f, dir, 20.f, 7.f);
+	armas[1] = new Weapons(10, 10, 70, dir, 10.f, 12.f);
+	armas[2] = new Weapons(100, 20, 3, dir, 50.f, 6.f);
+	armatual = 2;	
 }
 
 Jogador::~Jogador()
 {
+}
+
+void Jogador::ChangeWeapon()
+{
+	if (KeyChangeWeapon()) {
+		if (flagWeapon) {
+			armatual++;
+			if (armatual > 2) {
+				armatual = 0;
+			}
+			flagWeapon = 0;	
+		}
+	}
+	else
+		flagWeapon = 1;
 }
 
 void Jogador::atualiza()
@@ -20,6 +36,7 @@ void Jogador::atualiza()
 	case Stand: {
 		Move();
 		BasicAtk();
+		ChangeWeapon();
 	}
 		break;
 
@@ -151,7 +168,7 @@ void Jogador::BasicAtk(){
 
 	if (KeyBasicAtk()){
 		state = Atk;
-		Ataque* corte = new Ataque(40,100,get_body().getPosition().x,get_body().getPosition().y - 30, 40.f, dir, 20.f, 7.f);
+		Ataque* corte = armas[armatual]->atack(get_body().getPosition().x, get_body().getPosition().y + 30, dir);
 		corte->set_Window(window);
 		listPlayerAtaque->push_back(corte);
 

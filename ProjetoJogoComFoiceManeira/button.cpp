@@ -1,6 +1,6 @@
 #include "Button.h"
 
-Button::Button(sf::RenderWindow* w ,float x, float y, float width, float height, std::string text, buttonType _type, Jogo* jg)
+Button::Button(sf::RenderWindow* w, float x, float y, float width, float height, std::string text, buttonType _type, Jogo* jg)
 {
 	body.setPosition(x, y);
 	body.setSize(sf::Vector2f(width, height));
@@ -43,10 +43,10 @@ void Button::set_Window(sf::RenderWindow* w)
 }
 
 void Button::set_Pressed(bool test)
-{	
-	if(test)
+{
+	if (test)
 		pressed = 1;
-	else	
+	else
 		pressed = 0;
 }
 
@@ -57,23 +57,23 @@ void Button::execute()
 	case Button::NewGame: {
 		jogo->setGameState(Jogo::InGame);
 	}
-		break;
+						break;
 	case Button::LoadGame: {
 
 	}
-		break;
+						 break;
 	case Button::Save: {
 
 	}
-		break;
+					 break;
 	case Button::Exit: {
 
 	}
-		break;
+					 break;
 	default: {
 
 	}
-		break;
+		   break;
 	}
 }
 

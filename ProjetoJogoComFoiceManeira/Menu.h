@@ -18,7 +18,7 @@ private:
 	int flagButtonPressed;
 
 	Jogo* jogo;
-	
+
 public:
 	Menu(Jogo* jg);
 	~Menu();

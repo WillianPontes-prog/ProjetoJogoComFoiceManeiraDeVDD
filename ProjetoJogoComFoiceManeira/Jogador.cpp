@@ -77,7 +77,40 @@ void Jogador::Move()
 	for (std::list<Plataforma*>::iterator it = listPlat->begin(); it != listPlat->end(); ++it) {
 
 		sf::RectangleShape bodyTemp;
+		bodyTemp = body;
 
+		bodyTemp.move(sf::Vector2f(0, 1));
+
+
+		if (CheckCollision(bodyTemp, (*it)->get_body())) {
+			coyteTime = MAXcoyteTime;
+		}
+		else if (coyteTime > 0) {
+			coyteTime--;
+		}
+
+		if (coyteTime) {
+			//pulo
+			flagJump = 1;
+			if (KeyJump()) {
+				vspd = -jump;
+			}
+		}
+		else if (flagJump) {
+			if (KeyJump() && !flagW) {
+				vspd = -jump;
+				flagJump = 0;
+			}
+		}
+
+		if (KeyJump()) {
+			flagW = 1;
+		}
+		else {
+			flagW = 0;
+		}
+
+		
 		bodyTemp = body;
 		bodyTemp.move(sf::Vector2f(hspd, 0));
 
@@ -113,33 +146,6 @@ void Jogador::Move()
 		}
 
 
-		if (CheckCollision(bodyTemp, (*it)->get_body())) {
-			coyteTime = MAXcoyteTime;
-		}
-		else if (coyteTime > 0) {
-			coyteTime--;
-		}
-
-		if (coyteTime) {
-			//pulo
-			flagJump = 1;
-			if (KeyJump()) {
-				vspd = -jump;
-			}
-		}
-		else if (flagJump) {
-			if (KeyJump() && !flagW) {
-				vspd = -jump;
-				flagJump = 0;
-			}
-		}
-
-		if (KeyJump()) {
-			flagW = 1;
-		}
-		else {
-			flagW = 0;
-		}
 
 	}
 

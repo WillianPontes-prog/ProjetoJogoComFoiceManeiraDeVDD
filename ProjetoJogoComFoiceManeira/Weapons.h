@@ -10,10 +10,11 @@ private:
     float tempo;
     float direc;
     float especial;
+    float cd;
 
 public:
     // Constructor
-    Weapons(float tam_X = 100.f, float tam_Y = 100.f, float velocidade = 0.f, float direc = 1.f, float dano = 0.f,float temp=0, float id= 0, float espec = 1);
+    Weapons(float tam_X = 100.f, float tam_Y = 100.f, float velocidade = 0.f, float direc = 1.f, float dano = 0.f,float temp=0, float id= 0, float espec = 1, float cd = 30.f);
     ~Weapons();
 
     Ataque* atack(float x, float y, float dir) {
@@ -30,4 +31,8 @@ public:
     void NEW_DUR(float temp) {
         tempo *= temp;  
     }
+
+    float getCD() {
+		return cd;
+	}
 };

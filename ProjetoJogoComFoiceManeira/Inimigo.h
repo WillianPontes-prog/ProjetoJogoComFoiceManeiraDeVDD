@@ -29,6 +29,9 @@ public:
 
 	void move();
 	int search();
+	int searchX();
+	int searchY();
+
 	void atk();
 	void atualiza() override;
 	void set_listJogador(std::list<Jogador*>* listJogador);

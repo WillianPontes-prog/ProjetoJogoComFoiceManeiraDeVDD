@@ -4,9 +4,10 @@ Jogador::Jogador(float dimensionX, float dimensionY, float posX, float posY, std
 	EntidadesColision(dimensionX, dimensionY, posX, posY, listPlat)
 {
 	listPlayerAtaque = new std::list<Ataque*>();
-	armas[0] = new Weapons(40, 100, 40.f, dir, 20.f, 7.f);
-	armas[1] = new Weapons(10, 10, 70, dir, 10.f, 12.f);
-	armas[2] = new Weapons(100, 20, 3, dir, 50.f, 6.f);
+	//(int dano, int alcance, float velocidade, float dir, float x, float y, float cd)//
+	armas[0] = new Weapons(40, 100, 40.f, dir, 20.f, 5.f, 60.f);
+	armas[1] = new Weapons(10, 10, 5.f, dir, 10.f, 200.f, 15.f);
+	armas[2] = new Weapons(100, 20, 3, dir, 50.f, 6.f, 40.f);
 	armatual = 2;	
 }
 
@@ -180,7 +181,7 @@ void Jogador::BasicAtk(){
 
 		vspd = 0;
 
-		cooldown = 30;
+		cooldown = armas[armatual]->getCD();
 	}
 }
 

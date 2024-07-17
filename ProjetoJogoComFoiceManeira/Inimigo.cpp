@@ -7,7 +7,7 @@ Inimigo::Inimigo(float dimensionX, float dimensionY, float posX, float posY, std
 	body.setPosition(sf::Vector2f(posX, posY));
 
 	listInimigoAtaque = new std::list<Ataque*>();
-	armas[0] = new Weapons(40, 100, 40.f, dir, 20.f, 7.f);
+	armas[0] = new Weapons(40, 100, 40.f, dir, 20.f, 7.f, 18.f);
 
 	set_listPlat(listPlat);
 	set_listJogador(listJogador);
@@ -21,27 +21,49 @@ void Inimigo::move()
 {
 	vspd += GRAVIDADE;
 	
-	if(dir == 0)
-		hspd = speed;
-	else if(dir == PI)
-		hspd = -speed;
 
 
 	for (std::list<Plataforma*>::iterator it = listPlat->begin(); it != listPlat->end(); ++it) {
 		
 		sf::RectangleShape bodyTemp = body;
 
-		
-		bodyTemp.move(sf::Vector2f(hspd, 1));
+		int found = search();
 
-		if (!CheckCollision(bodyTemp, (*it)->get_body())) {
-			if (hspd <= 0) {
-				dir = 0;
+		if (abs(found) < 300) {
+			if (abs(searchX()) > 5) {
+				if (found < 0) {
+					hspd = speed;
+					dir = 0;
+				}
+				else {
+					hspd = -speed;
+					dir = PI;
+				}
 			}
-			else if (hspd > 0) {
-				dir = PI;
+
+			bodyTemp.move(sf::Vector2f(hspd + (body.getSize().x * (abs(hspd)/hspd)), 1));
+			if (!CheckCollision(bodyTemp, (*it)->get_body())) {
+				hspd = 0;
 			}
 		}
+		else {
+
+			bodyTemp.move(sf::Vector2f(hspd + (body.getSize().x * (abs(hspd) / hspd)), 1));
+
+			if (!CheckCollision(bodyTemp, (*it)->get_body())) {
+
+				if (hspd <= 0) {
+					hspd = speed;
+					dir = 0;
+				}
+				else if (hspd > 0) {
+					hspd = -speed;
+					dir = PI;
+				}
+	
+			}
+		}
+
 
 		bodyTemp = body;
 		bodyTemp.move(sf::Vector2f(hspd, 0));
@@ -93,18 +115,53 @@ void Inimigo::atk()
 
 	vspd = 0;
 
-	cooldown = 30;
+	cooldown = armas[0]->getCD();
 }
 
 int Inimigo::search()
 {
-	int minorDistance = 999999.f;
-	double minorDistance = std::numeric_limits<double>::max(); 
+	int minorDistance = 999999;
 
 	for (std::list<Jogador*>::iterator it = listJogador->begin(); it != listJogador->end(); ++it) {
-		double distance = std::hypot(body.getPosition().x - (*it)->get_body().getPosition().x, body.getPosition().y - (*it)->get_body().getPosition().y);
+		
+		int distance = std::hypot(body.getPosition().x - (*it)->get_body().getPosition().x, body.getPosition().y - (*it)->get_body().getPosition().y);
+		if (distance < abs(minorDistance)) {
+			
+			if (body.getPosition().x - (*it)->get_body().getPosition().x > 0) {
+				minorDistance = distance;
+			}
+			else {
+				minorDistance = -distance;
+			}
+		}
+	}
 
-		if (distance < minorDistance) {
+	return minorDistance;
+}
+
+int Inimigo::searchX()
+{
+	int minorDistance = 999999;
+
+	for (std::list<Jogador*>::iterator it = listJogador->begin(); it != listJogador->end(); ++it) {
+
+		int distance = body.getPosition().x - (*it)->get_body().getPosition().x;
+		if (distance < abs(minorDistance)) {
+			minorDistance = distance;
+		}
+	}
+
+	return minorDistance;
+}
+
+int Inimigo::searchY()
+{
+	int minorDistance = 999999;
+
+	for (std::list<Jogador*>::iterator it = listJogador->begin(); it != listJogador->end(); ++it) {
+
+		int distance = body.getPosition().y - (*it)->get_body().getPosition().y;
+		if (distance < abs(minorDistance)) {
 			minorDistance = distance;
 		}
 	}
@@ -119,18 +176,6 @@ void Inimigo::atualiza()
 	case Stand: {
 		int found = search();
 
-		if (abs(found) < 300) {
-			if (found < 0) {
-				
-				dir = 0;
-			}
-			else {
-				dir = PI;
-			}
-		}
-			
-
-
 		if (abs(found) < 80) {
 			atk();
 		}
@@ -140,6 +185,9 @@ void Inimigo::atualiza()
 	}
 	break;
 	case Atk:{
+
+		move();
+
 		if (cooldown <= 0) {
 			state = Stand;
 		}

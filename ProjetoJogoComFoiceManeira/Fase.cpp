@@ -21,11 +21,11 @@ void Fase::inicializaElementos()
 	chao->set_Window(window);
 	listaPlataforma->push_back(chao);
 
-	//Inimigo* inimigo = new Inimigo(60.0,80.0, 50.0, 50.0, listaPlataforma);
-	//inimigo->set_Window(window);
-	//listaInimigos->push_back(inimigo);
-
-	
+	Inimigo* inimigo = new Inimigo(60.0,80.0, 500.0, 50.0);
+	inimigo->set_Window(window);
+	inimigo->set_listPlat(listaPlataforma);
+	inimigo->set_listJogador(listaJogadores);
+	listaInimigos->push_back(inimigo);
 
 
 }
@@ -38,6 +38,8 @@ Fase::Fase(Jogador* j1, sf::RenderWindow* window)
 
 	listaPlataforma		= new std::list<Plataforma*>();
 	listaJogadores		= new std::list<Jogador*>();
+	listaInimigos		= new std::list<Inimigo*>();
+
 
 	inicializaElementos();
 }
@@ -56,6 +58,12 @@ void Fase::atualiza()
 
 
 	for (std::list<Jogador*>::iterator it = listaJogadores->begin(); it != listaJogadores->end(); ++it) {
+
+		(*it)->atualiza();
+	}
+
+
+	for (std::list<Inimigo*>::iterator it = listaInimigos->begin(); it != listaInimigos->end(); ++it) {
 
 		(*it)->atualiza();
 	}

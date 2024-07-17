@@ -20,5 +20,9 @@ public:
 protected:
 	std::list<Plataforma*>* listPlat;
 
+	float hspd = 0;
+	float vspd = 0;
+
+	float dir = 0;
 
 };

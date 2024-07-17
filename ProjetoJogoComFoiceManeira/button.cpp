@@ -57,23 +57,23 @@ void Button::execute()
 	case Button::NewGame: {
 		jogo->setGameState(Jogo::InGame);
 	}
-						break;
+	break;
 	case Button::LoadGame: {
 
 	}
-						 break;
+	break;
 	case Button::Save: {
 
 	}
-					 break;
+	break;
 	case Button::Exit: {
 
 	}
-					 break;
+	break;
 	default: {
 
 	}
-		   break;
+	break;
 	}
 }
 

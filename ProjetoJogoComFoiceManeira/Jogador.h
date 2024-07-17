@@ -9,20 +9,20 @@ class Jogador : public EntidadesColision {
 private:
 
 	std::list<Ataque*>* listPlayerAtaque;
+
 	Weapons* armas[3];
+
 	enum palyerState {
 		Stand,
 		Atk
 	};
+
 	int armatual;
 	int state = Stand;
 
 	float speedP = 10;
 
 	float jump = 16;
-
-	float hspd = 0;
-	float vspd = 0;
 
 	int flagJump = 0;
 	int flagWeapon = 0;	
@@ -31,8 +31,6 @@ private:
 
 	int coyteTime = 0;
 	int MAXcoyteTime = 10;
-
-	float dir = 0;
 
 	int cooldown = 0;
 

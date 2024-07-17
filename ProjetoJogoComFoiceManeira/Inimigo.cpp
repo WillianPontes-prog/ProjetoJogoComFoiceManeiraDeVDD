@@ -99,18 +99,13 @@ void Inimigo::atk()
 int Inimigo::search()
 {
 	int minorDistance = 999999.f;
+	double minorDistance = std::numeric_limits<double>::max(); 
 
 	for (std::list<Jogador*>::iterator it = listJogador->begin(); it != listJogador->end(); ++it) {
-		
-		int distance = std::hypot(body.getPosition().x - (*it)->get_body().getPosition().x, body.getPosition().y - (*it)->get_body().getPosition().y) < 60;
-		if (distance < abs(minorDistance)) {
-			
-			if (body.getPosition().x - (*it)->get_body().getPosition().x) {
-				minorDistance = distance;
-			}
-			else {
-				minorDistance = -distance;
-			}
+		double distance = std::hypot(body.getPosition().x - (*it)->get_body().getPosition().x, body.getPosition().y - (*it)->get_body().getPosition().y);
+
+		if (distance < minorDistance) {
+			minorDistance = distance;
 		}
 	}
 

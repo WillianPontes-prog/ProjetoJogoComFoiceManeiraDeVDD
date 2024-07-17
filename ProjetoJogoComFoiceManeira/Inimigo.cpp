@@ -26,12 +26,12 @@ void Inimigo::search()
 	if (found){
 		
 		if (found > 0) {
-			Ataque* hit = armas[0]->atack(get_body().getPosition().x, get_body().getPosition().y);
+			Ataque* hit = armas[0]->atack(get_body().getPosition().x, get_body().getPosition().y, 1);
 			hit->set_Window(window);
 			listInimigoAtaque->push_back(hit);
 		}
 		else {
-			Ataque* hit = armas[1]->atack(get_body().getPosition().x, get_body().getPosition().y);
+			Ataque* hit = armas[1]->atack(get_body().getPosition().x, get_body().getPosition().y, 1);
 			hit->set_Window(window);
 			listInimigoAtaque->push_back(hit);
 		}

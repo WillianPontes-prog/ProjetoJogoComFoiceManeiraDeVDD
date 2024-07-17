@@ -11,7 +11,7 @@ Jogo::Jogo() :
     window(sf::VideoMode(1920, 1080, 32), "JogoFoiceFodaWOOOOOOOOOOOOOOOOOOOOOOOWN", sf::Style::Default)
 {
     //players//////////////////////////////////////////////////////////////////
-    Player1 = new Jogador(50,50);
+    Player1 = new Jogador(50, 50);
     Player1->set_Window(&window);
 
     //menu/////////////////////////////////////////////////////////////////////
@@ -44,7 +44,7 @@ void Jogo::Atualiza()
 
     while (window.isOpen())
     {
-        
+
 
         //limitador FPS
         window.setFramerateLimit(FPS);
@@ -61,22 +61,22 @@ void Jogo::Atualiza()
         case Jogo::InitialMenu: {
             menu->atualiza();
         }
-            break;
+                              break;
         case Jogo::InGame: {
             fase1->atualiza();
         }
-            break;
+                         break;
         default: {
         }
-            break;
+               break;
         }
 
-        
-        
 
 
-        
-        
+
+
+
+
 #ifdef SHOW_FPS
         /* Mostrar FPS*/
         frameCount++;
@@ -92,5 +92,5 @@ void Jogo::Atualiza()
         window.display();
         window.clear();
     }
-	
+
 }

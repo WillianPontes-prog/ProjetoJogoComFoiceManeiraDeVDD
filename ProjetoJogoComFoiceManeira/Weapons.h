@@ -16,8 +16,8 @@ public:
     Weapons(float tam_X = 100.f, float tam_Y = 100.f, float velocidade = 0.f, float direc = 1.f, float dano = 0.f,float temp=0, float id= 0, float espec = 1);
     ~Weapons();
 
-    Ataque* atack(float x, float y) {
-        Ataque* corte = new Ataque(tam_X, tam_Y,x,y- 30, velocidade, direc, dano, tempo);
+    Ataque* atack(float x, float y, float dir) {
+        Ataque* corte = new Ataque(tam_X, tam_Y,x,y- 30, velocidade, dir, dano, tempo);
         return corte;
     }
     

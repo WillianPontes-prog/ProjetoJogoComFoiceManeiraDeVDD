@@ -32,10 +32,10 @@ public:
 	void draw();
 	void set_Color(sf::Color color);
 	void set_Window(sf::RenderWindow* window);
-	void set_Pressed( bool test);
+	void set_Pressed(bool test);
 	virtual void execute();
 	void atualiza();
 
 
-	
+
 };

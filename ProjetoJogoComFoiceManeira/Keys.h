@@ -9,5 +9,6 @@ int KeyClick();
 int KeyBasicAtk();
 int KeySpecialAtk();
 int KeyJump();
+int KeyChangeWeapon();	
 
 

@@ -1,7 +1,7 @@
 #include "Menu.h"
 
 // Construtor da classe Menu
-Menu::Menu(Jogo* jg):
+Menu::Menu(Jogo* jg) :
     window(NULL)
 {
     continua = 0;
@@ -13,17 +13,17 @@ Menu::Menu(Jogo* jg):
     botoes.push_back(new Button(window, 100, 500, 200, 50, "Sair", Button::Exit, jg));
 
     flagButtonPressed = 0;
-    
+
     jogo = jg;
 }
 
 // Destrutor da classe Menu
 Menu::~Menu()
 {
-	for(int i = 0; i < botoes.size(); i++)
-	{
-		delete botoes[i];
-	}
+    for (int i = 0; i < botoes.size(); i++)
+    {
+        delete botoes[i];
+    }
 }
 
 // Método para definir a janela do menu
@@ -32,7 +32,7 @@ void Menu::set_Window(sf::RenderWindow* window)
     this->window = window;
 
     // Define a janela para cada botão da lista de botões
-    for(int i = 0; i < botoes.size(); i++)
+    for (int i = 0; i < botoes.size(); i++)
     {
         botoes[i]->set_Window(window);
     }
@@ -72,7 +72,7 @@ void Menu::move()
     }
 
     // Verifica se nenhuma tecla está pressionada
-    if(!KeyUp() && !keyDown())
+    if (!KeyUp() && !keyDown())
     {
         flagButtonPressed = 0;
     }
@@ -87,8 +87,8 @@ void Menu::atualiza()
         if (i == buttonSelected)
         {
             botoes[i]->set_Pressed(true);
-            
-            if(KeyClick()){
+
+            if (KeyClick()) {
                 botoes[i]->execute();
             }
         }

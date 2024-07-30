@@ -43,7 +43,8 @@ void Jogador::atualiza()
 
 	case Atk: {
 		Move();
-		
+		ChangeWeapon();
+
 		if (cooldown <= 0) {
 			state = Stand;
 		}
@@ -61,8 +62,8 @@ void Jogador::atualiza()
 
 	for (auto it = listPlayerAtaque->begin(); it != listPlayerAtaque->end();) {
 		if ((*it)->OverTime()) {
-			delete* it; // Liberar memória
-			it = listPlayerAtaque->erase(it); // Remover elemento e atualizar iterador
+			delete* it;							// Liberar memória
+			it = listPlayerAtaque->erase(it);	// Remover elemento e atualizar iterador
 		}
 		else {
 			(*it)->atualiza();
@@ -72,6 +73,8 @@ void Jogador::atualiza()
 
 	draw();
 }
+
+
 
 void Jogador::Move()
 {
@@ -163,8 +166,6 @@ void Jogador::Move()
 			vspd = 0;
 		}
 
-
-
 	}
 
 
@@ -175,11 +176,9 @@ void Jogador::BasicAtk(){
 
 	if (KeyBasicAtk()){
 		state = Atk;
-		Ataque* corte = armas[armatual]->atack(get_body().getPosition().x, get_body().getPosition().y + 30, dir);
+		Ataque* corte = armas[armatual]->atack(middleCenter().x, middleCenter().y, dir);
 		corte->set_Window(window);
 		listPlayerAtaque->push_back(corte);
-
-		vspd = 0;
 
 		cooldown = armas[armatual]->getCD();
 	}

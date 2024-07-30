@@ -22,14 +22,16 @@ void Inimigo::move()
 	vspd += GRAVIDADE;
 	
 
+	int found = search();
 
-	for (std::list<Plataforma*>::iterator it = listPlat->begin(); it != listPlat->end(); ++it) {
-		
-		sf::RectangleShape bodyTemp = body;
+	sf::RectangleShape bodyTemp = body;
 
-		int found = search();
+	if (abs(found) < 300) {
 
-		if (abs(found) < 300) {
+		for (std::list<Plataforma*>::iterator it = listPlat->begin(); it != listPlat->end(); ++it) {
+
+			bodyTemp = body;
+
 			if (abs(searchX()) > 5) {
 				if (found < 0) {
 					hspd = speed;
@@ -41,28 +43,47 @@ void Inimigo::move()
 				}
 			}
 
-			bodyTemp.move(sf::Vector2f(hspd + (body.getSize().x * (abs(hspd)/hspd)), 1));
+			bodyTemp.move(sf::Vector2f(hspd + (body.getSize().x * (abs(hspd) / hspd)), 1));
 			if (!CheckCollision(bodyTemp, (*it)->get_body())) {
 				hspd = 0;
 			}
 		}
-		else {
+	}
+	else {
 
-			bodyTemp.move(sf::Vector2f(hspd + (body.getSize().x * (abs(hspd) / hspd)), 1));
+		int invert = 0;
+		bodyTemp = body;
 
+		bodyTemp.move(sf::Vector2f(hspd + (body.getSize().x * (abs(hspd) / hspd)), 2));
+
+		for (std::list<Plataforma*>::iterator it = listPlat->begin(); it != listPlat->end(); ++it) {
+			
 			if (!CheckCollision(bodyTemp, (*it)->get_body())) {
-
-				if (hspd <= 0) {
-					hspd = speed;
-					dir = 0;
-				}
-				else if (hspd > 0) {
-					hspd = -speed;
-					dir = PI;
-				}
-	
+				invert = 1;
+			}
+			else {
+				invert = 0;
+				break;
 			}
 		}
+
+		if (invert) {
+			if (hspd <= 0) {
+				hspd = speed;
+				dir = 0;
+			}
+			else if (hspd > 0) {
+				hspd = -speed;
+				dir = PI;
+			}
+		}
+	}
+
+	for (std::list<Plataforma*>::iterator it = listPlat->begin(); it != listPlat->end(); ++it) {
+		
+		bodyTemp = body;
+
+		
 
 
 		bodyTemp = body;

@@ -8,9 +8,9 @@ Menu::Menu(Jogo* jg) :
     buttonSelected = 0;
 
     // Criação dos botões e adição à lista de botões
-    botoes.push_back(new Button(window, 100, 100, 200, 50, "Continua", Button::LoadGame, jg));
-    botoes.push_back(new Button(window, 100, 300, 200, 50, "Novo Jogo", Button::NewGame, jg));
-    botoes.push_back(new Button(window, 100, 500, 200, 50, "Sair", Button::Exit, jg));
+    botoes.push_back(new Button(window, 100, 50, 200, 50, "Continua", Button::LoadGame, jg));
+    botoes.push_back(new Button(window, 100, 150, 200, 50, "Novo Jogo", Button::NewGame, jg));
+    botoes.push_back(new Button(window, 100, 250, 200, 50, "Sair", Button::Exit, jg));
 
     flagButtonPressed = 0;
 

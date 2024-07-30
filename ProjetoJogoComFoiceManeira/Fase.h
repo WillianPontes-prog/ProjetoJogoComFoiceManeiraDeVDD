@@ -5,6 +5,7 @@
 #include "ListaEntidade.h"
 #include "Plataforma.h"
 #include "Ataque.h"
+#include "Jogador.h"
 
 #include <SFML/Graphics.hpp>
 #include <cstdlib>
@@ -18,14 +19,11 @@ private:
 	std::list<Jogador*>*	listaJogadores;
 	std::list<Inimigo*>*	listaInimigos;
 
-
-	Jogador* j1;
-
 	void inicializaElementos();
 
 
 public:
-	Fase(Jogador* j1 = NULL, sf::RenderWindow* window = NULL);
+	Fase(sf::RenderWindow* window = nullptr);
 	~Fase();
 
 	sf::RenderWindow* window;

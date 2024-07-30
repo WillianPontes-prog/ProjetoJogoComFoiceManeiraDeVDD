@@ -178,10 +178,15 @@
     <ClInclude Include="Weapons.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Tiles\teste.tmj" />
     <None Include="Save.json" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="PIXEAB.TTF" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Tiles\TX Tileset Ground.png" />
+    <Image Include="..\Tiles\TX Village Props.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

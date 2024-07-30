@@ -5,36 +5,50 @@ void Fase::inicializaElementos()
 {
 	std::srand(std::time(nullptr));
 
-	listaJogadores->push_back(j1);
-	j1->set_listPlat(listaPlataforma);
+	Jogador* Player1 = new Jogador(32, 32);
+	listaJogadores->push_back(Player1);
 
-
-	Plataforma* chao = new Plataforma(window->getSize().x, 100.f, 0, window->getSize().y - 200.f);
-	chao->set_Window(window);
+	Plataforma* chao = new Plataforma(window->getSize().x, 20.f, 0, window->getSize().y - 20.f);
 	listaPlataforma->push_back(chao);
 
 	chao = new Plataforma(100.f, window->getSize().y, 0, 150.f);
-	chao->set_Window(window);
+	listaPlataforma->push_back(chao);
+
+
+	chao = new Plataforma(100.f,30.f, 70.f, 250.f);
 	listaPlataforma->push_back(chao);
 
 	chao = new Plataforma(window->getSize().x, 50.f, 300, window->getSize().y - 390.f);
-	chao->set_Window(window);
 	listaPlataforma->push_back(chao);
 
-	Inimigo* inimigo = new Inimigo(60.0,80.0, 500.0, 50.0);
-	inimigo->set_Window(window);
-	inimigo->set_listPlat(listaPlataforma);
-	inimigo->set_listJogador(listaJogadores);
+	Inimigo* inimigo = new Inimigo(30.f,30.f, 500.0, 50.0);
 	listaInimigos->push_back(inimigo);
+
+	//--------entregando elementos genericos para cada entidade--------\\
+	//plataformas
+	for (std::list<Plataforma*>::iterator it = listaPlataforma->begin(); it != listaPlataforma->end(); ++it) {
+		(*it)->set_Window(window);
+	}
+
+	//inimigos
+	for (std::list<Inimigo*>::iterator it = listaInimigos->begin(); it != listaInimigos->end(); ++it) {
+		(*it)->set_Window(window);
+		(*it)->set_listPlat(listaPlataforma);
+		(*it)->set_listJogador(listaJogadores);
+	}
+
+	//Players
+	for(std::list<Jogador*>::iterator it = listaJogadores->begin(); it != listaJogadores->end(); ++it){
+		(*it)->set_Window(window);
+		(*it)->set_listPlat(listaPlataforma);
+	}
 
 
 }
 
-Fase::Fase(Jogador* j1, sf::RenderWindow* window)
+Fase::Fase(sf::RenderWindow* window)
 {
 	this->window = window;
-
-	this->j1 = j1;
 
 	listaPlataforma		= new std::list<Plataforma*>();
 	listaJogadores		= new std::list<Jogador*>();

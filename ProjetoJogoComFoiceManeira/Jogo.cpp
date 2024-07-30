@@ -8,18 +8,16 @@
 //#define SHOW_FPS
 
 Jogo::Jogo() :
-    window(sf::VideoMode(1920, 1080, 32), "JogoFoiceFodaWOOOOOOOOOOOOOOOOOOOOOOOWN", sf::Style::Default)
+    window(sf::VideoMode(960, 480, 32), "JogoFoiceFodaWOOOOOOOOOOOOOOOOOOOOOOOWN", sf::Style::Default)
 {
-    //players//////////////////////////////////////////////////////////////////
-    Player1 = new Jogador(50, 50);
-    Player1->set_Window(&window);
+
 
     //menu/////////////////////////////////////////////////////////////////////
     menu = new Menu(this);
     menu->set_Window(&window);
 
     //fases////////////////////////////////////////////////////////////////////
-    fase1 = new Fase(Player1, &window);
+    fase1 = new Fase(&window);
     listaPlataforma = fase1->get_listaPlataforma();
     listaJogadores = fase1->get_listaJogadores();
     listaInimigos = fase1->get_listaInimigos();
@@ -44,8 +42,6 @@ void Jogo::Atualiza()
 
     while (window.isOpen())
     {
-
-
         //limitador FPS
         window.setFramerateLimit(FPS);
 
@@ -61,14 +57,14 @@ void Jogo::Atualiza()
         case Jogo::InitialMenu: {
             menu->atualiza();
         }
-                              break;
+        break;
         case Jogo::InGame: {
             fase1->atualiza();
         }
-                         break;
+        break;
         default: {
         }
-               break;
+        break;
         }
 
 

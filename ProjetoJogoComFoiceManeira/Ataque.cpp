@@ -9,6 +9,7 @@ Ataque::Ataque(float dimensionX , float dimensionY , float posX , float posY ,fl
 	body.setFillColor(sf::Color::Magenta);
 	timeDestroy = TimeAtk;
 	
+	body.move(sf::Vector2f(-body.getSize().x / 2, -body.getSize().y/2));
 }
 
 void Ataque::Move()
@@ -16,7 +17,7 @@ void Ataque::Move()
 	float cos = std::cos(direc);
 	float sin = std::sin(direc);
 
-	body.move(sf::Vector2f(cos*velocidade, sin*velocidade));
+	body.move(sf::Vector2f(cos*velocidade, sin*velocidade));                                                                                   
 
 }
 

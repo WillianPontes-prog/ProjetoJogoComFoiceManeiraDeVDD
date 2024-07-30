@@ -18,7 +18,7 @@ public:
     ~Weapons();
 
     Ataque* atack(float x, float y, float dir) {
-        Ataque* corte = new Ataque(tam_X, tam_Y,x,y- 30, velocidade, dir, dano, tempo);
+        Ataque* corte = new Ataque(tam_X, tam_Y,x,y, velocidade, dir, dano, tempo);
         return corte;
     }
     

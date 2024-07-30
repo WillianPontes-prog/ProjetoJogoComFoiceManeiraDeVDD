@@ -19,5 +19,6 @@ public:
 	void draw() { window->draw(body); }
 	virtual void atualiza() { draw(); }
 	sf::RectangleShape get_body() { return body; }
+	sf::Vector2f middleCenter();
 
 };

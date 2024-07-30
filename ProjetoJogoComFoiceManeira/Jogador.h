@@ -20,9 +20,9 @@ private:
 	int armatual;
 	int state = Stand;
 
-	float speedP = 10;
+	float speedP = 7;
 
-	float jump = 16;
+	float jump = 10;
 
 	int flagJump = 0;
 	int flagWeapon = 0;	
@@ -30,7 +30,7 @@ private:
 	int flagW = 0;
 
 	int coyteTime = 0;
-	int MAXcoyteTime = 10;
+	int MAXcoyteTime = 5;
 
 	int cooldown = 0;
 
@@ -54,5 +54,7 @@ public:
 	std::list<Ataque*>* getListAtk();
 
 	void atualiza() override;
+
+
 
 };

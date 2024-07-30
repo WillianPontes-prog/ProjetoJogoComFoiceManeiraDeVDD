@@ -67,7 +67,7 @@ void Button::execute()
 	}
 	break;
 	case Button::Exit: {
-
+		window->close();
 	}
 	break;
 	default: {

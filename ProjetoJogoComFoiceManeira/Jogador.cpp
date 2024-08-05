@@ -17,7 +17,7 @@ Jogador::~Jogador()
 
 void Jogador::ChangeWeapon()
 {
-	if (KeyChangeWeapon()) {
+	if (Key::ChangeWeapon()) {
 		if (flagWeapon) {
 			armatual++;
 			if (armatual > 2) {
@@ -80,12 +80,12 @@ void Jogador::Move()
 {
 
 	//movimentação Esquerda
-	if (KeyLeft()) {
+	if (Key::Left()) {
 		hspd = -speedP;
 		dir = PI;
 	}
 	//movimentação Direita
-	else if (KeyRight()) {
+	else if (Key::Right()) {
 		hspd = speedP;
 		dir = 0;
 	}
@@ -113,18 +113,18 @@ void Jogador::Move()
 		if (coyteTime) {
 			//pulo
 			flagJump = 1;
-			if (KeyJump()) {
+			if (Key::Jump()) {
 				vspd = -jump;
 			}
 		}
 		else if (flagJump) {
-			if (KeyJump() && !flagW) {
+			if (Key::Jump() && !flagW) {
 				vspd = -jump;
 				flagJump = 0;
 			}
 		}
 
-		if (KeyJump()) {
+		if (Key::Jump()) {
 			flagW = 1;
 		}
 		else {
@@ -150,17 +150,17 @@ void Jogador::Move()
 		}
 
 		bodyTemp = body;
-		bodyTemp.move(sf::Vector2f(0, vspd));
+		bodyTemp.move(sf::Vector2f(hspd, vspd));
 
 		if (CheckCollision(bodyTemp, (*it)->get_body())) {
 			bodyTemp = body;
-			bodyTemp.move(sf::Vector2f(0, MinimalNumber(vspd)));
+			bodyTemp.move(sf::Vector2f(hspd, MinimalNumber(vspd)));
 
 			while (!CheckCollision(bodyTemp, (*it)->get_body())) {
 				body.move(sf::Vector2f(0, MinimalNumber(vspd)));
 
 				bodyTemp = body;
-				bodyTemp.move(sf::Vector2f(0, MinimalNumber(vspd)));
+				bodyTemp.move(sf::Vector2f(hspd, MinimalNumber(vspd)));
 			}
 
 			vspd = 0;
@@ -174,7 +174,7 @@ void Jogador::Move()
 
 void Jogador::BasicAtk(){
 
-	if (KeyBasicAtk()){
+	if (Key::BasicAtk()){
 		state = Atk;
 		Ataque* corte = armas[armatual]->atack(middleCenter().x, middleCenter().y, dir);
 		corte->set_Window(window);

@@ -45,7 +45,7 @@ void Menu::move()
     if (!flagButtonPressed) {
 
         // Verifica se a tecla para baixo está pressionada
-        if (keyDown()) {
+        if (Key::Down()) {
             // Verifica se o botão selecionado é o último da lista
             if (buttonSelected >= botoes.size() - 1) {
                 buttonSelected = 0;
@@ -57,7 +57,7 @@ void Menu::move()
             flagButtonPressed = 1;
         }
         // Verifica se a tecla para cima está pressionada
-        if (KeyUp()) {
+        if (Key::Up()) {
             // Verifica se o botão selecionado é o primeiro da lista
             if (buttonSelected <= 0) {
                 buttonSelected = botoes.size() - 1;
@@ -72,7 +72,7 @@ void Menu::move()
     }
 
     // Verifica se nenhuma tecla está pressionada
-    if (!KeyUp() && !keyDown())
+    if (!Key::Up() && !Key::Down())
     {
         flagButtonPressed = 0;
     }
@@ -88,7 +88,7 @@ void Menu::atualiza()
         {
             botoes[i]->set_Pressed(true);
 
-            if (KeyClick()) {
+            if (Key::Click()) {
                 botoes[i]->execute();
             }
         }

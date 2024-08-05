@@ -2,7 +2,7 @@
 #include "EntidadesColision.h"
 #include "FIsica.h"
 #include "Ataque.h"
-#include "Keys.h"
+#include "Key.h"
 #include "Weapons.h"
 
 class Jogador : public EntidadesColision {

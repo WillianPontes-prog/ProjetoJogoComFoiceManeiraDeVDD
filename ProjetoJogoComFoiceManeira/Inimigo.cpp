@@ -15,13 +15,13 @@ Inimigo::Inimigo(float dimensionX, float dimensionY, float posX, float posY, std
 
 Inimigo::~Inimigo()
 {
+	delete armas[0];
 }
 
 void Inimigo::move()
 {
 	vspd += GRAVIDADE;
 	
-
 	int found = search();
 
 	sf::RectangleShape bodyTemp = body;

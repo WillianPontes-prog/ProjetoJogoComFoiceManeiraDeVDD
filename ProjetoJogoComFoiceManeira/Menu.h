@@ -1,6 +1,6 @@
 #pragma once
 #include "Button.h"
-#include "Keys.h"
+#include "Key.h"
 #include "Jogo.h"
 #include <vector>
 #include <SFML/Graphics.hpp>

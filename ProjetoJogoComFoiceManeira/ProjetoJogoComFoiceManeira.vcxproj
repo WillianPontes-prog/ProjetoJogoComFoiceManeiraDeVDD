@@ -148,7 +148,7 @@
     <ClCompile Include="Fase.cpp" />
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Jogo.cpp" />
-    <ClCompile Include="Keys.cpp" />
+    <ClCompile Include="Key.cpp" />
     <ClCompile Include="ListaEntidade.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Plataforma.cpp" />
@@ -169,7 +169,7 @@
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="json.hpp" />
     <ClInclude Include="json_fwd.hpp" />
-    <ClInclude Include="Keys.h" />
+    <ClInclude Include="Key.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="ListaEntidade.h" />
     <ClInclude Include="Menu.h" />

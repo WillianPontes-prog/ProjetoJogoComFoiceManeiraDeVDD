@@ -63,6 +63,9 @@
     <ClCompile Include="Key.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="Barra.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.h">
@@ -125,10 +128,13 @@
     <ClInclude Include="Weapons.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
+    <ClInclude Include="Barra.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Save.json" />
-    <None Include="..\Tiles\teste.tmj">
+    <None Include="pipipipopopodeteste.json">
       <Filter>Arquivos de Recurso</Filter>
     </None>
   </ItemGroup>

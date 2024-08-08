@@ -8,7 +8,7 @@ Jogador::Jogador(float dimensionX, float dimensionY, float posX, float posY, std
 	armas[0] = new Weapons(40, 100, 40.f, dir, 20.f, 5.f, 60.f);
 	armas[1] = new Weapons(10, 10, 5.f, dir, 10.f, 200.f, 15.f);
 	armas[2] = new Weapons(100, 20, 3, dir, 50.f, 6.f, 40.f);
-	armatual = 2;	
+	armatual = 1;	
 }
 
 Jogador::~Jogador()

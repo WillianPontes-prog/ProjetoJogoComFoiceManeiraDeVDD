@@ -180,7 +180,7 @@
     <ClInclude Include="Weapons.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Tiles\teste.tmj" />
+    <None Include="pipipipopopodeteste.json" />
     <None Include="Save.json" />
   </ItemGroup>
   <ItemGroup>

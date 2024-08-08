@@ -29,7 +29,7 @@ void Barra::atualiza()
 		{
 			if (atual < maxima)
 			{
-				cura(5.0f);
+				cura(0.5f);
 			}
 		}
 	}

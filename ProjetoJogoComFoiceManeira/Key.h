@@ -3,6 +3,9 @@
 
 class Key {
 
+private:
+    static int isPJump;
+
 public:
 
     Key() {}
@@ -13,9 +16,14 @@ public:
     static int Down();
     static int Up();
     static int Click();
+
     static int Jump();
+
     static int BasicAtk();
     static int SpecialAtk();
     static int ChangeWeapon();
 
 };
+
+
+

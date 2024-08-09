@@ -18,6 +18,9 @@ void Fase::inicializaElementos()
 	chao = new Plataforma(100.f,30.f, 70.f, 250.f);
 	listaPlataforma->push_back(chao);
 
+	chao = new Plataforma(190.f, 70.f, 100.f, 340.f);
+	listaPlataforma->push_back(chao);
+
 	chao = new Plataforma(window->getSize().x, 50.f, 300, window->getSize().y - 390.f);
 	listaPlataforma->push_back(chao);
 

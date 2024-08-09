@@ -74,8 +74,6 @@ void Jogador::atualiza()
 	draw();
 }
 
-
-
 void Jogador::Move()
 {
 
@@ -118,18 +116,13 @@ void Jogador::Move()
 			}
 		}
 		else if (flagJump) {
-			if (Key::Jump() && !flagW) {
+			if (Key::Jump()) {
 				vspd = -jump;
 				flagJump = 0;
 			}
 		}
 
-		if (Key::Jump()) {
-			flagW = 1;
-		}
-		else {
-			flagW = 0;
-		}
+
 
 		
 		bodyTemp = body;

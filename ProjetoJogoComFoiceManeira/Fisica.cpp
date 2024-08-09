@@ -75,7 +75,6 @@ int MinimalNumber(float valor)
 	else { return (valor / abs(valor)); }
 }
 
-
 int CheckCollision(const sf::RectangleShape& rect1, const sf::RectangleShape& rect2) {
 	sf::FloatRect bounds1 = rect1.getGlobalBounds();
 	sf::FloatRect bounds2 = rect2.getGlobalBounds();

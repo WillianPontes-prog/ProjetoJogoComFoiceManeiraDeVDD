@@ -9,7 +9,6 @@ class Jogador : public EntidadesColision {
 private:
 
 	std::list<Ataque*>* listPlayerAtaque;
-
 	Weapons* armas[3];
 
 	enum palyerState {
@@ -26,8 +25,6 @@ private:
 
 	int flagJump = 0;
 	int flagWeapon = 0;	
-
-	int flagW = 0;
 
 	int coyteTime = 0;
 	int MAXcoyteTime = 5;

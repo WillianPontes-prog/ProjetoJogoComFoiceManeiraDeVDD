@@ -34,6 +34,8 @@ private:
 	std::string jsonFile;
 	EntityGenerator* entityGenerator;
 
+	sf::Sprite totile;
+
 public:
 	Fase(sf::RenderWindow* window = nullptr, std::string jsonFile = "");
 	~Fase();

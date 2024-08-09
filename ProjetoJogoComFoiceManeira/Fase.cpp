@@ -11,6 +11,11 @@ void Fase::inicializaElementos()
 Fase::Fase(sf::RenderWindow* window, std::string jsonFile):
 entityGenerator(new EntityGenerator(this))
 {
+	sf::Texture texture;
+	if (!texture.loadFromFile("Fase_1.png"))
+	{
+		std::cerr << "Erro ao carregar a imagem!" << std::endl;
+	}
 
 	this->window = window;
 	this->jsonFile = jsonFile;
@@ -47,8 +52,6 @@ void Fase::levelGenerate()
 	}
 
 
-
-
 	//--------entregando elementos genericos para cada entidade--------\\
 	=====================================================================
 
@@ -73,15 +76,8 @@ void Fase::levelGenerate()
 
 void Fase::atualiza()
 {
-	sf::Texture texture;
-	if (!texture.loadFromFile("Fase_1.png"))
-	{
-		std::cerr << "Erro ao carregar a imagem!" << std::endl;
-	}
-	sf::Sprite sprite;
-	sprite.setTexture(texture);
-	window->draw(sprite);
-
+	//desenha
+	window->draw(totile);
 
 	//desenha todas entidades
 	for (std::list<Plataforma*>::iterator it = listaPlataforma->begin(); it != listaPlataforma->end(); ++it) {

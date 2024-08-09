@@ -11,11 +11,11 @@ void Fase::inicializaElementos()
 Fase::Fase(sf::RenderWindow* window, std::string jsonFile):
 entityGenerator(new EntityGenerator(this))
 {
-	sf::Texture texture;
-	if (!texture.loadFromFile("Fase_1.png"))
+	if (!toptileTexture.loadFromFile("Fase_1.png"))
 	{
 		std::cerr << "Erro ao carregar a imagem!" << std::endl;
 	}
+	totile.setTexture(toptileTexture);
 
 	this->window = window;
 	this->jsonFile = jsonFile;

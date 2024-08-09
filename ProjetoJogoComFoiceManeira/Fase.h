@@ -35,6 +35,7 @@ private:
 	EntityGenerator* entityGenerator;
 
 	sf::Sprite totile;
+	sf::Texture toptileTexture;
 
 public:
 	Fase(sf::RenderWindow* window = nullptr, std::string jsonFile = "");

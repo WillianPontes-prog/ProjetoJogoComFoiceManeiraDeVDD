@@ -8,7 +8,7 @@
 //#define SHOW_FPS
 
 Jogo::Jogo() :
-    window(sf::VideoMode(960, 480, 32), "JogoFoiceFodaWOOOOOOOOOOOOOOOOOOOOOOOWN", sf::Style::Default)
+    window(sf::VideoMode(960, 640, 32), "JogoFoiceFodaWOOOOOOOOOOOOOOOOOOOOOOOWN", sf::Style::Default)
 {
 
 
@@ -17,7 +17,8 @@ Jogo::Jogo() :
     menu->set_Window(&window);
 
     //fases////////////////////////////////////////////////////////////////////
-    fase1 = new Fase(&window);
+    fase1 = new Fase(&window, "pipipipopopodeteste.json");
+
     listaPlataforma = fase1->get_listaPlataforma();
     listaJogadores = fase1->get_listaJogadores();
     listaInimigos = fase1->get_listaInimigos();

@@ -1,33 +1,57 @@
 #include "Fase.h"
 
-
 void Fase::inicializaElementos()
 {
 	std::srand(std::time(nullptr));
 
-	Jogador* Player1 = new Jogador(32, 32);
-	listaJogadores->push_back(Player1);
+	levelGenerate();
 
-	Plataforma* chao = new Plataforma(window->getSize().x, 20.f, 0, window->getSize().y - 20.f);
-	listaPlataforma->push_back(chao);
+}
 
-	chao = new Plataforma(100.f, window->getSize().y, 0, 150.f);
-	listaPlataforma->push_back(chao);
+Fase::Fase(sf::RenderWindow* window, std::string jsonFile):
+entityGenerator(new EntityGenerator(this))
+{
+
+	this->window = window;
+	this->jsonFile = jsonFile;
+
+	listaPlataforma		= new std::list<Plataforma*>();
+	listaJogadores		= new std::list<Jogador*>();
+	listaInimigos		= new std::list<Inimigo*>();
 
 
-	chao = new Plataforma(100.f,30.f, 70.f, 250.f);
-	listaPlataforma->push_back(chao);
+	inicializaElementos();
+}
 
-	chao = new Plataforma(190.f, 70.f, 100.f, 340.f);
-	listaPlataforma->push_back(chao);
+Fase::~Fase()
+{
+}
 
-	chao = new Plataforma(window->getSize().x, 50.f, 300, window->getSize().y - 390.f);
-	listaPlataforma->push_back(chao);
+void Fase::levelGenerate()
+{
 
-	Inimigo* inimigo = new Inimigo(30.f,30.f, 500.0, 50.0);
-	listaInimigos->push_back(inimigo);
+	//--------gerando entidades e descobrindo qual é--------\\
+	==========================================================
+	json mapa = lerArquivoJSON(jsonFile);
+
+	// Extrair e imprimir a matriz
+	vector<vector<vector<int>>> matriz = extrairCamadas(mapa,2);
+	Entidade* entidade = nullptr;
+
+	for(int i = 0; i < matriz.size(); i++){
+		for(int j = 0; j < matriz[i].size(); j++){
+			for (int k = 0; k < matriz[i][j].size(); k++) {
+				entityGenerator->execute(k * 32,  j* 32, matriz[i][j][k]);
+			}
+		}
+	}
+
+
+
 
 	//--------entregando elementos genericos para cada entidade--------\\
+	=====================================================================
+
 	//plataformas
 	for (std::list<Plataforma*>::iterator it = listaPlataforma->begin(); it != listaPlataforma->end(); ++it) {
 		(*it)->set_Window(window);
@@ -41,28 +65,10 @@ void Fase::inicializaElementos()
 	}
 
 	//Players
-	for(std::list<Jogador*>::iterator it = listaJogadores->begin(); it != listaJogadores->end(); ++it){
+	for (std::list<Jogador*>::iterator it = listaJogadores->begin(); it != listaJogadores->end(); ++it) {
 		(*it)->set_Window(window);
 		(*it)->set_listPlat(listaPlataforma);
 	}
-
-
-}
-
-Fase::Fase(sf::RenderWindow* window)
-{
-	this->window = window;
-
-	listaPlataforma		= new std::list<Plataforma*>();
-	listaJogadores		= new std::list<Jogador*>();
-	listaInimigos		= new std::list<Inimigo*>();
-
-
-	inicializaElementos();
-}
-
-Fase::~Fase()
-{
 }
 
 void Fase::atualiza()
@@ -84,4 +90,53 @@ void Fase::atualiza()
 
 		(*it)->atualiza();
 	}
+}
+
+json Fase::lerArquivoJSON(const std::string caminho) {
+	std::ifstream arquivo(caminho);
+	if (!arquivo.is_open()) {
+		throw std::runtime_error("Não foi possível abrir o arquivo JSON.");
+	}
+	json j;
+	arquivo >> j;
+	return j;
+}
+
+vector<vector<vector<int>>> Fase::extrairCamadas(const json& mapa, int numLayers) {
+	// Verifica se o número de camadas solicitado está dentro do alcance
+	if (numLayers > mapa["layers"].size()) {
+		throw std::runtime_error("Número de camadas fora do alcance.");
+	}
+
+	// Inicializa a matriz tridimensional
+	vector<vector<vector<int>>> matriz3D;
+
+	// Loop para cada camada
+	for (int k = 0; k < numLayers; ++k) {
+		auto camada = mapa["layers"][k];
+
+		// Verifica se o tipo da camada é "tilelayer"
+		if (camada["type"] != "tilelayer") {
+			throw std::runtime_error("Tipo de camada incorreto.");
+		}
+
+		int largura = camada["width"];
+		int altura = camada["height"];
+		auto dados = camada["data"];
+
+		// Inicializa a matriz bidimensional para a camada atual
+		vector<vector<int>> matriz(altura, vector<int>(largura, 0));
+
+		// Preenche a matriz bidimensional com os dados da camada
+		for (int i = 0; i < altura; ++i) {
+			for (int j = 0; j < largura; ++j) {
+				matriz[i][j] = dados[i * largura + j];
+			}
+		}
+
+		// Adiciona a matriz da camada atual à matriz tridimensional
+		matriz3D.push_back(matriz);
+	}
+
+	return matriz3D;
 }

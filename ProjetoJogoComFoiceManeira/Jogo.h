@@ -2,7 +2,6 @@
 #include <SFML/Graphics.hpp>
 #include "Jogador.h"
 #include "Inimigo.h"
-#include "ListaEntidade.h"
 #include "Fase.h"
 #include "Menu.h"
 
@@ -31,7 +30,7 @@ private:
 
 	Fase* fase1;
 	Menu* menu;
-
+	
 public:
 	Jogo();
 	~Jogo();

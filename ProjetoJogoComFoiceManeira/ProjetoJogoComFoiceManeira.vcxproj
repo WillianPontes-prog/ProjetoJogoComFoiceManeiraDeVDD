@@ -144,13 +144,13 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="EntidadesColision.cpp" />
+    <ClCompile Include="EntityGenerator.cpp" />
     <ClCompile Include="Fisica.cpp" />
     <ClCompile Include="Inimigo.cpp" />
     <ClCompile Include="Fase.cpp" />
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="Key.cpp" />
-    <ClCompile Include="ListaEntidade.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Plataforma.cpp" />
     <ClCompile Include="ProjetoJogoComFoiceManeira.cpp" />
@@ -163,6 +163,7 @@
     <ClInclude Include="Elemento.h" />
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="EntidadesColision.h" />
+    <ClInclude Include="EntityGenerator.h" />
     <ClInclude Include="FIsica.h" />
     <ClInclude Include="GlobalVars.h" />
     <ClInclude Include="Inimigo.h" />
@@ -172,8 +173,6 @@
     <ClInclude Include="json.hpp" />
     <ClInclude Include="json_fwd.hpp" />
     <ClInclude Include="Key.h" />
-    <ClInclude Include="Lista.h" />
-    <ClInclude Include="ListaEntidade.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Personagens.h" />
     <ClInclude Include="Plataforma.h" />

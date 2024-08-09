@@ -1,8 +1,6 @@
 #pragma once
 #include "Entidade.h"
-#include "ListaEntidade.h"
 #include "Plataforma.h"
-
 #include <list>
 
 

@@ -73,6 +73,16 @@ void Fase::levelGenerate()
 
 void Fase::atualiza()
 {
+	sf::Texture texture;
+	if (!texture.loadFromFile("Fase_1.png"))
+	{
+		std::cerr << "Erro ao carregar a imagem!" << std::endl;
+	}
+	sf::Sprite sprite;
+	sprite.setTexture(texture);
+	window->draw(sprite);
+
+
 	//desenha todas entidades
 	for (std::list<Plataforma*>::iterator it = listaPlataforma->begin(); it != listaPlataforma->end(); ++it) {
 

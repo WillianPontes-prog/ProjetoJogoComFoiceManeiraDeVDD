@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Ataque.cpp" />
+    <ClCompile Include="Barra.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="EntidadesColision.cpp" />
@@ -157,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ataque.h" />
+    <ClInclude Include="Barra.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Elemento.h" />
     <ClInclude Include="Entidade.h" />
@@ -178,7 +180,7 @@
     <ClInclude Include="Weapons.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Tiles\teste.tmj" />
+    <None Include="pipipipopopodeteste.json" />
     <None Include="Save.json" />
   </ItemGroup>
   <ItemGroup>

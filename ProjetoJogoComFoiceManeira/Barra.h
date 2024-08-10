@@ -9,7 +9,7 @@ private:
 	bool automatico; // define se cura automaticamente a barra;
 	bool parado; // define se a barra automatica deve curar ou nao
 public:
-	Barra(float dimensionX = 100.f, float dimensionY = 100.f, float posX = 0, float posY = 0, float max = 100.f, float at = 100.f, bool autom =0);
+	Barra(bool autom = 0,float posX = 0, float posY = 0, float max = 100.f, float at = 100.f);
 	~Barra();
 
 	void set_maxima(float max) { this->maxima = max; }

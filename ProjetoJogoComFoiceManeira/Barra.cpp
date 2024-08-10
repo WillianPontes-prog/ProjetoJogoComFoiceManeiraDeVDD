@@ -1,7 +1,7 @@
 #include "Barra.h"
 
-Barra::Barra(float dimensionX, float dimensionY, float posX, float posY, float max, float at, bool autom) :
-	Entidade(dimensionX, dimensionY, posX, posY),
+Barra::Barra(bool autom, float posX, float posY, float max, float at) :
+	Entidade(80, 5, posX, posY),
 	maxima(max),
 	atual(at),
 	automatico(autom)

@@ -4,6 +4,7 @@
 #include "Ataque.h"
 #include "Key.h"
 #include "Weapons.h"
+#include "Barra.h"
 
 class Jogador : public EntidadesColision {
 private:
@@ -30,6 +31,10 @@ private:
 	int MAXcoyteTime = 5;
 
 	int cooldown = 0;
+
+	Barra vida;
+	Barra mana;
+	//Barra stamina;
 
 public:
 	Jogador(float dimensionX = 100.f, float dimensionY = 100.f, float posX = 0, float posY = 0, std::list<Plataforma*>* listPlat = nullptr);

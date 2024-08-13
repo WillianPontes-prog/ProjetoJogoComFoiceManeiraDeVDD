@@ -60,14 +60,17 @@ void Inimigo::move()
 		int invert = 0;
 		bodyTemp = body;
 
+		auto bodyTempX = body;
+
 		bodyTemp.move(sf::Vector2f(hspd + (body.getSize().x * (abs(hspd) / hspd)), 2));
+		bodyTempX.move(sf::Vector2f(hspd + (body.getSize().x * (abs(hspd) / hspd)), 0));
 
 		for (std::list<Plataforma*>::iterator it = listPlat->begin(); it != listPlat->end(); ++it) {
 			
 			if (!ChecarColisao(bodyTemp, (*it)->get_body())) {
 				invert = 1;
 			}
-			else {
+			else if (!ChecarColisao(bodyTempX, (*it)->get_body()) ){
 				invert = 0;
 				break;
 			}

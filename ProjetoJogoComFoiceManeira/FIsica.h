@@ -14,6 +14,6 @@ int CollisionV(float x_, float y_, sf::RectangleShape collider);
 int CollisionVH(sf::RectangleShape body, sf::RectangleShape collider);
 */
 
-int MinimalNumber(float valor);
+int NumeroMinimo(float valor);
 
-int CheckCollision(const sf::RectangleShape& rect1, const sf::RectangleShape& rect2);
+int ChecarColisao(const sf::RectangleShape& rect1, const sf::RectangleShape& rect2);

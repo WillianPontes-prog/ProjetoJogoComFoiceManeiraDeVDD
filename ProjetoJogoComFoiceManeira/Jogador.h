@@ -1,35 +1,35 @@
 #pragma once
-#include "EntidadesColision.h"
+#include "EntidadeColisao.h"
 #include "FIsica.h"
 #include "Ataque.h"
-#include "Key.h"
-#include "Weapons.h"
+#include "Tecla.h"
+#include "Arma.h"
 #include "Barra.h"
 
-class Jogador : public EntidadesColision {
+class Jogador : public EntidadeColisao {
 private:
 
 	
 	int maxVida = 5;
 	int vida = maxVida;
 
-	std::list<Ataque*>* listPlayerAtaque;
-	Weapons* armas[3];
+	std::list<Ataque*>* listaJogadorAtaque;
+	Arma* armas[3];
 
-	enum palyerState {
-		Stand,
+	enum estadoDoJogador {
+		Normal,
 		Atk
 	};
 
 	int armatual;
-	int state = Stand;
+	int state = Normal;
 
-	float speedP = 7;
+	float velocidadeP = 7;
 
-	float jump = 10;
+	float pulo = 10;
 
-	int flagJump = 0;
-	int flagWeapon = 0;	
+	int flagPulo = 0;
+	int flagArma = 0;	
 
 	int coyteTime = 0;
 	int MAXcoyteTime = 5;
@@ -43,7 +43,7 @@ private:
 	//*/
 
 public:
-	Jogador(float dimensionX = 100.f, float dimensionY = 100.f, float posX = 0, float posY = 0, std::list<Plataforma*>* listPlat = nullptr);
+	Jogador(float dimX = 100.f, float dimY = 100.f, float posX = 0, float posY = 0, std::list<Plataforma*>* listPlat = nullptr);
 	~Jogador();
 
 	sf::Vector2f MidleButton() {
@@ -55,11 +55,11 @@ public:
 
 	void Move();
 
-	void BasicAtk();
+	void AtkBasico();
 
-	void ChangeWeapon();
+	void TrocarArma();
 
-	std::list<Ataque*>* getListAtk();
+	std::list<Ataque*>* getListaAtk();
 
 	void atualiza() override;
 

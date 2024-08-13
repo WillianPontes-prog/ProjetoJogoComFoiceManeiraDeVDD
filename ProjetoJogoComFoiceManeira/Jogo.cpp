@@ -55,11 +55,11 @@ void Jogo::Atualiza()
 
         switch (state)
         {
-        case Jogo::InitialMenu: {
+        case Jogo::MenuInicial: {
             menu->atualiza();
         }
         break;
-        case Jogo::InGame: {
+        case Jogo::EmJogo: {
             fase1->atualiza();
         }
         break;

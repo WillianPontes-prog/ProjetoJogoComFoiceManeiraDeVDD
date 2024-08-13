@@ -1,38 +1,38 @@
 #pragma once
-#include "EntidadesColision.h"
+#include "EntidadeColisao.h"
 #include "FIsica.h"
 #include "Ataque.h"
-#include "Weapons.h"
+#include "Arma.h"
 #include "Jogador.h"
 #include <cmath>
 
-class Inimigo : public EntidadesColision {
+class Inimigo : public EntidadeColisao {
 
 private:
-	enum enemyState {
-		Stand,
+	enum estadoDeInimigo {
+		Normal,
 		Atk
 	};
-	int state = Stand;
+	int state = Normal;
 
 	int cooldown = 0;
 
 	std::list<Ataque*>* listInimigoAtaque;
-	Weapons* armas[1];
+	Arma* armas[1];
 
-	float speed = 3;
-	std::list<Jogador*>* listJogador;
+	float velocidade = 3;
+	std::list<Jogador*>* listaJogador;
 
 public:
-	Inimigo(float dimensionX = 100.f, float dimensionY = 100.f, float posX = 0.f, float posY = 0.f, std::list<Plataforma*>* listPlat = nullptr, std::list<Jogador*>* listJogador = nullptr);
+	Inimigo(float dimX = 100.f, float dimY = 100.f, float posX = 0.f, float posY = 0.f, std::list<Plataforma*>* listPlat = nullptr, std::list<Jogador*>* listJogador = nullptr);
 	~Inimigo();
 
 	void move();
-	int search();
-	int searchX();
-	int searchY();
+	int procurarJogador();
+	int procurarJogadorX();
+	int tempoDeDestruicaoY();
 
 	void atk();
 	void atualiza() override;
-	void set_listJogador(std::list<Jogador*>* listJogador);
+	void set_listaJogador(std::list<Jogador*>* listJogador);
 };

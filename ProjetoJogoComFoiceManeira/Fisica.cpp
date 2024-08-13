@@ -69,13 +69,13 @@ int CollisionVH(sf::RectangleShape body, sf::RectangleShape collider)
 }
 */
 
-int MinimalNumber(float valor)
+int NumeroMinimo(float valor)
 {
 	if (valor == 0) { return 0; } 
 	else { return (valor / abs(valor)); }
 }
 
-int CheckCollision(const sf::RectangleShape& rect1, const sf::RectangleShape& rect2) {
+int ChecarColisao(const sf::RectangleShape& rect1, const sf::RectangleShape& rect2) {
 	sf::FloatRect bounds1 = rect1.getGlobalBounds();
 	sf::FloatRect bounds2 = rect2.getGlobalBounds();
 	return bounds1.intersects(bounds2);

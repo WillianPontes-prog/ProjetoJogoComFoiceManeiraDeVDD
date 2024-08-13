@@ -1,21 +1,21 @@
 #pragma once
-#include "Button.h"
-#include "Key.h"
+#include "Botao.h"
+#include "Tecla.h"
 #include "Jogo.h"
 #include <vector>
 #include <SFML/Graphics.hpp>
 
 class Jogo;
-class Button;
+class Botao;
 
 class Menu {
 private:
 	int continua;
-	int buttonSelected;
+	int botaoSelecionado;
 	sf::RenderWindow* window;
-	std::vector<Button*> botoes;
+	std::vector<Botao*> botoes;
 
-	int flagButtonPressed;
+	int flagBotaoPressionado;
 
 	Jogo* jogo;
 

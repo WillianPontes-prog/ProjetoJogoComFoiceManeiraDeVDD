@@ -1,15 +1,15 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-class Key {
+class Tecla {
 
 private:
     static int isPJump;
 
 public:
 
-    Key() {}
-    ~Key() {};
+    Tecla() {}
+    ~Tecla() {};
 
     static int Left();
     static int Right();

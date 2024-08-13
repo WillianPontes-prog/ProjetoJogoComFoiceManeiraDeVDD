@@ -1,6 +1,6 @@
-#include "Button.h"
+#include "Botao.h"
 
-Button::Button(sf::RenderWindow* w, float x, float y, float width, float height, std::string text, buttonType _type, Jogo* jg)
+Botao::Botao(sf::RenderWindow* w, float x, float y, float width, float height, std::string text, tipoDoBotao _type, Jogo* jg)
 {
 	body.setPosition(x, y);
 	body.setSize(sf::Vector2f(width, height));
@@ -13,60 +13,60 @@ Button::Button(sf::RenderWindow* w, float x, float y, float width, float height,
 	this->text.setFillColor(sf::Color::Black);
 	this->text.setPosition(x + width / 2 - this->text.getGlobalBounds().width / 2, y + height / 2 - this->text.getGlobalBounds().height / 2);
 	set_Window(w);
-	pressed = 0;
+	pressionado = 0;
 
-	this->type = _type;
+	this->tipo = _type;
 
 	jogo = jg;
 
 }
 
-Button::~Button()
+Botao::~Botao()
 {
 }
 
-void Button::draw()
+void Botao::draw()
 {
 	window->draw(body);
 	window->draw(text);
 
 }
 
-void Button::set_Color(sf::Color color)
+void Botao::set_Color(sf::Color color)
 {
 	body.setFillColor(color);
 }
 
-void Button::set_Window(sf::RenderWindow* w)
+void Botao::set_Window(sf::RenderWindow* w)
 {
 	window = w;
 }
 
-void Button::set_Pressed(bool test)
+void Botao::set_Pressed(bool test)
 {
 	if (test)
-		pressed = 1;
+		pressionado = 1;
 	else
-		pressed = 0;
+		pressionado = 0;
 }
 
-void Button::execute()
+void Botao::executar()
 {
-	switch (type)
+	switch (tipo)
 	{
-	case Button::NewGame: {
-		jogo->setGameState(Jogo::InGame);
+	case Botao::NovoJogo: {
+		jogo->setGameState(Jogo::EmJogo);
 	}
 	break;
-	case Button::LoadGame: {
+	case Botao::CarregarJogo: {
 
 	}
 	break;
-	case Button::Save: {
+	case Botao::Salvar: {
 
 	}
 	break;
-	case Button::Exit: {
+	case Botao::Sair: {
 		window->close();
 	}
 	break;
@@ -77,9 +77,9 @@ void Button::execute()
 	}
 }
 
-void Button::atualiza()
+void Botao::atualiza()
 {
-	if (pressed)
+	if (pressionado)
 	{
 		set_Color(sf::Color::Green);
 	}

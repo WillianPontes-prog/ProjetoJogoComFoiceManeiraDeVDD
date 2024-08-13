@@ -12,24 +12,23 @@ class Menu;
 class Jogo {
 
 public:
-	enum page {
-		InitialMenu,
-		InGame
+	enum pagina {
+		MenuInicial,
+		EmJogo
 	};
 
 private:
 
-	page state = InitialMenu;
+	Fase* fase1;
+	Menu* menu;
+
+	pagina state = MenuInicial;
 
 	sf::RenderWindow window;
 
 	std::list<Plataforma*>* listaPlataforma;
 	std::list<Jogador*>* listaJogadores;
 	std::list<Inimigo*>* listaInimigos;
-
-
-	Fase* fase1;
-	Menu* menu;
 	
 public:
 	Jogo();
@@ -37,6 +36,6 @@ public:
 
 	void Atualiza();
 
-	void setGameState(page _state) { state = _state; }
+	void setGameState(pagina _state) { state = _state; }
 
 };

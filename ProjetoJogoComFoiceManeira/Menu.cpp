@@ -5,14 +5,14 @@ Menu::Menu(Jogo* jg) :
     window(NULL)
 {
     continua = 0;
-    buttonSelected = 0;
+    botaoSelecionado = 0;
 
     // Criação dos botões e adição à lista de botões
-    botoes.push_back(new Button(window, 100, 50, 200, 50, "Continua", Button::LoadGame, jg));
-    botoes.push_back(new Button(window, 100, 150, 200, 50, "Novo Jogo", Button::NewGame, jg));
-    botoes.push_back(new Button(window, 100, 250, 200, 50, "Sair", Button::Exit, jg));
+    botoes.push_back(new Botao(window, 100, 50, 200, 50, "Continua", Botao::CarregarJogo, jg));
+    botoes.push_back(new Botao(window, 100, 150, 200, 50, "Novo Jogo", Botao::NovoJogo, jg));
+    botoes.push_back(new Botao(window, 100, 250, 200, 50, "Sair", Botao::Sair, jg));
 
-    flagButtonPressed = 0;
+    flagBotaoPressionado = 0;
 
     jogo = jg;
 }
@@ -42,39 +42,39 @@ void Menu::set_Window(sf::RenderWindow* window)
 void Menu::move()
 {
     // Verifica se o botão não está pressionado
-    if (!flagButtonPressed) {
+    if (!flagBotaoPressionado) {
 
         // Verifica se a tecla para baixo está pressionada
-        if (Key::Down()) {
+        if (Tecla::Down()) {
             // Verifica se o botão selecionado é o último da lista
-            if (buttonSelected >= botoes.size() - 1) {
-                buttonSelected = 0;
+            if (botaoSelecionado >= botoes.size() - 1) {
+                botaoSelecionado = 0;
             }
             else {
-                buttonSelected++;
+                botaoSelecionado++;
             }
 
-            flagButtonPressed = 1;
+            flagBotaoPressionado = 1;
         }
         // Verifica se a tecla para cima está pressionada
-        if (Key::Up()) {
+        if (Tecla::Up()) {
             // Verifica se o botão selecionado é o primeiro da lista
-            if (buttonSelected <= 0) {
-                buttonSelected = botoes.size() - 1;
+            if (botaoSelecionado <= 0) {
+                botaoSelecionado = botoes.size() - 1;
             }
             else {
-                buttonSelected--;
+                botaoSelecionado--;
             }
 
-            flagButtonPressed = 1;
+            flagBotaoPressionado = 1;
         }
 
     }
 
     // Verifica se nenhuma tecla está pressionada
-    if (!Key::Up() && !Key::Down())
+    if (!Tecla::Up() && !Tecla::Down())
     {
-        flagButtonPressed = 0;
+        flagBotaoPressionado = 0;
     }
 }
 
@@ -84,12 +84,12 @@ void Menu::atualiza()
     move();
     for (int i = 0; i < botoes.size(); i++)
     {
-        if (i == buttonSelected)
+        if (i == botaoSelecionado)
         {
             botoes[i]->set_Pressed(true);
 
-            if (Key::Click()) {
-                botoes[i]->execute();
+            if (Tecla::Click()) {
+                botoes[i]->executar();
             }
         }
         else

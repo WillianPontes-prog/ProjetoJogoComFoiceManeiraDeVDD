@@ -4,7 +4,7 @@
 #include "Inimigo.h"
 #include "Plataforma.h"
 #include "Ataque.h"
-#include "EntityGenerator.h"
+#include "GeradorDeEntidade.h"
 #include "json.hpp"
 
 using json = nlohmann::json;
@@ -20,7 +20,7 @@ using json = nlohmann::json;
 
 using namespace std;
 
-class EntityGenerator;
+class GeradorDeEntidade;
 
 class Fase {
 
@@ -31,25 +31,25 @@ private:
 
 	void inicializaElementos();
 
-	std::string jsonFile;
-	EntityGenerator* entityGenerator;
+	std::string caminhoJson;
+	GeradorDeEntidade* geradorDeEntidade;
 
-	sf::Sprite totile;
-	sf::Texture toptileTexture;
+	sf::Sprite toTile;
+	sf::Texture toTexture;
 
 
 	sf::Sprite vidaTile;
 	sf::Texture vidaTexture;
 
 public:
-	Fase(sf::RenderWindow* window = nullptr, std::string jsonFile = "");
+	Fase(sf::RenderWindow* window = nullptr, std::string caminhoJson = "");
 	~Fase();
 
 	sf::RenderWindow* window;
 	std::list<Plataforma*>* get_listaPlataforma() { return listaPlataforma; }
 	std::list<Jogador*>* get_listaJogadores() { return listaJogadores; }
 	std::list<Inimigo*>* get_listaInimigos() { return listaInimigos; }
-	void levelGenerate();
+	void gerarFase();
 	void atualiza();
 
 

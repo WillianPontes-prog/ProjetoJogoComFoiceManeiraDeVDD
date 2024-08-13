@@ -4,19 +4,19 @@ void Fase::inicializaElementos()
 {
 	std::srand(std::time(nullptr));
 
-	levelGenerate();
+	gerarFase();
 
 }
 
 Fase::Fase(sf::RenderWindow* window, std::string jsonFile):
-entityGenerator(new EntityGenerator(this))
+geradorDeEntidade(new GeradorDeEntidade(this))
 {
 	//----------Carregando imagens e texturas----------\\
 	=====================================================
-	if (!toptileTexture.loadFromFile("Fase_1.png"))
+	if (!toTexture.loadFromFile("Fase_1.png"))
 		std::cerr << "Erro ao carregar a imagem!" << std::endl;
 
-	totile.setTexture(toptileTexture);
+	toTile.setTexture(toTexture);
 
 
 	
@@ -28,7 +28,7 @@ entityGenerator(new EntityGenerator(this))
 	//===================================================\\
 
 	this->window = window;
-	this->jsonFile = jsonFile;
+	this->caminhoJson = jsonFile;
 
 	listaPlataforma		= new std::list<Plataforma*>();
 	listaJogadores		= new std::list<Jogador*>();
@@ -42,12 +42,12 @@ Fase::~Fase()
 {
 }
 
-void Fase::levelGenerate()
+void Fase::gerarFase()
 {
 
 	//--------gerando entidades e descobrindo qual é--------\\
 	==========================================================
-	json mapa = lerArquivoJSON(jsonFile);
+	json mapa = lerArquivoJSON(caminhoJson);
 
 	// Extrair e imprimir a matriz
 	vector<vector<vector<int>>> matriz = extrairCamadas(mapa,2);
@@ -56,7 +56,7 @@ void Fase::levelGenerate()
 	for(int i = 0; i < matriz.size(); i++){
 		for(int j = 0; j < matriz[i].size(); j++){
 			for (int k = 0; k < matriz[i][j].size(); k++) {
-				entityGenerator->execute(k * 32,  j* 32, matriz[i][j][k]);
+				geradorDeEntidade->executar(k * 32,  j* 32, matriz[i][j][k]);
 			}
 		}
 	}
@@ -74,7 +74,7 @@ void Fase::levelGenerate()
 	for (std::list<Inimigo*>::iterator it = listaInimigos->begin(); it != listaInimigos->end(); ++it) {
 		(*it)->set_Window(window);
 		(*it)->set_listPlat(listaPlataforma);
-		(*it)->set_listJogador(listaJogadores);
+		(*it)->set_listaJogador(listaJogadores);
 	}
 
 	//Players
@@ -87,7 +87,7 @@ void Fase::levelGenerate()
 void Fase::atualiza()
 {
 	//desenha
-	window->draw(totile);
+	window->draw(toTile);
 
 
 

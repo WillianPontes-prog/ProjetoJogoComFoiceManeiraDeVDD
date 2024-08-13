@@ -28,6 +28,8 @@ void Inimigo::move()
 
 	if (abs(found) < 300) {
 
+		int zerarHspd = 1;
+
 		for (std::list<Plataforma*>::iterator it = listPlat->begin(); it != listPlat->end(); ++it) {
 
 			bodyTemp = body;
@@ -44,9 +46,13 @@ void Inimigo::move()
 			}
 
 			bodyTemp.move(sf::Vector2f(hspd + (body.getSize().x * (abs(hspd) / hspd)), 1));
-			if (!CheckCollision(bodyTemp, (*it)->get_body())) {
-				hspd = 0;
+			if (CheckCollision(bodyTemp, (*it)->get_body())) {
+				zerarHspd = 0;
 			}
+		}
+
+		if(zerarHspd) {
+			hspd = 0;
 		}
 	}
 	else {

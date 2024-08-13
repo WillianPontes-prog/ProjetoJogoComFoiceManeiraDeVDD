@@ -11,11 +11,21 @@ void Fase::inicializaElementos()
 Fase::Fase(sf::RenderWindow* window, std::string jsonFile):
 entityGenerator(new EntityGenerator(this))
 {
+	//----------Carregando imagens e texturas----------\\
+	=====================================================
 	if (!toptileTexture.loadFromFile("Fase_1.png"))
-	{
 		std::cerr << "Erro ao carregar a imagem!" << std::endl;
-	}
+
 	totile.setTexture(toptileTexture);
+
+
+	
+	if (!vidaTexture.loadFromFile("LifeImg.png"))
+		std::cerr << "Erro ao carregar a imagem!" << std::endl;
+
+	vidaTile.setTexture(vidaTexture);
+
+	//===================================================\\
 
 	this->window = window;
 	this->jsonFile = jsonFile;
@@ -79,19 +89,25 @@ void Fase::atualiza()
 	//desenha
 	window->draw(totile);
 
-	//desenha todas entidades
-	//for (std::list<Plataforma*>::iterator it = listaPlataforma->begin(); it != listaPlataforma->end(); ++it) {
-
-	//	(*it)->atualiza();
-	//}
 
 
+	//----atualizando Jogadores----\\
+	=================================
 	for (std::list<Jogador*>::iterator it = listaJogadores->begin(); it != listaJogadores->end(); ++it) {
 
 		(*it)->atualiza();
+
+		//----desenha vidas----\\
+		=========================
+		for (int i = 0; i < (*it)->get_vida(); i++) {
+			vidaTile.setPosition(10 + (i * 32), 10);
+			window->draw(vidaTile);
+		}
+
 	}
 
-
+	//----atualizando Inimigos----\\
+	=================================
 	for (std::list<Inimigo*>::iterator it = listaInimigos->begin(); it != listaInimigos->end(); ++it) {
 
 		(*it)->atualiza();

@@ -8,8 +8,9 @@ private:
 	float atual;
 	bool automatico; // define se cura automaticamente a barra;
 	bool parado; // define se a barra automatica deve curar ou nao
+
 public:
-	Barra(bool autom = 0,float posX = 0, float posY = 0, float max = 100.f, float at = 100.f);
+	Barra(bool autom = false,float posX = 0, float posY = 0, float max = 100.f, float at = 100.f);
 	~Barra();
 
 	void set_maxima(float max) { this->maxima = max; }
@@ -19,8 +20,7 @@ public:
 	void set_dimension(float x, float y) { body.setSize(sf::Vector2f(x, y)); }
 
 	void atualiza() override;
-	void draw() { window->draw(body); }
-	void set_Window(sf::RenderWindow* w) { this->window = w; };
+	
 	
 
 

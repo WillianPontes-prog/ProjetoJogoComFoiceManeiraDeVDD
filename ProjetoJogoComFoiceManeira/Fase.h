@@ -37,6 +37,10 @@ private:
 	sf::Sprite totile;
 	sf::Texture toptileTexture;
 
+
+	sf::Sprite vidaTile;
+	sf::Texture vidaTexture;
+
 public:
 	Fase(sf::RenderWindow* window = nullptr, std::string jsonFile = "");
 	~Fase();

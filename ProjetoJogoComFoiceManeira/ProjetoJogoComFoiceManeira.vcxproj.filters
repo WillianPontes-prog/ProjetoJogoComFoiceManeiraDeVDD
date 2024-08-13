@@ -30,9 +30,6 @@
     <ClCompile Include="Jogador.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="ListaEntidade.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
     <ClCompile Include="Fase.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
@@ -66,6 +63,9 @@
     <ClCompile Include="Barra.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="EntityGenerator.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.h">
@@ -81,12 +81,6 @@
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="Elemento.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Lista.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="ListaEntidade.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="Fase.h">
@@ -131,6 +125,9 @@
     <ClInclude Include="Barra.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
+    <ClInclude Include="EntityGenerator.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Save.json" />
@@ -148,6 +145,12 @@
       <Filter>Arquivos de Recurso</Filter>
     </Image>
     <Image Include="..\Tiles\TX Village Props.png">
+      <Filter>Arquivos de Recurso</Filter>
+    </Image>
+    <Image Include="Fase_1.png">
+      <Filter>Arquivos de Recurso</Filter>
+    </Image>
+    <Image Include="LifeImg.png">
       <Filter>Arquivos de Recurso</Filter>
     </Image>
   </ItemGroup>

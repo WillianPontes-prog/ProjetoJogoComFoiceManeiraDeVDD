@@ -1,10 +1,12 @@
 #include "Jogador.h"
 
 Jogador::Jogador(float dimensionX, float dimensionY, float posX, float posY, std::list<Plataforma*>* listPlat) :
-	EntidadesColision(dimensionX, dimensionY, posX, posY, listPlat),
-	vida(0,0, 0),
-	mana(0, 0, 10)
-	//,stamina(1, 0 , 20)
+	EntidadesColision(dimensionX, dimensionY, posX, posY, listPlat)
+	/*
+	vida(new Barra(0,0, 0)),
+	mana(new Barra(0, 0, 10))
+	//*/
+	
 	
 {
 	listPlayerAtaque = new std::list<Ataque*>();
@@ -14,9 +16,6 @@ Jogador::Jogador(float dimensionX, float dimensionY, float posX, float posY, std
 	armas[2] = new Weapons(100, 20, 3, dir, 50.f, 6.f, 40.f);
 	armatual = 1;
 
-
-	vida.set_Window(window);
-	mana.set_Window(window);
 	//stamina.set_Window(window);
 }
 
@@ -81,9 +80,7 @@ void Jogador::atualiza()
 	}
 
 	draw();
-	vida.atualiza();
-	mana.atualiza();
-	//stamina.atualiza();
+
 }
 
 void Jogador::Move()

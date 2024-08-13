@@ -9,6 +9,10 @@
 class Jogador : public EntidadesColision {
 private:
 
+	
+	int maxVida = 5;
+	int vida = maxVida;
+
 	std::list<Ataque*>* listPlayerAtaque;
 	Weapons* armas[3];
 
@@ -32,9 +36,11 @@ private:
 
 	int cooldown = 0;
 
-	Barra vida;
-	Barra mana;
+	/*
+	Barra* vida;
+	Barra* mana;
 	//Barra stamina;
+	//*/
 
 public:
 	Jogador(float dimensionX = 100.f, float dimensionY = 100.f, float posX = 0, float posY = 0, std::list<Plataforma*>* listPlat = nullptr);
@@ -57,6 +63,7 @@ public:
 
 	void atualiza() override;
 
-
+	int get_vida() { return vida; }
+	int get_maxVida() { return maxVida; }
 
 };

@@ -189,6 +189,7 @@
     <Image Include="..\Tiles\TX Tileset Ground.png" />
     <Image Include="..\Tiles\TX Village Props.png" />
     <Image Include="Fase_1.png" />
+    <Image Include="LifeImg.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

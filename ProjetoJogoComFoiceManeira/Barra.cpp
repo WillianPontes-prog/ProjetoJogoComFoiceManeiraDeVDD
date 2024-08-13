@@ -15,12 +15,12 @@ Barra::~Barra()
 
 bool Barra::dano(float at)
 {
-	atual-= at;
+	atual -= at;
 	if (atual <= 0)
 		return 1;
 }
 
-void Barra::atualiza()
+void Barra::atualiza() 
 {
 	body.setSize(sf::Vector2f((atual / maxima) * body.getSize().x, body.getSize().y));
 	draw();

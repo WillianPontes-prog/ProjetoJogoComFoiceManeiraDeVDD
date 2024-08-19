@@ -43,13 +43,13 @@ void GeradorDeEntidade::executar(float posX, float posY, int n)
 	switch (n)
 	{
 	case 1313:
-		fase->get_listaJogadores()->push_back(criarJogador(posX, posY));
+		fase->get_listaJogadores()->adicionarElemento(criarJogador(posX, posY));
 		break;
 	case 1337:
-		fase->get_listaInimigos()->push_back(criarInimigo(posX, posY));
+		fase->get_listaInimigos()->adicionarElemento(criarInimigo(posX, posY));
 		break;
 	case 1317:
-		fase->get_listaPlataforma()->push_back(criarPlataforma(posX, posY));
+		fase->get_listaPlataforma()->adicionarElemento(criarPlataforma(posX, posY));
 		break;
 	default:
 		

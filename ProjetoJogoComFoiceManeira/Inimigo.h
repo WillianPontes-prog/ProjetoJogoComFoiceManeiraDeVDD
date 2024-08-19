@@ -17,14 +17,14 @@ private:
 
 	int cooldown = 0;
 
-	std::list<Ataque*>* listInimigoAtaque;
+	Lista<Ataque*>* listInimigoAtaque;
 	Arma* armas[1];
 
 	float velocidade = 3;
-	std::list<Jogador*>* listaJogador;
+	Lista<Jogador*>* listaJogador;
 
 public:
-	Inimigo(float dimX = 100.f, float dimY = 100.f, float posX = 0.f, float posY = 0.f, std::list<Plataforma*>* listPlat = nullptr, std::list<Jogador*>* listJogador = nullptr);
+	Inimigo(float dimX = 100.f, float dimY = 100.f, float posX = 0.f, float posY = 0.f, Lista<Plataforma*>* listPlat = nullptr, Lista<Jogador*>* listJogador = nullptr);
 	~Inimigo();
 
 	void move();
@@ -34,6 +34,6 @@ public:
 
 	void atk();
 	void atualiza() override;
-	void set_listaJogador(std::list<Jogador*>* listJogador);
-	void set_listaAtaque(std::list<Ataque*>* listAtaque);
+	void set_listaJogador(Lista<Jogador*>* listJogador);
+	void set_listaAtaque(Lista<Ataque*>* listAtaque);
 };

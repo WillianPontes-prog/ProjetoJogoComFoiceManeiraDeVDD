@@ -5,7 +5,9 @@
 #include "Plataforma.h"
 #include "Ataque.h"
 #include "GeradorDeEntidade.h"
+#include "Fase.h"
 #include "json.hpp"
+#include "Lista.h"
 #include "GerenciadorGrafico.h"
 
 using json = nlohmann::json;
@@ -26,11 +28,13 @@ class GeradorDeEntidade;
 class Fase {
 
 private:
-	std::list<Plataforma*>* listaPlataforma;
-	std::list<Jogador*>*	listaJogadores;
-	std::list<Inimigo*>*	listaInimigos;
-	std::list<Ataque*>*		listaAtaques;
-	std::list<Ataque*>*		listaAtaquesInimigo;
+	
+	
+	Lista<Plataforma*>*		listaPlataforma;
+	Lista<Jogador*>*	listaJogadores;
+	Lista<Inimigo*>*	listaInimigos;
+	Lista<Ataque*>*		listaAtaques;
+	Lista<Ataque*>*		listaAtaquesInimigo;
 
 	GerenciadorGrafico* gerenciadorGrafico;
 
@@ -47,11 +51,12 @@ public:
 	~Fase();
 
 	sf::RenderWindow* window;
-	std::list<Plataforma*>* get_listaPlataforma() { return listaPlataforma; }
-	std::list<Jogador*>* get_listaJogadores() { return listaJogadores; }
-	std::list<Inimigo*>* get_listaInimigos() { return listaInimigos; }
-	std::list<Ataque*>* get_listaAtaques() { return listaAtaques; }
-	std::list<Ataque*>* get_listaAtaquesInimigo() { return listaAtaquesInimigo; }
+
+	Lista<Plataforma*>* get_listaPlataforma()	{ return listaPlataforma; }
+	Lista<Jogador*>* get_listaJogadores()		{ return listaJogadores; }
+	Lista<Inimigo*>* get_listaInimigos()		{ return listaInimigos; }
+	Lista<Ataque*>* get_listaAtaques()			{ return listaAtaques; }
+	Lista<Ataque*>* get_listaAtaquesInimigo()	{ return listaAtaquesInimigo; }
 
 	void gerarFase();
 	void atualiza();

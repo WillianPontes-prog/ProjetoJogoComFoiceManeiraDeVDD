@@ -18,5 +18,6 @@ public:
 	 virtual ~Iterativo() {}
 	 void Iterage(sf::RenderWindow* window)  {
 		window->draw(triangulo);
+		//nao existe será mais desenhada aqui
 	}
 };

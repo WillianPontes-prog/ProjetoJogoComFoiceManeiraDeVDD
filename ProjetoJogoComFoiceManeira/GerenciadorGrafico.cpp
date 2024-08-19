@@ -2,10 +2,10 @@
 
 GerenciadorGrafico::GerenciadorGrafico(
 	sf::RenderWindow* _window, 
-	std::list<Jogador*>* listaJogador, 
-	std::list<Inimigo*>* listaInimigo, 
-	std::list<Ataque*>* listaAtaque, 
-	std::list<Ataque*>* listaAtaqueInimigo)
+	Lista<Jogador*>* listaJogador,
+	Lista<Inimigo*>* listaInimigo,
+	Lista<Ataque*>* listaAtaque,
+	Lista<Ataque*>* listaAtaqueInimigo)
 	: 
 	window(_window), 
 	listaJogadores(listaJogador), 

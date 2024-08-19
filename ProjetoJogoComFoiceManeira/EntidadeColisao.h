@@ -8,16 +8,21 @@ class EntidadeColisao: public Entidade{
 
 public:
 	
-	std::list<Plataforma*>* get_listPlat();
+	Lista<Plataforma*>* get_listPlat();
 	
-	void set_listPlat(std::list<Plataforma*>* listPlat);
+	void set_listPlat(Lista<Plataforma*>* listPlat);
 
-	EntidadeColisao(float dimX = 100.f, float dimY = 100.f,float posX = 0, float posY = 0, std::list<Plataforma*>* listPlat = nullptr);
+	EntidadeColisao(float dimX = 100.f, float dimY = 100.f,float posX = 0, float posY = 0, Lista<Plataforma*>* listPlat = nullptr);
 	~EntidadeColisao();
 
+	void set_hspd(float hspd) { this->hspd = hspd; };
+	void set_vspd(float vspd) { this->vspd = vspd; };
+
+	float get_hspd() { return hspd; };
+	float get_vspd() { return vspd; };
 
 protected:
-	std::list<Plataforma*>* listPlat;
+	Lista<Plataforma*>* listPlat;
 
 	float hspd = 0;
 	float vspd = 0;

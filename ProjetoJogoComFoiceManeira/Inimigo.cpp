@@ -1,6 +1,6 @@
 #include "Inimigo.h"
 
-Inimigo::Inimigo(float dimensionX, float dimensionY, float posX, float posY, std::list<Plataforma*>* listPlat, std::list<Jogador*>* listJogador) :
+Inimigo::Inimigo(float dimensionX, float dimensionY, float posX, float posY, Lista<Plataforma*>* listPlat, Lista<Jogador*>* listJogador) :
 	EntidadeColisao(dimensionX, dimensionY, posX, posY, listPlat)
 {
 	body.setFillColor(sf::Color::Cyan);
@@ -29,7 +29,7 @@ void Inimigo::move()
 
 		int zerarHspd = 1;
 
-		for (std::list<Plataforma*>::iterator it = listPlat->begin(); it != listPlat->end(); ++it) {
+		for (Lista<Plataforma*>::iterator it = listPlat->begin(); it != listPlat->end(); ++it) {
 
 			bodyTemp = body;
 
@@ -64,7 +64,7 @@ void Inimigo::move()
 		bodyTemp.move(sf::Vector2f(hspd + (body.getSize().x * (abs(hspd) / hspd)), 2));
 		bodyTempX.move(sf::Vector2f(hspd + (body.getSize().x * (abs(hspd) / hspd)), 0));
 
-		for (std::list<Plataforma*>::iterator it = listPlat->begin(); it != listPlat->end(); ++it) {
+		for (Lista<Plataforma*>::iterator it = listPlat->begin(); it != listPlat->end(); ++it) {
 			
 			if (!ChecarColisao(bodyTemp, (*it)->get_body())) {
 				invert = 1;
@@ -87,7 +87,7 @@ void Inimigo::move()
 		}
 	}
 
-	for (std::list<Plataforma*>::iterator it = listPlat->begin(); it != listPlat->end(); ++it) {
+	for (Lista<Plataforma*>::iterator it = listPlat->begin(); it != listPlat->end(); ++it) {
 		
 		bodyTemp = body;
 
@@ -140,7 +140,7 @@ void Inimigo::atk()
 
 	Ataque* hit = armas[0]->atack(get_body().getPosition().x, get_body().getPosition().y, dir);
 	hit->set_Window(window);
-	listInimigoAtaque->push_back(hit);	
+	listInimigoAtaque->adicionarElemento(hit);	
 
 	vspd = 0;
 
@@ -151,7 +151,7 @@ int Inimigo::procurarJogador()
 {
 	int minorDistance = 999999;
 
-	for (std::list<Jogador*>::iterator it = listaJogador->begin(); it != listaJogador->end(); ++it) {
+	for (Lista<Jogador*>::iterator it = listaJogador->begin(); it != listaJogador->end(); ++it) {
 		
 		int distance = std::hypot(body.getPosition().x - (*it)->get_body().getPosition().x, body.getPosition().y - (*it)->get_body().getPosition().y);
 		if (distance < abs(minorDistance)) {
@@ -172,7 +172,7 @@ int Inimigo::procurarJogadorX()
 {
 	int minorDistance = 999999;
 
-	for (std::list<Jogador*>::iterator it = listaJogador->begin(); it != listaJogador->end(); ++it) {
+	for (Lista<Jogador*>::iterator it = listaJogador->begin(); it != listaJogador->end(); ++it) {
 
 		int distance = body.getPosition().x - (*it)->get_body().getPosition().x;
 		if (distance < abs(minorDistance)) {
@@ -187,7 +187,7 @@ int Inimigo::tempoDeDestruicaoY()
 {
 	int minorDistance = 999999;
 
-	for (std::list<Jogador*>::iterator it = listaJogador->begin(); it != listaJogador->end(); ++it) {
+	for (Lista<Jogador*>::iterator it = listaJogador->begin(); it != listaJogador->end(); ++it) {
 
 		int distance = body.getPosition().y - (*it)->get_body().getPosition().y;
 		if (distance < abs(minorDistance)) {
@@ -230,28 +230,15 @@ void Inimigo::atualiza()
 	}
 	break;
 	}
-
-	for (auto it = listInimigoAtaque->begin(); it != listInimigoAtaque->end();) {
-		if ((*it)->OverTime()) {
-			delete* it; // Liberar memória
-			it = listInimigoAtaque->erase(it); // Remover elemento e atualizar iterador
-		}
-		else {
-			(*it)->atualiza();
-			++it;
-		}
-	}
 	
-
-	//draw();
 }
 
-void Inimigo::set_listaJogador(std::list<Jogador*>* listJogador)
+void Inimigo::set_listaJogador(Lista<Jogador*>* listJogador)
 {
 	this->listaJogador = listJogador;
 }
 
-void Inimigo::set_listaAtaque(std::list<Ataque*>* listAtaque)
+void Inimigo::set_listaAtaque(Lista<Ataque*>* listAtaque)
 {
 	this->listInimigoAtaque = listAtaque;
 }

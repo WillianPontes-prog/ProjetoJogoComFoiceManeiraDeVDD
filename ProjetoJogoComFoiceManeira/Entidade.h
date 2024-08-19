@@ -2,6 +2,7 @@
 #include<iostream>
 #include <SFML/Graphics.hpp>
 #include <cmath>
+#include "Lista.h"
 
 constexpr double PI = 3.14159265358979323846;
 

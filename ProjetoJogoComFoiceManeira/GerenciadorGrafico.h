@@ -12,10 +12,10 @@ class GerenciadorGrafico{
 private:
 	sf::RenderWindow* window;
 
-	std::list<Jogador*>* listaJogadores;
-	std::list<Inimigo*>* listaInimigos;
-	std::list<Ataque*>* listaAtaques;
-	std::list<Ataque*>* listaAtaquesInimigo;
+	Lista<Jogador*>* listaJogadores;
+	Lista<Inimigo*>* listaInimigos;
+	Lista<Ataque*>* listaAtaques;
+	Lista<Ataque*>* listaAtaquesInimigo;
 
 
 	sf::Sprite vidaTile;
@@ -31,10 +31,10 @@ private:
 public:
 	GerenciadorGrafico(
 		sf::RenderWindow* _window,
-		std::list<Jogador*>* listaJogador,
-		std::list<Inimigo*>* listaInimigo,
-		std::list<Ataque*>* listaAtaque,
-		std::list<Ataque*>* listaAtaqueInimigo);
+		Lista<Jogador*>* listaJogador,
+		Lista<Inimigo*>* listaInimigo,
+		Lista<Ataque*>* listaAtaque,
+		Lista<Ataque*>* listaAtaqueInimigo);
 
 	~GerenciadorGrafico();
 

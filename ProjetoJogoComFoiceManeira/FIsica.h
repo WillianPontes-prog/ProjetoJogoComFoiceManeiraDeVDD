@@ -2,17 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "GlobalVars.h"
 
-/*
-int CollisionH(sf::RectangleShape body, sf::RectangleShape collider);
 
-int CollisionV(sf::RectangleShape body, sf::RectangleShape collider);
-
-int CollisionH(float x_, float y_, sf::RectangleShape collider);
-
-int CollisionV(float x_, float y_, sf::RectangleShape collider);
-
-int CollisionVH(sf::RectangleShape body, sf::RectangleShape collider);
-*/
 
 int NumeroMinimo(float valor);
 

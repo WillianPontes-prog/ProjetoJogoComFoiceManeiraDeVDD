@@ -26,9 +26,9 @@ private:
 
 	sf::RenderWindow* window;
 
-	std::list<Plataforma*>* listaPlataforma;
-	std::list<Jogador*>* listaJogadores;
-	std::list<Inimigo*>* listaInimigos;
+	Lista<Plataforma*>* listaPlataforma;
+	Lista<Jogador*>* listaJogadores;
+	Lista<Inimigo*>* listaInimigos;
 	
 public:
 	Jogo();

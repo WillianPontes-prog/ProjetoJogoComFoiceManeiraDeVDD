@@ -13,7 +13,7 @@ private:
 	int maxVida = 5;
 	int vida = maxVida;
 
-	std::list<Ataque*>* listaJogadorAtaque;
+	Lista<Ataque*>* listaJogadorAtaque;
 	Arma* armas[3];
 
 	enum estadoDoJogador {
@@ -43,7 +43,7 @@ private:
 	//*/
 
 public:
-	Jogador(float dimX = 100.f, float dimY = 100.f, float posX = 0, float posY = 0, std::list<Plataforma*>* listPlat = nullptr);
+	Jogador(float dimX = 100.f, float dimY = 100.f, float posX = 0, float posY = 0, Lista<Plataforma*>* listPlat = nullptr);
 	~Jogador();
 
 	sf::Vector2f MidleButton() {
@@ -59,12 +59,12 @@ public:
 
 	void TrocarArma();
 
-	std::list<Ataque*>* getListaAtk();
+	Lista<Ataque*>* getListaAtk();
 
 	void atualiza() override;
 
 	int get_vida() { return vida; }
 	int get_maxVida() { return maxVida; }
 
-	void set_listaAtaques(std::list<Ataque*>* listaAtaques) { this->listaJogadorAtaque = listaAtaques; }
+	void set_listaAtaques(Lista<Ataque*>* listaAtaques) { this->listaJogadorAtaque = listaAtaques; }
 };

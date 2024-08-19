@@ -11,11 +11,11 @@ void Fase::inicializaElementos()
 
 Fase::Fase(sf::RenderWindow* window, std::string jsonFile):
 geradorDeEntidade(new GeradorDeEntidade(this)),
-listaPlataforma (new std::list<Plataforma*>()),
-listaJogadores(new std::list<Jogador*>()),
-listaInimigos(new std::list<Inimigo*>()),
-listaAtaques(new std::list<Ataque*>()),
-listaAtaquesInimigo(new std::list<Ataque*>()),
+listaPlataforma (new Lista<Plataforma*>()),
+listaJogadores(new Lista<Jogador*>()),
+listaInimigos(new Lista<Inimigo*>()),
+listaAtaques(new Lista<Ataque*>()),
+listaAtaquesInimigo(new Lista<Ataque*>()),
 gerenciadorGrafico(new GerenciadorGrafico(window, listaJogadores, listaInimigos, listaAtaques, listaAtaquesInimigo))
 {
 	this->window = window;
@@ -49,21 +49,51 @@ void Fase::gerarFase()
 
 void Fase::atualiza()
 {
+	//--Utilizando o gerenciadorGrafico--\\
+	=======================================
 	gerenciadorGrafico->draw();
-
 
 	//----atualizando Jogadores----\\
 	=================================
-	for (std::list<Jogador*>::iterator it = listaJogadores->begin(); it != listaJogadores->end(); ++it) {
+	for (Lista<Jogador*>::iterator it = listaJogadores->begin(); it != listaJogadores->end(); ++it) {
 
 		(*it)->atualiza();
 	}
 
 	//----atualizando Inimigos----\\
 	=================================
-	for (std::list<Inimigo*>::iterator it = listaInimigos->begin(); it != listaInimigos->end(); ++it) {
+	for (Lista<Inimigo*>::iterator it = listaInimigos->begin(); it != listaInimigos->end(); ++it) {
 
 		(*it)->atualiza();
+	}
+
+	//--atualizando ataques Jogador--\\
+	===================================
+	for (Lista<Ataque*>::iterator it = listaAtaques->begin(); it != listaAtaques->end();) {
+
+		if ((*it)->OverTime()) {
+			delete* it;										// Liberar memória
+			it = listaAtaques->removerElemento(it);			// Remover elemento e atualizar iterador
+		}
+		else {
+			(*it)->atualiza();
+			++it;
+		}
+		
+	}
+
+	//--atualizando ataques Inimigo--\\
+	===================================
+	for (Lista<Ataque*>::iterator it = listaAtaquesInimigo->begin(); it != listaAtaquesInimigo->end(); ) {
+
+		if ((*it)->OverTime()) {
+			delete* it;										// Liberar memória
+			it = listaAtaquesInimigo->removerElemento(it);	// Remover elemento e atualizar iterador
+		}
+		else {
+			(*it)->atualiza();
+			++it;
+		}
 	}
 }
 

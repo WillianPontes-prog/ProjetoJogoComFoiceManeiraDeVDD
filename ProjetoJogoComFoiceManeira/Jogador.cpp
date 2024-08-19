@@ -1,13 +1,8 @@
 #include "Jogador.h"
 
-Jogador::Jogador(float dimensionX, float dimensionY, float posX, float posY, std::list<Plataforma*>* listPlat) :
-	EntidadeColisao(dimensionX, dimensionY, posX, posY, listPlat)
-	/*
-	vida(new Barra(0,0, 0)),
-	mana(new Barra(0, 0, 10))
-	//*/
-	
-	
+Jogador::Jogador(float dimensionX, float dimensionY, float posX, float posY, Lista<Plataforma*>* listPlat) :
+	EntidadeColisao(dimensionX, dimensionY, posX, posY, listPlat),
+	listaJogadorAtaque(nullptr)
 {
 	
 	//(int dano, int alcance, float velocidade, float dir, float x, float y, float cd)//
@@ -68,18 +63,6 @@ void Jogador::atualiza()
 		break;
 	}
 
-	for (auto it = listaJogadorAtaque->begin(); it != listaJogadorAtaque->end();) {
-		if ((*it)->OverTime()) {
-			delete* it;							// Liberar memória
-			it = listaJogadorAtaque->erase(it);	// Remover elemento e atualizar iterador
-		}
-		else {
-			(*it)->atualiza();
-			++it;
-		}
-	}
-
-	//draw();
 
 }
 
@@ -102,7 +85,7 @@ void Jogador::Move()
 
 	vspd += GRAVIDADE;
 
-	for (std::list<Plataforma*>::iterator it = listPlat->begin(); it != listPlat->end(); ++it) {
+	for (Lista<Plataforma*>::iterator it = listPlat->begin(); it != listPlat->end(); ++it) {
 
 		sf::RectangleShape bodyTemp;
 		bodyTemp = body;
@@ -180,13 +163,13 @@ void Jogador::AtkBasico(){
 		state = Atk;
 		Ataque* corte = armas[armatual]->atack(middleCenter().x, middleCenter().y, dir);
 		corte->set_Window(window);
-		listaJogadorAtaque->push_back(corte);
+		listaJogadorAtaque->adicionarElemento(corte);
 
 		cooldown = armas[armatual]->getCD();
 	}
 }
 
-std::list<Ataque*>* Jogador::getListaAtk()
+Lista<Ataque*>* Jogador::getListaAtk()
 {
 	return listaJogadorAtaque;
 }

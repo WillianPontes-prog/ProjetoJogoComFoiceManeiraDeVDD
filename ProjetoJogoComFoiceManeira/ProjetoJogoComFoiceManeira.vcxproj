@@ -177,6 +177,7 @@
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="json.hpp" />
     <ClInclude Include="json_fwd.hpp" />
+    <ClInclude Include="Lista.h" />
     <ClInclude Include="Tecla.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Plataforma.h" />

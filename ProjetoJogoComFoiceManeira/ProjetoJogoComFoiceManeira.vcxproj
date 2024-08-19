@@ -159,6 +159,7 @@
     <ClCompile Include="Arma.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AlteradorFase.h" />
     <ClInclude Include="Ataque.h" />
     <ClInclude Include="Barra.h" />
     <ClInclude Include="Botao.h" />
@@ -171,6 +172,7 @@
     <ClInclude Include="GlobalVars.h" />
     <ClInclude Include="Inimigo.h" />
     <ClInclude Include="Fase.h" />
+    <ClInclude Include="Iterativo.h" />
     <ClInclude Include="Jogador.h" />
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="json.hpp" />

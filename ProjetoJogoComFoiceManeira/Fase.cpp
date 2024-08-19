@@ -1,5 +1,6 @@
 #include "Fase.h"
 
+
 void Fase::inicializaElementos()
 {
 	std::srand(std::time(nullptr));
@@ -9,31 +10,16 @@ void Fase::inicializaElementos()
 }
 
 Fase::Fase(sf::RenderWindow* window, std::string jsonFile):
-geradorDeEntidade(new GeradorDeEntidade(this))
+geradorDeEntidade(new GeradorDeEntidade(this)),
+listaPlataforma (new std::list<Plataforma*>()),
+listaJogadores(new std::list<Jogador*>()),
+listaInimigos(new std::list<Inimigo*>()),
+listaAtaques(new std::list<Ataque*>()),
+listaAtaquesInimigo(new std::list<Ataque*>()),
+gerenciadorGrafico(new GerenciadorGrafico(window, listaJogadores, listaInimigos, listaAtaques, listaAtaquesInimigo))
 {
-	//----------Carregando imagens e texturas----------\\
-	=====================================================
-	if (!toTexture.loadFromFile("Fase_1.png"))
-		std::cerr << "Erro ao carregar a imagem!" << std::endl;
-
-	toTile.setTexture(toTexture);
-
-
-	
-	if (!vidaTexture.loadFromFile("LifeImg.png"))
-		std::cerr << "Erro ao carregar a imagem!" << std::endl;
-
-	vidaTile.setTexture(vidaTexture);
-
-	//===================================================\\
-
 	this->window = window;
 	this->caminhoJson = jsonFile;
-
-	listaPlataforma		= new std::list<Plataforma*>();
-	listaJogadores		= new std::list<Jogador*>();
-	listaInimigos		= new std::list<Inimigo*>();
-
 
 	inicializaElementos();
 }
@@ -44,9 +30,8 @@ Fase::~Fase()
 
 void Fase::gerarFase()
 {
-
-	//--------gerando entidades e descobrindo qual é--------\\
-	==========================================================
+	//-----------------gerando entidades-----------------\\
+	=======================================================
 	json mapa = lerArquivoJSON(caminhoJson);
 
 	// Extrair e imprimir a matriz
@@ -60,35 +45,11 @@ void Fase::gerarFase()
 			}
 		}
 	}
-
-
-	//--------entregando elementos genericos para cada entidade--------\\
-	=====================================================================
-
-	//plataformas
-	for (std::list<Plataforma*>::iterator it = listaPlataforma->begin(); it != listaPlataforma->end(); ++it) {
-		(*it)->set_Window(window);
-	}
-
-	//inimigos
-	for (std::list<Inimigo*>::iterator it = listaInimigos->begin(); it != listaInimigos->end(); ++it) {
-		(*it)->set_Window(window);
-		(*it)->set_listPlat(listaPlataforma);
-		(*it)->set_listaJogador(listaJogadores);
-	}
-
-	//Players
-	for (std::list<Jogador*>::iterator it = listaJogadores->begin(); it != listaJogadores->end(); ++it) {
-		(*it)->set_Window(window);
-		(*it)->set_listPlat(listaPlataforma);
-	}
 }
 
 void Fase::atualiza()
 {
-	//desenha
-	window->draw(toTile);
-
+	gerenciadorGrafico->draw();
 
 
 	//----atualizando Jogadores----\\
@@ -96,14 +57,6 @@ void Fase::atualiza()
 	for (std::list<Jogador*>::iterator it = listaJogadores->begin(); it != listaJogadores->end(); ++it) {
 
 		(*it)->atualiza();
-
-		//----desenha vidas----\\
-		=========================
-		for (int i = 0; i < (*it)->get_vida(); i++) {
-			vidaTile.setPosition(10 + (i * 32), 10);
-			window->draw(vidaTile);
-		}
-
 	}
 
 	//----atualizando Inimigos----\\
@@ -162,3 +115,4 @@ vector<vector<vector<int>>> Fase::extrairCamadas(const json& mapa, int numLayers
 
 	return matriz3D;
 }
+

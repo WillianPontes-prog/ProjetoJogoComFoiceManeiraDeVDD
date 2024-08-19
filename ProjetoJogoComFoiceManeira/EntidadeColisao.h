@@ -15,6 +15,7 @@ public:
 	EntidadeColisao(float dimX = 100.f, float dimY = 100.f,float posX = 0, float posY = 0, std::list<Plataforma*>* listPlat = nullptr);
 	~EntidadeColisao();
 
+
 protected:
 	std::list<Plataforma*>* listPlat;
 

@@ -9,7 +9,7 @@ Jogador::Jogador(float dimensionX, float dimensionY, float posX, float posY, std
 	
 	
 {
-	listaJogadorAtaque = new std::list<Ataque*>();
+	
 	//(int dano, int alcance, float velocidade, float dir, float x, float y, float cd)//
 	armas[0] = new Arma(40, 100, 40.f, dir, 20.f, 5.f, 60.f);
 	armas[1] = new Arma(10, 10, 5.f, dir, 10.f, 200.f, 15.f);
@@ -79,7 +79,7 @@ void Jogador::atualiza()
 		}
 	}
 
-	draw();
+	//draw();
 
 }
 

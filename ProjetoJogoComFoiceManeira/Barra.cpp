@@ -23,7 +23,7 @@ bool Barra::dano(float at)
 void Barra::atualiza() 
 {
 	body.setSize(sf::Vector2f((atual / maxima) * body.getSize().x, body.getSize().y));
-	draw();
+	
 	if(automatico){
 		if (parado)
 		{

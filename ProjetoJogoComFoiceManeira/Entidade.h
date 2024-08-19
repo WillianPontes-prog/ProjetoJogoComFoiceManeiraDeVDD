@@ -16,8 +16,8 @@ public:
 	~Entidade();
 
 	void set_Window(sf::RenderWindow* w) {this->window = w; };
-	void draw() { window->draw(body); }
-	virtual void atualiza() { draw(); }
+	
+	virtual void atualiza() = 0;
 	sf::RectangleShape get_body() { return body; }
 	sf::Vector2f middleCenter();
 

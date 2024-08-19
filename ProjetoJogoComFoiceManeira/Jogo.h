@@ -24,7 +24,7 @@ private:
 
 	pagina state = MenuInicial;
 
-	sf::RenderWindow window;
+	sf::RenderWindow* window;
 
 	std::list<Plataforma*>* listaPlataforma;
 	std::list<Jogador*>* listaJogadores;

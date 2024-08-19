@@ -29,7 +29,7 @@ void Ataque::atualiza()
 {
 	
 	Move();
-	draw();
+	//draw();
 
 	tempoDeDestruicao--;
 }

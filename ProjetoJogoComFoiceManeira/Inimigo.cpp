@@ -6,7 +6,6 @@ Inimigo::Inimigo(float dimensionX, float dimensionY, float posX, float posY, std
 	body.setFillColor(sf::Color::Cyan);
 	body.setPosition(sf::Vector2f(posX, posY));
 
-	listInimigoAtaque = new std::list<Ataque*>();
 	armas[0] = new Arma(40, 100, 40.f, dir, 20.f, 7.f, 18.f);
 
 	set_listPlat(listPlat);
@@ -244,12 +243,17 @@ void Inimigo::atualiza()
 	}
 	
 
-	draw();
+	//draw();
 }
 
 void Inimigo::set_listaJogador(std::list<Jogador*>* listJogador)
 {
 	this->listaJogador = listJogador;
+}
+
+void Inimigo::set_listaAtaque(std::list<Ataque*>* listAtaque)
+{
+	this->listInimigoAtaque = listAtaque;
 }
 
 

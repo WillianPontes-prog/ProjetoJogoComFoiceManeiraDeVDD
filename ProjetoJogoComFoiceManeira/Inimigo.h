@@ -35,4 +35,5 @@ public:
 	void atk();
 	void atualiza() override;
 	void set_listaJogador(std::list<Jogador*>* listJogador);
+	void set_listaAtaque(std::list<Ataque*>* listAtaque);
 };

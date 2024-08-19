@@ -66,6 +66,12 @@
     <ClCompile Include="GeradorDeEntidade.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="GerenciadorDeColisao.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="GerenciadorGrafico.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.h">
@@ -122,6 +128,12 @@
     <ClInclude Include="GeradorDeEntidade.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
+    <ClInclude Include="GerenciadorDeColisao.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="GerenciadorGrafico.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Save.json" />
@@ -145,6 +157,9 @@
       <Filter>Arquivos de Recurso</Filter>
     </Image>
     <Image Include="LifeImg.png">
+      <Filter>Arquivos de Recurso</Filter>
+    </Image>
+    <Image Include="image_2024-08-19_113051706.png">
       <Filter>Arquivos de Recurso</Filter>
     </Image>
   </ItemGroup>

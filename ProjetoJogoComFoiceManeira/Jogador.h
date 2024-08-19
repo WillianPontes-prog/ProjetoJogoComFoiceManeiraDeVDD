@@ -66,4 +66,5 @@ public:
 	int get_vida() { return vida; }
 	int get_maxVida() { return maxVida; }
 
+	void set_listaAtaques(std::list<Ataque*>* listaAtaques) { this->listaJogadorAtaque = listaAtaques; }
 };

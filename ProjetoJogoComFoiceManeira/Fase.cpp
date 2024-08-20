@@ -73,15 +73,16 @@ void Fase::atualiza()
 	===================================
 	for (Lista<Ataque*>::iterator it = listaAtaques->begin(); it != listaAtaques->end();) {
 
-		if ((*it)->OverTime()) {
-			delete* it;										// Liberar memória
-			it = listaAtaques->removerElemento(it);			// Remover elemento e atualizar iterador
+		if (*it) {
+			if ((*it)->OverTime()) {
+				delete* it;										// Liberar memória
+				it = listaAtaques->removerElemento(it);			// Remover elemento e atualizar iterador
+			}
+			else {
+				(*it)->atualiza();
+				++it;
+			}
 		}
-		else {
-			(*it)->atualiza();
-			++it;
-		}
-		
 	}
 
 	//--atualizando ataques Inimigo--\\

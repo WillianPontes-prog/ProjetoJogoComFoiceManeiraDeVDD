@@ -7,16 +7,17 @@
 class GerenciadorGrafico;
 
 class Ente {
+
 protected:
-    //int id;
-    static GerenciadorGrafico* gerenciadorGrafico;
+    
+    GerenciadorGrafico* gerenciadorGrafico;
     sf::Texture textura;
     sf::Sprite sprite;
 
 public:
-    Ente(GerenciadorGrafico* gerenciadorGrafico) {  };
+    Ente() : gerenciadorGrafico(NULL){  };
     ~Ente() {  };
-    void setGerenciadorGrafico(GerenciadorGrafico* gerenciadorGrafico) {  };
+    void setGerenciadorGrafico(GerenciadorGrafico* gerenciadorGrafico) { this->gerenciadorGrafico = gerenciadorGrafico; };
 
     void setTextura(std::string s) {
         if (!textura.loadFromFile(s)) {
@@ -31,7 +32,7 @@ public:
 
     };
     sf::Sprite getSprite() { return sprite; };
+    
     virtual void atualiza() = 0;
-
-    void draw() { gerenciadorGrafico->draw(this); };
+    virtual void draw() = 0;
 };

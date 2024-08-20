@@ -2,10 +2,6 @@
 
 #include <iostream>
 
-#pragma once
-
-#include <iostream>
-
 template <typename TL>
 class Lista {
 private:
@@ -231,5 +227,3 @@ public:
         return iterator(anterior != nullptr ? anterior->pProx : pPrimeiro);
     }
 };
-
-

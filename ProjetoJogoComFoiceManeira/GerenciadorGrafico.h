@@ -1,19 +1,16 @@
 #pragma once
 #include<iostream>
 #include"Ente.h"
-
-
 #include <SFML/Graphics.hpp>
+
+class Ente;
 
 class GerenciadorGrafico {
 private:
-    sf::RenderWindow* w;
+    sf::RenderWindow* window;
 
 public:
-    GerenciadorGrafico() { 
-        w = new sf::RenderWindow();
-    };
-
+    GerenciadorGrafico(sf::RenderWindow* w) { this->window = w; };
     ~GerenciadorGrafico() {  };
-    void draw(Ente* e) { w->draw(e->getSprite()); };
+    void draw(Ente* e);
 };

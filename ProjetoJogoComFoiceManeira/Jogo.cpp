@@ -7,6 +7,8 @@
 //descomente abaixo para mostrar o FPS
 //#define SHOW_FPS
 
+GerenciadorGrafico* Jogo::gerenciadorGrafico = new GerenciadorGrafico();
+
 Jogo::Jogo()
 {
 

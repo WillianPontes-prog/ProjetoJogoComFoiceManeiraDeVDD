@@ -81,7 +81,6 @@ void Inimigo::atk()
 	state = Atk;
 
 	Ataque* hit = armas[0]->atack(get_body().getPosition().x, get_body().getPosition().y, dir);
-	hit->set_Window(window);
 	listInimigoAtaque->adicionarElemento(hit);	
 
 	vspd = 0;

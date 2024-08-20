@@ -114,7 +114,7 @@ void Jogador::AtkBasico(){
 	if (Tecla::BasicAtk()){
 		state = Atk;
 		Ataque* corte = armas[armatual]->atack(middleCenter().x, middleCenter().y, dir);
-		corte->set_Window(window);
+		
 		listaJogadorAtaque->adicionarElemento(corte);
 
 		cooldown = armas[armatual]->getCD();

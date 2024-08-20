@@ -1,47 +1,19 @@
 #pragma once
+#include<iostream>
+#include"Ente.h"
+
 
 #include <SFML/Graphics.hpp>
-#include <list>
 
-#include "Jogador.h"
-#include "Inimigo.h"
-#include "Plataforma.h"
-#include "Ataque.h"
-class GerenciadorGrafico{
-
+class GerenciadorGrafico {
 private:
-	sf::RenderWindow* window;
-
-	Lista<Jogador*>* listaJogadores;
-	Lista<Inimigo*>* listaInimigos;
-	Lista<Ataque*>* listaAtaques;
-	Lista<Ataque*>* listaAtaquesInimigo;
-
-
-	sf::Sprite vidaTile;
-	sf::Texture vidaTexture;
-
-	sf::Sprite toTile;
-	sf::Texture toTexture;
-
-	sf::Sprite backgroundTile;
-	sf::Texture backgroundTexture;
+    sf::RenderWindow* w;
 
 public:
-	GerenciadorGrafico(
-		sf::RenderWindow* _window,
-		Lista<Jogador*>* listaJogador,
-		Lista<Inimigo*>* listaInimigo,
-		Lista<Ataque*>* listaAtaque,
-		Lista<Ataque*>* listaAtaqueInimigo);
+    GerenciadorGrafico() { 
+        w = new sf::RenderWindow();
+    };
 
-	~GerenciadorGrafico();
-
-	void draw();
-
-
-	
-
-
+    ~GerenciadorGrafico() {  };
+    void draw(Ente* e) { w->draw(e->getSprite()); };
 };
-

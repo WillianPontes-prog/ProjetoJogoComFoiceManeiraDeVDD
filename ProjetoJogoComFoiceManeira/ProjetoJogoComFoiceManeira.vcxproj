@@ -147,7 +147,6 @@
     <ClCompile Include="GeradorDeEntidade.cpp" />
     <ClCompile Include="Fisica.cpp" />
     <ClCompile Include="GerenciadorDeColisao.cpp" />
-    <ClCompile Include="GerenciadorGrafico.cpp" />
     <ClCompile Include="Inimigo.cpp" />
     <ClCompile Include="Fase.cpp" />
     <ClCompile Include="Jogador.cpp" />

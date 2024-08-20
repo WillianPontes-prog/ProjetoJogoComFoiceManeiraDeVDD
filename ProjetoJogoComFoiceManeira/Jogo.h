@@ -22,7 +22,7 @@ private:
 
 	pagina state = MenuInicial;
 
-	sf::RenderWindow* window;
+	static GerenciadorGrafico* gerenciadorGrafico;
 
 	Lista<Plataforma*>* listaPlataforma;
 	Lista<Jogador*>* listaJogadores;

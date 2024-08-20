@@ -20,45 +20,42 @@ using json = nlohmann::json;
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <list>
+#include "Ente.h"
 
 using namespace std;
 
-class GeradorDeEntidade;
+class GerenciadorDeColisao;
 
-class Fase {
+class Fase : public Ente{
 
 private:
 	
 	
 	Lista<Plataforma*>*		listaPlataforma;
-	Lista<Jogador*>*	listaJogadores;
-	Lista<Inimigo*>*	listaInimigos;
-	Lista<Ataque*>*		listaAtaques;
-	Lista<Ataque*>*		listaAtaquesInimigo;
+	Lista<Jogador*>*		listaJogadores;
+	Lista<Inimigo*>*		listaInimigos;
 
-	GerenciadorGrafico* gerenciadorGrafico;
+	static GerenciadorGrafico* gerenciadorGrafico;
 	GerenciadorDeColisao* gerenciadorColisao;
 
 	void inicializaElementos();
 
 	std::string caminhoJson;
-	GeradorDeEntidade* geradorDeEntidade;
 
-
-
+	Jogador* criarJogador(float posX, float posY);
+	Inimigo* criarInimigo(float posX, float posY);
+	Plataforma* criarPlataforma(float posX, float posY);
 
 public:
-	Fase(sf::RenderWindow* window = nullptr, std::string caminhoJson = "");
+	Fase(std::string caminhoJson = "");
 	~Fase();
+
 
 	sf::RenderWindow* window;
 
 	Lista<Plataforma*>* get_listaPlataforma()	{ return listaPlataforma; }
 	Lista<Jogador*>* get_listaJogadores()		{ return listaJogadores; }
 	Lista<Inimigo*>* get_listaInimigos()		{ return listaInimigos; }
-	Lista<Ataque*>* get_listaAtaques()			{ return listaAtaques; }
-	Lista<Ataque*>* get_listaAtaquesInimigo()	{ return listaAtaquesInimigo; }
 
 	void gerarFase();
 	void atualiza();

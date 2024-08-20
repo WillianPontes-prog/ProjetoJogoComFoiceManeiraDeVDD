@@ -57,7 +57,7 @@ Jogo::Jogo()
     menu->set_Window(window);
 
     //fases////////////////////////////////////////////////////////////////////
-    fase1 = new Fase(window, "pipipipopopodeteste.json");
+    fase1 = new Fase("pipipipopopodeteste.json");
 
     listaPlataforma = fase1->get_listaPlataforma();
     listaJogadores = fase1->get_listaJogadores();

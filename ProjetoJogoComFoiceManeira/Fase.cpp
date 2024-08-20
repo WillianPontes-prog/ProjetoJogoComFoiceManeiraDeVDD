@@ -9,18 +9,12 @@ void Fase::inicializaElementos()
 
 }
 
-Fase::Fase(sf::RenderWindow* window, std::string jsonFile):
-geradorDeEntidade(new GeradorDeEntidade(this)),
+Fase::Fase(std::string jsonFile):
 listaPlataforma (new Lista<Plataforma*>()),
 listaJogadores(new Lista<Jogador*>()),
 listaInimigos(new Lista<Inimigo*>()),
-listaAtaques(new Lista<Ataque*>()),
-listaAtaquesInimigo(new Lista<Ataque*>()),
-gerenciadorGrafico(new GerenciadorGrafico(window, listaJogadores, listaInimigos, listaAtaques, listaAtaquesInimigo)),
-gerenciadorColisao(new GerenciadorDeColisao(listaJogadores, listaInimigos, listaAtaques, listaAtaquesInimigo, listaPlataforma))
+gerenciadorColisao(new GerenciadorDeColisao(this))
 {
-	
-	this->window = window;
 	this->caminhoJson = jsonFile;
 
 	inicializaElementos();
@@ -28,6 +22,27 @@ gerenciadorColisao(new GerenciadorDeColisao(listaJogadores, listaInimigos, lista
 
 Fase::~Fase()
 {
+}
+
+Jogador* Fase::criarJogador(float posX, float posY)
+{
+	Jogador* jogador = new Jogador(32, 32, posX, posY);
+
+	return jogador;
+}
+
+Inimigo* Fase::criarInimigo(float posX, float posY)
+{
+	Inimigo* inimigo = new Inimigo(32, 32, posX, posY);
+
+	return inimigo;
+}
+
+Plataforma* Fase::criarPlataforma(float posX, float posY)
+{
+	Plataforma* plataforma = new Plataforma(32, 32, posX, posY);
+
+	return plataforma;
 }
 
 void Fase::gerarFase()
@@ -43,7 +58,26 @@ void Fase::gerarFase()
 	for(int i = 0; i < matriz.size(); i++){
 		for(int j = 0; j < matriz[i].size(); j++){
 			for (int k = 0; k < matriz[i][j].size(); k++) {
-				geradorDeEntidade->executar(k * 32,  j* 32, matriz[i][j][k]);
+
+				int n = matriz[i][j][k];
+				float posX = j * 32;
+				float posY = i * 32;
+
+				switch (n)
+				{
+				case 1313:
+					get_listaJogadores()->adicionarElemento(criarJogador(posX, posY));
+					break;
+				case 1337:
+					get_listaInimigos()->adicionarElemento(criarInimigo(posX, posY));
+					break;
+				case 1317:
+					get_listaPlataforma()->adicionarElemento(criarPlataforma(posX, posY));
+					break;
+				default:
+
+					break;
+				};
 			}
 		}
 	}
@@ -51,6 +85,9 @@ void Fase::gerarFase()
 
 void Fase::atualiza()
 {
+
+	
+
 	//--Utilizando o gerenciadorGrafico--\\
 	=======================================
 	gerenciadorGrafico->draw();
@@ -69,32 +106,40 @@ void Fase::atualiza()
 		(*it)->atualiza();
 	}
 
-	//--atualizando ataques Jogador--\\
-	===================================
-	for (Lista<Ataque*>::iterator it = listaAtaques->begin(); it != listaAtaques->end();) {
+	//--atualizando ataques Jogadores--\\
+	=====================================
+	for (Lista<Jogador*>::iterator itJ = listaJogadores->begin(); itJ != listaJogadores->end(); ++itJ) {
+		Lista<Ataque*>* listaAtaques = (*itJ)->get_listaAtaques();
 
-		if ((*it)->OverTime()) {
-			delete* it;										// Liberar memória
-			it = listaAtaques->removerElemento(it);			// Remover elemento e atualizar iterador
+		for (Lista<Ataque*>::iterator it = listaAtaques->begin(); it != listaAtaques->end();) {
+
+			if ((*it)->OverTime()) {
+				delete* it;										// Liberar memória
+				it = listaAtaques->removerElemento(it);			// Remover elemento e atualizar iterador
+			}
+			else {
+				(*it)->atualiza();
+				++it;
+			}
+
 		}
-		else {
-			(*it)->atualiza();
-			++it;
-		}
-		
 	}
 
 	//--atualizando ataques Inimigo--\\
 	===================================
-	for (Lista<Ataque*>::iterator it = listaAtaquesInimigo->begin(); it != listaAtaquesInimigo->end(); ) {
+	for (Lista<Inimigo*>::iterator itI = listaInimigos->begin(); itI != listaInimigos->end(); ++itI) {
 
-		if ((*it)->OverTime()) {
-			delete* it;										// Liberar memória
-			it = listaAtaquesInimigo->removerElemento(it);	// Remover elemento e atualizar iterador
-		}
-		else {
-			(*it)->atualiza();
-			++it;
+		Lista<Ataque*>* listaAtaquesInimigo = (*itI)->get_listaAtaques();
+		for (Lista<Ataque*>::iterator it = listaAtaquesInimigo->begin(); it != listaAtaquesInimigo->end(); ) {
+
+			if ((*it)->OverTime()) {
+				delete* it;										// Liberar memória
+				it = listaAtaquesInimigo->removerElemento(it);	// Remover elemento e atualizar iterador
+			}
+			else {
+				(*it)->atualiza();
+				++it;
+			}
 		}
 	}
 

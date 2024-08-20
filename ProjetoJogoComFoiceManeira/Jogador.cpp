@@ -1,7 +1,7 @@
 #include "Jogador.h"
 
-Jogador::Jogador(float dimensionX, float dimensionY, float posX, float posY, Lista<Plataforma*>* listPlat) :
-	EntidadeColisao(dimensionX, dimensionY, posX, posY, listPlat),
+Jogador::Jogador(float dimensionX, float dimensionY, float posX, float posY) :
+	EntidadeColisao(dimensionX, dimensionY, posX, posY),
 	listaJogadorAtaque(nullptr)
 {
 	
@@ -119,9 +119,4 @@ void Jogador::AtkBasico(){
 
 		cooldown = armas[armatual]->getCD();
 	}
-}
-
-Lista<Ataque*>* Jogador::getListaAtk()
-{
-	return listaJogadorAtaque;
 }

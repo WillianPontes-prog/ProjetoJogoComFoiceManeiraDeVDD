@@ -44,7 +44,7 @@ private:
 	//*/
 
 public:
-	Jogador(float dimX = 100.f, float dimY = 100.f, float posX = 0, float posY = 0, Lista<Plataforma*>* listPlat = nullptr);
+	Jogador(float dimX = 100.f, float dimY = 100.f, float posX = 0, float posY = 0);
 	~Jogador();
 
 	sf::Vector2f MidleButton() {
@@ -60,14 +60,10 @@ public:
 
 	void TrocarArma();
 
-	Lista<Ataque*>* getListaAtk();
-
 	void atualiza() override;
 
 	int get_vida() { return vida; }
 	int get_maxVida() { return maxVida; }
-
-	void set_listaAtaques(Lista<Ataque*>* listaAtaques) { this->listaJogadorAtaque = listaAtaques; }
 
 	
 };

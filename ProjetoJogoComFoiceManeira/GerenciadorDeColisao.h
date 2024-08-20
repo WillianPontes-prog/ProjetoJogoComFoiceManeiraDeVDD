@@ -3,20 +3,17 @@
 #include "Jogador.h"
 #include "Inimigo.h"
 #include "Ataque.h"
+#include "Fase.h"
+
+class Fase;
 
 class GerenciadorDeColisao
 {
 private:
-    Lista<Jogador*>* listaJogador;
-    Lista<Inimigo*>* listaInimigos;
-    Lista<Ataque*>* listaAtaqueJogador;
-    Lista<Ataque*>* listaAtaqueInimigo;
-    Lista<Plataforma*>* listaPlataforma;
-
-    
+    Fase* fase;
 
 public:
-    GerenciadorDeColisao(Lista<Jogador*>* jogadores, Lista<Inimigo*>* inimigos, Lista<Ataque*>* ataquesJogador, Lista<Ataque*>* ataquesInimigo, Lista<Plataforma*>* plataformas);
+    GerenciadorDeColisao(Fase* fase);
 
     ~GerenciadorDeColisao();
 

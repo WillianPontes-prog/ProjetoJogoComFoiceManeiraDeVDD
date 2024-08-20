@@ -24,4 +24,6 @@ public:
 	sf::RectangleShape get_body() { return body; }
 	sf::Vector2f middleCenter();
 
+	
+
 };

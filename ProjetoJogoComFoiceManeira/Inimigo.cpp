@@ -1,14 +1,13 @@
 #include "Inimigo.h"
 
 Inimigo::Inimigo(float dimensionX, float dimensionY, float posX, float posY, Lista<Plataforma*>* listPlat, Lista<Jogador*>* listJogador) :
-	EntidadeColisao(dimensionX, dimensionY, posX, posY, listPlat)
+	EntidadeColisao(dimensionX, dimensionY, posX, posY)
 {
 	body.setFillColor(sf::Color::Cyan);
 	body.setPosition(sf::Vector2f(posX, posY));
 
 	armas[0] = new Arma(40, 100, 40.f, dir, 20.f, 7.f, 18.f);
 
-	set_listPlat(listPlat);
 	set_listaJogador(listJogador);
 }
 

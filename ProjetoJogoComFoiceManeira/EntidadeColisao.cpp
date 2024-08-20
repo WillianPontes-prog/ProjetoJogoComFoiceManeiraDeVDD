@@ -1,20 +1,15 @@
 #include "EntidadeColisao.h"
 
-Lista<Plataforma*>* EntidadeColisao::get_listPlat()
+
+EntidadeColisao::EntidadeColisao(float dimX, float dimY, float posX, float posY):
+	Entidade(dimX, dimY,posX, posY),
+	listaAtaques(new Lista<Ataque*>())
 {
-	return listPlat;
+
 }
 
-void EntidadeColisao::set_listPlat(Lista<Plataforma*>* listPlat)
-{
-	this->listPlat = listPlat;
-}
 
-EntidadeColisao::EntidadeColisao(float dimensionX, float dimensionY,float posX, float posY, Lista<Plataforma*>* listPlat):
-	Entidade(dimensionX, dimensionY,posX, posY)
-{
-	this->listPlat = listPlat;
-}
+
 
 EntidadeColisao::~EntidadeColisao()
 {

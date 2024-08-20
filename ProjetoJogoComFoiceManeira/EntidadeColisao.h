@@ -2,17 +2,13 @@
 #include "Entidade.h"
 #include "Plataforma.h"
 #include <list>
-
+#include "Ataque.h"
 
 class EntidadeColisao: public Entidade{
 
 public:
 	
-	Lista<Plataforma*>* get_listPlat();
-	
-	void set_listPlat(Lista<Plataforma*>* listPlat);
-
-	EntidadeColisao(float dimX = 100.f, float dimY = 100.f,float posX = 0, float posY = 0, Lista<Plataforma*>* listPlat = nullptr);
+	EntidadeColisao(float dimX = 100.f, float dimY = 100.f,float posX = 0, float posY = 0);
 	~EntidadeColisao();
 
 	void set_hspd(float hspd) { this->hspd = hspd; };
@@ -22,6 +18,8 @@ public:
 	float get_vspd() { return vspd; };
 
 	void set_noChao(bool noChao) { this->noChao = noChao; }
+
+	Lista<Ataque*>* get_listaAtaques() { return listaAtaques; }
 
 protected:
 	Lista<Plataforma*>* listPlat;
@@ -33,4 +31,5 @@ protected:
 
 	bool noChao = false;
 
+	Lista<Ataque*>* listaAtaques;
 };

@@ -5,8 +5,6 @@
 #include "Fase.h"
 #include "Menu.h"
 
-#include<list>
-
 class Menu;
 
 class Jogo {

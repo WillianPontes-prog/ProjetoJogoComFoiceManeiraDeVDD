@@ -36,6 +36,7 @@ private:
 
 	int cooldown = 0;
 
+
 	/*
 	Barra* vida;
 	Barra* mana;
@@ -67,4 +68,6 @@ public:
 	int get_maxVida() { return maxVida; }
 
 	void set_listaAtaques(Lista<Ataque*>* listaAtaques) { this->listaJogadorAtaque = listaAtaques; }
+
+	
 };

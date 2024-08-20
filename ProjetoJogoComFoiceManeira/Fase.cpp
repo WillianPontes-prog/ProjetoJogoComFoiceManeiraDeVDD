@@ -16,8 +16,10 @@ listaJogadores(new Lista<Jogador*>()),
 listaInimigos(new Lista<Inimigo*>()),
 listaAtaques(new Lista<Ataque*>()),
 listaAtaquesInimigo(new Lista<Ataque*>()),
-gerenciadorGrafico(new GerenciadorGrafico(window, listaJogadores, listaInimigos, listaAtaques, listaAtaquesInimigo))
+gerenciadorGrafico(new GerenciadorGrafico(window, listaJogadores, listaInimigos, listaAtaques, listaAtaquesInimigo)),
+gerenciadorColisao(new GerenciadorDeColisao(listaJogadores, listaInimigos, listaAtaques, listaAtaquesInimigo, listaPlataforma))
 {
+	
 	this->window = window;
 	this->caminhoJson = jsonFile;
 
@@ -95,6 +97,8 @@ void Fase::atualiza()
 			++it;
 		}
 	}
+
+	gerenciadorColisao->tratarColisoes();
 }
 
 json Fase::lerArquivoJSON(const std::string caminho) {

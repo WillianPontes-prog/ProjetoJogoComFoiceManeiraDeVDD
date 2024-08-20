@@ -85,76 +85,28 @@ void Jogador::Move()
 
 	vspd += GRAVIDADE;
 
-	for (Lista<Plataforma*>::iterator it = listPlat->begin(); it != listPlat->end(); ++it) {
 
-		sf::RectangleShape bodyTemp;
-		bodyTemp = body;
-
-		bodyTemp.move(sf::Vector2f(0, 1));
-
-
-		if (ChecarColisao(bodyTemp, (*it)->get_body())) {
-			coyteTime = MAXcoyteTime;
-		}
-		else if (coyteTime > 0) {
-			coyteTime--;
-		}
-
-		if (coyteTime) {
-			//pulo
-			flagPulo = 1;
-			if (Tecla::Jump()) {
-				vspd = -pulo;
-			}
-		}
-		else if (flagPulo) {
-			if (Tecla::Jump()) {
-				vspd = -pulo;
-				flagPulo = 0;
-			}
-		}
-
-
-
-		
-		bodyTemp = body;
-		bodyTemp.move(sf::Vector2f(hspd, 0));
-
-		if (ChecarColisao(bodyTemp, (*it)->get_body())) {
-			bodyTemp = body;
-			bodyTemp.move(sf::Vector2f(NumeroMinimo(hspd), 0));
-
-			while (!ChecarColisao(bodyTemp, (*it)->get_body())) {
-				body.move(sf::Vector2f(NumeroMinimo(hspd), 0));
-
-				bodyTemp = body;
-				bodyTemp.move(sf::Vector2f(NumeroMinimo(hspd), 0));
-			}
-
-			hspd = 0;
-		}
-
-		bodyTemp = body;
-		bodyTemp.move(sf::Vector2f(hspd, vspd));
-
-		if (ChecarColisao(bodyTemp, (*it)->get_body())) {
-			bodyTemp = body;
-			bodyTemp.move(sf::Vector2f(hspd, NumeroMinimo(vspd)));
-
-			while (!ChecarColisao(bodyTemp, (*it)->get_body())) {
-				body.move(sf::Vector2f(0, NumeroMinimo(vspd)));
-
-				bodyTemp = body;
-				bodyTemp.move(sf::Vector2f(hspd, NumeroMinimo(vspd)));
-			}
-
-			vspd = 0;
-		}
-
+	if (noChao) {
+		coyteTime = MAXcoyteTime;
+	}
+	else if (coyteTime > 0) {
+		coyteTime--;
 	}
 
+	if (coyteTime) {
+		//pulo
+		flagPulo = 1;
+		if (Tecla::Jump()) {
+			vspd = -pulo;
+		}
+	}
+	else if (flagPulo) {
+		if (Tecla::Jump()) {
+			vspd = -pulo;
+			flagPulo = 0;
+		}
+	}
 
-	body.move(sf::Vector2f(hspd, vspd));
 }
 
 void Jogador::AtkBasico(){

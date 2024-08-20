@@ -8,6 +8,7 @@
 #include "Fase.h"
 #include "json.hpp"
 #include "Lista.h"
+#include "GerenciadorDeColisao.h"
 #include "GerenciadorGrafico.h"
 
 using json = nlohmann::json;
@@ -37,6 +38,7 @@ private:
 	Lista<Ataque*>*		listaAtaquesInimigo;
 
 	GerenciadorGrafico* gerenciadorGrafico;
+	GerenciadorDeColisao* gerenciadorColisao;
 
 	void inicializaElementos();
 

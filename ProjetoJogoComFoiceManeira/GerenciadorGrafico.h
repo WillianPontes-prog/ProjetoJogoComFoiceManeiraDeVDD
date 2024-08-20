@@ -21,7 +21,6 @@ private:
 	sf::Sprite vidaTile;
 	sf::Texture vidaTexture;
 
-
 	sf::Sprite toTile;
 	sf::Texture toTexture;
 

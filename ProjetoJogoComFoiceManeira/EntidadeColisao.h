@@ -21,6 +21,8 @@ public:
 	float get_hspd() { return hspd; };
 	float get_vspd() { return vspd; };
 
+	void set_noChao(bool noChao) { this->noChao = noChao; }
+
 protected:
 	Lista<Plataforma*>* listPlat;
 
@@ -28,5 +30,7 @@ protected:
 	float vspd = 0;
 
 	float dir = 0;
+
+	bool noChao = false;
 
 };

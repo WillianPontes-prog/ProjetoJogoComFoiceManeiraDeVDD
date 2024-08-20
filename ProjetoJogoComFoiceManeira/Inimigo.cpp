@@ -27,38 +27,25 @@ void Inimigo::move()
 
 	if (abs(found) < 300) {
 
-		int zerarHspd = 1;
-
-		for (Lista<Plataforma*>::iterator it = listPlat->begin(); it != listPlat->end(); ++it) {
-
-			bodyTemp = body;
-
-			if (abs(procurarJogadorX()) > 5) {
-				if (found < 0) {
-					hspd = velocidade;
-					dir = 0;
-				}
-				else {
-					hspd = -velocidade;
-					dir = PI;
-				}
+		if (abs(procurarJogadorX()) > 5) {
+			if (found < 0) {
+				hspd = velocidade;
+				dir = 0;
 			}
-
-			bodyTemp.move(sf::Vector2f(hspd + (body.getSize().x * (abs(hspd) / hspd)), 1));
-			if (ChecarColisao(bodyTemp, (*it)->get_body())) {
-				zerarHspd = 0;
+			else {
+				hspd = -velocidade;
+				dir = PI;
 			}
 		}
-
-		if(zerarHspd) {
+		
+		if (!proximoPassoNaPlatafortma) {
 			hspd = 0;
 		}
-	}
-	else {
+		
+	}else {
 
-		int invert = 0;
+
 		bodyTemp = body;
-
 		auto bodyTempX = body;
 
 		bodyTemp.move(sf::Vector2f(hspd + (body.getSize().x * (abs(hspd) / hspd)), 2));
@@ -67,10 +54,10 @@ void Inimigo::move()
 		for (Lista<Plataforma*>::iterator it = listPlat->begin(); it != listPlat->end(); ++it) {
 			
 			if (!ChecarColisao(bodyTemp, (*it)->get_body())) {
-				invert = 1;
+				invert = true;
 			}
 			else if (!ChecarColisao(bodyTempX, (*it)->get_body()) ){
-				invert = 0;
+				invert = false;
 				break;
 			}
 		}
@@ -87,51 +74,7 @@ void Inimigo::move()
 		}
 	}
 
-	for (Lista<Plataforma*>::iterator it = listPlat->begin(); it != listPlat->end(); ++it) {
-		
-		bodyTemp = body;
 
-		
-
-
-		bodyTemp = body;
-		bodyTemp.move(sf::Vector2f(hspd, 0));
-
-		if (ChecarColisao(bodyTemp, (*it)->get_body())) {
-			bodyTemp = body;
-			bodyTemp.move(sf::Vector2f(NumeroMinimo(hspd), 0));
-
-			while (!ChecarColisao(bodyTemp, (*it)->get_body())) {
-				body.move(sf::Vector2f(NumeroMinimo(hspd), 0));
-
-				bodyTemp = body;
-				bodyTemp.move(sf::Vector2f(NumeroMinimo(hspd), 0));
-			}
-
-			hspd = 0;
-		}
-
-		bodyTemp = body;
-		bodyTemp.move(sf::Vector2f(0, vspd));
-
-		if (ChecarColisao(bodyTemp, (*it)->get_body())) {
-			bodyTemp = body;
-			bodyTemp.move(sf::Vector2f(0, NumeroMinimo(vspd)));
-
-			while (!ChecarColisao(bodyTemp, (*it)->get_body())) {
-				body.move(sf::Vector2f(0, NumeroMinimo(vspd)));
-
-				bodyTemp = body;
-				bodyTemp.move(sf::Vector2f(0, NumeroMinimo(vspd)));
-			}
-
-			vspd = 0;
-		}
-
-	}
-
-
-	body.move(sf::Vector2f(hspd, vspd));
 }
 
 void Inimigo::atk()

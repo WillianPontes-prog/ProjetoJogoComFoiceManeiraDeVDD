@@ -103,7 +103,6 @@ void GerenciadorDeColisoes::tratarColisoes()
 
 			if (ChecarColisao(bodyTemp, (*itJog)->getBody())) {
 				
-
                 float dirX = NumeroMinimo((*itJog)->getBody().getPosition().x - (*itIni)->getBody().getPosition().x);
                 danoJogador(*itJog, dirX);
 

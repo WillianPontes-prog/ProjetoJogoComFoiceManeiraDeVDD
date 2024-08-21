@@ -144,12 +144,15 @@
     <ClInclude Include="EntidadeColisao.h" />
     <ClInclude Include="Fase.h" />
     <ClInclude Include="Fase1.h" />
+    <ClInclude Include="GerenciadorDeComandos.h" />
     <ClInclude Include="GerenciadorGrafico.h" />
     <ClInclude Include="Jogador.h" />
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="json.hpp" />
     <ClInclude Include="json_fwd.hpp" />
     <ClInclude Include="Lista.h" />
+    <ClInclude Include="Obstaculo.h" />
+    <ClInclude Include="Plataforma.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="pipipipopopodeteste.json" />
@@ -163,6 +166,8 @@
     <Image Include="..\Tiles\TX Village Props.png" />
     <Image Include="Background_0.png" />
     <Image Include="Fase_1.png" />
+    <Image Include="Imagens\BCK_fase1.png" />
+    <Image Include="Imagens\padraoSpr.png" />
     <Image Include="image_2024-08-19_113051706.png" />
     <Image Include="LifeImg.png" />
   </ItemGroup>
@@ -172,10 +177,13 @@
     <ClCompile Include="EntidadeColisao.cpp" />
     <ClCompile Include="Fase.cpp" />
     <ClCompile Include="Fase1.cpp" />
+    <ClCompile Include="GerenciadorDeComandos.cpp" />
     <ClCompile Include="GerenciadorGrafico.cpp" />
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Obstaculo.cpp" />
+    <ClCompile Include="Plataforma.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

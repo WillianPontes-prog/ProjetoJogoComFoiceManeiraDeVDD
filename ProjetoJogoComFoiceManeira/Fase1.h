@@ -9,7 +9,7 @@ public:
 	Fase1(GerenciadorGrafico* GG);
 	~Fase1();
 
-	void criaEntidades();
+	void criaEntidades(float posX, float posY, int n);
 
 };
 

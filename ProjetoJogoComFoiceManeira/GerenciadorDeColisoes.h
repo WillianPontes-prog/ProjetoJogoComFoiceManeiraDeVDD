@@ -26,5 +26,6 @@ public:
 		else { return (valor / abs(valor)); }
 	}
 
+	void danoJogador(Jogador* jogador, int dirX);
 };
 

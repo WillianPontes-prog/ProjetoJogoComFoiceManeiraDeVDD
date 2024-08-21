@@ -23,4 +23,5 @@ public:
     static int SpecialAtk();
     static int ChangeWeapon();
 
+    
 };

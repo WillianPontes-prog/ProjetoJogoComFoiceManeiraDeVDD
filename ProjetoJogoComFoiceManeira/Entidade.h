@@ -1,6 +1,8 @@
 #pragma once
 #include "Ente.h"
 
+#define GRAVIDADE 0.5
+
 class Entidade : public Ente {
 protected:
     sf::RectangleShape body;
@@ -13,4 +15,6 @@ public:
     sf::RectangleShape* getBodyPtr() { return &body; };
     
     void drawBody() { gerenciadorGrafico->draw(body); };
+
+   
 };

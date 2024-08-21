@@ -13,3 +13,12 @@ EntidadeColisao::EntidadeColisao(int posX, int posY, int vida) :
 EntidadeColisao::~EntidadeColisao()
 {
 }
+
+void EntidadeColisao::drawVida(float posX, float poY, sf::Sprite sprVida)
+{
+	for(int i = 0; i < vida; i++){
+		sprVida.setPosition(posX + (i * 32), poY);
+		gerenciadorGrafico->draw(sprVida);
+	}
+}
+

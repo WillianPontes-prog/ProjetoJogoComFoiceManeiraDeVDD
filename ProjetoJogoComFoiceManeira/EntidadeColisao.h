@@ -29,4 +29,8 @@ public:
     void setVspd(float vspd) { this->vspd = vspd; };
 
     void setNoChao(bool noChao) { this->noChao = noChao; };
+
+    void drawVida(float posX, float poY, sf::Sprite sprVida);
+
+    void operator--() { vida--; };
 };

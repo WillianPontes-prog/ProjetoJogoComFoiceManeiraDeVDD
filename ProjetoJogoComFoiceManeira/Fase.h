@@ -37,6 +37,7 @@ public:
 
 	Lista<Jogador*>* getListaJogadores()		{ return listaJogadores; };
 	Lista<Plataforma*>* getListaPlataforma()	{ return listaPlataformas; };
+	Lista<Inimigo*>* getListaInimigos()			{ return listaInimigos; };
 
 	void atualiza();
 	virtual void criaEntidades(float posX, float posY, int n) = 0;

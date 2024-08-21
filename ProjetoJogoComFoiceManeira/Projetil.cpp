@@ -14,6 +14,10 @@ Projetil::Projetil(float posX, float posY, float tamX, float tamY, int tempo, in
 	
 }
 
+Projetil::~Projetil()
+{
+}
+
 void Projetil::Move()
 {
 	body.move(direcao * velocidad);

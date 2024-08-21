@@ -3,7 +3,9 @@
 
 
 Jogador::Jogador(float posX, float posY, int vida): 
-	EntidadeColisao(posX, posY, vida)
+	EntidadeColisao(posX, posY, vida),
+    listaProjetil(new Lista<Projetil*>),
+    arma(new Arma(listaProjetil))
 {
 	setTextura("LifeImg.png");
 	setVelocidade(5);

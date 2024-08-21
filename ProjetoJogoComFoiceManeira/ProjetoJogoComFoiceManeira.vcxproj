@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Arma.h" />
     <ClInclude Include="Ente.h" />
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="EntidadeColisao.h" />
@@ -156,6 +157,7 @@
     <ClInclude Include="Lista.h" />
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Plataforma.h" />
+    <ClInclude Include="Projetil.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="pipipipopopodeteste.json" />
@@ -175,6 +177,7 @@
     <Image Include="LifeImg.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Arma.cpp" />
     <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="EntidadeColisao.cpp" />
@@ -190,6 +193,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Plataforma.cpp" />
+    <ClCompile Include="Projetil.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

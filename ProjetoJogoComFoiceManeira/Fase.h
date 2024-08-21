@@ -14,6 +14,7 @@
 #include "json.hpp"
 #include "GerenciadorDeColisoes.h"
 #include "Inimigo1.h"
+#include"Projetil.h"
 
 using namespace std;
 

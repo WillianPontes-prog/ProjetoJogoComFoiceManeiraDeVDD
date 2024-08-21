@@ -3,13 +3,16 @@
 #include <cmath>
 class Projetil : public Entidade {
 private:
-	float velocidade, direc, dano;
+	float velocidad;
+	int dano, tempo;
+	sf::Vector2f direcao;
+
 
 	int tempoDeDestruicao;
 	
 
 public:
-	Projetil(float dimX = 100.f, float dimY = 100.f, float posX = 0, float posY = 0, float vel = 0, float dir = 0, float dan = 0, float tempATK = INT_MAX);
+	Projetil(float posX = 0, float posY = 0, float tamX = 10, float tamY = 15, int tempo= 15, int velocidade=8, int dano=1,sf::Color c = sf::Color::White, sf::Vector2f direc = sf::Vector2f(1,0));
 	~Projetil();
 	void Move();
 	void atualiza();

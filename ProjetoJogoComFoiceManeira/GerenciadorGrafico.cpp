@@ -62,6 +62,11 @@ void GerenciadorGrafico::draw(sf::Sprite s)
     window->draw(s);
 }
 
+void GerenciadorGrafico::draw(sf::RectangleShape b)
+{
+	window->draw(b);
+}
+
 void GerenciadorGrafico::atualiza()
 {
 

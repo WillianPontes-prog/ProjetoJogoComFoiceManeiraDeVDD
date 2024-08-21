@@ -19,11 +19,12 @@ void GerenciadorDeColisoes::tratarColisoes()
 
     for (Lista<Jogador*>::iterator itJog = listaJogador->begin(); itJog != listaJogador->end(); ++itJog) {
 
+
         sf::RectangleShape bodyTemp;
 
         //--seta por padrão que o jogador não está no chão--\\
         ====================================================
-        //(*itJog)->set_noChao(false);
+        (*itJog)->setNoChao(false);
 
         //--itera sobre todas plataformas--\\
         =====================================
@@ -33,12 +34,12 @@ void GerenciadorDeColisoes::tratarColisoes()
             //--percepção do jogador no chão--\\
             ===================================
 
-            //bodyTemp = (*itJog)->getBody();
-            //bodyTemp.move(sf::Vector2f(0, 1));
+            bodyTemp = (*itJog)->getBody();
+            bodyTemp.move(sf::Vector2f(0, 1));
 
-            //if (ChecarColisao(bodyTemp, (*it)->get_body())) {
-            //    (*itJog)->set_noChao(true);
-            //}
+           if (ChecarColisao(bodyTemp, (*it)->getBody())) {
+                (*itJog)->setNoChao(true);
+            }
 
             //--gerenciador de colisão--\\
             =============================
@@ -51,7 +52,7 @@ void GerenciadorDeColisoes::tratarColisoes()
                 bodyTemp.move(sf::Vector2f(NumeroMinimo((*itJog)->getHspd()), 0));
 
                 while (!ChecarColisao(bodyTemp, (*it)->getBody())) {
-                    (*itJog)->getBody().move(sf::Vector2f(NumeroMinimo((*itJog)->getHspd()), 0));
+                    (*itJog)->getBodyPtr()->move(sf::Vector2f(NumeroMinimo((*itJog)->getHspd()), 0));
 
                     bodyTemp = (*itJog)->getBody();
                     bodyTemp.move(sf::Vector2f(NumeroMinimo((*itJog)->getHspd()), 0));
@@ -68,7 +69,7 @@ void GerenciadorDeColisoes::tratarColisoes()
                 bodyTemp.move(sf::Vector2f((*itJog)->getHspd(), NumeroMinimo((*itJog)->getVspd())));
 
                 while (!ChecarColisao(bodyTemp, (*it)->getBody())) {
-                    (*itJog)->getBody().move(sf::Vector2f(0, NumeroMinimo((*itJog)->getVspd())));
+                    (*itJog)->getBodyPtr()->move(sf::Vector2f(0, NumeroMinimo((*itJog)->getVspd())));
 
                     bodyTemp = (*itJog)->getBody();
                     bodyTemp.move(sf::Vector2f((*itJog)->getHspd(), NumeroMinimo((*itJog)->getVspd())));
@@ -79,7 +80,7 @@ void GerenciadorDeColisoes::tratarColisoes()
 
         }
 
-        (*itJog)->getBody().move(sf::Vector2f((*itJog)->getHspd(), (*itJog)->getVspd()));
+        (*itJog)->getBodyPtr()->move(sf::Vector2f((*itJog)->getHspd(), (*itJog)->getVspd()));
 
     }
 }

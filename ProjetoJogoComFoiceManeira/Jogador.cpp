@@ -29,14 +29,19 @@ void Jogador::move()
         hspd = 0;
     }
 
+    vspd += 0.5;
 
-    body.move(sf::Vector2f(getHspd(), getVspd()));
+    if(GerenciadorDeComandos::Up() && noChao)
+	{
+		vspd = -10;
+	}
 }
 
 void Jogador::atualiza()
 {
     move();
-
-	atualizaSprite(body.getPosition().x, body.getPosition().y);
+   
+	atualizaSprite(getBody().getPosition().x, getBody().getPosition().y);
 	draw();
+    
 }

@@ -11,7 +11,7 @@ protected:
 
     int vida;
 
-    
+    bool noChao;
 
 public:
     EntidadeColisao(int posX = 0, int posY = 0, int vida = 5);
@@ -27,4 +27,6 @@ public:
 
     void setHspd(float hspd) { this->hspd = hspd; };
     void setVspd(float vspd) { this->vspd = vspd; };
+
+    void setNoChao(bool noChao) { this->noChao = noChao; };
 };

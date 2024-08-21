@@ -15,6 +15,7 @@ public:
 
     void draw(Ente* e);
     void draw(sf::Sprite s);
+    void draw(sf::RectangleShape b);
 
     void atualiza();
 

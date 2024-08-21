@@ -32,6 +32,8 @@ void Fase::atualiza()
 	{
 		(*it)->atualiza();
 	}
+
+	gerenciadorDeColisoes->tratarColisoes();
 }
 
 json Fase::lerArquivoJSON(const std::string caminho) {

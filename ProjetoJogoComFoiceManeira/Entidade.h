@@ -10,6 +10,7 @@ public:
     ~Entidade();
     virtual void atualiza() = 0;
     sf::RectangleShape getBody() { return body; };
-
+    sf::RectangleShape* getBodyPtr() { return &body; };
     
+    void drawBody() { gerenciadorGrafico->draw(body); };
 };

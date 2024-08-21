@@ -5,7 +5,8 @@ EntidadeColisao::EntidadeColisao(int posX, int posY, int vida) :
 	hspd(0), 
 	vspd(0), 
 	vida(vida),
-	velocidade(0)
+	velocidade(0),
+	noChao(false)
 {
 }
 

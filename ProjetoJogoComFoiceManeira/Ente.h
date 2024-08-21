@@ -15,8 +15,8 @@ protected:
     sf::Sprite sprite;
 
 public:
-    Ente() : gerenciadorGrafico(NULL){  };
-    ~Ente() {  };
+    Ente();
+    ~Ente();
     void setGerenciadorGrafico(GerenciadorGrafico* gerenciadorGrafico) { this->gerenciadorGrafico = gerenciadorGrafico; };
 
     void setTextura(std::string s) {
@@ -31,8 +31,9 @@ public:
         sprite.setPosition(x, y);
 
     };
+    
     sf::Sprite getSprite() { return sprite; };
     
     virtual void atualiza() = 0;
-    virtual void draw() = 0;
+    virtual void draw();
 };

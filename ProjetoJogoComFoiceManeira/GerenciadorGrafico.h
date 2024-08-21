@@ -10,7 +10,13 @@ private:
     sf::RenderWindow* window;
 
 public:
-    GerenciadorGrafico(sf::RenderWindow* w) { this->window = w; };
-    ~GerenciadorGrafico() {  };
+    GerenciadorGrafico() ;
+    ~GerenciadorGrafico();
+
     void draw(Ente* e);
+    void draw(sf::Sprite s);
+
+    void atualiza();
+
+    sf::RenderWindow* getWindow() { return window; };
 };

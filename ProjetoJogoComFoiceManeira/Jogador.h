@@ -8,7 +8,7 @@ class Jogador : public EntidadeColisao
 public:
 	enum State {
 		Normal,
-		Ataque,
+		Recarregando,
 		Machucado
 	};
 
@@ -37,5 +37,8 @@ public:
 	State getState() { return state; };
 
 	void setState(State state);
+	void disparar();
+	void atualizaProjetil();
+
 };
 

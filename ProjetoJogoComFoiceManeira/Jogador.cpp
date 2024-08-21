@@ -5,8 +5,7 @@
 Jogador::Jogador(float posX, float posY, int vida): 
 	EntidadeColisao(posX, posY, vida),
     listaProjetil(new Lista<Projetil*>),
-    arma(new Arma(listaProjetil))
-	EntidadeColisao(posX, posY, vida),
+    arma(new Arma(listaProjetil)),
     state(Normal),
     tempoMachucado(0),
     maxTempoMachucado(45)
@@ -29,11 +28,11 @@ void Jogador::move()
 {
 
     //movimentação Esquerda
-    if (GerenciadorDeComandos::Left()) {
+    if (GerenciadorDeComandos::Esquerda()) {
         hspd = -velocidade;
     }
     //movimentação Direita
-    else if (GerenciadorDeComandos::Right()) {
+    else if (GerenciadorDeComandos::Direita()) {
         hspd = velocidade;
     }
     else {
@@ -42,7 +41,7 @@ void Jogador::move()
 
     vspd += GRAVIDADE;
 
-    if(GerenciadorDeComandos::Up() && noChao)
+    if(GerenciadorDeComandos::Cima() && noChao)
 	{
 		vspd = -10;
 	}
@@ -50,6 +49,7 @@ void Jogador::move()
 
 void Jogador::atualiza()
 {
+    atualizaProjetil();
 
     drawVida(16, 16, spriteVida);
 
@@ -57,9 +57,10 @@ void Jogador::atualiza()
     {
     case Jogador::Normal:
         move();
+        disparar();
 
         break;
-    case Jogador::Ataque:
+    case Jogador::Recarregando:
 
 
         break;
@@ -103,5 +104,25 @@ void Jogador::setState(State state)
 	}
 
     this->state = state;
+}
+
+void Jogador::disparar()
+{
+    if (GerenciadorDeComandos::Disparar()) {
+        		arma->disparar(getBody().getPosition(), sf::Vector2f(1, 0), gerenciadorGrafico);
+    }
+}
+
+void Jogador::atualizaProjetil(){
+    for (Lista<Projetil*>::iterator it = listaProjetil->begin(); it != listaProjetil->end(); it++)
+    {
+        (*it)->atualiza();
+
+        if ((*it)->OverTime()) {
+            Projetil* projetil = *it;
+            listaProjetil->removerElemento(projetil);
+            projetil = nullptr;
+        }
+    }
 }
 

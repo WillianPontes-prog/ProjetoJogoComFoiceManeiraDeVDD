@@ -11,17 +11,16 @@ public:
     GerenciadorDeComandos() {}
     ~GerenciadorDeComandos() {};
 
-    static int Left();
-    static int Right();
-    static int Down();
-    static int Up();
+    static int Esquerda();
+    static int Direita();
+    static int Baixo();
+    static int Cima();
     static int Click();
 
-    static int Jump();
+    static int Pular();
 
-    static int BasicAtk();
-    static int SpecialAtk();
-    static int ChangeWeapon();
+    static int Disparar();
+    
 
     
 };

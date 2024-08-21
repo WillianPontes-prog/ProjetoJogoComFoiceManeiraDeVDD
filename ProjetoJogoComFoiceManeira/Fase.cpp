@@ -3,6 +3,7 @@
 Fase::Fase(GerenciadorGrafico* GG):
 	listaJogadores(new Lista<Jogador*>()),
 	listaPlataforma(new Lista<Plataforma*>()),
+	gerenciadorDeColisoes(new GerenciadorDeColisoes(this)),
 	Ente()
 {
 	this->setGerenciadorGrafico(GG);

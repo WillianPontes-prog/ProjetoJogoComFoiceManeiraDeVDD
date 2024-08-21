@@ -12,10 +12,13 @@
 #include "Plataforma.h"
 #include <vector>
 #include "json.hpp"
+#include "GerenciadorDeColisoes.h"
 
 using namespace std;
 
 using json = nlohmann::json;
+
+class GerenciadorDeColisoes;
 
 class Fase : public Ente
 {
@@ -23,10 +26,14 @@ protected:
 	Lista<Jogador*>* listaJogadores;
 	Lista<Plataforma*>* listaPlataforma;
 
+	GerenciadorDeColisoes* gerenciadorDeColisoes;
 
 public:
 	Fase(GerenciadorGrafico* GG);
 	~Fase();
+
+	Lista<Jogador*>* getListaJogadores()		{ return listaJogadores; };
+	Lista<Plataforma*>* getListaPlataforma()	{ return listaPlataforma; };
 
 	void atualiza();
 	virtual void criaEntidades(float posX, float posY, int n) = 0;

@@ -2,7 +2,8 @@
 
 Fase::Fase(GerenciadorGrafico* GG):
 	listaJogadores(new Lista<Jogador*>()),
-	listaPlataforma(new Lista<Plataforma*>()),
+	listaPlataformas(new Lista<Plataforma*>()),
+	listaInimigos(new Lista<Inimigo*>()),
 	gerenciadorDeColisoes(new GerenciadorDeColisoes(this)),
 	Ente()
 {
@@ -28,7 +29,12 @@ void Fase::atualiza()
 
 	//--atualiza todas as plataformas--\\
 	=====================================
-	for(Lista<Plataforma*>::iterator it = listaPlataforma->begin(); it != listaPlataforma->end(); it++)
+	for(Lista<Plataforma*>::iterator it = listaPlataformas->begin(); it != listaPlataformas->end(); it++)
+	{
+		(*it)->atualiza();
+	}
+
+	for(Lista<Inimigo*>::iterator it = listaInimigos->begin(); it != listaInimigos->end(); it++)
 	{
 		(*it)->atualiza();
 	}
@@ -102,6 +108,7 @@ vector<vector<vector<int>>> Fase::extrairCamadas(const json& mapa, int numLayers
     return matriz3D;
 }
 
+
 void Fase::criaJogador(float posX, float posY, int vida)
 {
 	Jogador* j = new Jogador(posX, posY, vida);
@@ -115,5 +122,16 @@ void Fase::criaPlataforma(float posX, float posY)
 	Plataforma* p = new Plataforma(posX, posY);
 	p->setGerenciadorGrafico(gerenciadorGrafico);
 
-	listaPlataforma->adicionarElemento(p);
+	listaPlataformas->adicionarElemento(p);
 }
+
+void Fase::criarInimigo1(float posX, float posY, float vida)
+{
+	Inimigo1* i = new Inimigo1(listaJogadores, posX, posY, vida);
+	i->setGerenciadorGrafico(gerenciadorGrafico);
+
+	listaInimigos->adicionarElemento(i);
+}
+
+
+

@@ -18,6 +18,9 @@ void Fase1::criaEntidades(float posX, float posY, int n)
     case 1313:
         criaJogador(posX, posY);
         break;
+    case 1337:
+		criarInimigo1(posX, posY);
+		break;
     case 1317:
         criaPlataforma(posX, posY);
         break;

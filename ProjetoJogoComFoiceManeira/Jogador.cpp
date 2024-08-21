@@ -45,3 +45,4 @@ void Jogador::atualiza()
 	draw();
     
 }
+

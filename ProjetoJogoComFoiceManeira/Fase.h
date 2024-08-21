@@ -13,6 +13,7 @@
 #include <vector>
 #include "json.hpp"
 #include "GerenciadorDeColisoes.h"
+#include "Inimigo1.h"
 
 using namespace std;
 
@@ -24,7 +25,8 @@ class Fase : public Ente
 {
 protected:
 	Lista<Jogador*>* listaJogadores;
-	Lista<Plataforma*>* listaPlataforma;
+	Lista<Plataforma*>* listaPlataformas;
+	Lista<Inimigo*>* listaInimigos;
 
 	GerenciadorDeColisoes* gerenciadorDeColisoes;
 
@@ -33,7 +35,7 @@ public:
 	~Fase();
 
 	Lista<Jogador*>* getListaJogadores()		{ return listaJogadores; };
-	Lista<Plataforma*>* getListaPlataforma()	{ return listaPlataforma; };
+	Lista<Plataforma*>* getListaPlataforma()	{ return listaPlataformas; };
 
 	void atualiza();
 	virtual void criaEntidades(float posX, float posY, int n) = 0;
@@ -48,7 +50,7 @@ public:
 
 	void criaPlataforma(float posX = 0, float posY = 0);
 
-
+	void criarInimigo1(float posX = 0, float posY = 0, float vida = 5);
 
 };
 

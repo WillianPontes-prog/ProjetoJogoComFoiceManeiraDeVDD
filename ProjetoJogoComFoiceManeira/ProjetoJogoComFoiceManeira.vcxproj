@@ -147,6 +147,8 @@
     <ClInclude Include="GerenciadorDeColisoes.h" />
     <ClInclude Include="GerenciadorDeComandos.h" />
     <ClInclude Include="GerenciadorGrafico.h" />
+    <ClInclude Include="Inimigo.h" />
+    <ClInclude Include="Inimigo1.h" />
     <ClInclude Include="Jogador.h" />
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="json.hpp" />
@@ -181,6 +183,8 @@
     <ClCompile Include="GerenciadorDeColisoes.cpp" />
     <ClCompile Include="GerenciadorDeComandos.cpp" />
     <ClCompile Include="GerenciadorGrafico.cpp" />
+    <ClCompile Include="Inimigo.cpp" />
+    <ClCompile Include="Inimigo1.cpp" />
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="main.cpp" />

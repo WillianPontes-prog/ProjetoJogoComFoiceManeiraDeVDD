@@ -172,6 +172,7 @@
     <Image Include="Background_0.png" />
     <Image Include="Fase_1.png" />
     <Image Include="Imagens\BCK_fase1.png" />
+    <Image Include="Imagens\Inimigo1Zumbi.png" />
     <Image Include="Imagens\padraoSpr.png" />
     <Image Include="image_2024-08-19_113051706.png" />
     <Image Include="LifeImg.png" />

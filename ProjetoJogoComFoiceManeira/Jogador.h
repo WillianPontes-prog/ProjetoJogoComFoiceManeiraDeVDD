@@ -1,6 +1,6 @@
 #pragma once
 #include "EntidadeColisao.h"
-#include "Arma.h"
+
 
 
 class Jogador : public EntidadeColisao
@@ -13,8 +13,7 @@ public:
 	};
 
 private:
-	Lista<Projetil*>* listaProjetil;
-	Arma* arma;
+	
 
 	sf::Texture		texturaVida;
 	sf::Sprite		spriteVida;
@@ -25,8 +24,10 @@ private:
 	int maxTempoMachucado;
 	int tempoMachucado;
 
+	
+
 public:
-	Jogador(float posX = 0, float posY = 0, int vida = 5);
+	Jogador(float posX = 0, float posY = 0, int vida = 5, Arma* arma = NULL);
 	~Jogador();
 
 	
@@ -37,8 +38,9 @@ public:
 	State getState() { return state; };
 
 	void setState(State state);
-	void disparar();
-	void atualizaProjetil();
+	void sacarArma();
+
+	
 
 };
 

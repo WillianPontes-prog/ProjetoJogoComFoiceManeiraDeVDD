@@ -4,10 +4,8 @@
 class Projetil : public Entidade {
 private:
 	float velocidad;
-	int dano, tempo;
+	int dano;
 	sf::Vector2f direcao;
-
-
 	int tempoDeDestruicao;
 	
 

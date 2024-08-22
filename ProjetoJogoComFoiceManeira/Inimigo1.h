@@ -15,6 +15,7 @@ public:
 	void move();
 
 	void invertDirectionX() { directionX = -directionX; }
+	void sacarArma() {};
 
 };
 

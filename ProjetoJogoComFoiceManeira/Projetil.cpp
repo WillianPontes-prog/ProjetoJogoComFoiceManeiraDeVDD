@@ -26,7 +26,7 @@ void Projetil::Move()
 void Projetil::atualiza()
 {		
 	Move();
-	draw();
+	drawBody();
 
 }
 

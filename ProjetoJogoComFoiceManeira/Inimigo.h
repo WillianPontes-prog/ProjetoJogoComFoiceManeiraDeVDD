@@ -17,4 +17,7 @@ public:
 	virtual void atualiza() = 0;
 
 	virtual void move() = 0;
+
+	virtual void sacarArma() = 0;
 };
+

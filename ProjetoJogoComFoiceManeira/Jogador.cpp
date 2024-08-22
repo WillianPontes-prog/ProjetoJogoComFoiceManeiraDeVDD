@@ -2,15 +2,13 @@
 #include "GerenciadorDeComandos.h"
 
 
-Jogador::Jogador(float posX, float posY, int vida): 
-	EntidadeColisao(posX, posY, vida),
-    listaProjetil(new Lista<Projetil*>),
-    arma(new Arma(listaProjetil)),
+Jogador::Jogador(float posX, float posY, int vida, Arma* arma): 
+	EntidadeColisao(posX, posY, vida, arma),
     state(Normal),
     tempoMachucado(0),
     maxTempoMachucado(45)
 {
-	setTextura("LifeImg.png");
+	setTextura("Imagens/Jogador1.png");
 	setVelocidade(5);
 
     if (!texturaVida.loadFromFile("LifeImg.png")) {
@@ -18,6 +16,7 @@ Jogador::Jogador(float posX, float posY, int vida):
         throw std::runtime_error("Erro ao carregar a textura!");
     }
     spriteVida.setTexture(texturaVida);
+
 }
 
 Jogador::~Jogador()
@@ -30,13 +29,19 @@ void Jogador::move()
     //movimentação Esquerda
     if (GerenciadorDeComandos::Esquerda()) {
         hspd = -velocidade;
+        direcao.x = -1;
+        sprite.setScale(-1, 1);
+        
     }
     //movimentação Direita
     else if (GerenciadorDeComandos::Direita()) {
         hspd = velocidade;
+        direcao.x = 1;
+        sprite.setScale(1, 1);
     }
     else {
         hspd = 0;
+    
     }
 
     vspd += GRAVIDADE;
@@ -50,39 +55,46 @@ void Jogador::move()
 void Jogador::atualiza()
 {
     atualizaProjetil();
-
     drawVida(16, 16, spriteVida);
 
     switch (state)
     {
     case Jogador::Normal:
         move();
-        disparar();
+        sacarArma();
 
         break;
     case Jogador::Recarregando:
+        move();
 
+        if (tempoRecarregando > 0)
+            tempoRecarregando--;
+		else
+			setState(Normal);
+		
 
         break;
     case Jogador::Machucado:
 
+        
         if(tempoMachucado > 0)
 		{
 			tempoMachucado--;
 
             if (vspd == 0) {
-                if (hspd > 0) {
+                if (hspd > 0)
                     hspd--;
-                }
-                else if (hspd < 0) {
+                else if (hspd < 0)
                     hspd++;
-                }
             }
+            
+            sprite.setColor(sf::Color::Black);
 
             vspd += GRAVIDADE;
 		}
 		else
 		{
+            sprite.setColor(sf::Color::White);
 			setState(Normal);
 		}
 
@@ -106,23 +118,16 @@ void Jogador::setState(State state)
     this->state = state;
 }
 
-void Jogador::disparar()
+void Jogador::sacarArma()
 {
     if (GerenciadorDeComandos::Disparar()) {
-        		arma->disparar(getBody().getPosition(), sf::Vector2f(1, 0), gerenciadorGrafico);
+        disparar();
+        setState(Recarregando);
     }
 }
 
-void Jogador::atualizaProjetil(){
-    for (Lista<Projetil*>::iterator it = listaProjetil->begin(); it != listaProjetil->end(); it++)
-    {
-        (*it)->atualiza();
 
-        if ((*it)->OverTime()) {
-            Projetil* projetil = *it;
-            listaProjetil->removerElemento(projetil);
-            projetil = nullptr;
-        }
-    }
-}
+
+
+
 

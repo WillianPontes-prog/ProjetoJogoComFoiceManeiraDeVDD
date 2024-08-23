@@ -16,6 +16,7 @@ void GerenciadorDeColisoes::tratarColisoes()
     Lista<Jogador*>* listaJogador = fase->getListaJogadores();
     Lista<Plataforma*>* listaPlataforma = fase->getListaPlataforma();
     Lista<Inimigo*>* listaInimigos = fase->getListaInimigos();
+    Lista<Obstaculo*>* listaObstaculos = fase->getListaObstaculos();
 
     for (Lista<Jogador*>::iterator itJog = listaJogador->begin(); itJog != listaJogador->end(); ++itJog) {
 

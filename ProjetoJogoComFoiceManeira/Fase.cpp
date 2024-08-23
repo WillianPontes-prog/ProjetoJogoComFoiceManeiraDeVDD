@@ -4,6 +4,7 @@ Fase::Fase(GerenciadorGrafico* GG):
 	listaJogadores(new Lista<Jogador*>()),
 	listaPlataformas(new Lista<Plataforma*>()),
 	listaInimigos(new Lista<Inimigo*>()),
+	listaObstaculos(new Lista<Obstaculo*>()),
 	gerenciadorDeColisoes(new GerenciadorDeColisoes(this)),
 	Ente()
 {

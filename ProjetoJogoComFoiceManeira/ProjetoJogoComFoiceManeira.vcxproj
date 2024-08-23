@@ -156,6 +156,7 @@
     <ClInclude Include="json_fwd.hpp" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="Obstaculo.h" />
+    <ClInclude Include="Obstaculo2.h" />
     <ClInclude Include="Plataforma.h" />
     <ClInclude Include="Projetil.h" />
   </ItemGroup>
@@ -192,6 +193,7 @@
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
+    <ClCompile Include="Obstaculo2.cpp" />
     <ClCompile Include="Plataforma.cpp" />
     <ClCompile Include="Projetil.cpp" />
   </ItemGroup>

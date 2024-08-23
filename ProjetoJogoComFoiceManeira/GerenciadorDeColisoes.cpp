@@ -28,7 +28,6 @@ void GerenciadorDeColisoes::tratarColisoes()
 
         //--itera sobre todas plataformas--\\
         =====================================
-
         for (Lista<Plataforma*>::iterator it = listaPlataforma->begin(); it != listaPlataforma->end(); ++it) {
 
             //--percepção do jogador no chão--\\
@@ -79,6 +78,8 @@ void GerenciadorDeColisoes::tratarColisoes()
             }
 
         }
+
+        
 
         (*itJog)->getBodyPtr()->move(sf::Vector2f((*itJog)->getHspd(), (*itJog)->getVspd()));
 

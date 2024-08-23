@@ -10,7 +10,9 @@ EntidadeColisao::EntidadeColisao(int posX, int posY, int vida, Arma* arma) :
 	velocidade(0),
 	noChao(false),
     tempoRecarregando(0),
-    direcao(1, 0)
+    direcao(1, 0),
+    maxTempoMachucado(10),
+    tempoMachucado(0)
 {
     if (arma != NULL) {
         arma->setListaProjetil(listaProjetil);
@@ -52,13 +54,14 @@ void EntidadeColisao::atualizaProjetil() {
         (*it)->atualiza();
 
         if ((*it)->OverTime()) {
-            Projetil* projetil = *it;
+            Projetil* projetil = (*it);
             it = listaProjetil->removerElemento(it);
             delete projetil;
         }
         else {
             ++it;
         }
+        
     }
 
 }

@@ -8,7 +8,7 @@ private:
 	sf::Vector2f posicaoTelep;
 
 public:
-	Obstaculo2(sf::Vector2f posicao, sf::Vector2f posicaoTelep);
+	Obstaculo2(sf::Vector2f posicao);
 	~Obstaculo2();
 
 	void atualiza();

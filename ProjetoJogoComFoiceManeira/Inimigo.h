@@ -8,6 +8,8 @@ class Inimigo : public EntidadeColisao {
 protected:
 	Lista<Jogador*>* listaJogadores;
 
+	
+
 public:
 	Inimigo(Lista<Jogador*>* listaJogadores = NULL, float posX = 0, float posY = 0, float vida = 5);
 	~Inimigo();
@@ -19,5 +21,17 @@ public:
 	virtual void move() = 0;
 
 	virtual void sacarArma() = 0;
+
+	void operator--() { vida--; tempoMachucado = maxTempoMachucado; }
+
+	void mudarCorDano() {
+		if (tempoMachucado > 0) {
+			sprite.setColor(sf::Color::Black);
+			tempoMachucado--;
+		}
+		else {
+			sprite.setColor(sf::Color::White);
+		}
+	}
 };
 

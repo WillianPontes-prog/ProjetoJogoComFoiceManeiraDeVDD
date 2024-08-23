@@ -2,12 +2,14 @@
 #include "GerenciadorDeComandos.h"
 
 
-Jogador::Jogador(float posX, float posY, int vida, Arma* arma): 
+Jogador::Jogador(float posX, float posY, int vida, Arma* arma, bool jogador2): 
 	EntidadeColisao(posX, posY, vida, arma),
     state(Normal),
-    tempoMachucado(0),
-    maxTempoMachucado(45)
+    posicaoInicial(posX, posY),
+    jogador2(jogador2)
 {
+    maxTempoMachucado = 45;
+
 	setTextura("Imagens/Jogador1.png");
 	setVelocidade(5);
 
@@ -27,14 +29,14 @@ void Jogador::move()
 {
 
     //movimentação Esquerda
-    if (GerenciadorDeComandos::Esquerda()) {
+    if ((!jogador2 && GerenciadorDeComandos::Esquerda()) || (jogador2 && GerenciadorDeComandos::EsquerdaV2())) {
         hspd = -velocidade;
         direcao.x = -1;
         sprite.setScale(-1, 1);
         
     }
     //movimentação Direita
-    else if (GerenciadorDeComandos::Direita()) {
+    else if ((!jogador2 && GerenciadorDeComandos::Direita()) || (jogador2 && GerenciadorDeComandos::DireitaV2())) {
         hspd = velocidade;
         direcao.x = 1;
         sprite.setScale(1, 1);
@@ -44,18 +46,25 @@ void Jogador::move()
     
     }
 
+
     vspd += GRAVIDADE;
 
-    if(GerenciadorDeComandos::Cima() && noChao)
+    if (((!jogador2 && GerenciadorDeComandos::Cima()) || (jogador2 && GerenciadorDeComandos::CimaV2())) && noChao)
 	{
-		vspd = -10;
+		vspd = -30;
 	}
 }
 
 void Jogador::atualiza()
 {
     atualizaProjetil();
-    drawVida(16, 16, spriteVida);
+
+    if (jogador2) {
+        drawVida(8, 40, spriteVida);
+    }
+    else {
+        drawVida(8, 8, spriteVida);
+    }
 
     switch (state)
     {
@@ -120,7 +129,8 @@ void Jogador::setState(State state)
 
 void Jogador::sacarArma()
 {
-    if (GerenciadorDeComandos::Disparar()) {
+    if ((!jogador2 && GerenciadorDeComandos::Disparar())
+        ||(jogador2 && GerenciadorDeComandos::DispararV2())) {
         disparar();
         setState(Recarregando);
     }

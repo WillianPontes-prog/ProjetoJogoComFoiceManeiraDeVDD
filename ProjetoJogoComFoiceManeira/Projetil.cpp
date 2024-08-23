@@ -39,3 +39,8 @@ int Projetil::OverTime()
 	}
 	return 0;
 }
+
+void Projetil::destruir()
+{
+	tempoDeDestruicao = 0;
+}

@@ -163,6 +163,7 @@
   <ItemGroup>
     <None Include="pipipipopopodeteste.json" />
     <None Include="Save.json" />
+    <None Include="tileds\TiledFase1.json" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="PIXEAB.TTF" />

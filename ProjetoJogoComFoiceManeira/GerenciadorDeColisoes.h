@@ -1,5 +1,7 @@
 #pragma once
 #include "Fase.h"
+#include "Obstaculo2.h"
+#include "Obstaculo1.h"
 
 class Fase;
 
@@ -27,5 +29,7 @@ public:
 	}
 
 	void danoJogador(Jogador* jogador, int dirX);
+
+	
 };
 

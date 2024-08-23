@@ -50,7 +50,7 @@ public:
 
 	//------------metodos de criação de entidades-----------------\\
 	================================================================
-	void criaJogador(float posX = 0, float posY = 0, int vida = 5);
+	void criaJogador(float posX = 0, float posY = 0, int vida = 5, bool j2 = false);
 
 	void criaPlataforma(float posX = 0, float posY = 0);
 

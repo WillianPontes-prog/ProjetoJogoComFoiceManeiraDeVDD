@@ -81,6 +81,25 @@ void GerenciadorDeColisoes::tratarColisoes()
         }
 
         
+        //--itera sobre todos os obstaculos--\\
+        ======================================
+        for (Lista<Obstaculo*>::iterator it = listaObstaculos->begin(); it != listaObstaculos->end(); ++it) {
+
+            if (ChecarColisao((*itJog)->getBody(), (*it)->getBody())) {
+                Obstaculo1* obstaculo1 = dynamic_cast<Obstaculo1*>(*it);
+                Obstaculo2* obstaculo2 = dynamic_cast<Obstaculo2*>(*it);
+
+                if (obstaculo1) {
+                    
+                }
+
+                if (obstaculo2) {
+                    (*itJog)->setPosition((*itJog)->getPosicaoInicial());
+                }
+            
+            }
+		}
+
 
         (*itJog)->getBodyPtr()->move(sf::Vector2f((*itJog)->getHspd(), (*itJog)->getVspd()));
 
@@ -91,26 +110,37 @@ void GerenciadorDeColisoes::tratarColisoes()
     for (Lista<Inimigo*>::iterator itIni = listaInimigos->begin(); itIni != listaInimigos->end(); ++itIni) {
 
         sf::RectangleShape bodyTemp;
-       
-    //==interação inimigo e jogador===========================================================================================================================================
-    
-        for(Lista<Jogador*>::iterator itJog = listaJogador->begin(); itJog != listaJogador->end(); ++itJog) {
-			
-            if((*itJog)->getState() == Jogador::Machucado) {
-				continue;
-			}
+
+
+        //==interação inimigo e jogador===========================================================================================================================================
+
+        for (Lista<Jogador*>::iterator itJog = listaJogador->begin(); itJog != listaJogador->end(); ++itJog) {
+
+            //==iteração sobre todos os tiros de cada jogador=====================================================================================================================
+            for (Lista<Projetil*>::iterator itProjJ = (*itJog)->getListaProjetil()->begin(); itProjJ != (*itJog)->getListaProjetil()->end(); ++itProjJ) {
+                if (ChecarColisao((*itIni)->getBody(), (*itProjJ)->getBody())) {
+                    (*itProjJ)->destruir();
+
+                    (*itIni)->operator--();
+                }
+            }
+
+
+            if ((*itJog)->getState() == Jogador::Machucado) {
+                continue;
+            }
 
             bodyTemp = (*itIni)->getBody();
-			bodyTemp.move(sf::Vector2f((*itIni)->getHspd(), (*itIni)->getVspd()));
+            bodyTemp.move(sf::Vector2f((*itIni)->getHspd(), (*itIni)->getVspd()));
 
-			if (ChecarColisao(bodyTemp, (*itJog)->getBody())) {
-				
+            if (ChecarColisao(bodyTemp, (*itJog)->getBody())) {
+
                 float dirX = NumeroMinimo((*itJog)->getBody().getPosition().x - (*itIni)->getBody().getPosition().x);
                 danoJogador(*itJog, dirX);
 
-			}
-		}
-
+            }
+        }
+    
      
     //==interação inimigo e plataforma========================================================================================================================================
      
@@ -203,3 +233,5 @@ void GerenciadorDeColisoes::danoJogador(Jogador* jogador, int dirX)
     jogador->setVspd(-10);
     jogador->setHspd(dirX * 8);
 }
+
+

@@ -17,7 +17,7 @@ Inimigo1::~Inimigo1()
 
 void Inimigo1::atualiza()
 {
-	
+	mudarCorDano();
 	move();
 	atualizaSprite(getBody().getPosition().x, getBody().getPosition().y);
 	draw();

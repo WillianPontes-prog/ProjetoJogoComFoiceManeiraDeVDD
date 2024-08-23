@@ -21,6 +21,9 @@ protected:
 
     sf::Vector2f direcao;
 
+    int maxTempoMachucado;
+    int tempoMachucado;
+
 public:
     EntidadeColisao(int posX = 0, int posY = 0, int vida = 5, Arma* arma = NULL);
     ~EntidadeColisao();
@@ -40,7 +43,7 @@ public:
 
     void drawVida(float posX, float poY, sf::Sprite sprVida);
 
-    void operator--() { vida--; };
+    virtual void operator--() { vida--; };
 
     void disparar();
 
@@ -49,7 +52,9 @@ public:
     virtual void sacarArma() = 0;
 
     Lista<Projetil*>* getListaProjetil() { return listaProjetil; };
+
     void setArma(Arma* arma) { this->arma = arma; };
 
+    int getVida() { return vida; }
 
 };

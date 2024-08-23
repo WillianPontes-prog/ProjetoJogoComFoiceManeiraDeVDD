@@ -17,4 +17,5 @@ public:
 	
 	int OverTime();
 
+	void destruir();
 };

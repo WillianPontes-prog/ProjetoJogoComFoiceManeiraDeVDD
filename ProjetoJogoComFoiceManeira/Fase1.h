@@ -11,5 +11,7 @@ public:
 
 	void criaEntidades(float posX, float posY, int n);
 
+	void criarObstaculo2(float posX, float posY);
+
 };
 

@@ -21,24 +21,42 @@ void Fase::atualiza()
 {
 	draw();
 
-	//--atualiza todos os jogadores--\\
-	===================================
-	for(Lista<Jogador*>::iterator it = listaJogadores->begin(); it != listaJogadores->end(); it++)
-	{
+    //--atualiza todos os jogadores--\\
+    ===================================
+    for(Lista<Jogador*>::iterator it = listaJogadores->begin(); it != listaJogadores->end(); it++)
+    {
 		(*it)->atualiza();
-	}
+    }
 
-	//--atualiza todas as plataformas--\\
-	=====================================
-	for(Lista<Plataforma*>::iterator it = listaPlataformas->begin(); it != listaPlataformas->end(); it++)
-	{
+    //--atualiza todas as plataformas--\\
+    =====================================
+    for(Lista<Plataforma*>::iterator it = listaPlataformas->begin(); it != listaPlataformas->end(); it++)
+    {
 		(*it)->atualiza();
-	}
+    }
 
-	for(Lista<Inimigo*>::iterator it = listaInimigos->begin(); it != listaInimigos->end(); it++)
-	{
+    //--atualiza todos os obstáculos--\\
+    ====================================
+    for(Lista<Obstaculo*>::iterator it = listaObstaculos->begin(); it != listaObstaculos->end(); it++)
+    {
 		(*it)->atualiza();
-	}
+    }
+
+    //--atualiza todos os inimigos--\\
+    ==================================
+    for(Lista<Inimigo*>::iterator it = listaInimigos->begin(); it != listaInimigos->end(); )
+    {
+        (*it)->atualiza();
+
+        if ((*it)->getVida() <= 0) {
+            Inimigo* projetil = *it;
+            it = listaInimigos->removerElemento(it);
+            delete projetil;
+        }
+        else {
+            ++it;
+        }
+    }
 
 	gerenciadorDeColisoes->tratarColisoes();
 }
@@ -109,9 +127,9 @@ vector<vector<vector<int>>> Fase::extrairCamadas(const json& mapa, int numLayers
     return matriz3D;
 }
 
-void Fase::criaJogador(float posX, float posY, int vida)
+void Fase::criaJogador(float posX, float posY, int vida, bool j2)
 {
-	Jogador* j = new Jogador(posX, posY, vida, new Arma());
+	Jogador* j = new Jogador(posX, posY, vida, new Arma(), j2);
 	j->setGerenciadorGrafico(gerenciadorGrafico);
 
 	listaJogadores->adicionarElemento(j);

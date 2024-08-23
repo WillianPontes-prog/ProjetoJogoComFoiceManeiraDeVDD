@@ -21,16 +21,15 @@ private:
 	State state;
 
 	
-	int maxTempoMachucado;
-	int tempoMachucado;
 
+
+	sf::Vector2f posicaoInicial;
 	
+	bool jogador2;
 
 public:
-	Jogador(float posX = 0, float posY = 0, int vida = 5, Arma* arma = NULL);
+	Jogador(float posX = 0, float posY = 0, int vida = 5, Arma* arma = NULL, bool jogador2 = false);
 	~Jogador();
-
-	
 
 	void move();
 	void atualiza();
@@ -40,7 +39,7 @@ public:
 	void setState(State state);
 	void sacarArma();
 
-	
+	sf::Vector2f getPosicaoInicial() { return posicaoInicial; };
 
 };
 

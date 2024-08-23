@@ -197,33 +197,37 @@ public:
 
     // Método para remover um elemento da lista e retornar o próximo iterador
     iterator removerElemento(iterator it) {
+        if (it.pAtual == nullptr) return it;  // Se o iterador for nulo, retorne-o imediatamente
+
         Elemento<TL>* atual = it.pAtual;
         Elemento<TL>* anterior = nullptr;
 
-        // Percorre a lista até encontrar o elemento atual
-        while (atual != nullptr && atual != it.pAtual) {
-            anterior = atual;
-            atual = atual->pProx;
-        }
-
-        // Se o elemento foi encontrado
-        if (atual != nullptr) {
-            // Se for o primeiro elemento
-            if (atual == pPrimeiro) {
-                pPrimeiro = atual->pProx;
+        // Se o elemento a ser removido for o primeiro
+        if (atual == pPrimeiro) {
+            pPrimeiro = atual->pProx;
+            if (pPrimeiro == nullptr) {  // Se a lista ficou vazia
+                pUltimo = nullptr;
             }
-            // Se for o último elemento
+        }
+        else {
+            // Encontrar o elemento anterior
+            anterior = pPrimeiro;
+            while (anterior->pProx != atual) {
+                anterior = anterior->pProx;
+            }
+            anterior->pProx = atual->pProx;
+
+            // Se o elemento a ser removido for o último
             if (atual == pUltimo) {
                 pUltimo = anterior;
             }
-            // Remove o elemento
-            if (anterior != nullptr) {
-                anterior->pProx = atual->pProx;
-            }
-            delete atual;
         }
 
-        // Retorna o próximo iterador
-        return iterator(anterior != nullptr ? anterior->pProx : pPrimeiro);
+        // Salve o próximo elemento antes de deletar o atual
+        Elemento<TL>* proximo = atual->pProx;
+        delete atual;
+
+        // Retorne o iterador para o próximo elemento
+        return iterator(proximo);
     }
 };

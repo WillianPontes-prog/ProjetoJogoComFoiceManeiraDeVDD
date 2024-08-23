@@ -24,6 +24,8 @@ protected:
     int maxTempoMachucado;
     int tempoMachucado;
 
+    bool sobAtrito;
+
 public:
     EntidadeColisao(int posX = 0, int posY = 0, int vida = 5, Arma* arma = NULL);
     ~EntidadeColisao();
@@ -57,4 +59,6 @@ public:
 
     int getVida() { return vida; }
 
+    void setSobAtrito(bool sobAtrito) { this->sobAtrito = sobAtrito; };
+    float getSobAtrito() { return sobAtrito; };
 };

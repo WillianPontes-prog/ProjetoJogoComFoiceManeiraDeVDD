@@ -10,7 +10,7 @@ Jogador::Jogador(float posX, float posY, int vida, Arma* arma, bool jogador2):
 {
     maxTempoMachucado = 45;
 
-	setTextura("Imagens/Jogador1.png");
+	//setTextura("Imagens/Jogador1.png");
 	setVelocidade(5);
 
     if (!texturaVida.loadFromFile("LifeImg.png")) {

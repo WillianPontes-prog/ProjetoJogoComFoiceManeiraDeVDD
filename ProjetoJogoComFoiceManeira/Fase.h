@@ -33,7 +33,7 @@ protected:
 	GerenciadorDeColisoes* gerenciadorDeColisoes;
 
 public:
-	Fase(GerenciadorGrafico* GG);
+	Fase(GerenciadorGrafico* GG = NULL);
 	~Fase();
 
 	Lista<Jogador*>* getListaJogadores()		{ return listaJogadores; };

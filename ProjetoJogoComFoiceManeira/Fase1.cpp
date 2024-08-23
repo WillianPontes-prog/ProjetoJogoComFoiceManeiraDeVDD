@@ -1,9 +1,9 @@
 #include "Fase1.h"
 
 Fase1::Fase1(GerenciadorGrafico* GG):
-	Fase(GG)
+	Fase(NULL)
 {
-	setTextura("Imagens/BCK_fase1.png");
+    setGerenciadorGrafico(GG);
     gerarFase(extrairCamadas(lerArquivoJSON("tileds/TiledFase1.json"), 2));
 }
 

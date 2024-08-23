@@ -4,7 +4,7 @@ Inimigo1::Inimigo1(Lista<Jogador*>* listaJogadores, float posX, float posY, floa
 	Inimigo(listaJogadores, posX, posY, vida),
 	directionX(1)
 {
-	setTextura("Imagens/padraoSpr.png");
+	setTextura("Imagens/Inimigo1Zumbi.png");
 	velocidade = 1;
 
 	if(!(rand() % 2))
@@ -17,6 +17,7 @@ Inimigo1::~Inimigo1()
 
 void Inimigo1::atualiza()
 {
+	
 	move();
 	atualizaSprite(getBody().getPosition().x, getBody().getPosition().y);
 	draw();
@@ -26,5 +27,8 @@ void Inimigo1::move()
 {
 
 	hspd = velocidade * directionX;
+
+	sprite.setScale(directionX, 1);
+
 	vspd += GRAVIDADE;
 }

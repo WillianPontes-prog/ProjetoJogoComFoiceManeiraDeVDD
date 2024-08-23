@@ -109,10 +109,9 @@ vector<vector<vector<int>>> Fase::extrairCamadas(const json& mapa, int numLayers
     return matriz3D;
 }
 
-
 void Fase::criaJogador(float posX, float posY, int vida)
 {
-	Jogador* j = new Jogador(posX, posY, vida);
+	Jogador* j = new Jogador(posX, posY, vida, new Arma());
 	j->setGerenciadorGrafico(gerenciadorGrafico);
 
 	listaJogadores->adicionarElemento(j);

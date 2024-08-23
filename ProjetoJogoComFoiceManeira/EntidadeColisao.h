@@ -1,8 +1,12 @@
 #pragma once
 #include "Entidade.h"
+#include "Arma.h"
 
 class EntidadeColisao : public Entidade {
 protected:
+
+    Lista<Projetil*>* listaProjetil;
+    Arma* arma;
 
     float velocidade;
 
@@ -13,8 +17,12 @@ protected:
 
     bool noChao;
 
+    int tempoRecarregando;
+
+    sf::Vector2f direcao;
+
 public:
-    EntidadeColisao(int posX = 0, int posY = 0, int vida = 5);
+    EntidadeColisao(int posX = 0, int posY = 0, int vida = 5, Arma* arma = NULL);
     ~EntidadeColisao();
 
     void setVelocidade(float velocidade) { this->velocidade = velocidade; };
@@ -33,4 +41,15 @@ public:
     void drawVida(float posX, float poY, sf::Sprite sprVida);
 
     void operator--() { vida--; };
+
+    void disparar();
+
+    void atualizaProjetil();
+
+    virtual void sacarArma() = 0;
+
+    Lista<Projetil*>* getListaProjetil() { return listaProjetil; };
+    void setArma(Arma* arma) { this->arma = arma; };
+
+
 };

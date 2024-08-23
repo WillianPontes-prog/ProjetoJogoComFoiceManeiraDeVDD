@@ -20,12 +20,68 @@ void GerenciadorDeColisoes::tratarColisoes()
 
     for (Lista<Jogador*>::iterator itJog = listaJogador->begin(); itJog != listaJogador->end(); ++itJog) {
 
-
         sf::RectangleShape bodyTemp;
-
         //--seta por padrão que o jogador não está no chão--\\
         ====================================================
         (*itJog)->setNoChao(false);
+
+        //--colisão Jogador com jogador--\\
+        ===================================
+
+        for (Lista<Jogador*>::iterator itJogColider = listaJogador->begin(); itJogColider != listaJogador->end(); ++itJogColider) {
+            
+            //--percepção do jogador no chão--\\
+            ===================================
+
+            bodyTemp = (*itJog)->getBody();
+            bodyTemp.move(sf::Vector2f(0, 1));
+
+            if (ChecarColisao(bodyTemp, (*itJogColider)->getBody())) {
+                (*itJog)->setNoChao(true);
+            }
+
+            //--gerenciador de colisão--\\
+            =============================
+
+            if ((*itJog)!= (*itJogColider)) {
+                bodyTemp = (*itJog)->getBody();
+                bodyTemp.move(sf::Vector2f((*itJog)->getHspd(), 0));
+
+                if (ChecarColisao(bodyTemp, (*itJogColider)->getBody())) {
+                    bodyTemp = (*itJog)->getBody();
+                    bodyTemp.move(sf::Vector2f(NumeroMinimo((*itJog)->getHspd()), 0));
+
+                    while (!ChecarColisao(bodyTemp, (*itJogColider)->getBody())) {
+                        (*itJog)->getBodyPtr()->move(sf::Vector2f(NumeroMinimo((*itJog)->getHspd()), 0));
+
+                        bodyTemp = (*itJog)->getBody();
+                        bodyTemp.move(sf::Vector2f(NumeroMinimo((*itJog)->getHspd()), 0));
+                    }
+
+                    (*itJog)->setHspd(0);
+                }
+
+                bodyTemp = (*itJog)->getBody();
+                bodyTemp.move(sf::Vector2f((*itJog)->getHspd(), (*itJog)->getVspd()));
+
+                if (ChecarColisao(bodyTemp, (*itJogColider)->getBody())) {
+                    bodyTemp = (*itJog)->getBody();
+                    bodyTemp.move(sf::Vector2f((*itJog)->getHspd(), NumeroMinimo((*itJog)->getVspd())));
+
+                    while (!ChecarColisao(bodyTemp, (*itJogColider)->getBody())) {
+                        (*itJog)->getBodyPtr()->move(sf::Vector2f(0, NumeroMinimo((*itJog)->getVspd())));
+
+                        bodyTemp = (*itJog)->getBody();
+                        bodyTemp.move(sf::Vector2f((*itJog)->getHspd(), NumeroMinimo((*itJog)->getVspd())));
+                    }
+
+                    (*itJog)->setVspd(0);
+                }
+            }
+        }
+
+
+
 
         //--itera sobre todas plataformas--\\
         =====================================

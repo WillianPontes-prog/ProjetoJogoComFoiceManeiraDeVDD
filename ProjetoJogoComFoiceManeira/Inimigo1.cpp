@@ -4,7 +4,7 @@ Inimigo1::Inimigo1(Lista<Jogador*>* listaJogadores, float posX, float posY, floa
 	Inimigo(listaJogadores, posX, posY, vida),
 	directionX(1)
 {
-	setTextura("Imagens/Inimigo1Zumbi.png");
+	
 	velocidade = 1;
 
 	if(!(rand() % 2))

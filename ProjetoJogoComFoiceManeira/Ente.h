@@ -19,18 +19,7 @@ public:
     ~Ente();
     void setGerenciadorGrafico(GerenciadorGrafico* gerenciadorGrafico);
 
-    void setTextura(std::string s) {
-        /*
-        if (!textura->loadFromFile(s)) {
-            // Tratar o erro de carregamento da textura
-            throw std::runtime_error("Erro ao carregar a textura!");
-        }
-        sprite.setOrigin(textura->getSize().x / 2, textura->getSize().y / 2); //centraliza o sprite
-        sprite.setTexture(*textura);
 
-        atualizaSprite(0, 0);
-        //*/
-    }
 
     void atualizaSprite(float x, float y) {
 

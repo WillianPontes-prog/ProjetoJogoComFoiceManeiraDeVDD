@@ -1,6 +1,6 @@
 #include "Ente.h"
 
-Ente::Ente() : gerenciadorGrafico(NULL)
+Ente::Ente() : gerenciadorGrafico(NULL), textura(NULL)
 {
 }
 

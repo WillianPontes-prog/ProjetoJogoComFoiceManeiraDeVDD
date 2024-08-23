@@ -148,6 +148,7 @@
     <ClInclude Include="GerenciadorDeColisoes.h" />
     <ClInclude Include="GerenciadorDeComandos.h" />
     <ClInclude Include="GerenciadorGrafico.h" />
+    <ClInclude Include="Icones.h" />
     <ClInclude Include="Inimigo.h" />
     <ClInclude Include="Inimigo1.h" />
     <ClInclude Include="Jogador.h" />
@@ -189,6 +190,7 @@
     <ClCompile Include="GerenciadorDeColisoes.cpp" />
     <ClCompile Include="GerenciadorDeComandos.cpp" />
     <ClCompile Include="GerenciadorGrafico.cpp" />
+    <ClCompile Include="Icones.cpp" />
     <ClCompile Include="Inimigo.cpp" />
     <ClCompile Include="Inimigo1.cpp" />
     <ClCompile Include="Jogador.cpp" />

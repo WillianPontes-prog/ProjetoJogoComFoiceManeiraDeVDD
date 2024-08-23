@@ -72,6 +72,9 @@
     <ClCompile Include="Obstaculo2.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="Icones.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.h">
@@ -134,12 +137,16 @@
     <ClInclude Include="Obstaculo2.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
+    <ClInclude Include="Icones.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Save.json" />
     <None Include="pipipipopopodeteste.json">
       <Filter>Arquivos de Recurso</Filter>
     </None>
+    <None Include="tileds\TiledFase1.json" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="PIXEAB.TTF">
@@ -169,6 +176,9 @@
       <Filter>Arquivos de Recurso</Filter>
     </Image>
     <Image Include="Imagens\padraoSpr.png">
+      <Filter>Arquivos de Recurso</Filter>
+    </Image>
+    <Image Include="Imagens\Inimigo1Zumbi.png">
       <Filter>Arquivos de Recurso</Filter>
     </Image>
   </ItemGroup>

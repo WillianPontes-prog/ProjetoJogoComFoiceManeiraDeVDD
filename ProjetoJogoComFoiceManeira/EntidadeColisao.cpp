@@ -12,7 +12,8 @@ EntidadeColisao::EntidadeColisao(int posX, int posY, int vida, Arma* arma) :
     tempoRecarregando(0),
     direcao(1, 0),
     maxTempoMachucado(10),
-    tempoMachucado(0)
+    tempoMachucado(0),
+    sobAtrito(false)
 {
     if (arma != NULL) {
         arma->setListaProjetil(listaProjetil);

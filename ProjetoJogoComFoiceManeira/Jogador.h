@@ -41,5 +41,6 @@ public:
 
 	sf::Vector2f getPosicaoInicial() { return posicaoInicial; };
 
+	bool getJogador2() { return jogador2; };
 };
 

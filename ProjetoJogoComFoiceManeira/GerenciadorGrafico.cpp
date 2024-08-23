@@ -1,8 +1,39 @@
 #include "GerenciadorGrafico.h"
 
+#include "Jogador.h"
+#include "Inimigo.h"
+#include "Fase1.h"
 
 
-GerenciadorGrafico::GerenciadorGrafico()
+#define SPR_JOGADOR1 "imagens/jogador1.png"
+
+#define SPR_INIMIGO1 "imagens/inimigo1Zumbi.png"
+
+#define SPR_BCK_FASE1 "imagens/BCK_fase1.png"
+
+
+void GerenciadorGrafico::carregarTexturas()
+{
+
+
+    if (!tJogador1->loadFromFile(SPR_JOGADOR1)) {
+        throw std::runtime_error("Erro ao carregar a textura!");
+    }
+
+    if(!tFase1->loadFromFile(SPR_BCK_FASE1)){
+		throw std::runtime_error("Erro ao carregar a textura!");
+	}
+
+    if(!tInimigo1->loadFromFile(SPR_INIMIGO1)){
+        throw std::runtime_error("Erro ao carregar a textura!");
+    }
+    
+}
+
+GerenciadorGrafico::GerenciadorGrafico():
+    tJogador1(new sf::Texture()),
+    tFase1(new sf::Texture()),
+    tInimigo1(new sf::Texture())
 {
     // Resolução original
     sf::Vector2u originalResolution(960, 640);
@@ -46,6 +77,7 @@ GerenciadorGrafico::GerenciadorGrafico()
 
     window->setView(view);
 
+    carregarTexturas();
 }
 
 GerenciadorGrafico::~GerenciadorGrafico()
@@ -70,6 +102,35 @@ void GerenciadorGrafico::draw(sf::RectangleShape b)
 void GerenciadorGrafico::atualiza()
 {
 
+}
+
+sf::Texture* GerenciadorGrafico::devolveImagemEnte(Ente* e)
+{
+    Jogador* j = dynamic_cast<Jogador*>(e);
+
+    if (j) {
+        if (!j->getJogador2())
+            return tJogador1;
+        else
+            return NULL;
+    }
+
+    Inimigo* i = dynamic_cast<Inimigo*>(e);
+    if (i) {
+		return tInimigo1;
+	}
+
+    Fase1* f = dynamic_cast<Fase1*>(e);
+    if (f) {
+		return tFase1;
+	}
+    
+    
+
+
+
+
+    return NULL;;
 }
 
 

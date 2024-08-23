@@ -81,7 +81,7 @@ void GerenciadorDeColisoes::tratarColisoes()
         }
 
 
-
+        (*itJog)->setSobAtrito(false);
 
         //--itera sobre todas plataformas--\\
         =====================================
@@ -95,8 +95,14 @@ void GerenciadorDeColisoes::tratarColisoes()
 
            if (ChecarColisao(bodyTemp, (*it)->getBody())) {
                 (*itJog)->setNoChao(true);
+
+                if (!(*itJog)->getSobAtrito()) {
+                    (*itJog)->setHspd((*itJog)->getHspd() * (*it)->getAtrito());
+                    (*itJog)->setSobAtrito(true);
+                }
             }
 
+           
             //--gerenciador de colisão--\\
             =============================
 

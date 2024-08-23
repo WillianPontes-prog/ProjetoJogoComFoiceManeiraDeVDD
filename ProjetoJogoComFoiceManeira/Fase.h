@@ -28,6 +28,7 @@ protected:
 	Lista<Jogador*>* listaJogadores;
 	Lista<Plataforma*>* listaPlataformas;
 	Lista<Inimigo*>* listaInimigos;
+	Lista<Obstaculo*>* listaObstaculos;
 
 	GerenciadorDeColisoes* gerenciadorDeColisoes;
 
@@ -38,6 +39,7 @@ public:
 	Lista<Jogador*>* getListaJogadores()		{ return listaJogadores; };
 	Lista<Plataforma*>* getListaPlataforma()	{ return listaPlataformas; };
 	Lista<Inimigo*>* getListaInimigos()			{ return listaInimigos; };
+	Lista<Obstaculo*>* getListaObstaculos()		{ return listaObstaculos; };
 
 	void atualiza();
 	virtual void criaEntidades(float posX, float posY, int n) = 0;

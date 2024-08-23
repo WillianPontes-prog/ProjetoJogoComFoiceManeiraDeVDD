@@ -13,6 +13,7 @@ public:
     virtual void atualiza() = 0;
     sf::RectangleShape getBody() { return body; };
     sf::RectangleShape* getBodyPtr() { return &body; };
+    void setPosition(sf::Vector2f pos) { body.setPosition(pos); };
     
     void drawBody() { gerenciadorGrafico->draw(body); };
 

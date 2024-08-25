@@ -11,6 +11,8 @@
 
 #define SPR_BCK_FASE1 "imagens/BCK_fase1.png"
 
+#define SPR_BCK_FASE1_PLAT "imagens/Fase_1.png"
+
 
 void GerenciadorGrafico::carregarTexturas()
 {
@@ -20,7 +22,7 @@ void GerenciadorGrafico::carregarTexturas()
         throw std::runtime_error("Erro ao carregar a textura!");
     }
 
-    if(!tFase1->loadFromFile(SPR_BCK_FASE1)){
+    if(!tFase1->loadFromFile(SPR_BCK_FASE1) ){
 		throw std::runtime_error("Erro ao carregar a textura!");
 	}
 
@@ -135,3 +137,7 @@ sf::Texture* GerenciadorGrafico::devolveImagemEnte(Ente* e)
 
 
 
+void GerenciadorGrafico::Close()
+{
+	window->close();
+}

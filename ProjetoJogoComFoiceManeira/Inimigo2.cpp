@@ -1,12 +1,13 @@
 #include "Inimigo2.h"
 
-Inimigo2::Inimigo2(Lista<Jogador*>* listaJogadores, float posX, float posY, float vida):Inimigo(listaJogadores, posX, posY, vida)
+Inimigo2::Inimigo2(Lista<Jogador*>* listaJogadores, float posX, float posY, float vida) :Inimigo(listaJogadores, posX, posY, vida)
 {
     estado = Andando;
-	velocidade = 1;
-
-	if (!(rand() % 2))
-		directionX = -1;
+    velocidade = 1;
+    directionX = 1;
+    if (!(rand() % 2))
+        directionX = -1;
+    //arma = new Arma(gerenciadorGrafico);
 }
 
 Inimigo2::~Inimigo2()

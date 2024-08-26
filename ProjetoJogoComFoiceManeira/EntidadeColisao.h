@@ -31,6 +31,7 @@ public:
     ~EntidadeColisao();
 
     void setVelocidade(float velocidade) { this->velocidade = velocidade; };
+    void DisparaProjetil(sf::Vector2f pos, sf::Vector2f dir, GerenciadorGrafico* gg) { arma->disparar(pos, dir, gg); };
 
     virtual void move() = 0;
     virtual void atualiza() = 0;

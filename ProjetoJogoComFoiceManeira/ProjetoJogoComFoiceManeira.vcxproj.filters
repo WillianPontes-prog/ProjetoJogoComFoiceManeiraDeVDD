@@ -87,6 +87,12 @@
     <ClCompile Include="Obstaculo1.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="EstadoAndando.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="EstadoAtacando.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.h">
@@ -164,6 +170,15 @@
     <ClInclude Include="Obstaculo1.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
+    <ClInclude Include="Estado.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="EstadoAndando.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="EstadoAtacando.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Save.json" />
@@ -182,9 +197,6 @@
       <Filter>Arquivos de Recurso</Filter>
     </Image>
     <Image Include="..\Tiles\TX Village Props.png">
-      <Filter>Arquivos de Recurso</Filter>
-    </Image>
-    <Image Include="Fase_1.png">
       <Filter>Arquivos de Recurso</Filter>
     </Image>
     <Image Include="LifeImg.png">
@@ -206,6 +218,9 @@
       <Filter>Arquivos de Recurso</Filter>
     </Image>
     <Image Include="Imagens\Jogador1.png">
+      <Filter>Arquivos de Recurso</Filter>
+    </Image>
+    <Image Include="Imagens\Fase_1.png">
       <Filter>Arquivos de Recurso</Filter>
     </Image>
   </ItemGroup>

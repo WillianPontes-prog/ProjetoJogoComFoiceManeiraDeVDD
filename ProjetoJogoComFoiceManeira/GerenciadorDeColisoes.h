@@ -10,6 +10,7 @@ class GerenciadorDeColisoes
 private:
 	Fase* fase;
 
+
 public:
 	GerenciadorDeColisoes(Fase* fase);
 	~GerenciadorDeColisoes();

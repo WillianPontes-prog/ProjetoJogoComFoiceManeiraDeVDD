@@ -1,5 +1,5 @@
 #pragma once
-#include<iostream>
+#include <iostream>
 #include "Ente.h"
 #include <SFML/Graphics.hpp>
 
@@ -8,7 +8,7 @@ class Ente;
 class GerenciadorGrafico {
 private:
     sf::RenderWindow* window;
-
+    static GerenciadorGrafico* instance; // Instância única do Singleton
     void carregarTexturas();
 
     sf::Texture* tJogador1;
@@ -18,10 +18,21 @@ private:
 
     sf::Texture* tFasePlataforma;
 
+    GerenciadorGrafico();
+    ~GerenciadorGrafico();
 
 public:
-    GerenciadorGrafico() ;
-    ~GerenciadorGrafico();
+    // Função pública para acessar a instância única
+    static GerenciadorGrafico* getInstance() {
+        if (instance == nullptr) {
+            instance = new GerenciadorGrafico();
+        }
+        return instance;
+    }
+
+    // Excluindo os construtores de cópia e operador de atribuição para evitar cópias
+    GerenciadorGrafico(const GerenciadorGrafico&) = delete;
+    GerenciadorGrafico& operator=(const GerenciadorGrafico&) = delete;
 
     void draw(Ente* e);
     void draw(sf::Sprite s);
@@ -33,7 +44,8 @@ public:
 
     sf::RenderWindow* getWindow() { return window; };
 
-    sf::Texture* devolveImagemEnte(Ente* e = NULL);
-
-    
+    sf::Texture* devolveImagemEnte(Ente* e = nullptr);
 };
+
+// Inicialização da instância única fora da classe
+GerenciadorGrafico* GerenciadorGrafico::instance = nullptr;

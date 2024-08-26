@@ -4,7 +4,7 @@
 
 
 Jogo::Jogo():
-	gerenciadorGrafico(new GerenciadorGrafico()),
+	gerenciadorGrafico(GerenciadorGrafico::getInstance()),
     f1(new Fase1(gerenciadorGrafico)),
     menu(new Menu(gerenciadorGrafico, this))
 {

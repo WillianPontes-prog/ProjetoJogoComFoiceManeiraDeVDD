@@ -3,6 +3,7 @@
 GerenciadorDeColisoes::GerenciadorDeColisoes(Fase* fase)
 {
     this->fase = fase;
+   
 }
 
 GerenciadorDeColisoes::~GerenciadorDeColisoes()
@@ -10,6 +11,7 @@ GerenciadorDeColisoes::~GerenciadorDeColisoes()
 }
 
 void GerenciadorDeColisoes::tratarColisoes()
+
 {
     //--itera sobre cada jogador--\\
     ================================
@@ -17,6 +19,8 @@ void GerenciadorDeColisoes::tratarColisoes()
     Lista<Plataforma*>* listaPlataforma = fase->getListaPlataforma();
     Lista<Inimigo*>* listaInimigos = fase->getListaInimigos();
     Lista<Obstaculo*>* listaObstaculos = fase->getListaObstaculos();
+    //--itera sobre cada jogador--\\
+    ================================
 
     for (Lista<Jogador*>::iterator itJog = listaJogador->begin(); itJog != listaJogador->end(); ++itJog) {
 

@@ -15,6 +15,8 @@ private:
     sf::Texture* tInimigo1;
     sf::Texture* tFase1;
 
+    sf::Texture* tFasePlataforma;
+
 
 public:
     GerenciadorGrafico() ;
@@ -23,6 +25,7 @@ public:
     void draw(Ente* e);
     void draw(sf::Sprite s);
     void draw(sf::RectangleShape b);
+    void Close();
 
     void atualiza();
 

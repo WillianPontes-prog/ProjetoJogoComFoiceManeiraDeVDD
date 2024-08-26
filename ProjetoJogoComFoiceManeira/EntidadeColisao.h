@@ -1,4 +1,4 @@
-#pragma once
+        #pragma once
 #include "Entidade.h"
 #include "Arma.h"
 

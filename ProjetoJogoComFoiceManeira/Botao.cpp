@@ -6,12 +6,14 @@ Botao::Botao(GerenciadorGrafico* gg, float x, float y, float width, float height
 	setGerenciadorGrafico(gg);
 	set_Color(sf::Color::White);
 
+	//*
 	font.loadFromFile("PIXEAB.TTF");
 	this->text.setFont(font);
 	this->text.setString(text);
 	this->text.setCharacterSize(24);
 	this->text.setFillColor(sf::Color::Black);
 	this->text.setPosition(x + width / 2 - this->text.getGlobalBounds().width / 2, y + height / 2 - this->text.getGlobalBounds().height / 2);
+	//*/
 	pressionado = 0;
 
 	this->tipo = _type;
@@ -27,6 +29,7 @@ Botao::~Botao()
 void Botao::draw()
 {
 	drawBody();
+	
 	//window->draw(text); ver depois
 
 }
@@ -51,25 +54,25 @@ void Botao::executar()
 	switch (tipo)
 	{
 	case Botao::NovoJogo: {
-		//jogo->setGameState(Jogo::EmJogo);
+		jogo->setarModoDeJogo(Jogo::_fase1);
 	}
-						break;
+		break;
 	case Botao::CarregarJogo: {
 
 	}
-							break;
+		break;
 	case Botao::Salvar: {
 
 	}
-					  break;
+		break;
 	case Botao::Sair: {
 		gerenciadorGrafico->Close();
 	}
-					break;
+		break;
 	default: {
 
 	}
-		   break;
+		break;
 	}
 }
 
@@ -84,4 +87,10 @@ void Botao::atualiza()
 		set_Color(sf::Color::White);
 	}
 	draw();
+	drawText();
+}
+
+void Botao::drawText()
+{
+	gerenciadorGrafico->draw(text);
 }

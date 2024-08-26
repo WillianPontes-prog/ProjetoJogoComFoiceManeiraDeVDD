@@ -30,20 +30,22 @@ void GerenciadorDeColisoes::tratarColisoes()
 
         for (Lista<Jogador*>::iterator itJogColider = listaJogador->begin(); itJogColider != listaJogador->end(); ++itJogColider) {
             
-            //--percepção do jogador no chão--\\
-            ===================================
+            if ((*itJog) != (*itJogColider)) {
+                
+                //--percepção do jogador com jogador--\\
+                ========================================
 
-            bodyTemp = (*itJog)->getBody();
-            bodyTemp.move(sf::Vector2f(0, 1));
+                bodyTemp = (*itJog)->getBody();
+                bodyTemp.move(sf::Vector2f(0, 1));
 
-            if (ChecarColisao(bodyTemp, (*itJogColider)->getBody())) {
-                (*itJog)->setNoChao(true);
-            }
+                if (ChecarColisao(bodyTemp, (*itJogColider)->getBody())) {
+                   (*itJog)->setNoChao(true);
+                }
 
-            //--gerenciador de colisão--\\
-            =============================
+                //--gerenciador de colisão--\\
+                =============================
 
-            if ((*itJog)!= (*itJogColider)) {
+            
                 bodyTemp = (*itJog)->getBody();
                 bodyTemp.move(sf::Vector2f((*itJog)->getHspd(), 0));
 

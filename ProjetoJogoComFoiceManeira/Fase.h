@@ -32,6 +32,9 @@ protected:
 
 	GerenciadorDeColisoes* gerenciadorDeColisoes;
 
+	sf::Texture* texturaFundo;
+	sf::Sprite spriteFundo;
+
 public:
 	Fase(GerenciadorGrafico* GG = NULL);
 	~Fase();
@@ -47,6 +50,8 @@ public:
 	json lerArquivoJSON(const std::string caminho); 
 	void gerarFase(vector<vector<vector<int>>> mapa);
 	vector<vector<vector<int>>> extrairCamadas(const json& mapa, int numLayers);
+
+	void setSpriteFundo(sf::Texture* texture);
 
 	//------------metodos de criação de entidades-----------------\\
 	================================================================

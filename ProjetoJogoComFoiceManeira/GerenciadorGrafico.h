@@ -14,6 +14,7 @@ private:
     sf::Texture* tJogador1;
     sf::Texture* tInimigo1;
     sf::Texture* tFase1;
+    sf::Texture* tFase1Plat;
 
     sf::Texture* tFasePlataforma;
 
@@ -25,6 +26,7 @@ public:
     void draw(Ente* e);
     void draw(sf::Sprite s);
     void draw(sf::RectangleShape b);
+    void draw(sf::Text t);
     void Close();
 
     void atualiza();

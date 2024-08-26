@@ -5,8 +5,10 @@
 
 Jogo::Jogo():
 	gerenciadorGrafico(new GerenciadorGrafico()),
-    f1(new Fase1(gerenciadorGrafico))
+    f1(new Fase1(gerenciadorGrafico)),
+    menu(new Menu(gerenciadorGrafico, this))
 {
+	rodando = Jogo::_menu;
 
 	executar();
 }
@@ -39,7 +41,30 @@ void Jogo::executar()
                 window->close();
         }
 
-        f1->atualiza();
+        switch (rodando)
+        {
+        case Jogo::_menu:
+
+            menu->atualiza();
+
+            break;
+        case Jogo::_fase1:
+
+            f1->atualiza();
+
+            break;
+        case Jogo::_fase2:
+
+
+
+            break;
+        default:
+
+
+
+            break;
+        }
+        
 
 #ifdef SHOW_FPS
         /* Mostrar FPS*/

@@ -19,7 +19,10 @@ Fase::~Fase()
 
 void Fase::atualiza()
 {
-	draw();
+    
+	
+    gerenciadorGrafico->draw(spriteFundo);
+    draw();
 
     //--atualiza todos os jogadores--\\
     ===================================
@@ -125,6 +128,15 @@ vector<vector<vector<int>>> Fase::extrairCamadas(const json& mapa, int numLayers
     }
 
     return matriz3D;
+}
+
+void Fase::setSpriteFundo(sf::Texture* texture)
+{
+    texturaFundo = texture;
+    if (texturaFundo != NULL) {
+        spriteFundo.setTexture(*texturaFundo);
+        spriteFundo.setPosition(0, 0); 
+    }
 }
 
 void Fase::criaJogador(float posX, float posY, int vida, bool j2)

@@ -13,7 +13,6 @@
 
 #define SPR_BCK_FASE1_PLAT "imagens/Fase_1.png"
 
-
 void GerenciadorGrafico::carregarTexturas()
 {
 
@@ -29,13 +28,18 @@ void GerenciadorGrafico::carregarTexturas()
     if(!tInimigo1->loadFromFile(SPR_INIMIGO1)){
         throw std::runtime_error("Erro ao carregar a textura!");
     }
+
+    if (!tFase1Plat->loadFromFile(SPR_BCK_FASE1_PLAT)) {
+        throw std::runtime_error("Erro ao carregar a textura!");
+    }
     
 }
 
 GerenciadorGrafico::GerenciadorGrafico():
     tJogador1(new sf::Texture()),
     tFase1(new sf::Texture()),
-    tInimigo1(new sf::Texture())
+    tInimigo1(new sf::Texture()),
+    tFase1Plat(new sf::Texture())
 {
     // Resolução original
     sf::Vector2u originalResolution(960, 640);
@@ -98,7 +102,16 @@ void GerenciadorGrafico::draw(sf::Sprite s)
 
 void GerenciadorGrafico::draw(sf::RectangleShape b)
 {
-	window->draw(b);
+    
+    window->draw(b);
+    
+    
+}
+
+void GerenciadorGrafico::draw(sf::Text t)
+{
+    	window->draw(t);
+
 }
 
 void GerenciadorGrafico::atualiza()
@@ -124,7 +137,8 @@ sf::Texture* GerenciadorGrafico::devolveImagemEnte(Ente* e)
 
     Fase1* f = dynamic_cast<Fase1*>(e);
     if (f) {
-		return tFase1;
+        f->setSpriteFundo(tFase1);
+		return tFase1Plat;
 	}
     
     

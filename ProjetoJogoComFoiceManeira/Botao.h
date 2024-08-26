@@ -33,6 +33,7 @@ public:
 	void set_Pressed(bool VF);
 	virtual void executar();
 	void atualiza();
+	void drawText();
 
 
 

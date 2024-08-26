@@ -12,9 +12,7 @@ private:
     void carregarTexturas();
 
     sf::Texture* tJogador1;
-
     sf::Texture* tInimigo1;
-
     sf::Texture* tFase1;
 
 

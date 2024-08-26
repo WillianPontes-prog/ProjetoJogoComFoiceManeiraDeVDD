@@ -112,7 +112,7 @@ sf::Texture* GerenciadorGrafico::devolveImagemEnte(Ente* e)
         if (!j->getJogador2())
             return tJogador1;
         else
-            return NULL;
+            return tJogador1;
     }
 
     Inimigo* i = dynamic_cast<Inimigo*>(e);

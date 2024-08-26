@@ -160,6 +160,7 @@
     <ClInclude Include="Lista.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Obstaculo.h" />
+    <ClInclude Include="Obstaculo1.h" />
     <ClInclude Include="Obstaculo2.h" />
     <ClInclude Include="Plataforma.h" />
     <ClInclude Include="Projetil.h" />
@@ -204,6 +205,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
+    <ClCompile Include="Obstaculo1.cpp" />
     <ClCompile Include="Obstaculo2.cpp" />
     <ClCompile Include="Plataforma.cpp" />
     <ClCompile Include="Projetil.cpp" />

@@ -152,6 +152,7 @@
     <ClInclude Include="Icones.h" />
     <ClInclude Include="Inimigo.h" />
     <ClInclude Include="Inimigo1.h" />
+    <ClInclude Include="Inimigo2.h" />
     <ClInclude Include="Jogador.h" />
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="json.hpp" />
@@ -197,6 +198,7 @@
     <ClCompile Include="Icones.cpp" />
     <ClCompile Include="Inimigo.cpp" />
     <ClCompile Include="Inimigo1.cpp" />
+    <ClCompile Include="Inimigo2.cpp" />
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="main.cpp" />

@@ -152,6 +152,7 @@
     <ClInclude Include="Icones.h" />
     <ClInclude Include="Inimigo.h" />
     <ClInclude Include="Inimigo1.h" />
+    <ClInclude Include="Inimigo2.h" />
     <ClInclude Include="Jogador.h" />
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="json.hpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="Lista.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Obstaculo.h" />
+    <ClInclude Include="Obstaculo1.h" />
     <ClInclude Include="Obstaculo2.h" />
     <ClInclude Include="Plataforma.h" />
     <ClInclude Include="Projetil.h" />
@@ -197,11 +199,13 @@
     <ClCompile Include="Icones.cpp" />
     <ClCompile Include="Inimigo.cpp" />
     <ClCompile Include="Inimigo1.cpp" />
+    <ClCompile Include="Inimigo2.cpp" />
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
+    <ClCompile Include="Obstaculo1.cpp" />
     <ClCompile Include="Obstaculo2.cpp" />
     <ClCompile Include="Plataforma.cpp" />
     <ClCompile Include="Projetil.cpp" />

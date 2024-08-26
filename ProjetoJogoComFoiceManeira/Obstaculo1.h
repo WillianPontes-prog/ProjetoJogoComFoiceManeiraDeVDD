@@ -6,7 +6,7 @@ private:
 	int dano;
 	int desacelera;
 public:
-	Obstaculo1(float posX, float posY, int dano, int desacelera) : Obstaculo(posX, posY) {};
+	Obstaculo1(float posX, float posY, int dano, int desacelera);
 	void atualiza();
 	int get_dano();
 	int get_desacelera();

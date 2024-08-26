@@ -32,7 +32,7 @@ public:
 	void set_Color(sf::Color cor);
 	void set_Pressed(bool VF);
 	virtual void executar();
-	void Salvar();
+	void Salvando();
 	void atualiza();
 	void drawText();
 

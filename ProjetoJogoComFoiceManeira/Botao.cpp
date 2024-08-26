@@ -63,10 +63,10 @@ void Botao::executar()
 		break;
 	case Botao::Salvar: {
 		//da um clear no JSON
-		//Salvar(Fase->getListaJogadores, pos);
-		//Salvar(Fase->getListaInimigos, pos);
-		//Salvar(Fase->getListaProjetil, pos);
-		//Salvar(Fase->getListaObstaculo, pos);
+		//Salvando(Fase->getListaJogadores, pos);
+		//Salvando(Fase->getListaInimigos, pos);
+		//Salvando(Fase->getListaProjetil, pos);
+		//Salvando(Fase->getListaObstaculo, pos);
 	}
 		break;
 	case Botao::Sair: {
@@ -80,9 +80,10 @@ void Botao::executar()
 	}
 }
 
-void Botao::Salvar()
+void Botao::Salvando()
 {
 }
+
 
 void Botao::atualiza()
 {

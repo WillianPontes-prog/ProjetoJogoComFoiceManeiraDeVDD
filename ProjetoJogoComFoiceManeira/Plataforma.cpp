@@ -14,5 +14,5 @@ Plataforma::~Plataforma()
 
 void Plataforma::atualiza()
 {
-	drawBody();
+	//drawBody();
 }

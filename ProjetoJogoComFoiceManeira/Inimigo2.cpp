@@ -2,6 +2,7 @@
 
 Inimigo2::Inimigo2(Lista<Jogador*>* listaJogadores, float posX, float posY, float vida):Inimigo(listaJogadores, posX, posY, vida)
 {
+    estado = Andando;
 	velocidade = 1;
 
 	if (!(rand() % 2))
@@ -14,11 +15,11 @@ Inimigo2::~Inimigo2()
 
 void Inimigo2::atualiza()
 {
-    switch (state)
+    sf::Vector2f posicao = BuscarJogador();
+    switch (estado)
     {
     case Inimigo2::Andando:
         move();
-        sf::Vector2f posicao = BuscarJogador();
         if (std::abs(posicao.x) > 80 || std::abs(posicao.y) > 60) {
             SwitchState();
 
@@ -33,7 +34,6 @@ void Inimigo2::atualiza()
 
 
         break;
-    
     default:
         break;
     }

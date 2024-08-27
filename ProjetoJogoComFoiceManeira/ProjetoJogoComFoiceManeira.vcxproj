@@ -162,6 +162,7 @@
     <ClInclude Include="json.hpp" />
     <ClInclude Include="json_fwd.hpp" />
     <ClInclude Include="Lista.h" />
+    <ClInclude Include="ListaEntidade.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="ObstaculoDano.h" />
@@ -174,7 +175,6 @@
     <None Include="Save.json" />
     <None Include="tileds\Fase_2.json" />
     <None Include="tileds\MapaFase1.json" />
-    
   </ItemGroup>
   <ItemGroup>
     <Font Include="PIXEAB.TTF" />
@@ -217,6 +217,7 @@
     <ClCompile Include="Inimigo2.cpp" />
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Jogo.cpp" />
+    <ClCompile Include="ListaEntidade.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Obstaculo.cpp" />

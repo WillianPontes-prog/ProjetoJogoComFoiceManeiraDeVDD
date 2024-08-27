@@ -19,7 +19,7 @@ private:
 	Jogo* jogo;
 
 public:
-	Menu(GerenciadorGrafico* gg,Jogo* jg);
+	Menu(Jogo* jg);
 	~Menu();
 	void move();
 	void atualiza();

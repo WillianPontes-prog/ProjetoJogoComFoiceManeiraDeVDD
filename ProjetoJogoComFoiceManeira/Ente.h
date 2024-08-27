@@ -17,7 +17,7 @@ protected:
 public:
     Ente();
     ~Ente();
-    void setGerenciadorGrafico(GerenciadorGrafico* gerenciadorGrafico);
+    void setGerenciadorGrafico();
 
 
 

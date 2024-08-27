@@ -9,10 +9,10 @@ class Botao:public Entidade {
 
 public:
 	enum tipoDoBotao {
-		NovoJogo,
-		CarregarJogo,
-		Salvar,
-		Sair,
+		_NovoJogo,
+		_CarregarJogo,
+		_Salvar,
+		_Sair,
 	};
 
 private:
@@ -25,7 +25,7 @@ private:
 
 public:
 
-	Botao(GerenciadorGrafico* gg, float x = 0, float y = 0.0, float largura = 0.0, float altura = 0.0, std::string text = "", tipoDoBotao _tipo = Sair, Jogo* jg = nullptr);
+	Botao(float x = 0, float y = 0.0, float largura = 0.0, float altura = 0.0, std::string text = "", tipoDoBotao _tipo = _Sair, Jogo* jg = nullptr);
 	~Botao();
 
 	void draw();

@@ -42,7 +42,7 @@ void EntidadeColisao::disparar()
         posicao.x += getBody().getSize().x / 2;
         posicao.y += getBody().getSize().y / 2;
 
-        arma->disparar(posicao, direcao, gerenciadorGrafico);
+        arma->disparar(posicao, direcao);
 
         tempoRecarregando = arma->getTempoDeRecarga();
     }

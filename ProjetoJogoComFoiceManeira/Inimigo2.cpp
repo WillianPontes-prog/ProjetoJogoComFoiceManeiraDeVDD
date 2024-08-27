@@ -14,11 +14,13 @@ Inimigo2::~Inimigo2()
 
 void Inimigo2::atualiza()
 {
+    sf::Vector2f posicao = BuscarJogador();
+
     switch (state)
     {
     case Inimigo2::Andando:
         move();
-        sf::Vector2f posicao = BuscarJogador();
+        
         if (std::abs(posicao.x) > 80 || std::abs(posicao.y) > 60) {
             SwitchState();
 
@@ -53,6 +55,6 @@ void Inimigo2::move()
 
 void Inimigo2::sacarArma()
 {
-    arma->disparar(body.getPosition(),BuscarJogador(), gerenciadorGrafico);
+    arma->disparar(body.getPosition(),BuscarJogador());
 }
 

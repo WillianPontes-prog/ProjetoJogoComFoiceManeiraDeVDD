@@ -4,9 +4,9 @@
 
 
 Jogo::Jogo():
-	gerenciadorGrafico(new GerenciadorGrafico()),
-    f1(new Fase1(gerenciadorGrafico)),
-    menu(new Menu(gerenciadorGrafico, this))
+	gerenciadorGrafico(GerenciadorGrafico::getInstance()),
+    f1(new Fase1()),
+    menu(new Menu(this))
 {
 	rodando = Jogo::_menu;
 

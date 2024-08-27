@@ -1,16 +1,16 @@
 #include "Menu.h"
 
-Menu::Menu(GerenciadorGrafico* gg, Jogo* jg): Ente()
+Menu::Menu(Jogo* jg): Ente()
 {
     continua = 0;
     botaoSelecionado = 0;
 
-    setGerenciadorGrafico(gg);
+    setGerenciadorGrafico();
 
     // Criação dos botões e adição à lista de botões
-    botoes.push_back(new Botao(gg, 100, 50, 200, 50, "Continua", Botao::CarregarJogo, jg));
-    botoes.push_back(new Botao(gg, 100, 150, 200, 50, "Novo Jogo", Botao::NovoJogo, jg));
-    botoes.push_back(new Botao(gg, 100, 250, 200, 50, "Sair", Botao::Sair, jg));
+    botoes.push_back(new Botao(100, 50, 200, 50, "Continua", Botao::_CarregarJogo, jg));
+    botoes.push_back(new Botao(100, 150, 200, 50, "Novo Jogo", Botao::_NovoJogo, jg));
+    botoes.push_back(new Botao(100, 250, 200, 50, "Sair", Botao::_Sair, jg));
 
     
 

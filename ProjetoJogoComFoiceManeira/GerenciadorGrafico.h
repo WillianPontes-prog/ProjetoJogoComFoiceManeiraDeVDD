@@ -18,10 +18,20 @@ private:
 
     sf::Texture* tFasePlataforma;
 
+    GerenciadorGrafico();
+
+    static GerenciadorGrafico* instance;
 
 public:
-    GerenciadorGrafico() ;
+
     ~GerenciadorGrafico();
+
+    static GerenciadorGrafico* getInstance() {
+        if (instance == nullptr) {
+            instance = new GerenciadorGrafico();
+        }
+        return instance;
+    }
 
     void draw(Ente* e);
     void draw(sf::Sprite s);
@@ -37,3 +47,4 @@ public:
 
     
 };
+

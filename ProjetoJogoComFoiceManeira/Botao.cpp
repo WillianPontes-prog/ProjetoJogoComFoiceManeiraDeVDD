@@ -1,9 +1,9 @@
 #include "Botao.h"
 
-Botao::Botao(GerenciadorGrafico* gg, float x, float y, float width, float height, std::string text, tipoDoBotao _type, Jogo* jg):
+Botao::Botao(float x, float y, float width, float height, std::string text, tipoDoBotao _type, Jogo* jg):
 	Entidade( x, y, width, height)
 {
-	setGerenciadorGrafico(gg);
+	setGerenciadorGrafico();
 	set_Color(sf::Color::White);
 
 	//*
@@ -53,15 +53,15 @@ void Botao::executar()
 {
 	switch (tipo)
 	{
-	case Botao::NovoJogo: {
+	case Botao::_NovoJogo: {
 		jogo->setarModoDeJogo(Jogo::_fase1);
 	}
 		break;
-	case Botao::CarregarJogo: {
+	case Botao::_CarregarJogo: {
 
 	}
 		break;
-	case Botao::Salvar: {
+	case Botao::_Salvar: {
 		//da um clear no JSON
 		//Salvar(Fase->getListaJogadores, pos);
 		//Salvar(Fase->getListaInimigos, pos);
@@ -69,7 +69,7 @@ void Botao::executar()
 		//Salvar(Fase->getListaObstaculo, pos);
 	}
 		break;
-	case Botao::Sair: {
+	case Botao::_Sair: {
 		gerenciadorGrafico->Close();
 	}
 		break;

@@ -15,10 +15,10 @@ Arma::~Arma()
 {
 }
 
-void Arma::disparar(sf::Vector2f posicao, sf::Vector2f direcao, GerenciadorGrafico* gg)
+void Arma::disparar(sf::Vector2f posicao, sf::Vector2f direcao)
 {
 	Projetil* projetil = new Projetil(posicao.x - (tamanho.x/2), posicao.y - (tamanho.y/2), tamanho.x, tamanho.y, tempoMaximo, velocidade, dano, cor, direcao);
-	projetil->setGerenciadorGrafico(gg);
+	projetil->setGerenciadorGrafico();
 	listaProjetil->adicionarElemento(projetil);
 
 }

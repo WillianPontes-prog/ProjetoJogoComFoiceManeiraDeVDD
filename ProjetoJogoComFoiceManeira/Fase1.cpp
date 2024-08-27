@@ -1,10 +1,10 @@
 #include "Fase1.h"
 
-Fase1::Fase1(GerenciadorGrafico* GG):
-	Fase(NULL)
+Fase1::Fase1():
+	Fase()
 {
-    setGerenciadorGrafico(GG);
-    gerarFase(extrairCamadas(lerArquivoJSON("tileds/TiledFase1.json"), 2));
+    setGerenciadorGrafico();
+    gerarFase(extrairCamadas(lerArquivoJSON("tileds/MapaFase1.json"), 2));
 }
 
 Fase1::~Fase1()
@@ -39,7 +39,7 @@ void Fase1::criaEntidades(float posX, float posY, int n)
 void Fase1::criarObstaculo2(float posX, float posY)
 {
     Obstaculo2* o = new Obstaculo2(sf::Vector2f(posX, posY));
-    o->setGerenciadorGrafico(gerenciadorGrafico);
+    o->setGerenciadorGrafico();
 
     listaObstaculos->adicionarElemento(o);
 }

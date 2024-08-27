@@ -36,7 +36,7 @@ protected:
 	sf::Sprite spriteFundo;
 
 public:
-	Fase(GerenciadorGrafico* GG = NULL);
+	Fase();
 	~Fase();
 
 	Lista<Jogador*>* getListaJogadores()		{ return listaJogadores; };

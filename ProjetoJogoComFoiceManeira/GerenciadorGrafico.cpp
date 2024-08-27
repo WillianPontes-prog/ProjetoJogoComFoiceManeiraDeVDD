@@ -4,6 +4,7 @@
 #include "Inimigo.h"
 #include "Fase1.h"
 
+GerenciadorGrafico* GerenciadorGrafico::instance = nullptr;
 
 #define SPR_JOGADOR1 "imagens/jogador1.png"
 

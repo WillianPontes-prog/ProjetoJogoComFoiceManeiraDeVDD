@@ -8,9 +8,9 @@ Ente::~Ente()
 {
 }
 
-void Ente::setGerenciadorGrafico(GerenciadorGrafico* gerenciadorGrafico)
+void Ente::setGerenciadorGrafico()
 {
-    this->gerenciadorGrafico = gerenciadorGrafico;
+    this->gerenciadorGrafico = GerenciadorGrafico::getInstance();
     textura = gerenciadorGrafico->devolveImagemEnte(this);
 
     if (textura != NULL) {

@@ -1,6 +1,6 @@
 #include "Fase.h"
 
-Fase::Fase(GerenciadorGrafico* GG):
+Fase::Fase():
 	listaJogadores(new Lista<Jogador*>()),
 	listaPlataformas(new Lista<Plataforma*>()),
 	listaInimigos(new Lista<Inimigo*>()),
@@ -8,8 +8,9 @@ Fase::Fase(GerenciadorGrafico* GG):
 	gerenciadorDeColisoes(new GerenciadorDeColisoes(this)),
 	Ente()
 {
-	this->setGerenciadorGrafico(GG);
+	this->setGerenciadorGrafico();
 
+    
 	
 }
 
@@ -20,7 +21,7 @@ Fase::~Fase()
 void Fase::atualiza()
 {
     
-	
+    atualizaSprite(0, -3);
     gerenciadorGrafico->draw(spriteFundo);
     draw();
 
@@ -142,7 +143,7 @@ void Fase::setSpriteFundo(sf::Texture* texture)
 void Fase::criaJogador(float posX, float posY, int vida, bool j2)
 {
 	Jogador* j = new Jogador(posX, posY, vida, new Arma(), j2);
-	j->setGerenciadorGrafico(gerenciadorGrafico);
+	j->setGerenciadorGrafico();
 
 	listaJogadores->adicionarElemento(j);
 }
@@ -150,7 +151,7 @@ void Fase::criaJogador(float posX, float posY, int vida, bool j2)
 void Fase::criaPlataforma(float posX, float posY)
 {
 	Plataforma* p = new Plataforma(posX, posY);
-	p->setGerenciadorGrafico(gerenciadorGrafico);
+	p->setGerenciadorGrafico();
 
 	listaPlataformas->adicionarElemento(p);
 }
@@ -158,7 +159,7 @@ void Fase::criaPlataforma(float posX, float posY)
 void Fase::criarInimigo1(float posX, float posY, float vida)
 {
 	Inimigo1* i = new Inimigo1(listaJogadores, posX, posY, vida);
-	i->setGerenciadorGrafico(gerenciadorGrafico);
+	i->setGerenciadorGrafico();
 
 	listaInimigos->adicionarElemento(i);
 }

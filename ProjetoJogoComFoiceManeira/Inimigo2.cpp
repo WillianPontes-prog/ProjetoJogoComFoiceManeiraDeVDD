@@ -5,9 +5,10 @@
 Inimigo2::Inimigo2(Lista<Jogador*>* listaJogadores, float posX, float posY, float vida, Arma* arma)
     : Inimigo(listaJogadores, posX, posY, vida, arma), estadoAtual(new EstadoAndando()), velocidade(1), directionX(1)
 {
-
+    TempoCarregando = 0;
     if (!(rand() % 2)) {
         directionX = -1;
+
     }
 }
 

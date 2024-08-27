@@ -26,10 +26,6 @@ class GerenciadorDeColisoes;
 class Fase : public Ente
 {
 protected:
-	Lista<Jogador*>* listaJogadores;
-	Lista<Plataforma*>* listaPlataformas;
-	Lista<Inimigo*>* listaInimigos;
-	Lista<Obstaculo*>* listaObstaculos;
 
 	GerenciadorDeColisoes* gerenciadorDeColisoes;
 
@@ -41,10 +37,10 @@ public:
 	Fase(bool Jogadores);
 	~Fase();
 
-	Lista<Jogador*>* getListaJogadores()		{ return listaJogadores; };
-	Lista<Plataforma*>* getListaPlataforma()	{ return listaPlataformas; };
-	Lista<Inimigo*>* getListaInimigos()			{ return listaInimigos; };
-	Lista<Obstaculo*>* getListaObstaculos()		{ return listaObstaculos; };
+	Lista<Jogador*>* getListaJogadores();
+	Lista<Plataforma*>* getListaPlataforma();
+	Lista<Inimigo*>* getListaInimigos();
+	Lista<Obstaculo*>* getListaObstaculos();
 
 	void atualiza();
 	virtual void criaEntidades(float posX, float posY, int n) = 0;

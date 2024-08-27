@@ -174,7 +174,7 @@
     <None Include="Save.json" />
     <None Include="tileds\Fase_2.json" />
     <None Include="tileds\MapaFase1.json" />
-    <None Include="tileds\MapaFase1.json" />
+    
   </ItemGroup>
   <ItemGroup>
     <Font Include="PIXEAB.TTF" />

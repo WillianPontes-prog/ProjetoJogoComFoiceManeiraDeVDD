@@ -2,10 +2,7 @@
 
 Fase::Fase(bool Jogadores):
     Jogadores(Jogadores),
-	listaJogadores(new Lista<Jogador*>()),
-	listaPlataformas(new Lista<Plataforma*>()),
-	listaInimigos(new Lista<Inimigo*>()),
-	listaObstaculos(new Lista<Obstaculo*>()),
+	
 	gerenciadorDeColisoes(new GerenciadorDeColisoes(this)),
 	Ente()
 {
@@ -14,12 +11,12 @@ Fase::Fase(bool Jogadores):
     Plataforma* Pdir = new Plataforma(-40, -320);
     Pdir->getBodyPtr()->setSize(sf::Vector2f(32, 1080));
 
-    listaPlataformas->adicionarElemento(Pdir);
+    getListaPlataforma()->adicionarElemento(Pdir);
 
     Pdir = new Plataforma(968, -320);
     Pdir->getBodyPtr()->setSize(sf::Vector2f(32, 1080));
 
-    listaPlataformas->adicionarElemento(Pdir);
+    getListaPlataforma()->adicionarElemento(Pdir);
 	
 }
 
@@ -36,34 +33,34 @@ void Fase::atualiza()
 
     //--atualiza todos os jogadores--\\
     ===================================
-    for(Lista<Jogador*>::iterator it = listaJogadores->begin(); it != listaJogadores->end(); it++)
+    for(Lista<Jogador*>::iterator it = getListaJogadores()->begin(); it != getListaJogadores()->end(); it++)
     {
 		(*it)->atualiza();
     }
 
     //--atualiza todas as plataformas--\\
     =====================================
-    for(Lista<Plataforma*>::iterator it = listaPlataformas->begin(); it != listaPlataformas->end(); it++)
+    for(Lista<Plataforma*>::iterator it = getListaPlataforma()->begin(); it != getListaPlataforma()->end(); it++)
     {
 		(*it)->atualiza();
     }
 
     //--atualiza todos os obstáculos--\\
     ====================================
-    for(Lista<Obstaculo*>::iterator it = listaObstaculos->begin(); it != listaObstaculos->end(); it++)
+    for(Lista<Obstaculo*>::iterator it = getListaObstaculos()->begin(); it != getListaObstaculos()->end(); it++)
     {
 		(*it)->atualiza();
     }
 
     //--atualiza todos os inimigos--\\
     ==================================
-    for(Lista<Inimigo*>::iterator it = listaInimigos->begin(); it != listaInimigos->end(); )
+    for(Lista<Inimigo*>::iterator it = getListaInimigos()->begin(); it != getListaInimigos()->end(); )
     {
         (*it)->atualiza();
 
         if ((*it)->getVida() <= 0) {
             Inimigo* projetil = *it;
-            it = listaInimigos->removerElemento(it);
+            it = getListaInimigos()->removerElemento(it);
             delete projetil;
         }
         else {
@@ -165,7 +162,7 @@ void Fase::criaJogador(float posX, float posY, int vida, bool j2)
 	Jogador* j = new Jogador(posX, posY, vida, arm, j2, voar);
 	j->setGerenciadorGrafico();
 
-	listaJogadores->adicionarElemento(j);
+	getListaJogadores()->adicionarElemento(j);
 }
 
 void Fase::criaPlataforma(float posX, float posY)
@@ -173,7 +170,7 @@ void Fase::criaPlataforma(float posX, float posY)
 	Plataforma* p = new Plataforma(posX, posY);
 	p->setGerenciadorGrafico();
 
-	listaPlataformas->adicionarElemento(p);
+	getListaPlataforma()->adicionarElemento(p);
 }
 
 void Fase::criaFogo(float posX, float posY)
@@ -181,7 +178,7 @@ void Fase::criaFogo(float posX, float posY)
     ObstaculoDano* o = new ObstaculoDano(posX, posY, 1);
     o->setGerenciadorGrafico();
 
-    listaObstaculos->adicionarElemento(o);
+    getListaObstaculos()->adicionarElemento(o);
 }
 
 
@@ -189,10 +186,16 @@ void Fase::criaFogo(float posX, float posY)
 void Fase::criarInimigo2(float posX, float posY, float vida)
 {   
     Arma* arma = new Arma(80,1,30,5,sf::Color::Red,sf::Vector2f(15,4));
-    Inimigo2* i = new Inimigo2(listaJogadores, posX, posY, vida, arma);
+    Inimigo2* i = new Inimigo2(getListaJogadores(), posX, posY, vida, arma);
     i->setGerenciadorGrafico();
 
-    listaInimigos->adicionarElemento(i);
+    getListaInimigos()->adicionarElemento(i);
 }
+
+
+Lista<Jogador*>* Fase::getListaJogadores()      { return	gerenciadorDeColisoes->getListaJogadores(); }
+Lista<Plataforma*>* Fase::getListaPlataforma()  { return	gerenciadorDeColisoes->getListaPlataforma(); }
+Lista<Inimigo*>* Fase::getListaInimigos()       { return    gerenciadorDeColisoes->getListaInimigos(); }
+Lista<Obstaculo*>* Fase::getListaObstaculos()   { return    gerenciadorDeColisoes->getListaObstaculos(); }
 
 

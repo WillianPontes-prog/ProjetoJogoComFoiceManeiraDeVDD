@@ -1,6 +1,10 @@
 #include "GerenciadorDeColisoes.h"
 
-GerenciadorDeColisoes::GerenciadorDeColisoes(Fase* fase)
+GerenciadorDeColisoes::GerenciadorDeColisoes(Fase* fase):
+    listaJogador(new Lista<Jogador*>()),
+    listaPlataforma(new Lista<Plataforma*>()),
+    listaInimigos(new Lista<Inimigo*>()),
+    listaObstaculos(new Lista<Obstaculo*>())
 {
     this->fase = fase;
 }
@@ -13,10 +17,7 @@ void GerenciadorDeColisoes::tratarColisoes()
 {
     //--itera sobre cada jogador--\\
     ================================
-    Lista<Jogador*>* listaJogador = fase->getListaJogadores();
-    Lista<Plataforma*>* listaPlataforma = fase->getListaPlataforma();
-    Lista<Inimigo*>* listaInimigos = fase->getListaInimigos();
-    Lista<Obstaculo*>* listaObstaculos = fase->getListaObstaculos();
+
 
     for (Lista<Jogador*>::iterator itJog = listaJogador->begin(); itJog != listaJogador->end(); ++itJog) {
 

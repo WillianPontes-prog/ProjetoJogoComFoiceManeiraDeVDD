@@ -2,12 +2,18 @@
 #include "Fase.h"
 #include "ObstaculoDano.h"
 #include "ObstaculoTeleporte.h"
+#include "Inimigo.h"
 
 class Fase;
 
 class GerenciadorDeColisoes
 {
 private:
+	Lista<Jogador*>*	listaJogador;
+	Lista<Plataforma*>* listaPlataforma;
+	Lista<Inimigo*>*	listaInimigos;
+	Lista<Obstaculo*>*	listaObstaculos;
+
 	Fase* fase;
 
 public:
@@ -30,6 +36,10 @@ public:
 
 	void danoJogador(Jogador* jogador, int dirX);
 
+	Lista<Jogador*>* getListaJogadores() { return listaJogador; };
+	Lista<Plataforma*>* getListaPlataforma() { return listaPlataforma; };
+	Lista<Inimigo*>* getListaInimigos() { return listaInimigos; };
+	Lista<Obstaculo*>* getListaObstaculos() { return listaObstaculos; };
 	
 };
 

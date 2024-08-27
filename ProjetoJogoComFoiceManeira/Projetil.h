@@ -18,4 +18,6 @@ public:
 	int OverTime();
 
 	void destruir();
+
+	int getDano() { return dano; }
 };

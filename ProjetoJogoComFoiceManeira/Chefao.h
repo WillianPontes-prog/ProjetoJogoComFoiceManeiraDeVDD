@@ -13,7 +13,7 @@ private:
 
 
 public:
-	Chefao(Lista<Jogador*>* listaJogadores = NULL, float posX = 0, float posY = 0, float vida = 100, int chanceTeleporte= 2, Arma* arma=nullptr);
+	Chefao(Lista<Jogador*>* listaJogadores = NULL, float posX = 0, float posY = 0, float vida = 100, int chanceTeleporte= 600, Arma* arma=nullptr);
 	~Chefao();
 
 	void atualiza();

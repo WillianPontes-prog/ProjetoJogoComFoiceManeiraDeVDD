@@ -39,5 +39,6 @@ void Inimigo2::setEstado(Estado* novoEstado) {
 }
 
 void Inimigo2::AtacaJogador() {
-    arma->disparar(body.getPosition(), BuscarJogador());
+    direcao = BuscarJogador();
+    disparar();
 }

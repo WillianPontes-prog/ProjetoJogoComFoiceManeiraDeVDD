@@ -8,6 +8,7 @@ private:
     int directionX;
     Estado* estadoAtual;
     float velocidade;
+    int TempoCarregando;
 
 public:
     Inimigo2(Lista<Jogador*>* listaJogadores = nullptr, float posX = 0, float posY = 0, float vida = 5, Arma* arma = nullptr);

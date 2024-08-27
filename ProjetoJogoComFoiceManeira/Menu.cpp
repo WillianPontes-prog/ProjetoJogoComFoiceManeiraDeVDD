@@ -8,9 +8,10 @@ Menu::Menu(Jogo* jg): Ente()
     setGerenciadorGrafico();
 
     // Criação dos botões e adição à lista de botões
-    botoes.push_back(new Botao(100, 50, 200, 50, "Continua", Botao::_CarregarJogo, jg));
-    botoes.push_back(new Botao(100, 150, 200, 50, "Novo Jogo", Botao::_NovoJogo, jg));
-    botoes.push_back(new Botao(100, 250, 200, 50, "Sair", Botao::_Sair, jg));
+    botoes.push_back(new Botao(100, 50, 400, 50, "Continua", Botao::_CarregarJogo, jg));
+    botoes.push_back(new Botao(100, 150, 400, 50, "Novo Jogo", Botao::_NovoJogo, jg));
+    botoes.push_back(new Botao(100, 250, 400, 50, "Novo Jogo:2Jogadores", Botao::_NovoJogo2Jogadores, jg));
+    botoes.push_back(new Botao(100, 350, 400, 50, "Sair", Botao::_Sair, jg));
 
     
 

@@ -8,13 +8,10 @@ class Menu;
 class Jogo
 {
 private:
-
-
-	
-
 	GerenciadorGrafico* gerenciadorGrafico;
 	Fase1* f1;
 	Menu* menu;
+	int Jogadores;
 
 
 public:
@@ -32,5 +29,6 @@ public:
 
 	void executar();
 	void setarModoDeJogo(modos m) { rodando = m; };
+	void setJogadores(int n){ Jogadores = n; };
 };
 

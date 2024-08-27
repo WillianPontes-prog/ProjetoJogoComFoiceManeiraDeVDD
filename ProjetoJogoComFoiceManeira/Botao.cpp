@@ -57,6 +57,11 @@ void Botao::executar()
 		jogo->setarModoDeJogo(Jogo::_fase1);
 	}
 		break;
+	case Botao::_NovoJogo2Jogadores: {
+		jogo->setJogadores(2);
+		jogo->setarModoDeJogo(Jogo::_fase1);
+	}
+		break;
 	case Botao::_CarregarJogo: {
 
 	}

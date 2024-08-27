@@ -6,7 +6,8 @@
 Jogo::Jogo():
 	gerenciadorGrafico(GerenciadorGrafico::getInstance()),
     f1(new Fase1()),
-    menu(new Menu(this))
+    menu(new Menu(this)),
+    Jogadores(1)
 {
 	rodando = Jogo::_menu;
 

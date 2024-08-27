@@ -10,6 +10,7 @@ class Botao:public Entidade {
 public:
 	enum tipoDoBotao {
 		_NovoJogo,
+		_NovoJogo2Jogadores,
 		_CarregarJogo,
 		_Salvar,
 		_Sair,

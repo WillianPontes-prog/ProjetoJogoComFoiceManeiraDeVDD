@@ -187,6 +187,13 @@ void GerenciadorDeColisoes::tratarColisoes()
 
                     (*itIni)->operator--((*itProjJ)->getDano());
                 }
+                
+                //==iteração sobre todas as plataformas===========================================================================================================================
+                for(Lista<Plataforma*>::iterator itPlat = listaPlataforma->begin(); itPlat != listaPlataforma->end(); ++itPlat) {
+					if (ChecarColisao((*itProjJ)->getBody(), (*itPlat)->getBody())) {
+						(*itProjJ)->destruir();
+					}
+				}
             }
 
 

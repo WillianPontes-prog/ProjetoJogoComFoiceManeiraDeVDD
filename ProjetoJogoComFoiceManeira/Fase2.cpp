@@ -37,4 +37,10 @@ void Fase2::criaEntidades(float posX, float posY, int n)
     }
 }
 
+void Fase2::criarChefao(float posX, float posY)
+{
+   
+	//listaEntidades->incluir(inimigo);
+	//gerenciadorDeColisoes->adicionarEntidade(inimigo);
+}
 

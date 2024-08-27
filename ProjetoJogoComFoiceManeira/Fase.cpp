@@ -2,7 +2,7 @@
 
 Fase::Fase(bool Jogadores):
     Jogadores(Jogadores),
-	
+	listaEntidades(new ListaEntidade()),
 	gerenciadorDeColisoes(new GerenciadorDeColisoes(this)),
 	Ente()
 {
@@ -31,6 +31,8 @@ void Fase::atualiza()
     gerenciadorGrafico->draw(spriteFundo);
     draw();
 
+    listaEntidades->percorrer(gerenciadorDeColisoes);
+    /*
     //--atualiza todos os jogadores--\\
     ===================================
     for(Lista<Jogador*>::iterator it = getListaJogadores()->begin(); it != getListaJogadores()->end(); it++)
@@ -67,7 +69,7 @@ void Fase::atualiza()
             ++it;
         }
     }
-
+    //*/
 	gerenciadorDeColisoes->tratarColisoes();
 }
 
@@ -162,6 +164,7 @@ void Fase::criaJogador(float posX, float posY, int vida, bool j2)
 	Jogador* j = new Jogador(posX, posY, vida, arm, j2, voar);
 	j->setGerenciadorGrafico();
 
+    listaEntidades->incluir(j);
 	getListaJogadores()->adicionarElemento(j);
 }
 
@@ -170,6 +173,7 @@ void Fase::criaPlataforma(float posX, float posY)
 	Plataforma* p = new Plataforma(posX, posY);
 	p->setGerenciadorGrafico();
 
+    listaEntidades->incluir(p);
 	getListaPlataforma()->adicionarElemento(p);
 }
 
@@ -178,10 +182,9 @@ void Fase::criaFogo(float posX, float posY)
     ObstaculoDano* o = new ObstaculoDano(posX, posY, 1);
     o->setGerenciadorGrafico();
 
+    listaEntidades->incluir(o);
     getListaObstaculos()->adicionarElemento(o);
 }
-
-
 
 void Fase::criarInimigo2(float posX, float posY, float vida)
 {   
@@ -189,6 +192,7 @@ void Fase::criarInimigo2(float posX, float posY, float vida)
     Inimigo2* i = new Inimigo2(getListaJogadores(), posX, posY, vida, arma);
     i->setGerenciadorGrafico();
 
+    listaEntidades->incluir(i);
     getListaInimigos()->adicionarElemento(i);
 }
 

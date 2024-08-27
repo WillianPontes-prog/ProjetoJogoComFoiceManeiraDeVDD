@@ -1,6 +1,9 @@
 #pragma once
 #include"Lista.h"
 #include"Entidade.h"
+#include"GerenciadorDeColisoes.h"
+
+class GerenciadorDeColisoes;
 
 class ListaEntidade {
 private:
@@ -9,7 +12,7 @@ private:
 public:
     ListaEntidade();
 	~ListaEntidade();
-    void percorrer();
+    void percorrer(GerenciadorDeColisoes* gc);
 	void incluir(Entidade* entidade);
 
 

@@ -15,13 +15,15 @@
 #include "GerenciadorDeColisoes.h"
 #include "Inimigo1.h"
 #include "Inimigo2.h"
-#include"Projetil.h"
+#include "Projetil.h"
+#include "ListaEntidade.h"
 
 using namespace std;
 
 using json = nlohmann::json;
 
 class GerenciadorDeColisoes;
+class ListaEntidade;
 
 class Fase : public Ente
 {
@@ -32,6 +34,8 @@ protected:
 	sf::Texture* texturaFundo;
 	sf::Sprite spriteFundo;
 	bool Jogadores;
+
+	ListaEntidade* listaEntidades;
 
 public:
 	Fase(bool Jogadores);

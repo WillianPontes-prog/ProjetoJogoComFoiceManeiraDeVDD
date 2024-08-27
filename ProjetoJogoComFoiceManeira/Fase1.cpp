@@ -48,6 +48,7 @@ void Fase1::criarObstaculo2(float posX, float posY)
     ObstaculoTeleporte* o = new ObstaculoTeleporte(sf::Vector2f(posX, posY));
     o->setGerenciadorGrafico();
 
+    listaEntidades->incluir(o);
     getListaObstaculos()->adicionarElemento(o);
 }
 
@@ -56,5 +57,6 @@ void Fase1::criarInimigo1(float posX, float posY, float vida)
     Inimigo1* i = new Inimigo1(getListaJogadores(), posX, posY, vida);
     i->setGerenciadorGrafico();
 
+    listaEntidades->incluir(i);
     getListaInimigos()->adicionarElemento(i);
 }

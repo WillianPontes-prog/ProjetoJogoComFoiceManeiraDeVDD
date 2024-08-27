@@ -23,6 +23,7 @@ EntidadeColisao::EntidadeColisao(int posX, int posY, int vida, Arma* arma) :
 EntidadeColisao::~EntidadeColisao()
 {
     delete arma;
+
     delete listaProjetil;
 }
 

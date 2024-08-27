@@ -23,6 +23,7 @@ private:
 
     sf::Texture* tFase1;
     sf::Texture* tFase1Plat;
+    sf::Texture* tFase2Plat;
 
     sf::Texture* tTeleportador;
     sf::Texture* tFogo;

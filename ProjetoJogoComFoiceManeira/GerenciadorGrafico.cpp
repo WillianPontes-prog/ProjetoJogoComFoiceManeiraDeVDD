@@ -14,8 +14,9 @@ GerenciadorGrafico* GerenciadorGrafico::instance = nullptr;
 #define SPR_INIMIGO2 "imagens/inimigo2.png"
 
 #define SPR_BCK_FASE1 "imagens/BCK_fase1.png"
-
 #define SPR_BCK_FASE1_PLAT "imagens/Fase_1.png"
+
+#define SPR_FASE2_PLAT "imagens/Fase_2.png"
 
 #define SPR_TELEPORTADOR "imagens/Teleportador.png"
 #define SPR_FOGO "imagens/fogo.png"
@@ -26,6 +27,10 @@ GerenciadorGrafico* GerenciadorGrafico::instance = nullptr;
 
 void GerenciadorGrafico::carregarTexturas()
 {
+    if (!tFase2Plat->loadFromFile(SPR_FASE2_PLAT)) {
+        throw std::runtime_error("Erro ao carregar a textura!");
+    }
+
     if(!tMenu->loadFromFile(SPR_MENU)) {
 		throw std::runtime_error("Erro ao carregar a textura!");
 	}
@@ -72,7 +77,8 @@ GerenciadorGrafico::GerenciadorGrafico():
     tInimigo2(new sf::Texture()),
     tTeleportador(new sf::Texture()),
     tFogo(new sf::Texture()),
-    tMenu(new sf::Texture())
+    tMenu(new sf::Texture()),
+    tFase2Plat(new sf::Texture())
 {
     // Resolução original
     sf::Vector2u originalResolution(960, 640);
@@ -178,6 +184,12 @@ sf::Texture* GerenciadorGrafico::devolveImagemEnte(Ente* e)
         f->setSpriteFundo(tFase1);
 		return tFase1Plat;
 	}
+
+    Fase2* f2 = dynamic_cast<Fase2*>(e);
+    if (f2) {
+        f2->setSpriteFundo(tFase1);
+        return tFase2Plat;
+    }
     
     ObstaculoTeleporte* o = dynamic_cast<ObstaculoTeleporte*>(e);
     if (o) {

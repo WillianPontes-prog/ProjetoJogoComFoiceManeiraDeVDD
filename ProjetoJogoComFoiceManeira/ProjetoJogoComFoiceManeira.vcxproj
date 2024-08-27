@@ -187,6 +187,7 @@
     <Image Include="Imagens\BackgroungMenu.png" />
     <Image Include="Imagens\BCK_fase1.png" />
     <Image Include="Imagens\Fase_1.png" />
+    <Image Include="Imagens\Fase_2.png" />
     <Image Include="Imagens\fogo.png" />
     <Image Include="Imagens\Inimigo1Zumbi.png" />
     <Image Include="Imagens\Jogador1.png" />

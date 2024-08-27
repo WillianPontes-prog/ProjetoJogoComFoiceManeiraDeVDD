@@ -4,7 +4,7 @@ Fase2::Fase2(bool Jogadores) :
     Fase(Jogadores)
 {
     setGerenciadorGrafico();
-    gerarFase(extrairCamadas(lerArquivoJSON("tileds/Fase_2.json"), 2));
+    gerarFase(extrairCamadas(lerArquivoJSON("tileds/Fase_2.json"), 3));
 }
 
 Fase2::~Fase2()

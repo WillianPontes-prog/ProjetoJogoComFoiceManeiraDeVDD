@@ -54,11 +54,12 @@ void Botao::executar()
 	switch (tipo)
 	{
 	case Botao::_NovoJogo: {
+		jogo->CriaFase1(false);
 		jogo->setarModoDeJogo(Jogo::_fase1);
 	}
 		break;
 	case Botao::_NovoJogo2Jogadores: {
-		jogo->setJogadores(2);
+		jogo->CriaFase1(true);
 		jogo->setarModoDeJogo(Jogo::_fase1);
 	}
 		break;

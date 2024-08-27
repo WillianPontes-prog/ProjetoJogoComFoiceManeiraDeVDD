@@ -1,7 +1,7 @@
 #include "Fase1.h"
 
-Fase1::Fase1():
-	Fase()
+Fase1::Fase1(bool Jogadores):
+	Fase(Jogadores)
 {
     setGerenciadorGrafico();
     gerarFase(extrairCamadas(lerArquivoJSON("tileds/MapaFase1.json"), 2));
@@ -19,7 +19,8 @@ void Fase1::criaEntidades(float posX, float posY, int n)
         criaJogador(posX, posY, 5);
         break;
     case 2541:  //Jogador 2
-        criaJogador(posX, posY, 5, true);
+        if(Jogadores)
+            criaJogador(posX, posY, 5, true);
         break;
     case 2536:  //Inimigo1
 		criarInimigo1(posX, posY);

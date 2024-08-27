@@ -5,12 +5,10 @@
 
 Jogo::Jogo():
 	gerenciadorGrafico(GerenciadorGrafico::getInstance()),
-    f1(new Fase1()),
-    menu(new Menu(this)),
-    Jogadores(1)
+    f1(nullptr),
+    menu(new Menu(this))
 {
 	rodando = Jogo::_menu;
-
 	executar();
 }
 

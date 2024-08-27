@@ -11,7 +11,7 @@ private:
 	GerenciadorGrafico* gerenciadorGrafico;
 	Fase1* f1;
 	Menu* menu;
-	int Jogadores;
+	
 
 
 public:
@@ -29,6 +29,6 @@ public:
 
 	void executar();
 	void setarModoDeJogo(modos m) { rodando = m; };
-	void setJogadores(int n){ Jogadores = n; };
+	void CriaFase1(bool n) { if (!f1) { delete f1; } f1 = new Fase1(n); }
 };
 

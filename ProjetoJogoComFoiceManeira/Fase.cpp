@@ -1,6 +1,7 @@
 #include "Fase.h"
 
-Fase::Fase():
+Fase::Fase(bool Jogadores):
+    Jogadores(Jogadores),
 	listaJogadores(new Lista<Jogador*>()),
 	listaPlataformas(new Lista<Plataforma*>()),
 	listaInimigos(new Lista<Inimigo*>()),

@@ -35,9 +35,10 @@ protected:
 
 	sf::Texture* texturaFundo;
 	sf::Sprite spriteFundo;
+	bool Jogadores;
 
 public:
-	Fase();
+	Fase(bool Jogadores);
 	~Fase();
 
 	Lista<Jogador*>* getListaJogadores()		{ return listaJogadores; };
@@ -53,6 +54,7 @@ public:
 	vector<vector<vector<int>>> extrairCamadas(const json& mapa, int numLayers);
 
 	void setSpriteFundo(sf::Texture* texture);
+	void setJogadores(bool jogadores) { Jogadores = jogadores; };
 
 	//------------metodos de criação de entidades-----------------\\
 	================================================================

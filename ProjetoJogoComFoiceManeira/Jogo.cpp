@@ -6,6 +6,7 @@
 Jogo::Jogo():
 	gerenciadorGrafico(GerenciadorGrafico::getInstance()),
     f1(nullptr),
+    f2(nullptr),
     menu(new Menu(this))
 {
 	rodando = Jogo::_menu;
@@ -54,7 +55,7 @@ void Jogo::executar()
             break;
         case Jogo::_fase2:
 
-
+            f2->atualiza();
 
             break;
         default:

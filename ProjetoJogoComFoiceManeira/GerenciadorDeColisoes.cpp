@@ -99,8 +99,8 @@ void GerenciadorDeColisoes::tratarColisoes()
                 (*itJog)->setNoChao(true);
 
                 if (!(*itJog)->getSobAtrito()) {
-                    (*itJog)->setHspd((*itJog)->getHspd() * (*it)->getAtrito());
-                    (*itJog)->setSobAtrito(true);
+                    (*it)->Obstacular((*itJog));
+                    
                 }
             }
 
@@ -150,18 +150,19 @@ void GerenciadorDeColisoes::tratarColisoes()
         for (Lista<Obstaculo*>::iterator it = listaObstaculos->begin(); it != listaObstaculos->end(); ++it) {
 
             if (ChecarColisao((*itJog)->getBody(), (*it)->getBody())) {
-                Obstaculo1* obstaculo1 = dynamic_cast<Obstaculo1*>(*it);
-                Obstaculo2* obstaculo2 = dynamic_cast<Obstaculo2*>(*it);
+                ObstaculoDano* obstaculo1 = dynamic_cast<ObstaculoDano*>(*it);
+                ObstaculoTeleporte* obstaculo2 = dynamic_cast<ObstaculoTeleporte*>(*it);
 
                 if (obstaculo1) {
-                    (*itJog)->operator--();
+                    
+                    obstaculo1->Obstacular(*itJog);
 					int dir = NumeroMinimo((*itJog)->getBody().getPosition().x - (*it)->getBody().getPosition().x);
                     danoJogador(*itJog, dir);
 					
                 }
 
                 if (obstaculo2) {
-                    (*itJog)->setPosition((*itJog)->getPosicaoInicial());
+                    obstaculo2->Obstacular(*itJog);
                 }
             
             }
@@ -170,6 +171,9 @@ void GerenciadorDeColisoes::tratarColisoes()
 
         (*itJog)->getBodyPtr()->move(sf::Vector2f((*itJog)->getHspd(), (*itJog)->getVspd()));
 
+        if ((*itJog)->getVoador()) {
+            (*itJog)->setNoChao(true);
+        }
     }
 
     //--itera sobre cada inimigo--\\
@@ -195,6 +199,7 @@ void GerenciadorDeColisoes::tratarColisoes()
 
                     int direcao = NumeroMinimo((*itJog)->getBody().getPosition().x - (*itIni)->getBody().getPosition().x);
 
+                    (*itJog)->operator--();
                     danoJogador((*itJog), direcao);
                     
                 }
@@ -230,6 +235,7 @@ void GerenciadorDeColisoes::tratarColisoes()
             if (ChecarColisao(bodyTemp, (*itJog)->getBody())) {
 
                 float dirX = NumeroMinimo((*itJog)->getBody().getPosition().x - (*itIni)->getBody().getPosition().x);
+                (*itIni)->danificar((*itJog));
                 danoJogador(*itJog, dirX);
 
             }
@@ -325,7 +331,7 @@ void GerenciadorDeColisoes::tratarColisoes()
 
 void GerenciadorDeColisoes::danoJogador(Jogador* jogador, int dirX)
 {
-    jogador->operator--();
+    
     jogador->setState(Jogador::Machucado);
 
     jogador->setVspd(-8);

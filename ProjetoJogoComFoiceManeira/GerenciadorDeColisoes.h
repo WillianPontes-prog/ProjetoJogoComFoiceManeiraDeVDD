@@ -1,7 +1,7 @@
 #pragma once
 #include "Fase.h"
-#include "Obstaculo2.h"
-#include "Obstaculo1.h"
+#include "ObstaculoDano.h"
+#include "ObstaculoTeleporte.h"
 
 class Fase;
 

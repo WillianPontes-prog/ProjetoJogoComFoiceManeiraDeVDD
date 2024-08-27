@@ -22,6 +22,8 @@ public:
 
 	virtual void sacarArma() = 0;
 
+	virtual void danificar(Jogador* j) = 0;
+
 	void operator--(int dan) { vida-= dan; tempoMachucado = maxTempoMachucado; }
 
 	void mudarCorDano() {

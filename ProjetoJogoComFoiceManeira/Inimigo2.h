@@ -7,8 +7,7 @@ class Inimigo2 : public Inimigo
 private:
     int directionX;
     Estado* estadoAtual;
-    float velocidade;
-    int TempoCarregando;
+
 
 public:
     Inimigo2(Lista<Jogador*>* listaJogadores = nullptr, float posX = 0, float posY = 0, float vida = 5, Arma* arma = nullptr);
@@ -23,11 +22,15 @@ public:
     float getVelocidade() { return velocidade; }
     void invertDirectionX() { directionX = -directionX; }
     void setEstado(Estado* novoEstado);
-    int getTempoCarregando() { return TempoCarregando; }
-    void setTempoCarregando(int tempo) { TempoCarregando = tempo; }
+    int getTempoCarregando() { return tempoRecarregando; }
+    void setTempoCarregando(int tempo) { tempoRecarregando = tempo; }
     int getTempoMax() { return arma->getTempoDeRecarga(); }
-    void operator-() { TempoCarregando--; }
+    void operator-() { tempoRecarregando--; }
     void AtacaJogador();
+    
+    void danificar(Jogador* j) {
+        j->operator--();
+    };
 
     void Movimentacao() {
         hspd = velocidade * directionX;

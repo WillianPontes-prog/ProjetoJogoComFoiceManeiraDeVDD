@@ -8,7 +8,6 @@ void EstadoAndando::atualiza(Inimigo2* inimigo) {
     if (std::abs(posicao.x) < 100 && std::abs(posicao.y) < 90) {
         
         inimigo->setHspd(0);
-
         SwitchState(inimigo);
         
     }

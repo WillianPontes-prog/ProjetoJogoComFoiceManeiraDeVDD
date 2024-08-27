@@ -60,6 +60,7 @@ void Botao::executar()
 		break;
 	case Botao::_NovoJogo2Jogadores: {
 		jogo->CriaFase1(true);
+		//jogo->CriaFase2(true);
 		jogo->setarModoDeJogo(Jogo::_fase1);
 	}
 		break;

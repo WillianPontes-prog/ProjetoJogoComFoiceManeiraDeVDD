@@ -17,5 +17,8 @@ public:
 	void invertDirectionX() { directionX = -directionX; }
 	void sacarArma() {};
 
+	void danificar(Jogador* j) {
+		j->operator--();
+	};
 };
 

@@ -1,6 +1,6 @@
 #pragma once
 #include "Obstaculo.h"
-
+#include "Jogador.h"
 
 class Plataforma : public Obstaculo
 {
@@ -13,5 +13,6 @@ public:
 
 	void atualiza();
 	float getAtrito() { return atrito; }
+	void Obstacular(Jogador* j);
 };
 

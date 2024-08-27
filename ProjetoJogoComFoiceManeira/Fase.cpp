@@ -11,7 +11,15 @@ Fase::Fase(bool Jogadores):
 {
 	this->setGerenciadorGrafico();
 
-    
+    Plataforma* Pdir = new Plataforma(-40, -320);
+    Pdir->getBodyPtr()->setSize(sf::Vector2f(32, 1080));
+
+    listaPlataformas->adicionarElemento(Pdir);
+
+    Pdir = new Plataforma(968, -320);
+    Pdir->getBodyPtr()->setSize(sf::Vector2f(32, 1080));
+
+    listaPlataformas->adicionarElemento(Pdir);
 	
 }
 
@@ -144,15 +152,17 @@ void Fase::setSpriteFundo(sf::Texture* texture)
 void Fase::criaJogador(float posX, float posY, int vida, bool j2)
 {
     Arma* arm; 
-    
+    bool voar = false;
+
     if (j2) {
         arm = new Arma(8, 1, 35, 12, sf::Color::Magenta, sf::Vector2f(8, 8));
+        voar = true;
     }
 	else {
 		arm = new Arma(16, 2, 80, 15, sf::Color::Yellow, sf::Vector2f(15,8));
 	}
 
-	Jogador* j = new Jogador(posX, posY, vida, arm, j2);
+	Jogador* j = new Jogador(posX, posY, vida, arm, j2, voar);
 	j->setGerenciadorGrafico();
 
 	listaJogadores->adicionarElemento(j);
@@ -168,19 +178,13 @@ void Fase::criaPlataforma(float posX, float posY)
 
 void Fase::criaFogo(float posX, float posY)
 {
-    Obstaculo1* o = new Obstaculo1(posX, posY, 1);
+    ObstaculoDano* o = new ObstaculoDano(posX, posY, 1);
     o->setGerenciadorGrafico();
 
     listaObstaculos->adicionarElemento(o);
 }
 
-void Fase::criarInimigo1(float posX, float posY, float vida)
-{
-	Inimigo1* i = new Inimigo1(listaJogadores, posX, posY, vida);
-	i->setGerenciadorGrafico();
 
-	listaInimigos->adicionarElemento(i);
-}
 
 void Fase::criarInimigo2(float posX, float posY, float vida)
 {   

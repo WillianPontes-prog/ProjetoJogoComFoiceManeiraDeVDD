@@ -45,8 +45,16 @@ void Fase1::criaEntidades(float posX, float posY, int n)
 
 void Fase1::criarObstaculo2(float posX, float posY)
 {
-    Obstaculo2* o = new Obstaculo2(sf::Vector2f(posX, posY));
+    ObstaculoTeleporte* o = new ObstaculoTeleporte(sf::Vector2f(posX, posY));
     o->setGerenciadorGrafico();
 
     listaObstaculos->adicionarElemento(o);
+}
+
+void Fase1::criarInimigo1(float posX, float posY, float vida)
+{
+    Inimigo1* i = new Inimigo1(listaJogadores, posX, posY, vida);
+    i->setGerenciadorGrafico();
+
+    listaInimigos->adicionarElemento(i);
 }

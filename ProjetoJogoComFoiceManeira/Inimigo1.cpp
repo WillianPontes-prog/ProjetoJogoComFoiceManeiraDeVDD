@@ -5,7 +5,7 @@ Inimigo1::Inimigo1(Lista<Jogador*>* listaJogadores, float posX, float posY, floa
 	directionX(1)
 {
 	
-	velocidade = 1;
+	velocidade = 2;
 
 	if(!(rand() % 2))
 		directionX = -1;

@@ -16,3 +16,9 @@ void Plataforma::atualiza()
 {
 	//drawBody();
 }
+
+void Plataforma::Obstacular(Jogador* j)
+{
+	j->setSobAtrito(true);
+	j->setHspd(j->getHspd() * getAtrito());
+}

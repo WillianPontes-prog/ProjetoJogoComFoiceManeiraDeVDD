@@ -2,11 +2,12 @@
 #include "GerenciadorDeComandos.h"
 
 
-Jogador::Jogador(float posX, float posY, int vida, Arma* arma, bool jogador2): 
+Jogador::Jogador(float posX, float posY, int vida, Arma* arma, bool jogador2, bool voar): 
 	EntidadeColisao(posX, posY, vida, arma),
     state(Normal),
     posicaoInicial(posX, posY),
-    jogador2(jogador2)
+    jogador2(jogador2),
+    voador(voar)
 {
     maxTempoMachucado = 45;
 
@@ -51,7 +52,11 @@ void Jogador::move()
 
     if (((!jogador2 && GerenciadorDeComandos::Cima()) || (jogador2 && GerenciadorDeComandos::CimaV2())) && noChao)
 	{
-		vspd = -18;
+        if(voador)
+			vspd = -4;
+		else
+			vspd = -12;
+		
 	}
 }
 

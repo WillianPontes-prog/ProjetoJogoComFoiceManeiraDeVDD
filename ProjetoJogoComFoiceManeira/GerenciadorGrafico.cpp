@@ -179,12 +179,12 @@ sf::Texture* GerenciadorGrafico::devolveImagemEnte(Ente* e)
 		return tFase1Plat;
 	}
     
-    Obstaculo2* o = dynamic_cast<Obstaculo2*>(e);
+    ObstaculoTeleporte* o = dynamic_cast<ObstaculoTeleporte*>(e);
     if (o) {
 		return tTeleportador;
 	}
     
-    Obstaculo1* o1 = dynamic_cast<Obstaculo1*>(e);
+    ObstaculoDano* o1 = dynamic_cast<ObstaculoDano*>(e);
     if(o1) {
 		return tFogo;
 	}

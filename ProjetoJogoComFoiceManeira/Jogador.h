@@ -26,9 +26,10 @@ private:
 	sf::Vector2f posicaoInicial;
 	
 	bool jogador2;
+	bool voador;
 
 public:
-	Jogador(float posX = 0, float posY = 0, int vida = 5, Arma* arma = NULL, bool jogador2 = false);
+	Jogador(float posX = 0, float posY = 0, int vida = 5, Arma* arma = NULL, bool jogador2 = false, bool voar = false);
 	~Jogador();
 
 	void move();
@@ -42,5 +43,6 @@ public:
 	sf::Vector2f getPosicaoInicial() { return posicaoInicial; };
 
 	bool getJogador2() { return jogador2; };
+	bool getVoador() { return voador; };
 };
 

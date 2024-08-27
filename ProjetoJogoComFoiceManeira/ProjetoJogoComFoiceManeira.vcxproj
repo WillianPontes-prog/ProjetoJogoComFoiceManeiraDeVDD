@@ -149,6 +149,7 @@
     <ClInclude Include="EstadoAtacando.h" />
     <ClInclude Include="Fase.h" />
     <ClInclude Include="Fase1.h" />
+    <ClInclude Include="Fase2.h" />
     <ClInclude Include="GerenciadorDeColisoes.h" />
     <ClInclude Include="GerenciadorDeComandos.h" />
     <ClInclude Include="GerenciadorGrafico.h" />
@@ -163,14 +164,15 @@
     <ClInclude Include="Lista.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Obstaculo.h" />
-    <ClInclude Include="Obstaculo1.h" />
-    <ClInclude Include="Obstaculo2.h" />
+    <ClInclude Include="ObstaculoDano.h" />
+    <ClInclude Include="ObstaculoTeleporte.h" />
     <ClInclude Include="Plataforma.h" />
     <ClInclude Include="Projetil.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="pipipipopopodeteste.json" />
     <None Include="Save.json" />
+    <None Include="tileds\Fase_2.json" />
     <None Include="tileds\MapaFase1.json" />
     <None Include="tileds\MapaFase1.json" />
   </ItemGroup>
@@ -204,6 +206,7 @@
     <ClCompile Include="EstadoAtacando.cpp" />
     <ClCompile Include="Fase.cpp" />
     <ClCompile Include="Fase1.cpp" />
+    <ClCompile Include="Fase2.cpp" />
     <ClCompile Include="GerenciadorDeColisoes.cpp" />
     <ClCompile Include="GerenciadorDeComandos.cpp" />
     <ClCompile Include="GerenciadorGrafico.cpp" />
@@ -216,8 +219,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
-    <ClCompile Include="Obstaculo1.cpp" />
-    <ClCompile Include="Obstaculo2.cpp" />
+    <ClCompile Include="ObstaculoDano.cpp" />
+    <ClCompile Include="ObstaculoTeleporte.cpp" />
     <ClCompile Include="Plataforma.cpp" />
     <ClCompile Include="Projetil.cpp" />
   </ItemGroup>

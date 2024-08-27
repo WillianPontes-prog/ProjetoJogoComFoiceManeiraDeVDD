@@ -13,5 +13,6 @@ public:
 
 	void criarObstaculo2(float posX, float posY);
 
+	void criarInimigo1(float posX = 0, float posY = 0, float vida = 5);
 };
 

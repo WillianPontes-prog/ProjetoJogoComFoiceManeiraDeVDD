@@ -180,8 +180,28 @@ void GerenciadorDeColisoes::tratarColisoes()
 
         for (Lista<Jogador*>::iterator itJog = listaJogador->begin(); itJog != listaJogador->end(); ++itJog) {
 
+            for (Lista<Projetil*>::iterator itProjI = (*itIni)->getListaProjetil()->begin(); itProjI != (*itIni)->getListaProjetil()->end(); ++itProjI) {
+
+                if (ChecarColisao((*itJog)->getBody(), (*itProjI)->getBody())) {
+
+                    (*itProjI)->destruir();
+
+                    if ((*itJog)->getState() == Jogador::Machucado) {
+                        continue;
+                    }
+
+                    int direcao = NumeroMinimo((*itJog)->getBody().getPosition().x - (*itIni)->getBody().getPosition().x);
+
+                    danoJogador((*itJog), direcao);
+                    
+                }
+            }
+
             //==iteração sobre todos os tiros de cada jogador=====================================================================================================================
             for (Lista<Projetil*>::iterator itProjJ = (*itJog)->getListaProjetil()->begin(); itProjJ != (*itJog)->getListaProjetil()->end(); ++itProjJ) {
+                
+                
+                
                 if (ChecarColisao((*itIni)->getBody(), (*itProjJ)->getBody())) {
                     (*itProjJ)->destruir();
 

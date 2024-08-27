@@ -154,7 +154,10 @@ void GerenciadorDeColisoes::tratarColisoes()
                 Obstaculo2* obstaculo2 = dynamic_cast<Obstaculo2*>(*it);
 
                 if (obstaculo1) {
-                    
+                    (*itJog)->operator--();
+					int dir = NumeroMinimo((*itJog)->getBody().getPosition().x - (*it)->getBody().getPosition().x);
+                    danoJogador(*itJog, dir);
+					
                 }
 
                 if (obstaculo2) {
@@ -180,8 +183,28 @@ void GerenciadorDeColisoes::tratarColisoes()
 
         for (Lista<Jogador*>::iterator itJog = listaJogador->begin(); itJog != listaJogador->end(); ++itJog) {
 
+            for (Lista<Projetil*>::iterator itProjI = (*itIni)->getListaProjetil()->begin(); itProjI != (*itIni)->getListaProjetil()->end(); ++itProjI) {
+
+                if (ChecarColisao((*itJog)->getBody(), (*itProjI)->getBody())) {
+
+                    (*itProjI)->destruir();
+
+                    if ((*itJog)->getState() == Jogador::Machucado) {
+                        continue;
+                    }
+
+                    int direcao = NumeroMinimo((*itJog)->getBody().getPosition().x - (*itIni)->getBody().getPosition().x);
+
+                    danoJogador((*itJog), direcao);
+                    
+                }
+            }
+
             //==iteração sobre todos os tiros de cada jogador=====================================================================================================================
             for (Lista<Projetil*>::iterator itProjJ = (*itJog)->getListaProjetil()->begin(); itProjJ != (*itJog)->getListaProjetil()->end(); ++itProjJ) {
+                
+                
+                
                 if (ChecarColisao((*itIni)->getBody(), (*itProjJ)->getBody())) {
                     (*itProjJ)->destruir();
 
@@ -221,6 +244,7 @@ void GerenciadorDeColisoes::tratarColisoes()
         bool invertFlag = true;
         bool invertFlagY = true;
         Inimigo1* inimigo1 = dynamic_cast<Inimigo1*>(*itIni);
+        Inimigo2* inimigo2 = dynamic_cast<Inimigo2*>(*itIni);
 
         //--itera sobre todas plataformas--\\
         =====================================
@@ -229,7 +253,7 @@ void GerenciadorDeColisoes::tratarColisoes()
 
             //--inverte a direção do inimigo--\\
             ====================================
-            if (inimigo1) {
+            if (inimigo1 || inimigo2) {
                 bodyTemp = (*itIni)->getBody();
                 bodyTemp.move(sf::Vector2f(NumeroMinimo((*itIni)->getHspd())*bodyTemp.getSize().x, 0));
 
@@ -285,8 +309,11 @@ void GerenciadorDeColisoes::tratarColisoes()
 
         }
 
-        if (inimigo1 && invertFlag) {
-            inimigo1->invertDirectionX();
+        if (invertFlag) {
+            if(inimigo1)
+                inimigo1->invertDirectionX();
+            else if(inimigo2)
+                inimigo2->invertDirectionX();
         }
 
         (*itIni)->getBodyPtr()->move(sf::Vector2f((*itIni)->getHspd(), (*itIni)->getVspd()));

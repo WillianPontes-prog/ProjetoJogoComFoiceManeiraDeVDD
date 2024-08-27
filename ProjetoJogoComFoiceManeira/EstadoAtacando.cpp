@@ -9,13 +9,13 @@ void EstadoAtacando::atualiza(Inimigo2* inimigo) {
         inimigo->sacarArma();
         inimigo->setTempoCarregando(inimigo->getTempoMax());
     }
-    inimigo->operator--();
+    inimigo->operator-();
     if (std::abs(posicao.x) > 160 || std::abs(posicao.y) > 140) {
         inimigo->setTempoCarregando(0);
         SwitchState(inimigo);
     }
     inimigo->atualizaSprite(inimigo->getBody().getPosition().x, inimigo->getBody().getPosition().y);
-    inimigo->drawBody();
+    inimigo->draw();
 }
 
 void EstadoAtacando::move(Inimigo2* inimigo) {

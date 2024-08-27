@@ -43,3 +43,4 @@ void Inimigo2::AtacaJogador() {
     direcao = BuscarJogador();
     disparar();
 }
+

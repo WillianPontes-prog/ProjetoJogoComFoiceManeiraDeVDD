@@ -51,7 +51,7 @@ void Jogador::move()
 
     if (((!jogador2 && GerenciadorDeComandos::Cima()) || (jogador2 && GerenciadorDeComandos::CimaV2())) && noChao)
 	{
-		vspd = -10;
+		vspd = -18;
 	}
 }
 

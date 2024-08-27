@@ -3,6 +3,7 @@
 #include "Jogador.h"
 #include "Inimigo.h"
 #include "Fase1.h"
+#include "Menu.h"
 
 GerenciadorGrafico* GerenciadorGrafico::instance = nullptr;
 
@@ -10,14 +11,24 @@ GerenciadorGrafico* GerenciadorGrafico::instance = nullptr;
 #define SPR_JOGADOR2 "imagens/jogador2.png"
 
 #define SPR_INIMIGO1 "imagens/inimigo1Zumbi.png"
+#define SPR_INIMIGO2 "imagens/inimigo2.png"
 
 #define SPR_BCK_FASE1 "imagens/BCK_fase1.png"
 
 #define SPR_BCK_FASE1_PLAT "imagens/Fase_1.png"
 
+#define SPR_TELEPORTADOR "imagens/Teleportador.png"
+#define SPR_FOGO "imagens/fogo.png"
+
+#define SPR_MENU "imagens/BackgroungMenu.png"
+
+
+
 void GerenciadorGrafico::carregarTexturas()
 {
-
+    if(!tMenu->loadFromFile(SPR_MENU)) {
+		throw std::runtime_error("Erro ao carregar a textura!");
+	}
 
     if (!tJogador1->loadFromFile(SPR_JOGADOR1)) {
         throw std::runtime_error("Erro ao carregar a textura!");
@@ -39,6 +50,17 @@ void GerenciadorGrafico::carregarTexturas()
         throw std::runtime_error("Erro ao carregar a textura!");
     }
     
+    if(!tInimigo2->loadFromFile(SPR_INIMIGO2)){
+		throw std::runtime_error("Erro ao carregar a textura!");
+	}
+
+    if (!tTeleportador->loadFromFile(SPR_TELEPORTADOR)) {
+        throw std::runtime_error("Erro ao carregar a textura!");
+    }
+
+    if (!tFogo->loadFromFile(SPR_FOGO)) {
+        throw std::runtime_error("Erro ao carregar a textura!");
+    }
 }
 
 GerenciadorGrafico::GerenciadorGrafico():
@@ -46,7 +68,11 @@ GerenciadorGrafico::GerenciadorGrafico():
     tFase1(new sf::Texture()),
     tInimigo1(new sf::Texture()),
     tFase1Plat(new sf::Texture()),
-    tJogador2(new sf::Texture())
+    tJogador2(new sf::Texture()),
+    tInimigo2(new sf::Texture()),
+    tTeleportador(new sf::Texture()),
+    tFogo(new sf::Texture()),
+    tMenu(new sf::Texture())
 {
     // Resolução original
     sf::Vector2u originalResolution(960, 640);
@@ -137,10 +163,15 @@ sf::Texture* GerenciadorGrafico::devolveImagemEnte(Ente* e)
             return tJogador2;
     }
 
-    Inimigo* i = dynamic_cast<Inimigo*>(e);
+    Inimigo1* i = dynamic_cast<Inimigo1*>(e);
     if (i) {
 		return tInimigo1;
 	}
+
+    Inimigo2* i2 = dynamic_cast<Inimigo2*>(e);
+    if (i2) {
+        return tInimigo2;
+    }
 
     Fase1* f = dynamic_cast<Fase1*>(e);
     if (f) {
@@ -148,9 +179,20 @@ sf::Texture* GerenciadorGrafico::devolveImagemEnte(Ente* e)
 		return tFase1Plat;
 	}
     
+    Obstaculo2* o = dynamic_cast<Obstaculo2*>(e);
+    if (o) {
+		return tTeleportador;
+	}
     
+    Obstaculo1* o1 = dynamic_cast<Obstaculo1*>(e);
+    if(o1) {
+		return tFogo;
+	}
 
-
+    Menu* m = dynamic_cast<Menu*>(e);
+    if (m) {
+		return tMenu;
+    }
 
 
     return NULL;;

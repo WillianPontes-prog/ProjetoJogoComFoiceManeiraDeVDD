@@ -70,7 +70,10 @@ void Menu::move()
 
 void Menu::atualiza()
 {
+    draw();
     move();
+
+
     for (int i = 0; i < botoes.size(); i++)
     {
 

@@ -6,17 +6,21 @@ void EstadoAndando::atualiza(Inimigo2* inimigo) {
     sf::Vector2f posicao = inimigo->BuscarJogador();
     inimigo->move();
     if (std::abs(posicao.x) < 100 && std::abs(posicao.y) < 90) {
+        
+        inimigo->setHspd(0);
+
         SwitchState(inimigo);
+        
     }
     inimigo->atualizaSprite(inimigo->getBody().getPosition().x, inimigo->getBody().getPosition().y);
-    inimigo->drawBody();
+    inimigo->draw();
     inimigo->atualizaProjetil();
 }
 
 void EstadoAndando::move(Inimigo2* inimigo) {
-    //inimigo->setHspd(inimigo->getVelocidade() * inimigo->getDirectionX());
-    //inimigo->setScale(inimigo->getDirectionX());
-    inimigo->setVspd(inimigo->getHspd()+GRAVIDADE);
+
+    inimigo->Movimentacao();
+    
 }
 
 void EstadoAndando::sacarArma(Inimigo2* inimigo) {

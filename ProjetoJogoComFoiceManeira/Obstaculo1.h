@@ -4,11 +4,12 @@
 class Obstaculo1 :public Obstaculo {
 private:
 	int dano;
-	int desacelera;
+	
 public:
-	Obstaculo1(float posX, float posY, int dano, int desacelera) : Obstaculo(posX, posY) {};
+	Obstaculo1(float posX, float posY, int dano) : Obstaculo(posX, posY), dano(dano) {};
+	~Obstaculo1() {};
+
 	void atualiza();
-	int get_dano();
-	int get_desacelera();
+
 
 };

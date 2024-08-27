@@ -1,9 +1,11 @@
 #pragma once
 #include<iostream>
 #include "Ente.h"
+
 #include <SFML/Graphics.hpp>
 
 class Ente;
+
 
 class GerenciadorGrafico {
 private:
@@ -11,13 +13,19 @@ private:
 
     void carregarTexturas();
 
+    sf::Texture* tMenu;
+
     sf::Texture* tJogador1;
     sf::Texture* tJogador2;
 
     sf::Texture* tInimigo1;
+    sf::Texture* tInimigo2;
 
     sf::Texture* tFase1;
     sf::Texture* tFase1Plat;
+
+    sf::Texture* tTeleportador;
+    sf::Texture* tFogo;
 
     GerenciadorGrafico();
 

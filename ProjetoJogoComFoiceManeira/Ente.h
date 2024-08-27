@@ -30,7 +30,7 @@ public:
     }
     
     sf::Sprite getSprite() { return sprite; }
-    
+    void setScale(int i){ sprite.setScale(i, 1); }
     virtual void atualiza() = 0;
     virtual void draw();
 };

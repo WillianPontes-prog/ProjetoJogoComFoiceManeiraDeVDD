@@ -14,6 +14,7 @@
 #include "json.hpp"
 #include "GerenciadorDeColisoes.h"
 #include "Inimigo1.h"
+#include "Inimigo2.h"
 #include"Projetil.h"
 
 using namespace std;
@@ -60,6 +61,8 @@ public:
 	void criaPlataforma(float posX = 0, float posY = 0);
 
 	void criarInimigo1(float posX = 0, float posY = 0, float vida = 5);
+
+	void criarInimigo2(float posX = 0, float posY = 0, float vida = 5);
 
 };
 

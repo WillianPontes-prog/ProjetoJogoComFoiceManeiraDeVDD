@@ -144,6 +144,9 @@
     <ClInclude Include="Ente.h" />
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="EntidadeColisao.h" />
+    <ClInclude Include="Estado.h" />
+    <ClInclude Include="EstadoAndando.h" />
+    <ClInclude Include="EstadoAtacando.h" />
     <ClInclude Include="Fase.h" />
     <ClInclude Include="Fase1.h" />
     <ClInclude Include="GerenciadorDeColisoes.h" />
@@ -191,6 +194,8 @@
     <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="EntidadeColisao.cpp" />
+    <ClCompile Include="EstadoAndando.cpp" />
+    <ClCompile Include="EstadoAtacando.cpp" />
     <ClCompile Include="Fase.cpp" />
     <ClCompile Include="Fase1.cpp" />
     <ClCompile Include="GerenciadorDeColisoes.cpp" />

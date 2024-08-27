@@ -29,6 +29,8 @@ void Fase1::criaEntidades(float posX, float posY, int n)
         break;
     case 2527:  //Obstaculo2
 		criarObstaculo2(posX, posY);
+    case 2538:  //Inimigo2
+		criarInimigo2(posX, posY);
 		break;
     default:
 

@@ -56,6 +56,7 @@ public:
     Lista<Projetil*>* getListaProjetil() { return listaProjetil; };
 
     void setArma(Arma* arma) { this->arma = arma; };
+    Arma* getArma() { return arma; };   
 
     int getVida() { return vida; }
 

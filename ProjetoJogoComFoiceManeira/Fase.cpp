@@ -164,5 +164,13 @@ void Fase::criarInimigo1(float posX, float posY, float vida)
 	listaInimigos->adicionarElemento(i);
 }
 
+void Fase::criarInimigo2(float posX, float posY, float vida)
+{   
+    Arma* arma = new Arma(40,1,30,10,sf::Color::Red,sf::Vector2f(15,4));
+    Inimigo2* i = new Inimigo2(listaJogadores, posX, posY, vida, arma);
+    i->setGerenciadorGrafico();
+
+    listaInimigos->adicionarElemento(i);
+}
 
 

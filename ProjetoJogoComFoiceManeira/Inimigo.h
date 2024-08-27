@@ -11,7 +11,7 @@ protected:
 	
 
 public:
-	Inimigo(Lista<Jogador*>* listaJogadores = NULL, float posX = 0, float posY = 0, float vida = 5);
+	Inimigo(Lista<Jogador*>* listaJogadores = NULL, float posX = 0, float posY = 0, float vida = 5, Arma* arma = nullptr);
 	~Inimigo();
 
 	sf::Vector2f BuscarJogador();

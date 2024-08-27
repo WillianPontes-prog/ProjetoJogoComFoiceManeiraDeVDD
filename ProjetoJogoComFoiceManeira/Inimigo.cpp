@@ -2,8 +2,8 @@
 
 
 
-Inimigo::Inimigo(Lista<Jogador*>* listaJogadores, float posX, float posY, float vida):
-	EntidadeColisao(posX, posY, vida),
+Inimigo::Inimigo(Lista<Jogador*>* listaJogadores, float posX, float posY, float vida, Arma* arma):
+	EntidadeColisao(posX, posY, vida, arma),
 	listaJogadores(listaJogadores)
 {
 }

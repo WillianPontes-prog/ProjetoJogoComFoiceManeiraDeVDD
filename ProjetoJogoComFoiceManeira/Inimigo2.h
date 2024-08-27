@@ -26,6 +26,14 @@ public:
     int getTempoCarregando() { return TempoCarregando; }
     void setTempoCarregando(int tempo) { TempoCarregando = tempo; }
     int getTempoMax() { return arma->getTempoDeRecarga(); }
-    void operator--() { TempoCarregando--; }
+    void operator-() { TempoCarregando--; }
     void AtacaJogador();
+
+    void Movimentacao() {
+        hspd = velocidade * directionX;
+
+        sprite.setScale(directionX, 1);
+
+        vspd += GRAVIDADE;
+    }
 };

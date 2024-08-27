@@ -60,6 +60,8 @@ public:
 
 	void criaPlataforma(float posX = 0, float posY = 0);
 
+	void criaFogo(float posX = 0, float posY = 0);	
+
 	void criarInimigo1(float posX = 0, float posY = 0, float vida = 5);
 
 	void criarInimigo2(float posX = 0, float posY = 0, float vida = 5);

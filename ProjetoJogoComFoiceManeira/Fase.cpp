@@ -165,6 +165,14 @@ void Fase::criaPlataforma(float posX, float posY)
 	listaPlataformas->adicionarElemento(p);
 }
 
+void Fase::criaFogo(float posX, float posY)
+{
+    Obstaculo1* o = new Obstaculo1(posX, posY, 1);
+    o->setGerenciadorGrafico();
+
+    listaObstaculos->adicionarElemento(o);
+}
+
 void Fase::criarInimigo1(float posX, float posY, float vida)
 {
 	Inimigo1* i = new Inimigo1(listaJogadores, posX, posY, vida);
@@ -175,7 +183,7 @@ void Fase::criarInimigo1(float posX, float posY, float vida)
 
 void Fase::criarInimigo2(float posX, float posY, float vida)
 {   
-    Arma* arma = new Arma(40,1,30,10,sf::Color::Red,sf::Vector2f(15,4));
+    Arma* arma = new Arma(80,1,30,5,sf::Color::Red,sf::Vector2f(15,4));
     Inimigo2* i = new Inimigo2(listaJogadores, posX, posY, vida, arma);
     i->setGerenciadorGrafico();
 

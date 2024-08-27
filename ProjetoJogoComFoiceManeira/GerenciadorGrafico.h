@@ -12,11 +12,12 @@ private:
     void carregarTexturas();
 
     sf::Texture* tJogador1;
+    sf::Texture* tJogador2;
+
     sf::Texture* tInimigo1;
+
     sf::Texture* tFase1;
     sf::Texture* tFase1Plat;
-
-    sf::Texture* tFasePlataforma;
 
     GerenciadorGrafico();
 

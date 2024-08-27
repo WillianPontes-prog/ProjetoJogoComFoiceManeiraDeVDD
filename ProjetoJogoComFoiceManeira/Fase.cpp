@@ -142,7 +142,16 @@ void Fase::setSpriteFundo(sf::Texture* texture)
 
 void Fase::criaJogador(float posX, float posY, int vida, bool j2)
 {
-	Jogador* j = new Jogador(posX, posY, vida, new Arma(), j2);
+    Arma* arm; 
+    
+    if (j2) {
+        arm = new Arma(8, 1, 35, 12, sf::Color::Magenta, sf::Vector2f(8, 8));
+    }
+	else {
+		arm = new Arma(16, 2, 80, 15, sf::Color::Yellow, sf::Vector2f(15,8));
+	}
+
+	Jogador* j = new Jogador(posX, posY, vida, arm, j2);
 	j->setGerenciadorGrafico();
 
 	listaJogadores->adicionarElemento(j);

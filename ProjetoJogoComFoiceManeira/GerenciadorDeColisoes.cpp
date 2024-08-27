@@ -185,7 +185,7 @@ void GerenciadorDeColisoes::tratarColisoes()
                 if (ChecarColisao((*itIni)->getBody(), (*itProjJ)->getBody())) {
                     (*itProjJ)->destruir();
 
-                    (*itIni)->operator--();
+                    (*itIni)->operator--((*itProjJ)->getDano());
                 }
             }
 
@@ -294,8 +294,8 @@ void GerenciadorDeColisoes::danoJogador(Jogador* jogador, int dirX)
     jogador->operator--();
     jogador->setState(Jogador::Machucado);
 
-    jogador->setVspd(-10);
-    jogador->setHspd(dirX * 8);
+    jogador->setVspd(-8);
+    jogador->setHspd(dirX * 6);
 }
 
 

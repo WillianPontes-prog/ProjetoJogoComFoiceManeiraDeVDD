@@ -7,6 +7,7 @@
 GerenciadorGrafico* GerenciadorGrafico::instance = nullptr;
 
 #define SPR_JOGADOR1 "imagens/jogador1.png"
+#define SPR_JOGADOR2 "imagens/jogador2.png"
 
 #define SPR_INIMIGO1 "imagens/inimigo1Zumbi.png"
 
@@ -19,6 +20,10 @@ void GerenciadorGrafico::carregarTexturas()
 
 
     if (!tJogador1->loadFromFile(SPR_JOGADOR1)) {
+        throw std::runtime_error("Erro ao carregar a textura!");
+    }
+
+    if (!tJogador2->loadFromFile(SPR_JOGADOR2)) {
         throw std::runtime_error("Erro ao carregar a textura!");
     }
 
@@ -40,7 +45,8 @@ GerenciadorGrafico::GerenciadorGrafico():
     tJogador1(new sf::Texture()),
     tFase1(new sf::Texture()),
     tInimigo1(new sf::Texture()),
-    tFase1Plat(new sf::Texture())
+    tFase1Plat(new sf::Texture()),
+    tJogador2(new sf::Texture())
 {
     // Resolução original
     sf::Vector2u originalResolution(960, 640);
@@ -128,7 +134,7 @@ sf::Texture* GerenciadorGrafico::devolveImagemEnte(Ente* e)
         if (!j->getJogador2())
             return tJogador1;
         else
-            return tJogador1;
+            return tJogador2;
     }
 
     Inimigo* i = dynamic_cast<Inimigo*>(e);

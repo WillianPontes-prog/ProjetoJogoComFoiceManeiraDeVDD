@@ -22,7 +22,7 @@ public:
 
 	virtual void sacarArma() = 0;
 
-	void operator--() { vida--; tempoMachucado = maxTempoMachucado; }
+	void operator--(int dan) { vida-= dan; tempoMachucado = maxTempoMachucado; }
 
 	void mudarCorDano() {
 		if (tempoMachucado > 0) {

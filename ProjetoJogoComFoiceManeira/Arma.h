@@ -17,6 +17,8 @@ public:
 	~Arma();
 	void disparar(sf::Vector2f posicao, sf::Vector2f direcao);
 	int getTempoDeRecarga() { return tempoDeRecarga; };
-	void setListaProjetil(Lista<Projetil*>* lista) { listaProjetil = lista; };
+	void setListaProjetil(Lista<Projetil*>* lista) { listaProjetil = lista; }
+
+	int getdano() { return dano; }
 
 };

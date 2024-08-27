@@ -23,5 +23,9 @@ public:
     float getVelocidade() { return velocidade; }
     void invertDirectionX() { directionX = -directionX; }
     void setEstado(Estado* novoEstado);
+    int getTempoCarregando() { return TempoCarregando; }
+    void setTempoCarregando(int tempo) { TempoCarregando = tempo; }
+    int getTempoMax() { return arma->getTempoDeRecarga(); }
+    void operator--() { TempoCarregando--; }
     void AtacaJogador();
 };

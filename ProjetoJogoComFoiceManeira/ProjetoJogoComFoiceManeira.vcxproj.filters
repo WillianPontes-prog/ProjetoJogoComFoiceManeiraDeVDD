@@ -60,16 +60,13 @@
     <ClCompile Include="Inimigo.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="Inimigo1.cpp">
+    <ClCompile Include="ZumbiFriorento.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="Arma.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="Projetil.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Obstaculo2.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="Icones.cpp">
@@ -81,10 +78,31 @@
     <ClCompile Include="Botao.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="Inimigo2.cpp">
+    <ClCompile Include="Zumbinana.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="Obstaculo1.cpp">
+    <ClCompile Include="ZumbiDragao.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="EstadoAndando.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="EstadoAtacando.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Fase2.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaEntidade.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="ObstaculoDano.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="ObstaculoTeleporte.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="MudarFase.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
   </ItemGroup>
@@ -137,16 +155,13 @@
     <ClInclude Include="Inimigo.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="Inimigo1.h">
+    <ClInclude Include="ZumbiFriorento.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="Arma.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="Projetil.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Obstaculo2.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="Icones.h">
@@ -158,10 +173,34 @@
     <ClInclude Include="Botao.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="Inimigo2.h">
+    <ClInclude Include="Zumbinana.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="Obstaculo1.h">
+    <ClInclude Include="ZumbiDragao.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Estado.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="EstadoAndando.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="EstadoAtacando.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Fase2.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaEntidade.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="ObstaculoDano.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="ObstaculoTeleporte.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="MudarFase.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>
@@ -170,7 +209,9 @@
     <None Include="pipipipopopodeteste.json">
       <Filter>Arquivos de Recurso</Filter>
     </None>
-    <None Include="tileds\TiledFase1.json" />
+    <None Include="tileds\Fase_2.json" />
+    <None Include="tileds\MapaF1.json" />
+    <None Include="tileds\MapaF2.json" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="PIXEAB.TTF">
@@ -182,9 +223,6 @@
       <Filter>Arquivos de Recurso</Filter>
     </Image>
     <Image Include="..\Tiles\TX Village Props.png">
-      <Filter>Arquivos de Recurso</Filter>
-    </Image>
-    <Image Include="Fase_1.png">
       <Filter>Arquivos de Recurso</Filter>
     </Image>
     <Image Include="LifeImg.png">
@@ -206,6 +244,30 @@
       <Filter>Arquivos de Recurso</Filter>
     </Image>
     <Image Include="Imagens\Jogador1.png">
+      <Filter>Arquivos de Recurso</Filter>
+    </Image>
+    <Image Include="Imagens\BackgroungMenu.jpeg">
+      <Filter>Arquivos de Recurso</Filter>
+    </Image>
+    <Image Include="Imagens\BackgroungMenu.png">
+      <Filter>Arquivos de Recurso</Filter>
+    </Image>
+    <Image Include="Imagens\chefao.png">
+      <Filter>Arquivos de Recurso</Filter>
+    </Image>
+    <Image Include="Imagens\Fase_1.png">
+      <Filter>Arquivos de Recurso</Filter>
+    </Image>
+    <Image Include="Imagens\Fase_2.png">
+      <Filter>Arquivos de Recurso</Filter>
+    </Image>
+    <Image Include="Imagens\fogo.png">
+      <Filter>Arquivos de Recurso</Filter>
+    </Image>
+    <Image Include="Imagens\Jogador2.png">
+      <Filter>Arquivos de Recurso</Filter>
+    </Image>
+    <Image Include="Imagens\Teleportador.png">
       <Filter>Arquivos de Recurso</Filter>
     </Image>
   </ItemGroup>

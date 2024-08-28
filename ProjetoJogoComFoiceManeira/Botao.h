@@ -12,7 +12,8 @@ public:
 		_NovoJogo,
 		_NovoJogo2Jogadores,
 		_CarregarJogo,
-		_Salvar,
+		_Fase1,
+		_Fase2,
 		_Sair,
 	};
 

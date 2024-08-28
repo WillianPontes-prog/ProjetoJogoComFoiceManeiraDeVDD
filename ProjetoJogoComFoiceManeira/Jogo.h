@@ -1,10 +1,11 @@
 #pragma once
 #include "GerenciadorGrafico.h"
-#include "fase1.h"
-#include "fase2.h"
+
 #include "Menu.h"
 
 class Menu;
+class Fase1;
+class Fase2;
 
 class Jogo
 {
@@ -21,6 +22,7 @@ public:
 
 	enum modos {
 		_menu,
+		_menuFases,
 		_fase1,
 		_fase2
 	};
@@ -32,7 +34,7 @@ public:
 
 	void executar();
 	void setarModoDeJogo(modos m) { rodando = m; };
-	void CriaFase1(bool n) { if (!f1) { delete f1; } f1 = new Fase1(n); }
-	void CriaFase2(bool n) { if (!f2) { delete f2; } f2 = new Fase2(n); }
+	void CriaFase1(bool n); 
+	void CriaFase2(bool n); 
 };
 

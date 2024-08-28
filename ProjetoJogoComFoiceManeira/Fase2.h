@@ -1,6 +1,8 @@
 #pragma once
 #include "Fase.h"
-#include "Chefao.h"
+#include "ZumbiDragao.h"
+
+
 
 class Fase2 : public Fase
 {
@@ -8,7 +10,7 @@ protected:
 	int nChefao;
 
 public:
-	Fase2(bool Jogadores);
+	Fase2(bool Jogadores, Jogo* jg);
 	~Fase2();
 
 	void criaEntidades(float posX, float posY, int n);

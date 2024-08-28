@@ -1,8 +1,8 @@
-#include "Inimigo2.h"
+#include "Zumbinana.h"
 #include "EstadoAndando.h"
 #include <cstdlib> // para rand()
 
-Inimigo2::Inimigo2(Lista<Jogador*>* listaJogadores, float posX, float posY, float vida, Arma* arma)
+Zumbinana::Zumbinana(Lista<Jogador*>* listaJogadores, float posX, float posY, float vida, Arma* arma)
     : Inimigo(listaJogadores, posX, posY, vida, arma), estadoAtual(new EstadoAndando()),  directionX(1)
 {
     tempoRecarregando = 0;
@@ -14,34 +14,34 @@ Inimigo2::Inimigo2(Lista<Jogador*>* listaJogadores, float posX, float posY, floa
     velocidade = 0.5f;
 }
 
-Inimigo2::~Inimigo2() {
+Zumbinana::~Zumbinana() {
     delete estadoAtual;
 }
 
-void Inimigo2::atualiza() {
+void Zumbinana::atualiza() {
     estadoAtual->atualiza(this);
 }
 
-void Inimigo2::move() {
+void Zumbinana::move() {
     estadoAtual->move(this);
 }
 
-void Inimigo2::sacarArma() {
+void Zumbinana::sacarArma() {
     estadoAtual->sacarArma(this);
 }
 
-void Inimigo2::SwitchState(Estado* novoEstado) {
+void Zumbinana::SwitchState(Estado* novoEstado) {
     setEstado(novoEstado);
 }
 
-void Inimigo2::setEstado(Estado* novoEstado) {
+void Zumbinana::setEstado(Estado* novoEstado) {
     if (estadoAtual) {
         delete estadoAtual;
     }
     estadoAtual = novoEstado;
 }
 
-void Inimigo2::AtacaJogador() {
+void Zumbinana::AtacaJogador() {
     direcao = BuscarJogador();
     disparar();
 }

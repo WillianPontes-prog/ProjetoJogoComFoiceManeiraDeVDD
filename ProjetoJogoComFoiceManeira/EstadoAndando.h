@@ -5,8 +5,8 @@
 class EstadoAndando : public Estado
 {
 public:
-    void atualiza(Inimigo2* inimigo) override;
-    void move(Inimigo2* inimigo) override;
-    void sacarArma(Inimigo2* inimigo) override;
-    void SwitchState(Inimigo2* inimigo) override;
+    void atualiza(Zumbinana* inimigo) override;
+    void move(Zumbinana* inimigo) override;
+    void sacarArma(Zumbinana* inimigo) override;
+    void SwitchState(Zumbinana* inimigo) override;
 };

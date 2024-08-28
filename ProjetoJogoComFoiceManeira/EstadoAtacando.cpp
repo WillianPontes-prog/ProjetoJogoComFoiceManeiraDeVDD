@@ -1,9 +1,10 @@
 #include "EstadoAtacando.h"
-#include "Inimigo2.h"
+#include "Zumbinana.h"
 #include "EstadoAndando.h"
 
-void EstadoAtacando::atualiza(Inimigo2* inimigo) {
+void EstadoAtacando::atualiza(Zumbinana* inimigo) {
     inimigo->atualizaProjetil();
+    inimigo->mudarCorDano();
     sf::Vector2f posicao = inimigo->BuscarJogador();
     if (inimigo->getTempoCarregando() == 0) {
         inimigo->sacarArma();
@@ -18,14 +19,14 @@ void EstadoAtacando::atualiza(Inimigo2* inimigo) {
     inimigo->draw();
 }
 
-void EstadoAtacando::move(Inimigo2* inimigo) {
+void EstadoAtacando::move(Zumbinana* inimigo) {
     // Nenhuma ação aqui, pois o movimento não é relevante no estado Atacando
 }
 
-void EstadoAtacando::sacarArma(Inimigo2* inimigo) {
+void EstadoAtacando::sacarArma(Zumbinana* inimigo) {
     inimigo->AtacaJogador();
 }
 
-void EstadoAtacando::SwitchState(Inimigo2* inimigo) {
+void EstadoAtacando::SwitchState(Zumbinana* inimigo) {
     inimigo->setEstado(new EstadoAndando());
 }

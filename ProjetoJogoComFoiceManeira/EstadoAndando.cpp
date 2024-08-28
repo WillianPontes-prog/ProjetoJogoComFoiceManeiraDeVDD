@@ -1,10 +1,11 @@
 #include "EstadoAndando.h"
-#include "Inimigo2.h"
+#include "Zumbinana.h"
 #include "EstadoAtacando.h"
 
-void EstadoAndando::atualiza(Inimigo2* inimigo) {
+void EstadoAndando::atualiza(Zumbinana* inimigo) {
     sf::Vector2f posicao = inimigo->BuscarJogador();
     inimigo->move();
+    inimigo->mudarCorDano();
     if (std::abs(posicao.x) < 100 && std::abs(posicao.y) < 90) {
         
         inimigo->setHspd(0);
@@ -16,16 +17,16 @@ void EstadoAndando::atualiza(Inimigo2* inimigo) {
     inimigo->atualizaProjetil();
 }
 
-void EstadoAndando::move(Inimigo2* inimigo) {
+void EstadoAndando::move(Zumbinana* inimigo) {
 
     inimigo->Movimentacao();
     
 }
 
-void EstadoAndando::sacarArma(Inimigo2* inimigo) {
+void EstadoAndando::sacarArma(Zumbinana* inimigo) {
 
 }
 
-void EstadoAndando::SwitchState(Inimigo2* inimigo) {
+void EstadoAndando::SwitchState(Zumbinana* inimigo) {
     inimigo->setEstado(new EstadoAtacando());
 }

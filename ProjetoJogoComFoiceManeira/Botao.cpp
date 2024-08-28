@@ -53,36 +53,39 @@ void Botao::executar()
 {
 	switch (tipo)
 	{
-	case Botao::_NovoJogo: {
+	case Botao::_NovoJogo: 
 		jogo->CriaFase1(false);
-		jogo->setarModoDeJogo(Jogo::_fase1);
-	}
+		jogo->CriaFase2(false);
+		
+		jogo->setarModoDeJogo(Jogo::_menuFases);
+	
 		break;
-	case Botao::_NovoJogo2Jogadores: {
+	case Botao::_NovoJogo2Jogadores: 
 		jogo->CriaFase1(true);
 		jogo->CriaFase2(true);
-		jogo->setarModoDeJogo(Jogo::_fase2);
-	}
-		break;
-	case Botao::_CarregarJogo: {
+		
+		jogo->setarModoDeJogo(Jogo::_menuFases);
 
-	}
 		break;
-	case Botao::_Salvar: {
-		//da um clear no JSON
-		//Salvar(Fase->getListaJogadores, pos);
-		//Salvar(Fase->getListaInimigos, pos);
-		//Salvar(Fase->getListaProjetil, pos);
-		//Salvar(Fase->getListaObstaculo, pos);
-	}
+	case Botao::_CarregarJogo: 
+
+	
 		break;
-	case Botao::_Sair: {
+	case Botao::_Sair: 
 		gerenciadorGrafico->Close();
-	}
+	
 		break;
-	default: {
+	case Botao::_Fase1: 
+		jogo->setarModoDeJogo(Jogo::_fase1);
+	
+		break;
+	case Botao::_Fase2:
+		jogo->setarModoDeJogo(Jogo::_fase2);
 
-	}
+		break;
+	default: 
+
+	
 		break;
 	}
 }

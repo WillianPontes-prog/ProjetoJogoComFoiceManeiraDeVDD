@@ -5,6 +5,7 @@
 #include "Inimigo.h"
 
 class Fase;
+class MudarFase;
 
 class GerenciadorDeColisoes
 {
@@ -13,6 +14,8 @@ private:
 	Lista<Plataforma*>* listaPlataforma;
 	Lista<Inimigo*>*	listaInimigos;
 	Lista<Obstaculo*>*	listaObstaculos;
+
+	MudarFase* mudarFase;
 
 	Fase* fase;
 
@@ -41,5 +44,7 @@ public:
 	Lista<Inimigo*>* getListaInimigos() { return listaInimigos; };
 	Lista<Obstaculo*>* getListaObstaculos() { return listaObstaculos; };
 	
+	MudarFase* getMudarFase() { return mudarFase; };
+	void setMudarFase(MudarFase* m) { mudarFase = m; };
 };
 

@@ -1,6 +1,6 @@
-#include "Inimigo1.h"
+#include "ZumbiFriorento.h"
 
-Inimigo1::Inimigo1(Lista<Jogador*>* listaJogadores, float posX, float posY, float vida):
+ZumbiFriorento::ZumbiFriorento(Lista<Jogador*>* listaJogadores, float posX, float posY, float vida):
 	Inimigo(listaJogadores, posX, posY, vida),
 	directionX(1)
 {
@@ -11,11 +11,11 @@ Inimigo1::Inimigo1(Lista<Jogador*>* listaJogadores, float posX, float posY, floa
 		directionX = -1;
 }
 
-Inimigo1::~Inimigo1()
+ZumbiFriorento::~ZumbiFriorento()
 {
 }
 
-void Inimigo1::atualiza()
+void ZumbiFriorento::atualiza()
 {
 	mudarCorDano();
 	move();
@@ -23,7 +23,7 @@ void Inimigo1::atualiza()
 	draw();
 }
 
-void Inimigo1::move()
+void ZumbiFriorento::move()
 {
 
 	hspd = velocidade * directionX;

@@ -3,6 +3,7 @@
 #include "Jogador.h"
 #include "Inimigo.h"
 #include "Fase1.h"
+#include "Fase2.h"
 #include "Menu.h"
 
 GerenciadorGrafico* GerenciadorGrafico::instance = nullptr;
@@ -174,12 +175,12 @@ sf::Texture* GerenciadorGrafico::devolveImagemEnte(Ente* e)
             return tJogador2;
     }
 
-    Inimigo1* i = dynamic_cast<Inimigo1*>(e);
+    ZumbiFriorento* i = dynamic_cast<ZumbiFriorento*>(e);
     if (i) {
 		return tInimigo1;
 	}
 
-    Inimigo2* i2 = dynamic_cast<Inimigo2*>(e);
+    Zumbinana* i2 = dynamic_cast<Zumbinana*>(e);
     if (i2) {
         return tInimigo2;
     }
@@ -211,7 +212,7 @@ sf::Texture* GerenciadorGrafico::devolveImagemEnte(Ente* e)
 		return tMenu;
     }
 
-    Chefao* c = dynamic_cast<Chefao*>(e);
+    ZumbiDragao* c = dynamic_cast<ZumbiDragao*>(e);
     if (c) {
 		return tChefao;
 	}

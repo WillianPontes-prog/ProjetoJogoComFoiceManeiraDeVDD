@@ -1,4 +1,7 @@
 #include "GerenciadorDeColisoes.h"
+#include "Jogo.h"
+#include "MudarFase.h"
+
 
 GerenciadorDeColisoes::GerenciadorDeColisoes(Fase* fase):
     listaJogador(new Lista<Jogador*>()),
@@ -20,6 +23,12 @@ void GerenciadorDeColisoes::tratarColisoes()
 
 
     for (Lista<Jogador*>::iterator itJog = listaJogador->begin(); itJog != listaJogador->end(); ++itJog) {
+
+        if (mudarFase) {
+            if (ChecarColisao((*itJog)->getBody(), mudarFase->getBody())) {
+                mudarFase->executa();
+            }
+        }
 
         sf::RectangleShape bodyTemp;
         //--seta por padrão que o jogador não está no chão--\\
@@ -250,8 +259,8 @@ void GerenciadorDeColisoes::tratarColisoes()
         (*itIni)->setNoChao(false);
         bool invertFlag = true;
         bool invertFlagY = true;
-        Inimigo1* inimigo1 = dynamic_cast<Inimigo1*>(*itIni);
-        Inimigo2* inimigo2 = dynamic_cast<Inimigo2*>(*itIni);
+        ZumbiFriorento* inimigo1 = dynamic_cast<ZumbiFriorento*>(*itIni);
+        Zumbinana* inimigo2 = dynamic_cast<Zumbinana*>(*itIni);
 
         //--itera sobre todas plataformas--\\
         =====================================

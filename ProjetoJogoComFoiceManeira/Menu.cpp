@@ -1,6 +1,8 @@
 #include "Menu.h"
 
-Menu::Menu(Jogo* jg): Ente()
+Menu::Menu(Jogo* jg): 
+    Ente(),
+    fases(false)
 {
     continua = 0;
     botaoSelecionado = 0;
@@ -13,7 +15,8 @@ Menu::Menu(Jogo* jg): Ente()
     botoes.push_back(new Botao(100, 250, 400, 50, "Novo Jogo:2Jogadores", Botao::_NovoJogo2Jogadores, jg));
     botoes.push_back(new Botao(100, 350, 400, 50, "Sair", Botao::_Sair, jg));
 
-    
+    botoesFases.push_back(new Botao(100, 50, 400, 50, "Fase1", Botao::_Fase1, jg));
+    botoesFases.push_back(new Botao(100, 150, 400, 50, "Fase2", Botao::_Fase2, jg));
 
     flagBotaoPressionado = 0;
 
@@ -30,6 +33,11 @@ Menu::~Menu()
 
 void Menu::move()
 {
+    int MaxNumBotoes = botoes.size();
+
+    if (fases) {
+       MaxNumBotoes = botoesFases.size();
+    }
     if (!GerenciadorDeComandos::Cima() && !GerenciadorDeComandos::Baixo())
     {
         flagBotaoPressionado = 0;
@@ -40,26 +48,22 @@ void Menu::move()
         // Verifica se a tecla para baixo está pressionada
         if (GerenciadorDeComandos::Baixo()) {
             // Verifica se o botão selecionado é o último da lista
-            if (botaoSelecionado >= botoes.size() - 1) {
-                botaoSelecionado = 0;
-            }
-            else {
-                botaoSelecionado++;
-            }
-
+            botaoSelecionado++;
             flagBotaoPressionado = 1;
         }
         // Verifica se a tecla para cima está pressionada
         if (GerenciadorDeComandos::Cima()) {
             // Verifica se o botão selecionado é o primeiro da lista
-            if (botaoSelecionado <= 0) {
-                botaoSelecionado = botoes.size() - 1;
-            }
-            else {
-                botaoSelecionado--;
-            }
-
+            botaoSelecionado--;
             flagBotaoPressionado = 1;
+        }
+
+        if (botaoSelecionado < 0) {
+            botaoSelecionado = MaxNumBotoes - 1;
+        }
+
+        if (botaoSelecionado > MaxNumBotoes - 1) {
+            botaoSelecionado = 0;
         }
 
     }
@@ -73,23 +77,45 @@ void Menu::atualiza()
     draw();
     move();
 
+    if (!fases) {
 
-    for (int i = 0; i < botoes.size(); i++)
-    {
-
-        if (i == botaoSelecionado)
+        for (int i = 0; i < botoes.size(); i++)
         {
-            botoes[i]->set_Pressed(true);
 
-            if ( GerenciadorDeComandos::Click()) {
-                botoes[i]->executar();
+            if (i == botaoSelecionado)
+            {
+                botoes[i]->set_Pressed(true);
+
+                if (GerenciadorDeComandos::Click()) {
+                    botoes[i]->executar();
+                }
             }
-        }
-        else
-        {
-            botoes[i]->set_Pressed(false);
-        }
+            else
+            {
+                botoes[i]->set_Pressed(false);
+            }
 
-        botoes[i]->atualiza();
+            botoes[i]->atualiza();
+        }
+    }
+    else {
+        for (int i = 0; i < botoesFases.size(); i++)
+        {
+
+            if (i == botaoSelecionado)
+            {
+                botoesFases[i]->set_Pressed(true);
+
+                if (GerenciadorDeComandos::Click()) {
+                    botoesFases[i]->executar();
+                }
+            }
+            else
+            {
+                botoesFases[i]->set_Pressed(false);
+            }
+
+            botoesFases[i]->atualiza();
+        }
     }
 }

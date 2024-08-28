@@ -8,6 +8,8 @@ class Fase1 : public Fase
 protected:
 	int numZumbiFriorento[4];
 
+	void carregarFase();
+
 public:
 	Fase1(bool Jogadores, Jogo* jg, bool carregar = false);
 	~Fase1();

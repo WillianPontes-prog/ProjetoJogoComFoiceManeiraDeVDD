@@ -42,7 +42,7 @@ protected:
 
 	ListaEntidade* listaEntidades;
 
-	void carregarFase();
+	virtual void carregarFase() = 0;
 
 	Jogo* jg;
 

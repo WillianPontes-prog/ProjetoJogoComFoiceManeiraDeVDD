@@ -9,6 +9,8 @@ class Fase2 : public Fase
 protected:
 	int nChefao;
 
+	void carregarFase();
+
 public:
 	Fase2(bool Jogadores, Jogo* jg, bool carregar = false);
 	~Fase2();

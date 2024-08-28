@@ -1,5 +1,55 @@
 #include "Fase1.h"
 
+void Fase1::carregarFase()
+{
+    json j = lerArquivoJSON("save.json");
+
+    auto outerArray = j.get<std::vector<std::vector<json>>>();
+
+    for (const auto& innerArray : outerArray) {
+        for (const auto& item : innerArray) {
+
+            int classType = item.at("class").get<int>();
+            float posX = item.at("posX").get<float>();
+            float posY = item.at("posY").get<float>();
+
+            switch (classType)
+            {
+
+            case Entidade::Tipo::_jogador:
+                int vida = item.at("Vida").get<int>();
+                criarJogador(posX, posY, vida, false);
+
+                break;
+            case Entidade::Tipo::_jogador2:
+                vida = item.at("Vida").get<int>();
+                criarJogador(posX, posY, vida, true);
+
+                break;
+            case Entidade::Tipo::_plataforma:
+                criarPlataforma(posX, posY);
+
+                break;
+            case Entidade::Tipo::_zumbifriorento:
+                float vida = item.at("Vida").get<float>();
+                criarZumbiFriorento(posX, posY, vida);
+
+                break;
+            case Entidade::Tipo::_zumbinana:
+                float vida = item.at("Vida").get<float>();
+                criarZumbinana(posX, posY, vida);
+
+
+                break;
+            default:
+
+                break;
+            }
+        }
+
+    }
+}
+
 Fase1::Fase1(bool Jogadores, Jogo* jg, bool carregar):
 	Fase(Jogadores, jg, carregar),
     numZumbiFriorento{0, 3, 5, 0}

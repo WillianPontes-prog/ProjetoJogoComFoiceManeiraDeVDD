@@ -1,11 +1,66 @@
 #include "Fase1.h"
 
+void Fase1::carregarFase()
+{
+    json j = lerArquivoJSON("save.json");
+
+    auto outerArray = j.get<std::vector<std::vector<json>>>();
+
+    for (const auto& innerArray : outerArray) {
+        for (const auto& item : innerArray) {
+
+            int classType = item.at(classe).get<int>();
+            float posX = item.at(pX).get<float>();
+            float posY = item.at(pY).get<float>();
+            int vida = -1;
+
+            switch (classType)
+            {
+
+            case Entidade::Tipo::_jogador:
+                vida = item.at(vd).get<int>();
+                criarJogador(posX, posY, vida, false);
+
+                break;
+            case Entidade::Tipo::_jogador2:
+                vida = item.at(vd).get<int>();
+                criarJogador(posX, posY, vida, true);
+
+                break;
+            case Entidade::Tipo::_plataforma:
+                criarPlataforma(posX, posY);
+
+                break;
+            case Entidade::Tipo::_zumbifriorento:
+                vida = item.at(vd).get<int>();
+                criarZumbiFriorento(posX, posY, vida);
+
+                break;
+            case Entidade::Tipo::_zumbinana:
+                vida = item.at(vd).get<int>();
+                criarZumbinana(posX, posY, vida);
+
+
+                break;
+            default:
+
+                break;
+            }
+        }
+
+    }
+}
+
 Fase1::Fase1(bool Jogadores, Jogo* jg, bool carregar):
 	Fase(Jogadores, jg, carregar),
     numZumbiFriorento{0, 3, 5, 0}
 {
     setGerenciadorGrafico();
-    gerarFase(extrairCamadas(lerArquivoJSON("tileds/MapaF1.json"), 2));
+
+    if(!carregar)
+        gerarFase(extrairCamadas(lerArquivoJSON("tileds/MapaF1.json"), 2));
+    else
+        carregarFase();
 }
 
 Fase1::~Fase1()

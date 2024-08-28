@@ -27,7 +27,7 @@ public:
     int getTempoMax() { return arma->getTempoDeRecarga(); }
     void operator-() { tempoRecarregando--; }
     void AtacaJogador();
-    virtual json toJson() { return nullptr; };
+    
     json toJson() {
         return json{
 			{classe, Tipo::_zumbinana},

@@ -42,6 +42,8 @@ protected:
 
 	ListaEntidade* listaEntidades;
 
+	virtual void carregarFase() = 0;
+
 	Jogo* jg;
 
 public:
@@ -81,5 +83,6 @@ public:
 
 	void criarZumbinana(float posX = 0, float posY = 0, float vida = 5);
 
+	
 };
 

@@ -2,6 +2,8 @@
 #include "Jogo.h"
 #include "GerenciadorDeColisoes.h"
 
+
+
 Fase::Fase(bool Jogadores, Jogo* jg, bool continuar) :
     Jogadores(Jogadores),
 	listaEntidades(new ListaEntidade()),
@@ -12,7 +14,7 @@ Fase::Fase(bool Jogadores, Jogo* jg, bool continuar) :
 {
 	this->setGerenciadorGrafico();
 
-    //if (!continunando) {
+    if (!continunando) {
         Plataforma* Pdir = new Plataforma(-40, -320);
         Pdir->getBodyPtr()->setSize(sf::Vector2f(32, 1080));
 
@@ -22,28 +24,9 @@ Fase::Fase(bool Jogadores, Jogo* jg, bool continuar) :
         Pdir->getBodyPtr()->setSize(sf::Vector2f(32, 1080));
 
         getListaPlataforma()->adicionarElemento(Pdir);
-    //}
-
-    if (continunando) {
-        json j = lerArquivoJSON("save.json");
-        
-        auto outerArray = j.get<std::vector<std::vector<json>>>();
-
-        for (const auto& innerArray : outerArray) {
-            for (const auto& item : innerArray) {
-                int vida = item.at("Vida").get<int>();
-                int classType = item.at("class").get<int>();
-                float posX = item.at("posX").get<float>();
-                float posY = item.at("posY").get<float>();
-
-                if (classType == 1) {
-                    criarJogador(posX, posY, vida, false);
-                }
-            }
-            
-        }
-		
     }
+
+    
 }
 
 Fase::~Fase()

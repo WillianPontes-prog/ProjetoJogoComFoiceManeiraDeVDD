@@ -13,4 +13,5 @@ public:
 
 	void atualiza();
 	void Obstacular(Jogador* jogador);
+	virtual json toJson() { return nullptr; };
 };

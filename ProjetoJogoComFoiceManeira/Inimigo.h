@@ -26,6 +26,8 @@ public:
 
 	void operator--(int dan) { vida-= dan; tempoMachucado = maxTempoMachucado; }
 
+	virtual json toJson() = 0;
+
 	void mudarCorDano() {
 		if (tempoMachucado > 0) {
 			sprite.setColor(sf::Color::Black);

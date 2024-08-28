@@ -36,6 +36,7 @@ public:
 	void Salvar();
 	void atualiza();
 	void drawText();
+	virtual json toJson() { return nullptr; };
 
 
 

@@ -27,6 +27,7 @@ public:
     int getTempoMax() { return arma->getTempoDeRecarga(); }
     void operator-() { tempoRecarregando--; }
     void AtacaJogador();
+    virtual json toJson() { return nullptr; };
     
     void danificar(Jogador* j) {
         j->operator--();

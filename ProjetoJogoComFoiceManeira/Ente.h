@@ -4,8 +4,8 @@
 #include <SFML/Graphics.hpp>
 #include"GerenciadorGrafico.h"
 
-class GerenciadorGrafico;
 
+class GerenciadorGrafico;
 class Ente {
 
 protected:
@@ -28,9 +28,10 @@ public:
         }
 
     }
-    
+
     sf::Sprite getSprite() { return sprite; }
     void setScale(int i){ sprite.setScale(i, 1); }
     virtual void atualiza() = 0;
     virtual void draw();
+
 };

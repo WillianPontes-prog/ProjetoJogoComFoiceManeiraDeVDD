@@ -17,6 +17,8 @@ public:
 	void invertDirectionX() { directionX = -directionX; }
 	void sacarArma() {};
 
+	virtual json toJson() { return nullptr; };
+
 	void danificar(Jogador* j) {
 		j->operator--();
 	};

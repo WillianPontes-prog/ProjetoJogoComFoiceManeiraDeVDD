@@ -1,8 +1,10 @@
 #pragma once
 #include "Ente.h"
+#include "json.hpp"
+
 
 #define GRAVIDADE 0.5
-
+using json = nlohmann::json;
 class Entidade : public Ente {
 protected:
     sf::RectangleShape body;
@@ -18,6 +20,7 @@ public:
     void drawBody() { 
         gerenciadorGrafico->draw(body); 
     };
+    virtual json toJson() = 0;
 
    
 };

@@ -14,5 +14,6 @@ public:
 	void atualiza();
 	float getAtrito() { return atrito; }
 	void Obstacular(Jogador* j);
+	json toJson() { return nullptr; };
 };
 

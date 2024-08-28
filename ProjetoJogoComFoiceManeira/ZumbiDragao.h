@@ -3,7 +3,7 @@
 #pragma once
 #include "Inimigo.h"
 
-class Chefao : public Inimigo
+class ZumbiDragao : public Inimigo
 {
 private:
 	int directionX;
@@ -13,8 +13,8 @@ private:
 
 
 public:
-	Chefao(Lista<Jogador*>* listaJogadores = NULL, float posX = 0, float posY = 0, float vida = 100, int chanceTeleporte= 600, Arma* arma=nullptr);
-	~Chefao();
+	ZumbiDragao(Lista<Jogador*>* listaJogadores = NULL, float posX = 0, float posY = 0, float vida = 100, int chanceTeleporte= 600, Arma* arma=nullptr);
+	~ZumbiDragao();
 
 	void atualiza();
 	void move();

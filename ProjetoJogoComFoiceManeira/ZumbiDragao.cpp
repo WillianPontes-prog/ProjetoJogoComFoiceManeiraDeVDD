@@ -1,20 +1,22 @@
-#include "Chefao.h"
+#include "ZumbiDragao.h"
 
-Chefao::Chefao(Lista<Jogador*>* listaJogadores, float posX, float posY, float vida, int chanceTeleporte, Arma* arma):
+ZumbiDragao::ZumbiDragao(Lista<Jogador*>* listaJogadores, float posX, float posY, float vida, int chanceTeleporte, Arma* arma):
 	Inimigo(listaJogadores, posX, posY, vida,arma),
 	chanceTeleporte(chanceTeleporte),
 	posicao1(sf::Vector2f(posX, posY)),
 	directionX(1)
 {
+	body.setSize(sf::Vector2f(64, 64));
 	tempoRecarregando = arma->getTempoDeRecarga();
 }
 
-Chefao::~Chefao()
+ZumbiDragao::~ZumbiDragao()
 {
 }
 
-void Chefao::atualiza()
+void ZumbiDragao::atualiza()
 {
+	mudarCorDano();
 	atualizaProjetil();
 	draw();
 	atualizaSprite(getBody().getPosition().x, getBody().getPosition().y);
@@ -41,18 +43,18 @@ void Chefao::atualiza()
 	
 }
 
-void Chefao::move()
+void ZumbiDragao::move()
 {
 	//vazio ate que se diga o contrario
 }
 
-void Chefao::sacarArma()
+void ZumbiDragao::sacarArma()
 {
 	direcao = BuscarJogador();
 	disparar();
 }
 
-void Chefao::Teleporte()
+void ZumbiDragao::Teleporte()
 {
 	if (rand() % chanceTeleporte == 0)
 	{

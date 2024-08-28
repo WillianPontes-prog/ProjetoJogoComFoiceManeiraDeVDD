@@ -1,4 +1,6 @@
 #include "Jogo.h"
+#include "Fase1.h"
+#include "Fase2.h"
 
 #define FPS 60
 
@@ -9,6 +11,7 @@ Jogo::Jogo():
     f2(nullptr),
     menu(new Menu(this))
 {
+    srand(time(NULL));
 	rodando = Jogo::_menu;
 	executar();
 }
@@ -80,4 +83,14 @@ void Jogo::executar()
         window->display();
 
     }
+}
+
+void Jogo::CriaFase1(bool n)
+{
+    if (!f1) { delete f1; } f1 = new Fase1(n, this);
+}
+
+void Jogo::CriaFase2(bool n)
+{
+    if (!f2) { delete f2; } f2 = new Fase2(n, this);
 }

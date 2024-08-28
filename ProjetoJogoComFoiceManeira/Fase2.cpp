@@ -1,7 +1,7 @@
 #include "Fase2.h"
 
-Fase2::Fase2(bool Jogadores) :
-    Fase(Jogadores),
+Fase2::Fase2(bool Jogadores, Jogo* jg) :
+    Fase(Jogadores, jg),
     nChefao(0)
 {
     setGerenciadorGrafico();
@@ -17,20 +17,20 @@ void Fase2::criaEntidades(float posX, float posY, int n)
     switch (n)
     {
     case 2527:  //Jogador
-        criaJogador(posX, posY, 5);
+        criarJogador(posX, posY, 5);
         break;
     case 2525:  //Jogador 2
         if (Jogadores)
-            criaJogador(posX, posY, 5, true);
+            criarJogador(posX, posY, 5, true);
         break;
     case 2520:  //chefao
 		criarChefao(posX, posY);
 		break;
     case 2505:  //Plataforma
-        criaPlataforma(posX, posY);
+        criarPlataforma(posX, posY);
         break;
     case 2522:  //Inimigo2
-        criarInimigo2(posX, posY);
+        criarZumbinana(posX, posY);
         break;
     case 2511: //Fogo
         criaFogo(posX, posY);
@@ -43,7 +43,7 @@ void Fase2::criaEntidades(float posX, float posY, int n)
 
 void Fase2::criarChefao(float posX, float posY)
 {
-    Chefao* chefao = new Chefao(getListaJogadores(), posX, posY, 40, 600, new Arma(30));
+    ZumbiDragao* chefao = new ZumbiDragao(getListaJogadores(), posX, posY, 40, 600, new Arma(90,1, 90, 10,sf::Color::Green,sf::Vector2f(20,10)));
     chefao->setGerenciadorGrafico();
 
     sf::Vector2f pos = sf::Vector2f(25*32, 13*32);

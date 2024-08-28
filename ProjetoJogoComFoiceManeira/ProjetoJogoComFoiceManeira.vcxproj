@@ -141,7 +141,7 @@
   <ItemGroup>
     <ClInclude Include="Arma.h" />
     <ClInclude Include="Botao.h" />
-    <ClInclude Include="Chefao.h" />
+    <ClInclude Include="ZumbiDragao.h" />
     <ClInclude Include="Ente.h" />
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="EntidadeColisao.h" />
@@ -156,8 +156,9 @@
     <ClInclude Include="GerenciadorGrafico.h" />
     <ClInclude Include="Icones.h" />
     <ClInclude Include="Inimigo.h" />
-    <ClInclude Include="Inimigo1.h" />
-    <ClInclude Include="Inimigo2.h" />
+    <ClInclude Include="MudarFase.h" />
+    <ClInclude Include="ZumbiFriorento.h" />
+    <ClInclude Include="Zumbinana.h" />
     <ClInclude Include="Jogador.h" />
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="json.hpp" />
@@ -203,7 +204,7 @@
   <ItemGroup>
     <ClCompile Include="Arma.cpp" />
     <ClCompile Include="Botao.cpp" />
-    <ClCompile Include="Chefao.cpp" />
+    <ClCompile Include="ZumbiDragao.cpp" />
     <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="EntidadeColisao.cpp" />
@@ -217,8 +218,9 @@
     <ClCompile Include="GerenciadorGrafico.cpp" />
     <ClCompile Include="Icones.cpp" />
     <ClCompile Include="Inimigo.cpp" />
-    <ClCompile Include="Inimigo1.cpp" />
-    <ClCompile Include="Inimigo2.cpp" />
+    <ClCompile Include="MudarFase.cpp" />
+    <ClCompile Include="ZumbiFriorento.cpp" />
+    <ClCompile Include="Zumbinana.cpp" />
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="ListaEntidade.cpp" />

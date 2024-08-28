@@ -1,9 +1,12 @@
 #include "Fase.h"
+#include "Jogo.h"
+#include "GerenciadorDeColisoes.h"
 
-Fase::Fase(bool Jogadores):
+Fase::Fase(bool Jogadores, Jogo* jg) :
     Jogadores(Jogadores),
 	listaEntidades(new ListaEntidade()),
 	gerenciadorDeColisoes(new GerenciadorDeColisoes(this)),
+    jg(jg),
 	Ente()
 {
 	this->setGerenciadorGrafico();
@@ -111,7 +114,7 @@ void Fase::setSpriteFundo(sf::Texture* texture)
     }
 }
 
-void Fase::criaJogador(float posX, float posY, int vida, bool j2)
+void Fase::criarJogador(float posX, float posY, int vida, bool j2)
 {
     Arma* arm; 
     bool voar = false;
@@ -131,7 +134,7 @@ void Fase::criaJogador(float posX, float posY, int vida, bool j2)
 	getListaJogadores()->adicionarElemento(j);
 }
 
-void Fase::criaPlataforma(float posX, float posY)
+void Fase::criarPlataforma(float posX, float posY)
 {
 	Plataforma* p = new Plataforma(posX, posY);
 	p->setGerenciadorGrafico();
@@ -140,12 +143,21 @@ void Fase::criaPlataforma(float posX, float posY)
 	getListaPlataforma()->adicionarElemento(p);
 }
 
+void Fase::criarMudarFase(float posX, float posY)
+{
+    MudarFase* m = new MudarFase(posX, posY, 32, 32, jg);
+    m->setGerenciadorGrafico();
+
+    listaEntidades->incluir(m);
+    setMudarFase(m);
+}
 
 
-void Fase::criarInimigo2(float posX, float posY, float vida)
+
+void Fase::criarZumbinana(float posX, float posY, float vida)
 {   
     Arma* arma = new Arma(80,1,30,5,sf::Color::Red,sf::Vector2f(15,4));
-    Inimigo2* i = new Inimigo2(getListaJogadores(), posX, posY, vida, arma);
+    Zumbinana* i = new Zumbinana(getListaJogadores(), posX, posY, vida, arma);
     i->setGerenciadorGrafico();
 
     listaEntidades->incluir(i);
@@ -157,5 +169,15 @@ Lista<Jogador*>* Fase::getListaJogadores()      { return	gerenciadorDeColisoes->
 Lista<Plataforma*>* Fase::getListaPlataforma()  { return	gerenciadorDeColisoes->getListaPlataforma(); }
 Lista<Inimigo*>* Fase::getListaInimigos()       { return    gerenciadorDeColisoes->getListaInimigos(); }
 Lista<Obstaculo*>* Fase::getListaObstaculos()   { return    gerenciadorDeColisoes->getListaObstaculos(); }
+
+MudarFase* Fase::getMudarFase()
+{
+    return gerenciadorDeColisoes->getMudarFase();
+}
+
+void Fase::setMudarFase(MudarFase* m)
+{
+    gerenciadorDeColisoes->setMudarFase(m);
+}
 
 

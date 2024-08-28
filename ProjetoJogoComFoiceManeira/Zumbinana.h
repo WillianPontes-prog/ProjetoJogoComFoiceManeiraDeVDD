@@ -2,7 +2,7 @@
 #include "Inimigo.h"
 #include "Estado.h"
 
-class Inimigo2 : public Inimigo
+class Zumbinana : public Inimigo
 {
 private:
     int directionX;
@@ -10,8 +10,8 @@ private:
 
 
 public:
-    Inimigo2(Lista<Jogador*>* listaJogadores = nullptr, float posX = 0, float posY = 0, float vida = 5, Arma* arma = nullptr);
-    ~Inimigo2();
+    Zumbinana(Lista<Jogador*>* listaJogadores = nullptr, float posX = 0, float posY = 0, float vida = 5, Arma* arma = nullptr);
+    ~Zumbinana();
 
     void atualiza();
     void move();

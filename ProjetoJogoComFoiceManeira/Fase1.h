@@ -9,7 +9,7 @@ protected:
 	int numZumbiFriorento[4];
 
 public:
-	Fase1(bool Jogadores, Jogo* jg);
+	Fase1(bool Jogadores, Jogo* jg, bool carregar = false);
 	~Fase1();
 
 	void criaEntidades(float posX, float posY, int n);

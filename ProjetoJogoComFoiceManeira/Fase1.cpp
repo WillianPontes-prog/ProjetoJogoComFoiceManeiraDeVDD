@@ -1,7 +1,7 @@
 #include "Fase1.h"
 
-Fase1::Fase1(bool Jogadores, Jogo* jg):
-	Fase(Jogadores, jg),
+Fase1::Fase1(bool Jogadores, Jogo* jg, bool carregar):
+	Fase(Jogadores, jg, carregar),
     numZumbiFriorento{0, 3, 5, 0}
 {
     setGerenciadorGrafico();

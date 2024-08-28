@@ -1,7 +1,7 @@
 #include "Fase2.h"
 
-Fase2::Fase2(bool Jogadores, Jogo* jg) :
-    Fase(Jogadores, jg),
+Fase2::Fase2(bool Jogadores, Jogo* jg, bool carregar) :
+    Fase(Jogadores, jg, carregar),
     nChefao(0)
 {
     setGerenciadorGrafico();

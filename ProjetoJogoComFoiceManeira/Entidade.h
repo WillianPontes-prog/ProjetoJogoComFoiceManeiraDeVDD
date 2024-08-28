@@ -10,6 +10,13 @@ protected:
     sf::RectangleShape body;
 
 public:
+
+    enum Tipo {
+        _jogador,
+        _jogador2,
+        _zumbifriorento
+    };
+
     Entidade(float posX = 0, float posY = 0, float tamX = 32, float tamY = 32);
     ~Entidade();
     virtual void atualiza() = 0;

@@ -10,7 +10,7 @@ protected:
 	int nChefao;
 
 public:
-	Fase2(bool Jogadores, Jogo* jg);
+	Fase2(bool Jogadores, Jogo* jg, bool carregar = false);
 	~Fase2();
 
 	void criaEntidades(float posX, float posY, int n);

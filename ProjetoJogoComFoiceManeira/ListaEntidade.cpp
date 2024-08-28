@@ -45,4 +45,18 @@ void ListaEntidade::incluir(Entidade* entidade)
 	listaEntidades->adicionarElemento(entidade);
 }
 
+json ListaEntidade::toJson()
+{
 
+    json j = json::array();
+
+	for (Lista<Entidade*>::iterator it = listaEntidades->begin(); it != listaEntidades->end(); it++)
+	{
+        if ((*it)->toJson() != nullptr) {
+            j.push_back((*it)->toJson());
+        }
+	}
+
+    return j;
+	
+}

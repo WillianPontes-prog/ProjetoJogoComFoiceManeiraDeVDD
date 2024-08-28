@@ -45,8 +45,10 @@ protected:
 	Jogo* jg;
 
 public:
-	Fase(bool Jogadores, Jogo* jg);
+	Fase(bool Jogadores, Jogo* jg, bool continuar = 0);
 	~Fase();
+
+	bool continunando;
 
 	Lista<Jogador*>* getListaJogadores();
 	Lista<Plataforma*>* getListaPlataforma();
@@ -66,6 +68,7 @@ public:
 	void setSpriteFundo(sf::Texture* texture);
 	void setJogadores(bool jogadores) { Jogadores = jogadores; };
 
+	void salvarFase();
 
 
 	//------------metodos de criação de entidades-----------------\\

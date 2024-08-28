@@ -15,5 +15,5 @@ public:
     void percorrer(GerenciadorDeColisoes* gc);
 	void incluir(Entidade* entidade);
 
-
+    json toJson();
 };

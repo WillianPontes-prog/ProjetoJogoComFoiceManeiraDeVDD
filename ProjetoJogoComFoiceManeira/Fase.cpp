@@ -2,25 +2,48 @@
 #include "Jogo.h"
 #include "GerenciadorDeColisoes.h"
 
-Fase::Fase(bool Jogadores, Jogo* jg) :
+Fase::Fase(bool Jogadores, Jogo* jg, bool continuar) :
     Jogadores(Jogadores),
 	listaEntidades(new ListaEntidade()),
 	gerenciadorDeColisoes(new GerenciadorDeColisoes(this)),
     jg(jg),
+    continunando(continuar),
 	Ente()
 {
 	this->setGerenciadorGrafico();
 
-    Plataforma* Pdir = new Plataforma(-40, -320);
-    Pdir->getBodyPtr()->setSize(sf::Vector2f(32, 1080));
+    //if (!continunando) {
+        Plataforma* Pdir = new Plataforma(-40, -320);
+        Pdir->getBodyPtr()->setSize(sf::Vector2f(32, 1080));
 
-    getListaPlataforma()->adicionarElemento(Pdir);
+        getListaPlataforma()->adicionarElemento(Pdir);
 
-    Pdir = new Plataforma(968, -320);
-    Pdir->getBodyPtr()->setSize(sf::Vector2f(32, 1080));
+        Pdir = new Plataforma(968, -320);
+        Pdir->getBodyPtr()->setSize(sf::Vector2f(32, 1080));
 
-    getListaPlataforma()->adicionarElemento(Pdir);
-	
+        getListaPlataforma()->adicionarElemento(Pdir);
+    //}
+
+    if (continunando) {
+        json j = lerArquivoJSON("save.json");
+        
+        auto outerArray = j.get<std::vector<std::vector<json>>>();
+
+        for (const auto& innerArray : outerArray) {
+            for (const auto& item : innerArray) {
+                int vida = item.at("Vida").get<int>();
+                int classType = item.at("class").get<int>();
+                float posX = item.at("posX").get<float>();
+                float posY = item.at("posY").get<float>();
+
+                if (classType == 1) {
+                    criarJogador(posX, posY, vida, false);
+                }
+            }
+            
+        }
+		
+    }
 }
 
 Fase::~Fase()
@@ -112,6 +135,25 @@ void Fase::setSpriteFundo(sf::Texture* texture)
         spriteFundo.setTexture(*texturaFundo);
         spriteFundo.setPosition(0, 0); 
     }
+}
+
+void Fase::salvarFase()
+{
+    json j = json::array();
+    
+    j.push_back(listaEntidades->toJson());
+
+    std::ofstream outputFile("save.json");
+    if (!outputFile.is_open()) {
+        std::cerr << "Erro ao abrir o arquivo JSON para escrita!" << std::endl;
+    }
+    else {
+
+        outputFile << j.dump(4); // Salvando com identação de 4 espaços
+        outputFile.close();
+    }
+
+    
 }
 
 void Fase::criarJogador(float posX, float posY, int vida, bool j2)

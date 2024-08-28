@@ -46,6 +46,10 @@ void Jogo::executar()
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 		{
+            if(rodando == Jogo::_fase1){
+                f1->salvarFase();
+			}
+
 			rodando = Jogo::_menu;
 		}
 
@@ -96,12 +100,19 @@ void Jogo::executar()
     }
 }
 
-void Jogo::CriaFase1(bool n)
+void Jogo::CriaFase1(bool n, bool carregar = false)
 {
-    if (!f1) { delete f1; } f1 = new Fase1(n, this);
+    if (!f1) { delete f1; } 
+
+    f1 = new Fase1(n, this, carregar);
+
 }
 
-void Jogo::CriaFase2(bool n)
+void Jogo::CriaFase2(bool n, bool carregar)
 {
-    if (!f2) { delete f2; } f2 = new Fase2(n, this);
+    if (!f2) { delete f2; }
+
+    f2 = new Fase2(n, this, carregar);
+
+    
 }

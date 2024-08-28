@@ -54,22 +54,23 @@ void Botao::executar()
 	switch (tipo)
 	{
 	case Botao::_NovoJogo: 
-		jogo->CriaFase1(false);
-		jogo->CriaFase2(false);
+		jogo->CriaFase1(false, false);
+		jogo->CriaFase2(false, false);
 		
 		jogo->setarModoDeJogo(Jogo::_menuFases);
 	
 		break;
 	case Botao::_NovoJogo2Jogadores: 
-		jogo->CriaFase1(true);
-		jogo->CriaFase2(true);
+		jogo->CriaFase1(true, false);
+		jogo->CriaFase2(true, false);
 		
 		jogo->setarModoDeJogo(Jogo::_menuFases);
 
 		break;
 	case Botao::_CarregarJogo: 
+		jogo->CriaFase1(false, true);
+		jogo->setarModoDeJogo(Jogo::_fase1);
 
-	
 		break;
 	case Botao::_Sair: 
 		gerenciadorGrafico->Close();

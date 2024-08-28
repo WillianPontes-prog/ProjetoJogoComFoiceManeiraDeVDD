@@ -34,7 +34,7 @@ public:
 
 	void executar();
 	void setarModoDeJogo(modos m) { rodando = m; };
-	void CriaFase1(bool n); 
-	void CriaFase2(bool n); 
+	void CriaFase1(bool n, bool carregar);
+	void CriaFase2(bool n, bool carregar);
 };
 

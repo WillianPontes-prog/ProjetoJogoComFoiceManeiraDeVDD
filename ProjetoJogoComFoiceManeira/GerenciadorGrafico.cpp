@@ -66,6 +66,10 @@ void GerenciadorGrafico::carregarTexturas()
     if (!tFogo->loadFromFile(SPR_FOGO)) {
         throw std::runtime_error("Erro ao carregar a textura!");
     }
+
+    if (!tChefao->loadFromFile("imagens/Chefao.png")) {
+        throw std::runtime_error("Erro ao carregar a textura!");
+    }
 }
 
 GerenciadorGrafico::GerenciadorGrafico():
@@ -78,7 +82,8 @@ GerenciadorGrafico::GerenciadorGrafico():
     tTeleportador(new sf::Texture()),
     tFogo(new sf::Texture()),
     tMenu(new sf::Texture()),
-    tFase2Plat(new sf::Texture())
+    tFase2Plat(new sf::Texture()),
+    tChefao(new sf::Texture())
 {
     // Resolução original
     sf::Vector2u originalResolution(960, 640);
@@ -206,6 +211,10 @@ sf::Texture* GerenciadorGrafico::devolveImagemEnte(Ente* e)
 		return tMenu;
     }
 
+    Chefao* c = dynamic_cast<Chefao*>(e);
+    if (c) {
+		return tChefao;
+	}
 
     return NULL;;
 }

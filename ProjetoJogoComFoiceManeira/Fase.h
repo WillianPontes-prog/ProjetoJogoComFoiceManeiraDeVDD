@@ -62,7 +62,7 @@ public:
 
 	void criaPlataforma(float posX = 0, float posY = 0);
 
-	void criaFogo(float posX = 0, float posY = 0);	
+	
 
 	
 

@@ -28,6 +28,8 @@ private:
     sf::Texture* tTeleportador;
     sf::Texture* tFogo;
 
+    sf::Texture* tChefao;
+
     GerenciadorGrafico();
 
     static GerenciadorGrafico* instance;

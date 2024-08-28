@@ -16,11 +16,13 @@ Chefao::~Chefao()
 void Chefao::atualiza()
 {
 	atualizaProjetil();
-	drawBody();
+	draw();
+	atualizaSprite(getBody().getPosition().x, getBody().getPosition().y);
+
 	sf::Vector2f posicao = BuscarJogador();
 	Teleporte();
 	move();
-	if (std::abs(posicao.x) > 400 || std::abs(posicao.y) > 215) {
+	if (std::abs(posicao.x) < 400 && std::abs(posicao.y) < 215) {
 		if (tempoRecarregando == arma->getTempoDeRecarga()) {
 			sacarArma();
 		}
@@ -35,6 +37,7 @@ void Chefao::atualiza()
 	}
 	directionX = posicao.x > 0 ? 1 : -1;
 	
+	sprite.setScale(-abs(directionX)/directionX, 1);
 	
 }
 

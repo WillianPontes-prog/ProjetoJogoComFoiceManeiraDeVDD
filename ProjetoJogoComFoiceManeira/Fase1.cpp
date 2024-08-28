@@ -4,7 +4,7 @@ Fase1::Fase1(bool Jogadores):
 	Fase(Jogadores)
 {
     setGerenciadorGrafico();
-    gerarFase(extrairCamadas(lerArquivoJSON("tileds/MapaFase1.json"), 2));
+    gerarFase(extrairCamadas(lerArquivoJSON("tileds/MapaF1.json"), 2));
 }
 
 Fase1::~Fase1()
@@ -15,28 +15,25 @@ void Fase1::criaEntidades(float posX, float posY, int n)
 {
     switch (n)
     {
-    case 2543:  //Jogador
+    case 2527:  //Jogador
         criaJogador(posX, posY, 5);
         break;
-    case 2541:  //Jogador 2
+    case 2525:  //Jogador 2
         if(Jogadores)
             criaJogador(posX, posY, 5, true);
         break;
-    case 2536:  //Inimigo1
+    case 2520:  //Inimigo1
 		criarInimigo1(posX, posY);
 		break;
-    case 2521:  //Plataforma
+    case 2505:  //Plataforma
         criaPlataforma(posX, posY);
         break;
-    case 2527:  //Obstaculo2
+    case 2511:  //tp
 		criarObstaculo2(posX, posY);
         break;
-    case 2538:  //Inimigo2
+    case 2522:  //Inimigo2
 		criarInimigo2(posX, posY);
 		break;
-    case 2525: //Plataforma
-        criaFogo(posX, posY);
-        break;
     default:
 
     break;

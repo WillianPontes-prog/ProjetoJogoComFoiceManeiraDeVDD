@@ -27,49 +27,12 @@ Fase::~Fase()
 void Fase::atualiza()
 {
     
-    atualizaSprite(0, -3);
+    atualizaSprite(0, 0);
     gerenciadorGrafico->draw(spriteFundo);
     draw();
 
     listaEntidades->percorrer(gerenciadorDeColisoes);
-    /*
-    //--atualiza todos os jogadores--\\
-    ===================================
-    for(Lista<Jogador*>::iterator it = getListaJogadores()->begin(); it != getListaJogadores()->end(); it++)
-    {
-		(*it)->atualiza();
-    }
 
-    //--atualiza todas as plataformas--\\
-    =====================================
-    for(Lista<Plataforma*>::iterator it = getListaPlataforma()->begin(); it != getListaPlataforma()->end(); it++)
-    {
-		(*it)->atualiza();
-    }
-
-    //--atualiza todos os obstáculos--\\
-    ====================================
-    for(Lista<Obstaculo*>::iterator it = getListaObstaculos()->begin(); it != getListaObstaculos()->end(); it++)
-    {
-		(*it)->atualiza();
-    }
-
-    //--atualiza todos os inimigos--\\
-    ==================================
-    for(Lista<Inimigo*>::iterator it = getListaInimigos()->begin(); it != getListaInimigos()->end(); )
-    {
-        (*it)->atualiza();
-
-        if ((*it)->getVida() <= 0) {
-            Inimigo* projetil = *it;
-            it = getListaInimigos()->removerElemento(it);
-            delete projetil;
-        }
-        else {
-            ++it;
-        }
-    }
-    //*/
 	gerenciadorDeColisoes->tratarColisoes();
 }
 
@@ -177,14 +140,7 @@ void Fase::criaPlataforma(float posX, float posY)
 	getListaPlataforma()->adicionarElemento(p);
 }
 
-void Fase::criaFogo(float posX, float posY)
-{
-    ObstaculoDano* o = new ObstaculoDano(posX, posY, 1);
-    o->setGerenciadorGrafico();
 
-    listaEntidades->incluir(o);
-    getListaObstaculos()->adicionarElemento(o);
-}
 
 void Fase::criarInimigo2(float posX, float posY, float vida)
 {   

@@ -1,685 +1,705 @@
 [
     [
         {
-            "classe": 4,
-            "posX": 285.0,
+            "class": 4,
+            "posX": 492.0,
             "posY": 32.0,
             "vida": 5
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 256.0,
             "posY": 64.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 288.0,
             "posY": 64.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 320.0,
             "posY": 64.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 352.0,
             "posY": 64.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 384.0,
             "posY": 64.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 416.0,
             "posY": 64.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 448.0,
             "posY": 64.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 480.0,
             "posY": 64.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 512.0,
             "posY": 64.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 256.0,
             "posY": 96.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 288.0,
             "posY": 96.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 320.0,
             "posY": 96.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 352.0,
             "posY": 96.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 384.0,
             "posY": 96.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 416.0,
             "posY": 96.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 448.0,
             "posY": 96.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 480.0,
             "posY": 96.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 512.0,
             "posY": 96.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 288.0,
             "posY": 128.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 288.0,
             "posY": 160.0
         },
         {
-            "classe": 5,
+            "class": 6,
+            "posX": 608.0,
+            "posY": 160.0
+        },
+        {
+            "class": 5,
             "posX": 288.0,
             "posY": 192.0
         },
         {
-            "classe": 2,
-            "posX": 356.0,
+            "class": 2,
+            "posX": 368.0,
             "posY": 224.0,
             "vida": 5
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 576.0,
             "posY": 192.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 608.0,
             "posY": 192.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 640.0,
             "posY": 192.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 672.0,
             "posY": 192.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 704.0,
             "posY": 192.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 736.0,
             "posY": 192.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 768.0,
             "posY": 192.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 864.0,
             "posY": 192.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 896.0,
             "posY": 192.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 928.0,
             "posY": 192.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 288.0,
             "posY": 224.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 608.0,
             "posY": 224.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 928.0,
             "posY": 224.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 0.0,
             "posY": 256.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 32.0,
             "posY": 256.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 64.0,
             "posY": 256.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 96.0,
             "posY": 256.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 128.0,
             "posY": 256.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 160.0,
             "posY": 256.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 192.0,
             "posY": 256.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 224.0,
             "posY": 256.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 256.0,
             "posY": 256.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 288.0,
             "posY": 256.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 320.0,
             "posY": 256.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 352.0,
             "posY": 256.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 384.0,
             "posY": 256.0
         },
         {
-            "classe": 2,
+            "class": 2,
             "posX": 536.0,
             "posY": 288.0,
             "vida": 5
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 608.0,
             "posY": 256.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 928.0,
             "posY": 256.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 384.0,
             "posY": 288.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 608.0,
             "posY": 288.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 928.0,
             "posY": 288.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 320.0,
             "posY": 320.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 352.0,
             "posY": 320.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 384.0,
             "posY": 320.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 416.0,
             "posY": 320.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 448.0,
             "posY": 320.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 480.0,
             "posY": 320.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 512.0,
             "posY": 320.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 544.0,
             "posY": 320.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 576.0,
             "posY": 320.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 608.0,
             "posY": 320.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 640.0,
             "posY": 320.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 672.0,
             "posY": 320.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 704.0,
             "posY": 320.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 736.0,
             "posY": 320.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 768.0,
             "posY": 320.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 800.0,
             "posY": 320.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 832.0,
             "posY": 320.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 928.0,
             "posY": 320.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 320.0,
             "posY": 352.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 928.0,
             "posY": 352.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 288.0,
             "posY": 384.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 928.0,
             "posY": 384.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 32.0,
             "posY": 416.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 64.0,
             "posY": 416.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 96.0,
             "posY": 416.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 288.0,
             "posY": 416.0
         },
         {
-            "classe": 4,
-            "posX": 857.5,
+            "class": 4,
+            "posX": 838.0,
             "posY": 448.0,
             "vida": 5
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 928.0,
             "posY": 416.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 0.0,
             "posY": 448.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 128.0,
             "posY": 448.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 256.0,
             "posY": 448.0
         },
         {
-            "classe": 4,
-            "posX": 421.0,
+            "class": 4,
+            "posX": 433.5,
             "posY": 480.0,
             "vida": 5
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 928.0,
             "posY": 448.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 0.0,
             "posY": 480.0
         },
         {
-            "Vida": 5,
             "class": 0,
-            "posX": 244.0,
-            "posY": 576.0
+            "posX": 240.0,
+            "posY": 576.0,
+            "vida": 4
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 128.0,
             "posY": 480.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 224.0,
             "posY": 480.0
         },
         {
-            "classe": 2,
-            "posX": 744.0,
+            "class": 2,
+            "posX": 708.0,
             "posY": 512.0,
             "vida": 5
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 832.0,
             "posY": 480.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 864.0,
             "posY": 480.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 896.0,
             "posY": 480.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 928.0,
             "posY": 480.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 0.0,
             "posY": 512.0
         },
         {
-            "Vida": 4,
             "class": 1,
-            "posX": 695.0,
-            "posY": 288.0
+            "posX": 64.0,
+            "posY": 576.0,
+            "vida": 5
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 128.0,
             "posY": 512.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 160.0,
             "posY": 512.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 192.0,
             "posY": 512.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 384.0,
             "posY": 512.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 416.0,
             "posY": 512.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 448.0,
             "posY": 512.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 480.0,
             "posY": 512.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 832.0,
             "posY": 512.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 0.0,
             "posY": 544.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 448.0,
             "posY": 544.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 576.0,
             "posY": 544.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 608.0,
             "posY": 544.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 640.0,
             "posY": 544.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 672.0,
             "posY": 544.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 704.0,
             "posY": 544.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 736.0,
             "posY": 544.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 768.0,
             "posY": 544.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 800.0,
             "posY": 544.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 0.0,
             "posY": 576.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 448.0,
             "posY": 576.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 576.0,
             "posY": 576.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 32.0,
             "posY": 608.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 64.0,
             "posY": 608.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 96.0,
             "posY": 608.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 128.0,
             "posY": 608.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 160.0,
             "posY": 608.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 192.0,
             "posY": 608.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 224.0,
             "posY": 608.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 256.0,
             "posY": 608.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 288.0,
             "posY": 608.0
         },
         {
-            "classe": 5,
+            "class": 6,
+            "posX": 320.0,
+            "posY": 608.0
+        },
+        {
+            "class": 6,
+            "posX": 352.0,
+            "posY": 608.0
+        },
+        {
+            "class": 6,
+            "posX": 384.0,
+            "posY": 608.0
+        },
+        {
+            "class": 5,
             "posX": 416.0,
             "posY": 608.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 448.0,
             "posY": 608.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 480.0,
             "posY": 608.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 512.0,
             "posY": 608.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 544.0,
             "posY": 608.0
         },
         {
-            "classe": 5,
+            "class": 5,
             "posX": 576.0,
             "posY": 608.0
         }

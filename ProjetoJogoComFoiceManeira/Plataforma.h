@@ -16,9 +16,9 @@ public:
 	void Obstacular(Jogador* j);
 	json toJson() {
 		return json{
-		{"classe", Tipo::_plataforma},
-		{"posX", getBody().getPosition().x},
-		{"posY", getBody().getPosition().y}
+		{classe, Tipo::_plataforma},
+		{pX, getBody().getPosition().x},
+		{pY, getBody().getPosition().y}
 		};
 	}
 };

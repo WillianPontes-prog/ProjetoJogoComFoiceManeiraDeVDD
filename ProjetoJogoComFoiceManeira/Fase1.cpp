@@ -9,21 +9,21 @@ void Fase1::carregarFase()
     for (const auto& innerArray : outerArray) {
         for (const auto& item : innerArray) {
 
-            int classType = item.at("classe").get<int>();
-            float posX = item.at("posX").get<float>();
-            float posY = item.at("posY").get<float>();
+            int classType = item.at(classe).get<int>();
+            float posX = item.at(pX).get<float>();
+            float posY = item.at(pY).get<float>();
             int vida = -1;
 
             switch (classType)
             {
 
             case Entidade::Tipo::_jogador:
-                vida = item.at("Vida").get<int>();
+                vida = item.at(vd).get<int>();
                 criarJogador(posX, posY, vida, false);
 
                 break;
             case Entidade::Tipo::_jogador2:
-                vida = item.at("Vida").get<int>();
+                vida = item.at(vd).get<int>();
                 criarJogador(posX, posY, vida, true);
 
                 break;
@@ -32,12 +32,12 @@ void Fase1::carregarFase()
 
                 break;
             case Entidade::Tipo::_zumbifriorento:
-                vida = item.at("Vida").get<int>();
+                vida = item.at(vd).get<int>();
                 criarZumbiFriorento(posX, posY, vida);
 
                 break;
             case Entidade::Tipo::_zumbinana:
-                vida = item.at("Vida").get<int>();
+                vida = item.at(vd).get<int>();
                 criarZumbinana(posX, posY, vida);
 
 

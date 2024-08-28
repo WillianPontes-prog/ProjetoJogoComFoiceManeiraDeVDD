@@ -14,6 +14,12 @@ public:
 	void atualiza();
 	float getAtrito() { return atrito; }
 	void Obstacular(Jogador* j);
-	json toJson() { return nullptr; };
+	json toJson() {
+		return json{
+		{"classe", Tipo::_plataforma},
+		{"posX", getBody().getPosition().x},
+		{"posY", getBody().getPosition().y}
+		};
+	}
 };
 

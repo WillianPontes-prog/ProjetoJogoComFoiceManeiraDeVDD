@@ -173,9 +173,9 @@
     <ClInclude Include="Projetil.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="map.json" />
     <None Include="pipipipopopodeteste.json" />
     <None Include="Save.json" />
-    <None Include="tileds\Fase_2.json" />
     <None Include="tileds\MapaF1.json" />
     <None Include="tileds\MapaF2.json" />
   </ItemGroup>

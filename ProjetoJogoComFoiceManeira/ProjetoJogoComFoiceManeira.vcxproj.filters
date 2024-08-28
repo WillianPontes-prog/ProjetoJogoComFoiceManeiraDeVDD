@@ -209,9 +209,9 @@
     <None Include="pipipipopopodeteste.json">
       <Filter>Arquivos de Recurso</Filter>
     </None>
-    <None Include="tileds\Fase_2.json" />
     <None Include="tileds\MapaF1.json" />
     <None Include="tileds\MapaF2.json" />
+    <None Include="map.json" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="PIXEAB.TTF">

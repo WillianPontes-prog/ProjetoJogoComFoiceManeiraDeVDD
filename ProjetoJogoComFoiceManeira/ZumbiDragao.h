@@ -25,7 +25,7 @@ public:
 	void Teleporte();	
 	json toJson() {
 		return json{
-			{classe, Tipo::_zumbifriorento},
+			{classe, Tipo::_zumbidragao},
 			{pX, getBody().getPosition().x},
 			{pY, getBody().getPosition().y},
 			{vd, vida}

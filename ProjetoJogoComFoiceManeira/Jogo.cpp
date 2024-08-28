@@ -44,10 +44,20 @@ void Jogo::executar()
                 window->close();
         }
 
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+		{
+			rodando = Jogo::_menu;
+		}
+
         switch (rodando)
         {
         case Jogo::_menu:
+            menu->fases = false;
+            menu->atualiza();
 
+            break;
+        case Jogo::_menuFases:
+            menu->fases = true;
             menu->atualiza();
 
             break;
@@ -61,6 +71,7 @@ void Jogo::executar()
             f2->atualiza();
 
             break;
+        
         default:
 
 

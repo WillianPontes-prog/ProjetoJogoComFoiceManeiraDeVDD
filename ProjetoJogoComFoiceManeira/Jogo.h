@@ -22,6 +22,7 @@ public:
 
 	enum modos {
 		_menu,
+		_menuFases,
 		_fase1,
 		_fase2
 	};

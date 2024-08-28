@@ -13,6 +13,7 @@ private:
 	int continua;
 	int botaoSelecionado;
 	std::vector<Botao*> botoes;
+	std::vector<Botao*> botoesFases;
 
 	int flagBotaoPressionado;
 
@@ -23,4 +24,7 @@ public:
 	~Menu();
 	void move();
 	void atualiza();
+
+	bool fases;
+
 };

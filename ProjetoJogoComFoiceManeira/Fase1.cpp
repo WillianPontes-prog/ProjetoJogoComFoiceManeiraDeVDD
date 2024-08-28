@@ -40,6 +40,9 @@ void Fase1::carregarFase()
                 vida = item.at(vd).get<int>();
                 criarZumbinana(posX, posY, vida);
 
+                break;
+            case Entidade::Tipo::_obstaculoTeleporte:
+                criarTeleporte(posX, posY);
 
                 break;
             default:

@@ -2,6 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include "Jogo.h"
 #include "Entidade.h"
+#include <fstream>
+#include <iostream>
 
 class Jogo;
 
@@ -39,6 +41,6 @@ public:
 	void drawText();
 	virtual json toJson() { return nullptr; };
 
-
+	void carregarJogo();
 
 };

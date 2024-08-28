@@ -68,8 +68,9 @@ void Botao::executar()
 
 		break;
 	case Botao::_CarregarJogo: 
-		jogo->CriaFase1(false, true);
-		jogo->setarModoDeJogo(Jogo::_fase1);
+
+		carregarJogo();
+		
 
 		break;
 	case Botao::_Sair: 
@@ -112,4 +113,37 @@ void Botao::atualiza()
 void Botao::drawText()
 {
 	gerenciadorGrafico->draw(text);
+}
+
+void Botao::carregarJogo()
+{
+	std::ifstream inputFile("map.json");
+	if (!inputFile.is_open()) {
+		std::cerr << "Erro ao abrir o arquivo JSON para leitura!" << std::endl;
+		return;
+	}
+
+	json jInfo;
+	inputFile >> jInfo;
+	inputFile.close();
+
+	// Verificar se a chave "Fase" existe e comparar seu valor
+	if (jInfo.contains("Fase")) {
+		std::string fase = jInfo["Fase"];
+
+		if (fase == _F1) {
+			jogo->CriaFase1(true, true);
+			jogo->CriaFase2(true, false);
+
+			jogo->setarModoDeJogo(Jogo::_fase1);
+		}
+		else {
+			jogo->CriaFase1(true, false);
+			jogo->CriaFase2(true, true);
+
+			jogo->setarModoDeJogo(Jogo::_fase2);
+		}
+	}
+
+
 }

@@ -6,6 +6,8 @@
 #define pY "posY"
 #define vd "vida"
 
+#define _F1 "F1"
+#define _F2 "F2"
 
 #define GRAVIDADE 0.5
 using json = nlohmann::json;

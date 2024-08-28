@@ -46,9 +46,33 @@ void Jogo::executar()
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 		{
-            if(rodando == Jogo::_fase1){
-                f1->salvarFase();
-			}
+            if (rodando == Jogo::_fase1 || rodando == Jogo::_fase2)
+            {
+                
+                json jMap;
+
+                if (rodando == Jogo::_fase1) {
+                    jMap = { {"Fase", _F1},};
+
+                    f1->salvarFase();
+                }
+                else if (rodando == Jogo::_fase2) {
+                    jMap = { {"Fase", _F2} };
+
+                    f2->salvarFase();
+                }
+
+                std::ofstream outputFile("map.json");
+                if (!outputFile.is_open()) {
+                    std::cerr << "Erro ao abrir o arquivo JSON para escrita!" << std::endl;
+                }
+                else {
+
+                    outputFile << jMap.dump(4); // Salvando com identação de 4 espaços
+                    outputFile.flush();
+                    outputFile.close();
+                }
+            }
 
 			rodando = Jogo::_menu;
 		}

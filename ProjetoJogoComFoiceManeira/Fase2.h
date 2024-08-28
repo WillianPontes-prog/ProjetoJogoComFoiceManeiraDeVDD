@@ -17,8 +17,8 @@ public:
 
 	void criaEntidades(float posX, float posY, int n);
 
-	void criarChefao(float posX, float posY);
+	void criarChefao(float posX, float posY, int vida);
 
-	void criaFogo(float posX = 0, float posY = 0);
+	void criarFogo(float posX = 0, float posY = 0);
 };
 

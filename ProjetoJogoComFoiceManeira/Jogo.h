@@ -16,6 +16,10 @@ private:
 
 	Menu* menu;
 	
+	sf::Texture texturaFim;
+	sf::Texture texturaVenceu;
+	sf::Sprite	spriteFinal;
+	
 
 
 public:
@@ -24,7 +28,8 @@ public:
 		_menu,
 		_menuFases,
 		_fase1,
-		_fase2
+		_fase2,
+		_fimDeJogo
 	};
 
 	modos rodando;

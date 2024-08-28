@@ -45,6 +45,10 @@ void Fase1::carregarFase()
                 criarTeleporte(posX, posY);
 
                 break;
+            case Entidade::Tipo::_alternadorDeFase:
+                criarMudarFase(posX, posY);
+
+                break;
             default:
 
                 break;

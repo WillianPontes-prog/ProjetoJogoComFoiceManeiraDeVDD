@@ -44,6 +44,10 @@ void Fase2::carregarFase() {
                 criarFogo(posX, posY);
 
                 break;
+            case Entidade::Tipo::_alternadorDeFase:
+                criarMudarFase(posX, posY);
+
+                break;
             default:
 
                 break;
@@ -81,7 +85,7 @@ void Fase2::criaEntidades(float posX, float posY, int n)
             criarJogador(posX, posY, 5, true);
         break;
     case 2520:  //chefao
-		criarChefao(posX, posY, 40);
+		criarChefao(posX, posY, 20);
 		break;
     case 2505:  //Plataforma
         criarPlataforma(posX, posY);
@@ -123,5 +127,14 @@ void Fase2::criarFogo(float posX, float posY)
 
     listaEntidades->incluir(o);
     getListaObstaculos()->adicionarElemento(o);
+}
+
+bool Fase2::checarMudarFase()
+{
+    if (getListaInimigos()->tamanho() == 0)
+        return true;
+
+
+    return false;
 }
 

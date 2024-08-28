@@ -28,6 +28,8 @@ private:
 	bool jogador2;
 	bool voador;
 
+	bool vivo;
+
 public:
 	Jogador(float posX = 0, float posY = 0, int vida = 5, Arma* arma = NULL, bool jogador2 = false, bool voar = false);
 	~Jogador();

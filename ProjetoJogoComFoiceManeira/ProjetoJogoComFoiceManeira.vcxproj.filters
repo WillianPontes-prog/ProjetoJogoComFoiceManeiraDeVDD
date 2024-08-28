@@ -270,5 +270,11 @@
     <Image Include="Imagens\Teleportador.png">
       <Filter>Arquivos de Recurso</Filter>
     </Image>
+    <Image Include="Imagens\fimDeJogo.png">
+      <Filter>Arquivos de Recurso</Filter>
+    </Image>
+    <Image Include="Imagens\parabens.png">
+      <Filter>Arquivos de Recurso</Filter>
+    </Image>
   </ItemGroup>
 </Project>

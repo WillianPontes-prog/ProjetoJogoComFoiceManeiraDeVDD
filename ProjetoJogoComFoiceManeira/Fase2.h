@@ -20,5 +20,7 @@ public:
 	void criarChefao(float posX, float posY, int vida);
 
 	void criarFogo(float posX = 0, float posY = 0);
+
+	bool checarMudarFase();
 };
 

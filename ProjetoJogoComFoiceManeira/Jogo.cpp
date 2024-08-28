@@ -11,9 +11,21 @@ Jogo::Jogo():
     f2(nullptr),
     menu(new Menu(this))
 {
+    if (!texturaFim.loadFromFile("imagens/fimDeJogo.png")) {
+        throw std::runtime_error("Erro ao carregar a textura!");
+    }
+
+    if (!texturaVenceu.loadFromFile("imagens/parabens.png")) {
+        throw std::runtime_error("Erro ao carregar a textura!");
+    }
+
+    
+
     srand(time(NULL));
 	rodando = Jogo::_menu;
 	executar();
+
+
 }
 
 Jogo::~Jogo()
@@ -91,15 +103,26 @@ void Jogo::executar()
             break;
         case Jogo::_fase1:
 
+            spriteFinal.setTexture(texturaFim);
             f1->atualiza();
 
             break;
         case Jogo::_fase2:
 
+            spriteFinal.setTexture(texturaFim);
             f2->atualiza();
+            
+            if (f2->checarMudarFase()) {
+                setarModoDeJogo(Jogo::_fimDeJogo);
+                spriteFinal.setTexture(texturaVenceu);
+            }
 
             break;
-        
+        case _fimDeJogo:
+
+            gerenciadorGrafico->draw(spriteFinal);
+
+            break;
         default:
 
 

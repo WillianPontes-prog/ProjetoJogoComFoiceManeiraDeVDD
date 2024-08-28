@@ -43,6 +43,23 @@ void Fase::atualiza()
     listaEntidades->percorrer(gerenciadorDeColisoes);
 
 	gerenciadorDeColisoes->tratarColisoes();
+    
+    bool f = false;
+
+    for(Lista<Jogador*>::iterator it = getListaJogadores()->begin(); it != getListaJogadores()->end(); it++)
+	{
+        
+
+		if((*it)->getVida() > 0)
+		{
+            f = true;
+		}
+
+	}
+
+    if (!f) {
+        jg->setarModoDeJogo(Jogo::modos::_fimDeJogo);
+    }
 }
 
 json Fase::lerArquivoJSON(const std::string caminho) {

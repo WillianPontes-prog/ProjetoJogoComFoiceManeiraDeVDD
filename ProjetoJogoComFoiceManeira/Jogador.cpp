@@ -7,7 +7,8 @@ Jogador::Jogador(float posX, float posY, int vida, Arma* arma, bool jogador2, bo
     state(Normal),
     posicaoInicial(posX, posY),
     jogador2(jogador2),
-    voador(voar)
+    voador(voar),
+    vivo(true)
 {
     maxTempoMachucado = 45;
 
@@ -64,61 +65,67 @@ void Jogador::atualiza()
 {
     atualizaProjetil();
 
-    if (jogador2) {
-        drawVida(8, 40, spriteVida);
-    }
-    else {
-        drawVida(8, 8, spriteVida);
-    }
+    if (vivo) {
+        if (jogador2) {
+            drawVida(8, 40, spriteVida);
+        }
+        else {
+            drawVida(8, 8, spriteVida);
+        }
 
-    switch (state)
-    {
-    case Jogador::Normal:
-        move();
-        sacarArma();
+        switch (state)
+        {
+        case Jogador::Normal:
+            move();
+            sacarArma();
 
-        break;
-    case Jogador::Recarregando:
-        move();
+            break;
+        case Jogador::Recarregando:
+            move();
 
-        if (tempoRecarregando > 0)
-            tempoRecarregando--;
-		else
-			setState(Normal);
-		
+            if (tempoRecarregando > 0)
+                tempoRecarregando--;
+            else
+                setState(Normal);
 
-        break;
-    case Jogador::Machucado:
 
-        
-        if(tempoMachucado > 0)
-		{
-			tempoMachucado--;
+            break;
+        case Jogador::Machucado:
 
-            if (vspd == 0) {
-                if (hspd > 0)
-                    hspd--;
-                else if (hspd < 0)
-                    hspd++;
+
+            if (tempoMachucado > 0)
+            {
+                tempoMachucado--;
+
+                if (vspd == 0) {
+                    if (hspd > 0)
+                        hspd--;
+                    else if (hspd < 0)
+                        hspd++;
+                }
+
+                sprite.setColor(sf::Color::Black);
+
+                vspd += GRAVIDADE;
             }
-            
-            sprite.setColor(sf::Color::Black);
+            else
+            {
+                sprite.setColor(sf::Color::White);
+                setState(Normal);
+            }
 
-            vspd += GRAVIDADE;
-		}
-		else
-		{
-            sprite.setColor(sf::Color::White);
-			setState(Normal);
-		}
+            break;
+        default:
+            break;
+        }
 
-        break;
-    default:
-        break;
+        if (vida <= 0) {
+            vivo = false;
+        }
+
+        atualizaSprite(getBody().getPosition().x, getBody().getPosition().y);
+        draw();
     }
-   
-	atualizaSprite(getBody().getPosition().x, getBody().getPosition().y);
-	draw();
     
 }
 

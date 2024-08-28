@@ -9,15 +9,16 @@ void Fase1::carregarFase()
     for (const auto& innerArray : outerArray) {
         for (const auto& item : innerArray) {
 
-            int classType = item.at("class").get<int>();
+            int classType = item.at("classe").get<int>();
             float posX = item.at("posX").get<float>();
             float posY = item.at("posY").get<float>();
+            int vida = -1;
 
             switch (classType)
             {
 
             case Entidade::Tipo::_jogador:
-                int vida = item.at("Vida").get<int>();
+                vida = item.at("Vida").get<int>();
                 criarJogador(posX, posY, vida, false);
 
                 break;
@@ -31,12 +32,12 @@ void Fase1::carregarFase()
 
                 break;
             case Entidade::Tipo::_zumbifriorento:
-                float vida = item.at("Vida").get<float>();
+                vida = item.at("Vida").get<int>();
                 criarZumbiFriorento(posX, posY, vida);
 
                 break;
             case Entidade::Tipo::_zumbinana:
-                float vida = item.at("Vida").get<float>();
+                vida = item.at("Vida").get<int>();
                 criarZumbinana(posX, posY, vida);
 
 
@@ -55,7 +56,11 @@ Fase1::Fase1(bool Jogadores, Jogo* jg, bool carregar):
     numZumbiFriorento{0, 3, 5, 0}
 {
     setGerenciadorGrafico();
-    gerarFase(extrairCamadas(lerArquivoJSON("tileds/MapaF1.json"), 2));
+
+    if(!carregar)
+        gerarFase(extrairCamadas(lerArquivoJSON("tileds/MapaF1.json"), 2));
+    else
+        carregarFase();
 }
 
 Fase1::~Fase1()

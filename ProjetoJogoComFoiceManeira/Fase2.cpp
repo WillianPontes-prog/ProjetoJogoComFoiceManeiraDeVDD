@@ -7,7 +7,11 @@ Fase2::Fase2(bool Jogadores, Jogo* jg, bool carregar) :
     nChefao(0)
 {
     setGerenciadorGrafico();
-    gerarFase(extrairCamadas(lerArquivoJSON("tileds/MapaF2.json"), 3));
+
+    if (!carregar)
+        gerarFase(extrairCamadas(lerArquivoJSON("tileds/MapaF2.json"), 3));
+    else
+        carregarFase();
 }
 
 Fase2::~Fase2()

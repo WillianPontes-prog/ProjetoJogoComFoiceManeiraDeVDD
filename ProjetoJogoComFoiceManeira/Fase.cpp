@@ -14,7 +14,7 @@ Fase::Fase(bool Jogadores, Jogo* jg, bool continuar) :
 {
 	this->setGerenciadorGrafico();
 
-    //if (!continunando) {
+    if (!continunando) {
         Plataforma* Pdir = new Plataforma(-40, -320);
         Pdir->getBodyPtr()->setSize(sf::Vector2f(32, 1080));
 
@@ -24,11 +24,9 @@ Fase::Fase(bool Jogadores, Jogo* jg, bool continuar) :
         Pdir->getBodyPtr()->setSize(sf::Vector2f(32, 1080));
 
         getListaPlataforma()->adicionarElemento(Pdir);
-    //}
-
-    if (continunando) {
-        carregarFase();
     }
+
+    
 }
 
 Fase::~Fase()

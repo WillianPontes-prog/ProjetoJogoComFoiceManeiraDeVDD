@@ -2,6 +2,42 @@
 #include "Jogo.h"
 #include "GerenciadorDeColisoes.h"
 
+void Fase::carregarFase()
+{
+    json j = lerArquivoJSON("save.json");
+
+    auto outerArray = j.get<std::vector<std::vector<json>>>();
+
+    for (const auto& innerArray : outerArray) {
+        for (const auto& item : innerArray) {
+           
+            int classType = item.at("class").get<int>();
+            float posX = item.at("posX").get<float>();
+            float posY = item.at("posY").get<float>();
+
+            switch (classType)
+            {
+           
+            case Entidade::Tipo::_jogador: 
+                int vida = item.at("Vida").get<int>();
+                criarJogador(posX, posY, vida, false);
+
+                break;
+            case Entidade::Tipo::_jogador2:
+				vida = item.at("Vida").get<int>();
+				criarJogador(posX, posY, vida, true);
+
+				break;
+
+            default:
+
+                break;
+            
+        }
+
+    }
+}
+
 Fase::Fase(bool Jogadores, Jogo* jg, bool continuar) :
     Jogadores(Jogadores),
 	listaEntidades(new ListaEntidade()),
@@ -25,24 +61,7 @@ Fase::Fase(bool Jogadores, Jogo* jg, bool continuar) :
     //}
 
     if (continunando) {
-        json j = lerArquivoJSON("save.json");
-        
-        auto outerArray = j.get<std::vector<std::vector<json>>>();
-
-        for (const auto& innerArray : outerArray) {
-            for (const auto& item : innerArray) {
-                int vida = item.at("Vida").get<int>();
-                int classType = item.at("class").get<int>();
-                float posX = item.at("posX").get<float>();
-                float posY = item.at("posY").get<float>();
-
-                if (classType == 1) {
-                    criarJogador(posX, posY, vida, false);
-                }
-            }
-            
-        }
-		
+        carregarFase();
     }
 }
 

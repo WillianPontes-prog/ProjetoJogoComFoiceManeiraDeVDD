@@ -1,6 +1,10 @@
 #pragma once
 #include "Ente.h"
 #include "json.hpp"
+#define classe "class"
+#define pX "posX"
+#define pY "posY"
+#define vd "vida"
 
 
 #define GRAVIDADE 0.5
@@ -16,8 +20,10 @@ public:
         _jogador2,
         _zumbifriorento,
 		_zumbidragao,
-        _zumbinana,
-        _plataforma
+		_zumbinana,
+		_plataforma,
+        _obstaculoTeleporte,
+        _obstaculoDano
     };
 
     Entidade(float posX = 0, float posY = 0, float tamX = 32, float tamY = 32);

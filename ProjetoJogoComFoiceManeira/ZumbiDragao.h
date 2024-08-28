@@ -22,14 +22,13 @@ public:
 	void invertDirectionX() { directionX = -directionX; }
 	void sacarArma();
 	void setPosicao2(sf::Vector2f pos) { posicao2 = pos; }
-	void Teleporte();
-	
+	void Teleporte();	
 	json toJson() {
 		return json{
-			{"classe", Tipo::_zumbifriorento},
-			{"posX", getBody().getPosition().x},
-			{"posY", getBody().getPosition().y},
-			{"vida", vida}
+			{classe, Tipo::_zumbifriorento},
+			{pX, getBody().getPosition().x},
+			{pY, getBody().getPosition().y},
+			{vd, vida}
 		};
 	}
 

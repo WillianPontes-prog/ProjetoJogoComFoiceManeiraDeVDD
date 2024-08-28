@@ -40,7 +40,11 @@ public:
 	void setState(State state);
 	void sacarArma();
 	json toJson() {
-		return json{ { "class", 1}, {"posX", getBody().getPosition().x},  {"posY", getBody().getPosition().y}, {"Vida", vida} };
+		int T = Tipo::_jogador;
+
+		if (jogador2)
+			T = Tipo::_jogador2;
+		return json{ { "class", T}, {"posX", getBody().getPosition().x},  {"posY", getBody().getPosition().y}, {"Vida", vida} };
 	};
 
 	sf::Vector2f getPosicaoInicial() { return posicaoInicial; };

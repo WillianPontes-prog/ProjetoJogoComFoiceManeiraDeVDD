@@ -24,6 +24,14 @@ public:
 	void setPosicao2(sf::Vector2f pos) { posicao2 = pos; }
 	void Teleporte();
 	virtual json toJson() { return nullptr; };	
+	json toJson() {
+		return json{
+			{"classe", Tipo::_zumbifriorento},
+			{"posX", getBody().getPosition().x},
+			{"posY", getBody().getPosition().y},
+			{"vida", vida}
+		};
+	}
 
 	void danificar(Jogador* j) {
 		j->operator--();

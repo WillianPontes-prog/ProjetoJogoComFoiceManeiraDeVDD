@@ -1,6 +1,10 @@
 #pragma once
 #include "Ente.h"
 #include "json.hpp"
+#define classe "class"
+#define pX "posX"
+#define pY "posY"
+#define vd "vida"
 
 
 #define GRAVIDADE 0.5

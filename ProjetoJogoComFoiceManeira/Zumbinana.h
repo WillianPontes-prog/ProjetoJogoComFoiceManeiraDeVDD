@@ -30,10 +30,10 @@ public:
     virtual json toJson() { return nullptr; };
     json toJson() {
         return json{
-			{"classe", Tipo::_zumbinana},
-            {"posX", getBody().getPosition().x},
-            {"posY", getBody().getPosition().y},
-            {"vida", vida}
+			{classe, Tipo::_zumbinana},
+            {pX, getBody().getPosition().x},
+            {pY, getBody().getPosition().y},
+            {vd, vida}
         };
     }
     

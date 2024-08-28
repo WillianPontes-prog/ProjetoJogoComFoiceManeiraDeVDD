@@ -18,10 +18,10 @@ public:
 
     json toJson() {
         return json{
-            {"classe", Tipo::_zumbifriorento},
-            {"posX", getBody().getPosition().x},
-            {"posY", getBody().getPosition().y},
-            {"vida", vida}
+            {classe, Tipo::_zumbifriorento},
+            {pX, getBody().getPosition().x},
+            {pY, getBody().getPosition().y},
+            {vd, vida}
         };
     }
 

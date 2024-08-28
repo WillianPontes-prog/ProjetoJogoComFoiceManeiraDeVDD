@@ -44,7 +44,7 @@ public:
 
 		if (jogador2)
 			T = Tipo::_jogador2;
-		return json{ { "class", T}, {"posX", getBody().getPosition().x},  {"posY", getBody().getPosition().y}, {"Vida", vida} };
+		return json{ { classe, T}, { pX, getBody().getPosition().x},  { pY, getBody().getPosition().y}, { vd, vida} };
 	};
 
 	sf::Vector2f getPosicaoInicial() { return posicaoInicial; };

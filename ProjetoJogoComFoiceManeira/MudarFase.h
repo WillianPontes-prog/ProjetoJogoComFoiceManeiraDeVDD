@@ -17,6 +17,7 @@ public:
 	void atualiza() override;
 
 	void executa();
+	json toJson() { return nullptr; };
 
 };
 

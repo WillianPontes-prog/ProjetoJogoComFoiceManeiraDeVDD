@@ -17,7 +17,13 @@ public:
 	void atualiza() override;
 
 	void executa();
-	json toJson() { return nullptr; };
+	json toJson() {
+		return json{
+		{classe, Tipo::_alternadorDeFase},
+		{pX, getBody().getPosition().x},
+		{pY, getBody().getPosition().y}
+		};
+	}
 
 };
 

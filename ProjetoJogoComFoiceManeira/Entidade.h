@@ -14,7 +14,9 @@ public:
     enum Tipo {
         _jogador,
         _jogador2,
-        _zumbifriorento
+        _zumbifriorento,
+		_zumbidragao,
+        _zumbinana
     };
 
     Entidade(float posX = 0, float posY = 0, float tamX = 32, float tamY = 32);

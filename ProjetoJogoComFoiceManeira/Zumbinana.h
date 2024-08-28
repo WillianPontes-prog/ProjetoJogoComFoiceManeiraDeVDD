@@ -28,6 +28,14 @@ public:
     void operator-() { tempoRecarregando--; }
     void AtacaJogador();
     virtual json toJson() { return nullptr; };
+    json toJson() {
+        return json{
+			{"classe", Tipo::_zumbinana},
+            {"posX", getBody().getPosition().x},
+            {"posY", getBody().getPosition().y},
+            {"vida", vida}
+        };
+    }
     
     void danificar(Jogador* j) {
         j->operator--();

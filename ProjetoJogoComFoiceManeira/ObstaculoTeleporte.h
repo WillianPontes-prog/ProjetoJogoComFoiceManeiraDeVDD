@@ -13,5 +13,11 @@ public:
 
 	void atualiza();
 	void Obstacular(Jogador* jogador);
-	virtual json toJson() { return nullptr; };
+	json toJson() {
+		return json{
+		{"classe", Tipo::_obstaculoTeleporte},
+		{"posX", getBody().getPosition().x},
+		{"posY", getBody().getPosition().y}
+		};
+	}
 };

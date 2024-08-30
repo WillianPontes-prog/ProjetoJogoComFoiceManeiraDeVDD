@@ -1,5 +1,7 @@
 #include "Ente.h"
 
+using namespace Gerenciadores;
+
 Ente::Ente() : gerenciadorGrafico(NULL), textura(NULL)
 {
 }
@@ -10,7 +12,7 @@ Ente::~Ente()
 
 void Ente::setGerenciadorGrafico()
 {
-    this->gerenciadorGrafico = GerenciadorGrafico::getInstance();
+    this->gerenciadorGrafico = Gerenciadores::GerenciadorGrafico::getInstance();
     textura = gerenciadorGrafico->devolveImagemEnte(this);
 
     if (textura != NULL) {

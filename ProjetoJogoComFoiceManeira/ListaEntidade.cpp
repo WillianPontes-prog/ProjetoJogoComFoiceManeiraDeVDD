@@ -1,6 +1,8 @@
 #include "ListaEntidade.h"
 #include "Inimigo.h"
 
+using namespace Gerenciadores;
+
 namespace Listas{
 
     ListaEntidade::ListaEntidade():
@@ -19,7 +21,7 @@ namespace Listas{
 	    delete listaEntidades;
     }
 
-    void ListaEntidade::percorrer(GerenciadorDeColisoes* gdc)
+    void ListaEntidade::percorrer(Gerenciadores::GerenciadorDeColisoes* gdc)
     {
         pontosPorPasso = 0;
 

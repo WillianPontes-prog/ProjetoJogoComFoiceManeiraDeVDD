@@ -1,6 +1,7 @@
 #include "Entidade.h"
 
 
+using namespace Gerenciadores;
 
 Entidade::Entidade(float posX, float posY, float tamX, float tamY) : 
 	Ente(), 
@@ -13,3 +14,8 @@ Entidade::~Entidade()
 {
 
 }
+
+void Entidade::drawBody()
+{
+	gerenciadorGrafico->draw(body);
+};

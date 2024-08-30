@@ -49,9 +49,7 @@ public:
     sf::RectangleShape* getBodyPtr() { return &body; };
     void setPosition(sf::Vector2f pos) { body.setPosition(pos); };
     
-    void drawBody() { 
-        gerenciadorGrafico->draw(body); 
-    };
+    void drawBody();
     virtual json toJson() = 0;
 
    

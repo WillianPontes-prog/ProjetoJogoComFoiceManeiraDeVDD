@@ -3,7 +3,7 @@
 #include"Entidade.h"
 #include"GerenciadorDeColisoes.h"
 
-class GerenciadorDeColisoes;
+namespace Gerenciadores { class GerenciadorDeColisoes; }
 
 namespace Listas {
     class ListaEntidade {
@@ -14,7 +14,7 @@ namespace Listas {
     public:
         ListaEntidade();
         ~ListaEntidade();
-        void percorrer(GerenciadorDeColisoes* gc);
+        void percorrer(Gerenciadores::GerenciadorDeColisoes* gc);
         void incluir(Entidade* entidade);
 
         json toJson();

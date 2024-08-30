@@ -6,59 +6,59 @@
 
 class Ente;
 
+namespace Gerenciadores {
+    class GerenciadorGrafico {
+    private:
+        sf::RenderWindow* window;
 
-class GerenciadorGrafico {
-private:
-    sf::RenderWindow* window;
+        void carregarTexturas();
 
-    void carregarTexturas();
+        sf::Texture* tMenu;
 
-    sf::Texture* tMenu;
+        sf::Texture* tJogador1;
+        sf::Texture* tJogador2;
 
-    sf::Texture* tJogador1;
-    sf::Texture* tJogador2;
+        sf::Texture* tInimigo1;
+        sf::Texture* tInimigo2;
 
-    sf::Texture* tInimigo1;
-    sf::Texture* tInimigo2;
+        sf::Texture* tFase1;
+        sf::Texture* tFase1Plat;
+        sf::Texture* tFase2Plat;
 
-    sf::Texture* tFase1;
-    sf::Texture* tFase1Plat;
-    sf::Texture* tFase2Plat;
+        sf::Texture* tTeleportador;
+        sf::Texture* tFogo;
+        sf::Texture* tPlataforma;
 
-    sf::Texture* tTeleportador;
-    sf::Texture* tFogo;
-    sf::Texture* tPlataforma;
+        sf::Texture* tChefao;
 
-    sf::Texture* tChefao;
-    
-    
-    GerenciadorGrafico();
 
-    static GerenciadorGrafico* instance;
+        GerenciadorGrafico();
 
-public:
+        static GerenciadorGrafico* instance;
 
-    ~GerenciadorGrafico();
+    public:
 
-    static GerenciadorGrafico* getInstance() {
-        if (instance == nullptr) {
-            instance = new GerenciadorGrafico();
+        ~GerenciadorGrafico();
+
+        static GerenciadorGrafico* getInstance() {
+            if (instance == nullptr) {
+                instance = new GerenciadorGrafico();
+            }
+            return instance;
         }
-        return instance;
-    }
 
-    void draw(Ente* e);
-    void draw(sf::Sprite s);
-    void draw(sf::RectangleShape b);
-    void draw(sf::Text t);
-    void Close();
+        void draw(Ente* e);
+        void draw(sf::Sprite s);
+        void draw(sf::RectangleShape b);
+        void draw(sf::Text t);
+        void Close();
 
-    void atualiza();
+        void atualiza();
 
-    sf::RenderWindow* getWindow() { return window; };
+        sf::RenderWindow* getWindow() { return window; };
 
-    sf::Texture* devolveImagemEnte(Ente* e = NULL);
+        sf::Texture* devolveImagemEnte(Ente* e = NULL);
 
-    
-};
 
+    };
+}

@@ -3,13 +3,14 @@
 #include "GerenciadorDeColisoes.h"
 
 using namespace Listas;
+using namespace Gerenciadores;
 
 namespace Fases {
 
     Fase::Fase(bool Jogadores, Jogo* jg, bool continuar) :
         Jogadores(Jogadores),
         listaEntidades(new ListaEntidade()),
-        gerenciadorDeColisoes(new GerenciadorDeColisoes(this)),
+        gerenciadorDeColisoes(new Gerenciadores::GerenciadorDeColisoes(this)),
         jg(jg),
         continunando(continuar),
         Ente(),

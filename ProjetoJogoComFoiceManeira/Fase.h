@@ -29,14 +29,17 @@ namespace Listas {
 }
 
 class Jogo;
-class GerenciadorDeColisoes;
+
+namespace Gerenciadores { 
+	class GerenciadorDeColisoes; 
+}
 
 namespace Fases{
 	class Fase : public Ente
 	{
 	protected:
 
-		GerenciadorDeColisoes* gerenciadorDeColisoes;
+		Gerenciadores::GerenciadorDeColisoes* gerenciadorDeColisoes;
 
 		sf::Texture* texturaFundo;
 		sf::Sprite spriteFundo;

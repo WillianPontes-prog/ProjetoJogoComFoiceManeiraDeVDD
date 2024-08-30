@@ -5,22 +5,24 @@
 #include <vector>
 #include "Observer.h"
 
-class GerenciadorDeComandos {
-public:
-    // Método para adicionar observadores
-    void adicionarObserver(Observer* observer);
+namespace Gerenciadores {
+    class GerenciadorDeComandos {
+    public:
+        // Método para adicionar observadores
+        void adicionarObserver(Observer* observer);
 
-    // Método para remover observadores
-    void removerObserver(Observer* observer);
+        // Método para remover observadores
+        void removerObserver(Observer* observer);
 
-    // Método para processar eventos de teclado
-    void processarEvento();
+        // Método para processar eventos de teclado
+        void processarEvento();
 
-private:
-    // Notifica todos os observadores
-    void notificar(int tecla);
+    private:
+        // Notifica todos os observadores
+        void notificar(int tecla);
 
-    std::vector<Observer*> observers;
-};
+        std::vector<Observer*> observers;
+    };
+}
 
 #endif // GERENCIADORDECOMANDOS_H

@@ -5,12 +5,13 @@
 #include"GerenciadorGrafico.h"
 
 
-class GerenciadorGrafico;
+namespace Gerenciadores { class GerenciadorGrafico; }
+
 class Ente {
 
 protected:
     
-    GerenciadorGrafico* gerenciadorGrafico;
+    Gerenciadores::GerenciadorGrafico* gerenciadorGrafico;
     sf::Texture* textura;
     sf::Sprite sprite;
 

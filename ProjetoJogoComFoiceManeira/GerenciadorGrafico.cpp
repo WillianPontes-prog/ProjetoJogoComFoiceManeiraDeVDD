@@ -6,7 +6,7 @@
 #include "Fase2.h"
 #include "Menu.h"
 
-GerenciadorGrafico* GerenciadorGrafico::instance = nullptr;
+
 
 #define SPR_JOGADOR1 "imagens/jogador1.png"
 #define SPR_JOGADOR2 "imagens/jogador2.png"
@@ -28,212 +28,217 @@ GerenciadorGrafico* GerenciadorGrafico::instance = nullptr;
 
 using namespace Fases;
 
-void GerenciadorGrafico::carregarTexturas()
-{
-    if (!tFase2Plat->loadFromFile(SPR_FASE2_PLAT)) {
-        throw std::runtime_error("Erro ao carregar a textura!");
+namespace Gerenciadores {
+
+    GerenciadorGrafico* GerenciadorGrafico::instance = nullptr;
+
+    void GerenciadorGrafico::carregarTexturas()
+    {
+        if (!tFase2Plat->loadFromFile(SPR_FASE2_PLAT)) {
+            throw std::runtime_error("Erro ao carregar a textura!");
+        }
+
+        if (!tMenu->loadFromFile(SPR_MENU)) {
+            throw std::runtime_error("Erro ao carregar a textura!");
+        }
+
+        if (!tJogador1->loadFromFile(SPR_JOGADOR1)) {
+            throw std::runtime_error("Erro ao carregar a textura!");
+        }
+
+        if (!tJogador2->loadFromFile(SPR_JOGADOR2)) {
+            throw std::runtime_error("Erro ao carregar a textura!");
+        }
+
+        if (!tFase1->loadFromFile(SPR_BCK_FASE1)) {
+            throw std::runtime_error("Erro ao carregar a textura!");
+        }
+
+        if (!tInimigo1->loadFromFile(SPR_INIMIGO1)) {
+            throw std::runtime_error("Erro ao carregar a textura!");
+        }
+
+        if (!tFase1Plat->loadFromFile(SPR_BCK_FASE1_PLAT)) {
+            throw std::runtime_error("Erro ao carregar a textura!");
+        }
+
+        if (!tInimigo2->loadFromFile(SPR_INIMIGO2)) {
+            throw std::runtime_error("Erro ao carregar a textura!");
+        }
+
+        if (!tTeleportador->loadFromFile(SPR_TELEPORTADOR)) {
+            throw std::runtime_error("Erro ao carregar a textura!");
+        }
+
+        if (!tFogo->loadFromFile(SPR_FOGO)) {
+            throw std::runtime_error("Erro ao carregar a textura!");
+        }
+
+        if (!tChefao->loadFromFile("imagens/Chefao.png")) {
+            throw std::runtime_error("Erro ao carregar a textura!");
+        }
+
+        if (!tPlataforma->loadFromFile(SPR_PLATAFORMA)) {
+            throw std::runtime_error("Erro ao carregar a textura!");
+        }
     }
 
-    if(!tMenu->loadFromFile(SPR_MENU)) {
-		throw std::runtime_error("Erro ao carregar a textura!");
-	}
+    GerenciadorGrafico::GerenciadorGrafico() :
+        tJogador1(new sf::Texture()),
+        tFase1(new sf::Texture()),
+        tInimigo1(new sf::Texture()),
+        tFase1Plat(new sf::Texture()),
+        tJogador2(new sf::Texture()),
+        tInimigo2(new sf::Texture()),
+        tTeleportador(new sf::Texture()),
+        tFogo(new sf::Texture()),
+        tMenu(new sf::Texture()),
+        tFase2Plat(new sf::Texture()),
+        tChefao(new sf::Texture()),
+        tPlataforma(new sf::Texture())
+    {
+        // Resolução original
+        sf::Vector2u originalResolution(960, 640);
 
-    if (!tJogador1->loadFromFile(SPR_JOGADOR1)) {
-        throw std::runtime_error("Erro ao carregar a textura!");
+        // Obtém a resolução atual da tela
+        sf::VideoMode desktopMode = sf::VideoMode::getDesktopMode();
+        sf::Vector2u screenResolution(desktopMode.width, desktopMode.height);
+
+        // Calcula a escala para manter a proporção
+        float scaleX = static_cast<float>(screenResolution.x) / originalResolution.x;
+        float scaleY = static_cast<float>(screenResolution.y) / originalResolution.y;
+        float scale = std::min(scaleX, scaleY);
+
+        // Calcula o tamanho da janela mantendo a proporção
+        sf::Vector2u windowSize(
+            static_cast<unsigned int>(originalResolution.x * scale),
+            static_cast<unsigned int>(originalResolution.y * scale)
+        );
+
+        // Calcula a posição para centralizar a janela no modo fullscreen
+        sf::Vector2i windowPosition(
+            (screenResolution.x - windowSize.x) / 2,
+            (screenResolution.y - windowSize.y) / 2
+        );
+
+        // Cria a janela no modo fullscreen
+        window = new sf::RenderWindow(
+            sf::VideoMode(screenResolution.x, screenResolution.y),
+            "Meu Jogo em Fullscreen",
+            sf::Style::Fullscreen
+        );
+
+        // Define a view para escalar o conteúdo corretamente
+        sf::View view(sf::FloatRect(0, 0, originalResolution.x, originalResolution.y));
+        view.setViewport(sf::FloatRect(
+            static_cast<float>(windowPosition.x) / screenResolution.x,
+            static_cast<float>(windowPosition.y) / screenResolution.y,
+            static_cast<float>(windowSize.x) / screenResolution.x,
+            static_cast<float>(windowSize.y) / screenResolution.y
+        ));
+
+        window->setView(view);
+
+        carregarTexturas();
     }
 
-    if (!tJogador2->loadFromFile(SPR_JOGADOR2)) {
-        throw std::runtime_error("Erro ao carregar a textura!");
+    GerenciadorGrafico::~GerenciadorGrafico()
+    {
     }
 
-    if(!tFase1->loadFromFile(SPR_BCK_FASE1) ){
-		throw std::runtime_error("Erro ao carregar a textura!");
-	}
-
-    if(!tInimigo1->loadFromFile(SPR_INIMIGO1)){
-        throw std::runtime_error("Erro ao carregar a textura!");
+    void GerenciadorGrafico::draw(Ente* e)
+    {
+        window->draw(e->getSprite());
     }
 
-    if (!tFase1Plat->loadFromFile(SPR_BCK_FASE1_PLAT)) {
-        throw std::runtime_error("Erro ao carregar a textura!");
-    }
-    
-    if(!tInimigo2->loadFromFile(SPR_INIMIGO2)){
-		throw std::runtime_error("Erro ao carregar a textura!");
-	}
-
-    if (!tTeleportador->loadFromFile(SPR_TELEPORTADOR)) {
-        throw std::runtime_error("Erro ao carregar a textura!");
+    void GerenciadorGrafico::draw(sf::Sprite s)
+    {
+        window->draw(s);
     }
 
-    if (!tFogo->loadFromFile(SPR_FOGO)) {
-        throw std::runtime_error("Erro ao carregar a textura!");
+    void GerenciadorGrafico::draw(sf::RectangleShape b)
+    {
+
+        window->draw(b);
+
+
     }
 
-    if (!tChefao->loadFromFile("imagens/Chefao.png")) {
-        throw std::runtime_error("Erro ao carregar a textura!");
+    void GerenciadorGrafico::draw(sf::Text t)
+    {
+        window->draw(t);
+
     }
 
-    if (!tPlataforma->loadFromFile(SPR_PLATAFORMA)) {
-        throw std::runtime_error("Erro ao carregar a textura!");
-    }
-}
+    void GerenciadorGrafico::atualiza()
+    {
 
-GerenciadorGrafico::GerenciadorGrafico():
-    tJogador1(new sf::Texture()),
-    tFase1(new sf::Texture()),
-    tInimigo1(new sf::Texture()),
-    tFase1Plat(new sf::Texture()),
-    tJogador2(new sf::Texture()),
-    tInimigo2(new sf::Texture()),
-    tTeleportador(new sf::Texture()),
-    tFogo(new sf::Texture()),
-    tMenu(new sf::Texture()),
-    tFase2Plat(new sf::Texture()),
-    tChefao(new sf::Texture()),
-    tPlataforma(new sf::Texture())
-{
-    // Resolução original
-    sf::Vector2u originalResolution(960, 640);
-
-    // Obtém a resolução atual da tela
-    sf::VideoMode desktopMode = sf::VideoMode::getDesktopMode();
-    sf::Vector2u screenResolution(desktopMode.width, desktopMode.height);
-
-    // Calcula a escala para manter a proporção
-    float scaleX = static_cast<float>(screenResolution.x) / originalResolution.x;
-    float scaleY = static_cast<float>(screenResolution.y) / originalResolution.y;
-    float scale = std::min(scaleX, scaleY);
-
-    // Calcula o tamanho da janela mantendo a proporção
-    sf::Vector2u windowSize(
-        static_cast<unsigned int>(originalResolution.x * scale),
-        static_cast<unsigned int>(originalResolution.y * scale)
-    );
-
-    // Calcula a posição para centralizar a janela no modo fullscreen
-    sf::Vector2i windowPosition(
-        (screenResolution.x - windowSize.x) / 2,
-        (screenResolution.y - windowSize.y) / 2
-    );
-
-    // Cria a janela no modo fullscreen
-    window = new sf::RenderWindow(
-        sf::VideoMode(screenResolution.x, screenResolution.y),
-        "Meu Jogo em Fullscreen",
-        sf::Style::Fullscreen
-    );
-
-    // Define a view para escalar o conteúdo corretamente
-    sf::View view(sf::FloatRect(0, 0, originalResolution.x, originalResolution.y));
-    view.setViewport(sf::FloatRect(
-        static_cast<float>(windowPosition.x) / screenResolution.x,
-        static_cast<float>(windowPosition.y) / screenResolution.y,
-        static_cast<float>(windowSize.x) / screenResolution.x,
-        static_cast<float>(windowSize.y) / screenResolution.y
-    ));
-
-    window->setView(view);
-
-    carregarTexturas();
-}
-
-GerenciadorGrafico::~GerenciadorGrafico()
-{
-}
-
-void GerenciadorGrafico::draw(Ente* e)
-{
-	window->draw(e->getSprite());
-}
-
-void GerenciadorGrafico::draw(sf::Sprite s)
-{
-    window->draw(s);
-}
-
-void GerenciadorGrafico::draw(sf::RectangleShape b)
-{
-    
-    window->draw(b);
-    
-    
-}
-
-void GerenciadorGrafico::draw(sf::Text t)
-{
-    	window->draw(t);
-
-}
-
-void GerenciadorGrafico::atualiza()
-{
-
-}
-
-sf::Texture* GerenciadorGrafico::devolveImagemEnte(Ente* e)
-{
-    Plataforma* p = dynamic_cast<Plataforma*>(e);
-    if (p) {
-		return tPlataforma;
-	}
-
-    Jogador* j = dynamic_cast<Jogador*>(e);
-    if (j) {
-        if (!j->getJogador2())
-            return tJogador1;
-        else
-            return tJogador2;
     }
 
-    ZumbiFriorento* i = dynamic_cast<ZumbiFriorento*>(e);
-    if (i) {
-		return tInimigo1;
-	}
+    sf::Texture* GerenciadorGrafico::devolveImagemEnte(Ente* e)
+    {
+        Plataforma* p = dynamic_cast<Plataforma*>(e);
+        if (p) {
+            return tPlataforma;
+        }
 
-    Zumbinana* i2 = dynamic_cast<Zumbinana*>(e);
-    if (i2) {
-        return tInimigo2;
+        Jogador* j = dynamic_cast<Jogador*>(e);
+        if (j) {
+            if (!j->getJogador2())
+                return tJogador1;
+            else
+                return tJogador2;
+        }
+
+        ZumbiFriorento* i = dynamic_cast<ZumbiFriorento*>(e);
+        if (i) {
+            return tInimigo1;
+        }
+
+        Zumbinana* i2 = dynamic_cast<Zumbinana*>(e);
+        if (i2) {
+            return tInimigo2;
+        }
+
+        Fase1* f = dynamic_cast<Fase1*>(e);
+        if (f) {
+            f->setSpriteFundo(tFase1);
+            return tFase1Plat;
+        }
+
+        Fase2* f2 = dynamic_cast<Fase2*>(e);
+        if (f2) {
+            f2->setSpriteFundo(tFase1);
+            return tFase2Plat;
+        }
+
+        ObstaculoTeleporte* o = dynamic_cast<ObstaculoTeleporte*>(e);
+        if (o) {
+            return tTeleportador;
+        }
+
+        ObstaculoDano* o1 = dynamic_cast<ObstaculoDano*>(e);
+        if (o1) {
+            return tFogo;
+        }
+
+        Menu* m = dynamic_cast<Menu*>(e);
+        if (m) {
+            return tMenu;
+        }
+
+        ZumbiDragao* c = dynamic_cast<ZumbiDragao*>(e);
+        if (c) {
+            return tChefao;
+        }
+
+        return NULL;;
     }
 
-    Fase1* f = dynamic_cast<Fase1*>(e);
-    if (f) {
-        f->setSpriteFundo(tFase1);
-		return tFase1Plat;
-	}
 
-    Fase2* f2 = dynamic_cast<Fase2*>(e);
-    if (f2) {
-        f2->setSpriteFundo(tFase1);
-        return tFase2Plat;
+
+    void GerenciadorGrafico::Close()
+    {
+        window->close();
     }
-    
-    ObstaculoTeleporte* o = dynamic_cast<ObstaculoTeleporte*>(e);
-    if (o) {
-		return tTeleportador;
-	}
-    
-    ObstaculoDano* o1 = dynamic_cast<ObstaculoDano*>(e);
-    if(o1) {
-		return tFogo;
-	}
-
-    Menu* m = dynamic_cast<Menu*>(e);
-    if (m) {
-		return tMenu;
-    }
-
-    ZumbiDragao* c = dynamic_cast<ZumbiDragao*>(e);
-    if (c) {
-		return tChefao;
-	}
-
-    return NULL;;
-}
-
-
-
-void GerenciadorGrafico::Close()
-{
-	window->close();
 }

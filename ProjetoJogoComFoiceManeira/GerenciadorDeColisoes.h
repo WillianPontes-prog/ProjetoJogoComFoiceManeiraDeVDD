@@ -10,49 +10,51 @@ namespace Fases {
 }
 class MudarFase;
 
-class GerenciadorDeColisoes
-{
-private:
-    Listas::Lista<Jogador*>*    listaJogador;
-    Listas::Lista<Plataforma*>* listaPlataforma;
-    std::vector<Inimigo*>*      listaInimigos;
-    std::list<Obstaculo*>*      listaObstaculos;
-
-    MudarFase* mudarFase;
-
-    Fases::Fase* fase;
-
-public:
-    GerenciadorDeColisoes(Fases::Fase* fase);
-    ~GerenciadorDeColisoes();
-
-    void tratarColisoes();
-
-    const int ChecarColisao(const sf::RectangleShape& rect1, const sf::RectangleShape& rect2) {
-        sf::FloatRect bounds1 = rect1.getGlobalBounds();
-        sf::FloatRect bounds2 = rect2.getGlobalBounds();
-        return bounds1.intersects(bounds2);
-    }
-
-    int NumeroMinimo(const float valor)
+namespace Gerenciadores {
+    class GerenciadorDeColisoes
     {
-        if (valor == 0) { return 0; }
-        else { return (valor / abs(valor)); }
-    }
+    private:
+        Listas::Lista<Jogador*>* listaJogador;
+        Listas::Lista<Plataforma*>* listaPlataforma;
+        std::vector<Inimigo*>* listaInimigos;
+        std::list<Obstaculo*>* listaObstaculos;
 
-    void danoJogador(Jogador* jogador, int dirX);
+        MudarFase* mudarFase;
 
-    Listas::Lista<Jogador*>* getListaJogadores();
-    Listas::Lista<Plataforma*>* getListaPlataforma();
-    std::vector<Inimigo*>* getListaInimigos() { return listaInimigos; };
-    std::list<Obstaculo*>* getListaObstaculos() { return listaObstaculos; };
+        Fases::Fase* fase;
 
-    MudarFase* getMudarFase()        { return mudarFase; };
-    void setMudarFase(MudarFase* m) { mudarFase = m; };
+    public:
+        GerenciadorDeColisoes(Fases::Fase* fase);
+        ~GerenciadorDeColisoes();
 
-    void tratarColisaoJogObst();
-    void tratarColisaoJogInim();
-    void tratarColisaoJogJog();
-    void tratarColisaoJogProjetil();
-    void tratarColisaInimProj();
-};
+        void tratarColisoes();
+
+        const int ChecarColisao(const sf::RectangleShape& rect1, const sf::RectangleShape& rect2) {
+            sf::FloatRect bounds1 = rect1.getGlobalBounds();
+            sf::FloatRect bounds2 = rect2.getGlobalBounds();
+            return bounds1.intersects(bounds2);
+        }
+
+        int NumeroMinimo(const float valor)
+        {
+            if (valor == 0) { return 0; }
+            else { return (valor / abs(valor)); }
+        }
+
+        void danoJogador(Jogador* jogador, int dirX);
+
+        Listas::Lista<Jogador*>* getListaJogadores();
+        Listas::Lista<Plataforma*>* getListaPlataforma();
+        std::vector<Inimigo*>* getListaInimigos() { return listaInimigos; };
+        std::list<Obstaculo*>* getListaObstaculos() { return listaObstaculos; };
+
+        MudarFase* getMudarFase() { return mudarFase; };
+        void setMudarFase(MudarFase* m) { mudarFase = m; };
+
+        void tratarColisaoJogObst();
+        void tratarColisaoJogInim();
+        void tratarColisaoJogJog();
+        void tratarColisaoJogProjetil();
+        void tratarColisaInimProj();
+    };
+}

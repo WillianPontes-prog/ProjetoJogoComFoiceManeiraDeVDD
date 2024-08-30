@@ -15,8 +15,8 @@ namespace Fases{
 class Jogo
 {
 private:
-	GerenciadorDeComandos gerenciadorDeComandos;
-	GerenciadorGrafico* gerenciadorGrafico;
+	Gerenciadores::GerenciadorDeComandos gerenciadorDeComandos;
+	Gerenciadores::GerenciadorGrafico* gerenciadorGrafico;
 	Fases::Fase1* f1;
 	Fases::Fase2* f2;
 
@@ -60,9 +60,7 @@ public:
 
 	void atualizaPontuacao();
 
-	void adicionarObserver(Observer* observer) {
-		gerenciadorDeComandos.adicionarObserver(observer);
-	}
+	void adicionarObserver(Observer* observer);
 
 	void drawPontuacao();
 

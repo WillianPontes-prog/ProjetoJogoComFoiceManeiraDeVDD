@@ -5,9 +5,10 @@
 #define FPS 60
 
 using namespace Fases;
+using namespace Gerenciadores;
 
 Jogo::Jogo():
-	gerenciadorGrafico(GerenciadorGrafico::getInstance()),
+	gerenciadorGrafico(Gerenciadores::GerenciadorGrafico::getInstance()),
     f1(nullptr),
     f2(nullptr),
     menu(new Menu(this)),
@@ -361,6 +362,11 @@ void Jogo::atualizaPontuacao()
         // Adiciona o texto ao vetor
         rank.push(text);
     }
+}
+
+void Jogo::adicionarObserver(Observer* observer)
+{
+    gerenciadorDeComandos.adicionarObserver(observer);
 }
 
 void Jogo::drawPontuacao()

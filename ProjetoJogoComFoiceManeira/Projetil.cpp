@@ -1,7 +1,6 @@
 #include "Projetil.h"
 
 
-
 Projetil::Projetil(float posX, float posY, float tamX, float tamY, int tempo, int velocidade, int dano,sf::Color c, sf::Vector2f direc):
 	Entidade(posX,posY, tamX, tamY),
 	tempoDeDestruicao(tempo),
@@ -50,4 +49,27 @@ int Projetil::OverTime()
 void Projetil::destruir()
 {
 	tempoDeDestruicao = 0;
+}
+
+json Projetil::toJson()
+{
+	return json{
+		{classe, Tipo::_projetil},
+		{pX, body.getPosition().x},
+		{pY, body.getPosition().y},
+		{TEMPO, tempoDeDestruicao},
+		{TAM_X, body.getSize().x},
+		{TAM_Y, body.getSize().y},
+		{VELOCIDADE, velocidad},
+		{DANO, dano},
+		{COR_R, body.getFillColor().r},
+		{COR_G, body.getFillColor().g},
+		{COR_B, body.getFillColor().b},
+		{DIRECAO_X, direcao.x},
+		{DIRECAO_Y, direcao.y}
+	};
+
+	
+	
+
 }

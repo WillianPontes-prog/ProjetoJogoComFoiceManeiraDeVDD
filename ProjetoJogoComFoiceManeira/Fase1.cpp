@@ -13,6 +13,16 @@ void Fase1::carregarFase()
             float posX = item.at(pX).get<float>();
             float posY = item.at(pY).get<float>();
             int vida = -1;
+            int tamX = -1;
+            int tamY = -1;
+            int tempo = -1;
+            int velocidade = -1;
+            int dano = -1;
+            int corR = -1;
+            int corG = -1;
+            int corB = -1;
+            float direcaoX = -1;
+            float direcaoY = -1;
 
             switch (classType)
             {
@@ -47,6 +57,23 @@ void Fase1::carregarFase()
                 break;
             case Entidade::Tipo::_alternadorDeFase:
                 criarMudarFase(posX, posY);
+
+                break;
+            case Entidade::Tipo::_projetil:
+
+                tamX = item.at(TAM_X).get<int>();
+                tamY = item.at(TAM_Y).get<int>();
+                tempo = item.at(TEMPO).get<int>();
+                velocidade = item.at(VELOCIDADE).get<int>();
+                dano = item.at(DANO).get<int>();
+                corR = item.at(COR_R).get<int>();
+                corG = item.at(COR_G).get<int>();
+                corB = item.at(COR_B).get<int>();
+                direcaoX = item.at(DIRECAO_X).get<float>();
+                direcaoY = item.at(DIRECAO_Y).get<float>();
+
+
+                carregarProjeteis(posX, posY, tamX, tamY, tempo, velocidade, dano, sf::Color(corR, corG, corB), sf::Vector2f(direcaoX, direcaoY));
 
                 break;
             default:

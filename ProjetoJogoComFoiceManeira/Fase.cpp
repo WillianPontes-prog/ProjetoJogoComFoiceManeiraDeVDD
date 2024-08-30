@@ -208,6 +208,17 @@ void Fase::criarZumbinana(float posX, float posY, float vida)
     getListaInimigos()->push_back(i);
 }
 
+void Fase::carregarProjeteis(float posX, float posY, float tamX, float tamY, int tempo, int velocidade, int dano, sf::Color cor, sf::Vector2f dir)
+{
+    Projetil* p = new Projetil(posX, posY, tamX, tamY, tempo, velocidade, dano, cor, dir);
+    p->setGerenciadorGrafico();
+
+    listaEntidades->incluir(p);
+        
+}
+
+
+
 
 Lista<Jogador*>* Fase::getListaJogadores()          { return	gerenciadorDeColisoes->getListaJogadores(); }
 Lista<Plataforma*>* Fase::getListaPlataforma()      { return	gerenciadorDeColisoes->getListaPlataforma(); }

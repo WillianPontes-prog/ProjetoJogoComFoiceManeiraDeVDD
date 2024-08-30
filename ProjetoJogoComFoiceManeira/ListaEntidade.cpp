@@ -68,7 +68,18 @@ json ListaEntidade::toJson()
 	for (Lista<Entidade*>::iterator it = listaEntidades->begin(); it != listaEntidades->end(); it++)
 	{
         if ((*it)->toJson() != nullptr) {
+
+            
+
             j.push_back((*it)->toJson());
+
+            EntidadeColisao* ec = dynamic_cast<EntidadeColisao*>(*it);
+            if (ec) {
+                for (auto it = ec->getListaProjetil()->begin(); it != ec->getListaProjetil()->end(); it++)
+                {
+                    j.push_back((*it)->toJson());
+                }
+            }
         }
 	}
 

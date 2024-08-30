@@ -2,7 +2,7 @@
     [
         {
             "class": 4,
-            "posX": 269.0,
+            "posX": 273.5,
             "posY": 32.0,
             "vida": 5
         },
@@ -107,6 +107,12 @@
             "posY": 128.0
         },
         {
+            "class": 2,
+            "posX": 752.0,
+            "posY": 160.0,
+            "vida": 5
+        },
+        {
             "class": 8,
             "posX": 0.0,
             "posY": 160.0
@@ -130,6 +136,12 @@
             "class": 5,
             "posX": 288.0,
             "posY": 192.0
+        },
+        {
+            "class": 2,
+            "posX": 368.0,
+            "posY": 224.0,
+            "vida": 5
         },
         {
             "class": 5,
@@ -265,6 +277,12 @@
             "class": 5,
             "posX": 384.0,
             "posY": 256.0
+        },
+        {
+            "class": 2,
+            "posX": 520.0,
+            "posY": 288.0,
+            "vida": 5
         },
         {
             "class": 5,
@@ -423,7 +441,7 @@
         },
         {
             "class": 4,
-            "posX": 841.0,
+            "posX": 842.5,
             "posY": 448.0,
             "vida": 5
         },
@@ -449,7 +467,7 @@
         },
         {
             "class": 4,
-            "posX": 446.0,
+            "posX": 428.5,
             "posY": 480.0,
             "vida": 5
         },
@@ -465,7 +483,7 @@
         },
         {
             "class": 0,
-            "posX": 108.0,
+            "posX": 32.0,
             "posY": 576.0,
             "vida": 5
         },
@@ -478,6 +496,12 @@
             "class": 5,
             "posX": 224.0,
             "posY": 480.0
+        },
+        {
+            "class": 2,
+            "posX": 744.0,
+            "posY": 512.0,
+            "vida": 5
         },
         {
             "class": 5,
@@ -506,9 +530,54 @@
         },
         {
             "class": 1,
-            "posX": 64.0,
-            "posY": 576.0,
+            "posX": 96.0,
+            "posY": 516.0,
             "vida": 5
+        },
+        {
+            "class": 9,
+            "corB": 255,
+            "corG": 0,
+            "corR": 255,
+            "dano": 1,
+            "direcaox": 1.0,
+            "direcaoy": 0.0,
+            "posX": 4344.0,
+            "posY": 588.0,
+            "tempo": 11,
+            "tx": 8.0,
+            "ty": 8.0,
+            "velocidade": 12.0
+        },
+        {
+            "class": 9,
+            "corB": 255,
+            "corG": 0,
+            "corR": 255,
+            "dano": 1,
+            "direcaox": 1.0,
+            "direcaoy": 0.0,
+            "posX": 4224.0,
+            "posY": 588.0,
+            "tempo": 21,
+            "tx": 8.0,
+            "ty": 8.0,
+            "velocidade": 12.0
+        },
+        {
+            "class": 9,
+            "corB": 255,
+            "corG": 0,
+            "corR": 255,
+            "dano": 1,
+            "direcaox": 1.0,
+            "direcaoy": 0.0,
+            "posX": 4104.0,
+            "posY": 588.0,
+            "tempo": 31,
+            "tx": 8.0,
+            "ty": 8.0,
+            "velocidade": 12.0
         },
         {
             "class": 5,

@@ -19,7 +19,7 @@ public:
 
 	void destruir();
 
-	virtual json toJson() { return nullptr; };
+	virtual json toJson();
 
 	int getDano() { return dano; }
 };

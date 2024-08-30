@@ -84,6 +84,11 @@ public:
 
 	void criarZumbinana(float posX = 0, float posY = 0, float vida = 5);
 
+
+
+	
+
+	void carregarProjeteis(float posX, float posY, float tamX, float tamY, int tempo, int velocidade, int dano, sf::Color cor, sf::Vector2f dir);
 	
 };
 

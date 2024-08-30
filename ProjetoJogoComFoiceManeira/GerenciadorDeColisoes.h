@@ -47,4 +47,10 @@ public:
 
     MudarFase* getMudarFase()        { return mudarFase; };
     void setMudarFase(MudarFase* m) { mudarFase = m; };
+
+    void tratarColisaoJogObst();
+    void tratarColisaoJogInim();
+    void tratarColisaoJogJog();
+    void tratarColisaoJogProjetil();
+    void tratarColisaInimProj();
 };

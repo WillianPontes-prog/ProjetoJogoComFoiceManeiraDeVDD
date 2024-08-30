@@ -19,79 +19,35 @@ GerenciadorDeColisoes::~GerenciadorDeColisoes()
 
 void GerenciadorDeColisoes::tratarColisoes()
 {
-    //--itera sobre cada jogador--\\
-    ================================
+    //--itera sobre cada jogador e todos obstaculos--\\
+    ===================================================
 
+    tratarColisaoJogJog();
 
+    tratarColisaoJogObst();
+    
+    tratarColisaoJogInim();
+
+    tratarColisaoJogProjetil();
+
+    tratarColisaInimProj();
+    
+}
+
+void GerenciadorDeColisoes::danoJogador(Jogador* jogador, int dirX)
+{
+    
+    jogador->setState(Jogador::Machucado);
+
+    jogador->setVspd(-8);
+    jogador->setHspd(dirX * 6);
+}
+
+void GerenciadorDeColisoes::tratarColisaoJogObst()
+{
     for (Lista<Jogador*>::iterator itJog = listaJogador->begin(); itJog != listaJogador->end(); ++itJog) {
 
-        if (mudarFase) {
-            if (ChecarColisao((*itJog)->getBody(), mudarFase->getBody())) {
-                mudarFase->executa();
-            }
-        }
-
         sf::RectangleShape bodyTemp;
-        //--seta por padrão que o jogador não está no chão--\\
-        ====================================================
-        (*itJog)->setNoChao(false);
-
-        //--colisão Jogador com jogador--\\
-        ===================================
-
-        for (Lista<Jogador*>::iterator itJogColider = listaJogador->begin(); itJogColider != listaJogador->end(); ++itJogColider) {
-            
-            if ((*itJog) != (*itJogColider)) {
-                
-                //--percepção do jogador com jogador--\\
-                ========================================
-
-                bodyTemp = (*itJog)->getBody();
-                bodyTemp.move(sf::Vector2f(0, 1));
-
-                if (ChecarColisao(bodyTemp, (*itJogColider)->getBody())) {
-                   (*itJog)->setNoChao(true);
-                }
-
-                //--gerenciador de colisão--\\
-                =============================
-
-            
-                bodyTemp = (*itJog)->getBody();
-                bodyTemp.move(sf::Vector2f((*itJog)->getHspd(), 0));
-
-                if (ChecarColisao(bodyTemp, (*itJogColider)->getBody())) {
-                    bodyTemp = (*itJog)->getBody();
-                    bodyTemp.move(sf::Vector2f(NumeroMinimo((*itJog)->getHspd()), 0));
-
-                    while (!ChecarColisao(bodyTemp, (*itJogColider)->getBody())) {
-                        (*itJog)->getBodyPtr()->move(sf::Vector2f(NumeroMinimo((*itJog)->getHspd()), 0));
-
-                        bodyTemp = (*itJog)->getBody();
-                        bodyTemp.move(sf::Vector2f(NumeroMinimo((*itJog)->getHspd()), 0));
-                    }
-
-                    (*itJog)->setHspd(0);
-                }
-
-                bodyTemp = (*itJog)->getBody();
-                bodyTemp.move(sf::Vector2f((*itJog)->getHspd(), (*itJog)->getVspd()));
-
-                if (ChecarColisao(bodyTemp, (*itJogColider)->getBody())) {
-                    bodyTemp = (*itJog)->getBody();
-                    bodyTemp.move(sf::Vector2f((*itJog)->getHspd(), NumeroMinimo((*itJog)->getVspd())));
-
-                    while (!ChecarColisao(bodyTemp, (*itJogColider)->getBody())) {
-                        (*itJog)->getBodyPtr()->move(sf::Vector2f(0, NumeroMinimo((*itJog)->getVspd())));
-
-                        bodyTemp = (*itJog)->getBody();
-                        bodyTemp.move(sf::Vector2f((*itJog)->getHspd(), NumeroMinimo((*itJog)->getVspd())));
-                    }
-
-                    (*itJog)->setVspd(0);
-                }
-            }
-        }
 
 
         (*itJog)->setSobAtrito(false);
@@ -106,16 +62,16 @@ void GerenciadorDeColisoes::tratarColisoes()
             bodyTemp = (*itJog)->getBody();
             bodyTemp.move(sf::Vector2f(0, 1));
 
-           if (ChecarColisao(bodyTemp, (*it)->getBody())) {
+            if (ChecarColisao(bodyTemp, (*it)->getBody())) {
                 (*itJog)->setNoChao(true);
 
                 if (!(*itJog)->getSobAtrito()) {
                     (*it)->Obstacular((*itJog));
-                    
+
                 }
             }
 
-           
+
             //--gerenciador de colisão--\\
             =============================
 
@@ -155,7 +111,7 @@ void GerenciadorDeColisoes::tratarColisoes()
 
         }
 
-        
+
         //--itera sobre todos os obstaculos--\\
         ======================================
         for (std::list<Obstaculo*>::iterator it = listaObstaculos->begin(); it != listaObstaculos->end(); ++it) {
@@ -165,19 +121,19 @@ void GerenciadorDeColisoes::tratarColisoes()
                 ObstaculoTeleporte* obstaculo2 = dynamic_cast<ObstaculoTeleporte*>(*it);
 
                 if (obstaculo1) {
-                    
+
                     obstaculo1->Obstacular(*itJog);
-					int dir = NumeroMinimo((*itJog)->getBody().getPosition().x - (*it)->getBody().getPosition().x);
+                    int dir = NumeroMinimo((*itJog)->getBody().getPosition().x - (*it)->getBody().getPosition().x);
                     danoJogador(*itJog, dir);
-					
+
                 }
 
                 if (obstaculo2) {
                     obstaculo2->Obstacular(*itJog);
                 }
-            
+
             }
-		}
+        }
 
 
         (*itJog)->getBodyPtr()->move(sf::Vector2f((*itJog)->getHspd(), (*itJog)->getVspd()));
@@ -186,7 +142,10 @@ void GerenciadorDeColisoes::tratarColisoes()
             (*itJog)->setNoChao(true);
         }
     }
+}
 
+void GerenciadorDeColisoes::tratarColisaoJogInim()
+{
     //--itera sobre cada inimigo--\\
    ================================
     for (std::vector<Inimigo*>::iterator itIni = listaInimigos->begin(); itIni != listaInimigos->end(); ++itIni) {
@@ -198,43 +157,7 @@ void GerenciadorDeColisoes::tratarColisoes()
 
         for (Lista<Jogador*>::iterator itJog = listaJogador->begin(); itJog != listaJogador->end(); ++itJog) {
 
-            for (Lista<Projetil*>::iterator itProjI = (*itIni)->getListaProjetil()->begin(); itProjI != (*itIni)->getListaProjetil()->end(); ++itProjI) {
-
-                if (ChecarColisao((*itJog)->getBody(), (*itProjI)->getBody())) {
-
-                    (*itProjI)->destruir();
-
-                    if ((*itJog)->getState() == Jogador::Machucado) {
-                        continue;
-                    }
-
-                    int direcao = NumeroMinimo((*itJog)->getBody().getPosition().x - (*itIni)->getBody().getPosition().x);
-
-                    (*itJog)->operator--();
-                    danoJogador((*itJog), direcao);
-                    
-                }
-            }
-
-            //==iteração sobre todos os tiros de cada jogador=====================================================================================================================
-            for (Lista<Projetil*>::iterator itProjJ = (*itJog)->getListaProjetil()->begin(); itProjJ != (*itJog)->getListaProjetil()->end(); ++itProjJ) {
-                
-                
-                
-                if (ChecarColisao((*itIni)->getBody(), (*itProjJ)->getBody())) {
-                    (*itProjJ)->destruir();
-
-                    (*itIni)->operator--((*itProjJ)->getDano());
-                }
-                
-                //==iteração sobre todas as plataformas===========================================================================================================================
-                for(Lista<Plataforma*>::iterator itPlat = listaPlataforma->begin(); itPlat != listaPlataforma->end(); ++itPlat) {
-					if (ChecarColisao((*itProjJ)->getBody(), (*itPlat)->getBody())) {
-						(*itProjJ)->destruir();
-					}
-				}
-            }
-
+         
 
             if ((*itJog)->getState() == Jogador::Machucado) {
                 continue;
@@ -251,12 +174,12 @@ void GerenciadorDeColisoes::tratarColisoes()
 
             }
         }
-    
-     
-    //==interação inimigo e plataforma========================================================================================================================================
-     
-        //--seta por padrão que o inimigo não está no chão e o proximo passo no chao--\\
-        ================================================================================
+
+
+        //==interação inimigo e plataforma========================================================================================================================================
+
+            //--seta por padrão que o inimigo não está no chão e o proximo passo no chao--\\
+            ================================================================================
         (*itIni)->setNoChao(false);
         bool invertFlag = true;
         bool invertFlagY = true;
@@ -272,12 +195,12 @@ void GerenciadorDeColisoes::tratarColisoes()
             ====================================
             if (inimigo1 || inimigo2) {
                 bodyTemp = (*itIni)->getBody();
-                bodyTemp.move(sf::Vector2f(NumeroMinimo((*itIni)->getHspd())*bodyTemp.getSize().x, 0));
+                bodyTemp.move(sf::Vector2f(NumeroMinimo((*itIni)->getHspd()) * bodyTemp.getSize().x, 0));
 
-                if(!ChecarColisao(bodyTemp, (*it)->getBody())) {
+                if (!ChecarColisao(bodyTemp, (*it)->getBody())) {
                     bodyTemp.move(sf::Vector2f(0, 1));
 
-                    if(ChecarColisao(bodyTemp, (*it)->getBody()) && invertFlagY) {
+                    if (ChecarColisao(bodyTemp, (*it)->getBody()) && invertFlagY) {
                         invertFlag = false;
                         invertFlagY = false;
                     }
@@ -327,25 +250,160 @@ void GerenciadorDeColisoes::tratarColisoes()
         }
 
         if (invertFlag) {
-            if(inimigo1)
+            if (inimigo1)
                 inimigo1->invertDirectionX();
-            else if(inimigo2)
+            else if (inimigo2)
                 inimigo2->invertDirectionX();
         }
 
         (*itIni)->getBodyPtr()->move(sf::Vector2f((*itIni)->getHspd(), (*itIni)->getVspd()));
 
-    //=========================================================================================================================================================================
+        //=========================================================================================================================================================================
 
     }
 }
 
-void GerenciadorDeColisoes::danoJogador(Jogador* jogador, int dirX)
+void GerenciadorDeColisoes::tratarColisaoJogJog()
 {
-    
-    jogador->setState(Jogador::Machucado);
+    for (Lista<Jogador*>::iterator itJog = listaJogador->begin(); itJog != listaJogador->end(); ++itJog) {
+        if (mudarFase) {
+            if (ChecarColisao((*itJog)->getBody(), mudarFase->getBody())) {
+                mudarFase->executa();
+            }
+        }
 
-    jogador->setVspd(-8);
-    jogador->setHspd(dirX * 6);
+        sf::RectangleShape bodyTemp;
+        //--seta por padrão que o jogador não está no chão--\\
+            ====================================================
+        (*itJog)->setNoChao(false);
+
+        //--colisão Jogador com jogador--\\
+            ===================================
+
+        for (Lista<Jogador*>::iterator itJogColider = listaJogador->begin(); itJogColider != listaJogador->end(); ++itJogColider) {
+
+            if ((*itJog) != (*itJogColider)) {
+
+                //--percepção do jogador com jogador--\\
+                    ========================================
+
+                bodyTemp = (*itJog)->getBody();
+                bodyTemp.move(sf::Vector2f(0, 1));
+
+                if (ChecarColisao(bodyTemp, (*itJogColider)->getBody())) {
+                    (*itJog)->setNoChao(true);
+                }
+
+                //--gerenciador de colisão--\\
+                    =============================
+
+
+                bodyTemp = (*itJog)->getBody();
+                bodyTemp.move(sf::Vector2f((*itJog)->getHspd(), 0));
+
+                if (ChecarColisao(bodyTemp, (*itJogColider)->getBody())) {
+                    bodyTemp = (*itJog)->getBody();
+                    bodyTemp.move(sf::Vector2f(NumeroMinimo((*itJog)->getHspd()), 0));
+
+                    while (!ChecarColisao(bodyTemp, (*itJogColider)->getBody())) {
+                        (*itJog)->getBodyPtr()->move(sf::Vector2f(NumeroMinimo((*itJog)->getHspd()), 0));
+
+                        bodyTemp = (*itJog)->getBody();
+                        bodyTemp.move(sf::Vector2f(NumeroMinimo((*itJog)->getHspd()), 0));
+                    }
+
+                    (*itJog)->setHspd(0);
+                }
+
+                bodyTemp = (*itJog)->getBody();
+                bodyTemp.move(sf::Vector2f((*itJog)->getHspd(), (*itJog)->getVspd()));
+
+                if (ChecarColisao(bodyTemp, (*itJogColider)->getBody())) {
+                    bodyTemp = (*itJog)->getBody();
+                    bodyTemp.move(sf::Vector2f((*itJog)->getHspd(), NumeroMinimo((*itJog)->getVspd())));
+
+                    while (!ChecarColisao(bodyTemp, (*itJogColider)->getBody())) {
+                        (*itJog)->getBodyPtr()->move(sf::Vector2f(0, NumeroMinimo((*itJog)->getVspd())));
+
+                        bodyTemp = (*itJog)->getBody();
+                        bodyTemp.move(sf::Vector2f((*itJog)->getHspd(), NumeroMinimo((*itJog)->getVspd())));
+                    }
+
+                    (*itJog)->setVspd(0);
+                }
+            }
+        }
+    }
 }
+
+void GerenciadorDeColisoes::tratarColisaoJogProjetil()
+{
+    for (std::vector<Inimigo*>::iterator itIni = listaInimigos->begin(); itIni != listaInimigos->end(); ++itIni) {
+
+        sf::RectangleShape bodyTemp;
+
+
+        //==interação inimigo e jogador===========================================================================================================================================
+
+        for (Lista<Jogador*>::iterator itJog = listaJogador->begin(); itJog != listaJogador->end(); ++itJog) {
+
+            for (Lista<Projetil*>::iterator itProjI = (*itIni)->getListaProjetil()->begin(); itProjI != (*itIni)->getListaProjetil()->end(); ++itProjI) {
+
+                if (ChecarColisao((*itJog)->getBody(), (*itProjI)->getBody())) {
+
+                    (*itProjI)->destruir();
+
+                    if ((*itJog)->getState() == Jogador::Machucado) {
+                        continue;
+                    }
+
+                    int direcao = NumeroMinimo((*itJog)->getBody().getPosition().x - (*itIni)->getBody().getPosition().x);
+
+                    (*itJog)->operator--();
+                    danoJogador((*itJog), direcao);
+
+                }
+            }
+        }
+    }
+}
+
+void GerenciadorDeColisoes::tratarColisaInimProj()
+{
+    //--itera sobre cada inimigo--\\
+   ================================
+    for (std::vector<Inimigo*>::iterator itIni = listaInimigos->begin(); itIni != listaInimigos->end(); ++itIni) {
+
+        sf::RectangleShape bodyTemp;
+
+
+        //==interação inimigo e jogador===========================================================================================================================================
+
+        for (Lista<Jogador*>::iterator itJog = listaJogador->begin(); itJog != listaJogador->end(); ++itJog) {
+
+
+
+            //==iteração sobre todos os tiros de cada jogador=====================================================================================================================
+            for (Lista<Projetil*>::iterator itProjJ = (*itJog)->getListaProjetil()->begin(); itProjJ != (*itJog)->getListaProjetil()->end(); ++itProjJ) {
+
+
+
+                if (ChecarColisao((*itIni)->getBody(), (*itProjJ)->getBody())) {
+                    (*itProjJ)->destruir();
+
+                    (*itIni)->operator--((*itProjJ)->getDano());
+                }
+
+                //==iteração sobre todas as plataformas===========================================================================================================================
+                for (Lista<Plataforma*>::iterator itPlat = listaPlataforma->begin(); itPlat != listaPlataforma->end(); ++itPlat) {
+                    if (ChecarColisao((*itProjJ)->getBody(), (*itPlat)->getBody())) {
+                        (*itProjJ)->destruir();
+                    }
+                }
+            }
+        }
+    }
+}
+
+
 

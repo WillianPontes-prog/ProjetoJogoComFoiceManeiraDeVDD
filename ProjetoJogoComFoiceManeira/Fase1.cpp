@@ -1,6 +1,7 @@
 #include "Fase1.h"
 
 using namespace Fases;
+using namespace Obstaculos;
 
 void Fase1::carregarFase()
 {

@@ -4,6 +4,7 @@
 
 using namespace Fases;
 using namespace Listas;
+using namespace Obstaculos;
 
 namespace Gerenciadores {
 
@@ -52,9 +53,19 @@ namespace Gerenciadores {
         return listaJogador;
     }
 
-    Listas::Lista<Plataforma*>* GerenciadorDeColisoes::getListaPlataforma()
+    Listas::Lista<Obstaculos::Plataforma*>* GerenciadorDeColisoes::getListaPlataforma()
     {
         return listaPlataforma;
+    }
+
+    std::vector<Inimigo*>* GerenciadorDeColisoes::getListaInimigos()
+    {
+        return listaInimigos;
+    }
+
+    std::list<Obstaculos::Obstaculo*>* GerenciadorDeColisoes::getListaObstaculos()
+    {
+        return listaObstaculos;
     }
 
     void GerenciadorDeColisoes::tratarColisaoJogObst()

@@ -15,9 +15,9 @@ namespace Gerenciadores {
     {
     private:
         Listas::Lista<Jogador*>* listaJogador;
-        Listas::Lista<Plataforma*>* listaPlataforma;
+        Listas::Lista<Obstaculos::Plataforma*>* listaPlataforma;
         std::vector<Inimigo*>* listaInimigos;
-        std::list<Obstaculo*>* listaObstaculos;
+        std::list<Obstaculos::Obstaculo*>* listaObstaculos;
 
         MudarFase* mudarFase;
 
@@ -44,9 +44,9 @@ namespace Gerenciadores {
         void danoJogador(Jogador* jogador, int dirX);
 
         Listas::Lista<Jogador*>* getListaJogadores();
-        Listas::Lista<Plataforma*>* getListaPlataforma();
-        std::vector<Inimigo*>* getListaInimigos() { return listaInimigos; };
-        std::list<Obstaculo*>* getListaObstaculos() { return listaObstaculos; };
+        Listas::Lista<Obstaculos::Plataforma*>* getListaPlataforma();
+        std::vector<Inimigo*>* getListaInimigos();
+        std::list<Obstaculos::Obstaculo*>* getListaObstaculos();
 
         MudarFase* getMudarFase() { return mudarFase; };
         void setMudarFase(MudarFase* m) { mudarFase = m; };

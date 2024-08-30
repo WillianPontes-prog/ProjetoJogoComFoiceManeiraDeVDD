@@ -1,12 +1,14 @@
 #include "ObstaculoDano.h"
 
-void ObstaculoDano::atualiza()
-{
-	draw();
-	atualizaSprite(getBody().getPosition().x, getBody().getPosition().y);
-}
+namespace Obstaculos {
+	void ObstaculoDano::atualiza()
+	{
+		draw();
+		atualizaSprite(getBody().getPosition().x, getBody().getPosition().y);
+	}
 
-void ObstaculoDano::Obstacular(Jogador* j)
-{
-	j->operator--();
+	void ObstaculoDano::Obstacular(Jogador* j)
+	{
+		j->operator--();
+	}
 }

@@ -27,6 +27,7 @@
 
 
 using namespace Fases;
+using namespace Obstaculos;
 
 namespace Gerenciadores {
 

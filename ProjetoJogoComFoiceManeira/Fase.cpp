@@ -4,6 +4,7 @@
 
 using namespace Listas;
 using namespace Gerenciadores;
+using namespace Obstaculos;
 
 namespace Fases {
 

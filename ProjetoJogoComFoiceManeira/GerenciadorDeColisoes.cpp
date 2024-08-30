@@ -7,7 +7,8 @@ GerenciadorDeColisoes::GerenciadorDeColisoes(Fase* fase):
     listaJogador(new Lista<Jogador*>()),
     listaPlataforma(new Lista<Plataforma*>()),
     listaInimigos(new Lista<Inimigo*>()),
-    listaObstaculos(new Lista<Obstaculo*>())
+    listaObstaculos(new Lista<Obstaculo*>()),
+    mudarFase(nullptr)
 {
     this->fase = fase;
 }

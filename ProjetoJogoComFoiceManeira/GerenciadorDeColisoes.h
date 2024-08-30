@@ -44,7 +44,8 @@ public:
 	Lista<Inimigo*>* getListaInimigos() { return listaInimigos; };
 	Lista<Obstaculo*>* getListaObstaculos() { return listaObstaculos; };
 	
-	MudarFase* getMudarFase() { return mudarFase; };
+	MudarFase* getMudarFase()		{ return mudarFase; };
 	void setMudarFase(MudarFase* m) { mudarFase = m; };
 };
 
+ 

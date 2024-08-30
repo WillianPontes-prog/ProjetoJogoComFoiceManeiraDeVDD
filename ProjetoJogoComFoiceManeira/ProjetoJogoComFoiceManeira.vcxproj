@@ -175,6 +175,7 @@
   <ItemGroup>
     <None Include="map.json" />
     <None Include="pipipipopopodeteste.json" />
+    <None Include="Rank.json" />
     <None Include="Save.json" />
     <None Include="tileds\MapaF1.json" />
     <None Include="tileds\MapaF2.json" />

@@ -58,6 +58,7 @@ void Botao::executar()
 		jogo->CriaFase2(false, false);
 		
 		jogo->setarModoDeJogo(Jogo::_menuFases);
+		Sleep(100);
 	
 		break;
 	case Botao::_NovoJogo2Jogadores: 
@@ -65,6 +66,7 @@ void Botao::executar()
 		jogo->CriaFase2(true, false);
 		
 		jogo->setarModoDeJogo(Jogo::_menuFases);
+		Sleep(100);
 
 		break;
 	case Botao::_CarregarJogo: 

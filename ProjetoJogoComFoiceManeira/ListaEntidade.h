@@ -8,6 +8,7 @@ class GerenciadorDeColisoes;
 class ListaEntidade {
 private:
     Lista<Entidade*>* listaEntidades;
+    int pontosPorPasso;
 
 public:
     ListaEntidade();
@@ -16,4 +17,7 @@ public:
 	void incluir(Entidade* entidade);
 
     json toJson();
+
+    int getPontosPorPasso() { return pontosPorPasso; }
 };
+

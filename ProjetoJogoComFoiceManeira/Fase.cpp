@@ -41,20 +41,22 @@ void Fase::atualiza()
     draw();
 
     listaEntidades->percorrer(gerenciadorDeColisoes);
-
 	gerenciadorDeColisoes->tratarColisoes();
     
+    int ppp = listaEntidades->getPontosPorPasso();
+
+    for (int p = 0; p < ppp; p++) {
+        jg->operator++();
+    }
+
     bool f = false;
 
     for(Lista<Jogador*>::iterator it = getListaJogadores()->begin(); it != getListaJogadores()->end(); it++)
 	{
-        
-
 		if((*it)->getVida() > 0)
 		{
             f = true;
 		}
-
 	}
 
     if (!f) {

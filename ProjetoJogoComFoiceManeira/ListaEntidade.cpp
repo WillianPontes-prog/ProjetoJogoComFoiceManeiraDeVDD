@@ -2,8 +2,10 @@
 #include "Inimigo.h"
 
 ListaEntidade::ListaEntidade():
-listaEntidades(new Lista<Entidade*>())
+listaEntidades(new Lista<Entidade*>()),
+pontosPorPasso(0)
 {
+
 }
 
 ListaEntidade::~ListaEntidade()
@@ -12,6 +14,8 @@ ListaEntidade::~ListaEntidade()
 
 void ListaEntidade::percorrer(GerenciadorDeColisoes* gdc)
 {
+    pontosPorPasso = 0;
+
 	for (Lista<Entidade*>::iterator it = listaEntidades->begin();it!=listaEntidades->end(); )
 	{
 		(*it)->atualiza();
@@ -20,10 +24,13 @@ void ListaEntidade::percorrer(GerenciadorDeColisoes* gdc)
 
         if (ini) {
             if (ini->getVida() <= 0) {
-                Inimigo* projetil = ini;
+                Inimigo* inimigo = ini;
                 it = listaEntidades->removerElemento(it);
-                gdc->getListaInimigos()->removerElemento(projetil);
-                delete projetil;
+                gdc->getListaInimigos()->removerElemento(inimigo);
+
+                pontosPorPasso++;
+
+                delete inimigo;
             }
             else {
                 ++it;

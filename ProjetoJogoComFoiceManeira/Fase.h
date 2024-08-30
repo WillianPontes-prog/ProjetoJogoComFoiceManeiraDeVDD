@@ -52,6 +52,7 @@ public:
 
 	bool continunando;
 
+	
 	Lista<Jogador*>* getListaJogadores();
 	Lista<Plataforma*>* getListaPlataforma();
 	Lista<Inimigo*>* getListaInimigos();

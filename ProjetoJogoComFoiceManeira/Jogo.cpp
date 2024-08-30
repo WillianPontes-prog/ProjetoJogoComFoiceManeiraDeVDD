@@ -9,7 +9,9 @@ Jogo::Jogo():
 	gerenciadorGrafico(GerenciadorGrafico::getInstance()),
     f1(nullptr),
     f2(nullptr),
-    menu(new Menu(this))
+    menu(new Menu(this)),
+    pontuacao(0),
+    atualizarPontuacao(true)
 {
     if (!texturaFim.loadFromFile("imagens/fimDeJogo.png")) {
         throw std::runtime_error("Erro ao carregar a textura!");
@@ -19,6 +21,18 @@ Jogo::Jogo():
         throw std::runtime_error("Erro ao carregar a textura!");
     }
 
+    
+    if (!font.loadFromFile("PIXEAB.ttf")) { // Certifique-se de ter o arquivo de fonte no diretório
+        std::cerr << "Erro ao carregar a fonte." << std::endl;
+    }
+
+    // Cria um objeto sf::Text para exibir o texto na janela
+    
+    text.setFont(font);
+    text.setCharacterSize(24); // Tamanho da fonte
+    text.setFillColor(sf::Color::White); // Cor do texto
+    text.setPosition(190, 520); // Posição inicial do texto
+    
     
 
     srand(time(NULL));
@@ -58,45 +72,99 @@ void Jogo::executar()
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 		{
-            if (rodando == Jogo::_fase1 || rodando == Jogo::_fase2)
+            if (rodando != Jogo::_menu && rodando != Jogo::_menuFases)
             {
-                
-                json jMap;
 
-                if (rodando == Jogo::_fase1) {
-                    jMap = { {"Fase", _F1},};
+                if (rodando == Jogo::_fase1 || rodando == Jogo::_fase2)
+                {
 
-                    f1->salvarFase();
+                    json jMap;
+
+                    if (rodando == Jogo::_fase1) {
+                        jMap = { {"Fase", _F1}, };
+
+                        f1->salvarFase();
+                    }
+                    else {
+                        jMap = { {"Fase", _F2} };
+
+                        f2->salvarFase();
+                    }
+
+                    std::ofstream outputFile("map.json");
+                    if (!outputFile.is_open()) {
+                        std::cerr << "Erro ao abrir o arquivo JSON para escrita!" << std::endl;
+                    }
+                    else {
+
+                        outputFile << jMap.dump(4); // Salvando com identação de 4 espaços
+                        outputFile.flush();
+                        outputFile.close();
+                    }
                 }
-                else if (rodando == Jogo::_fase2) {
-                    jMap = { {"Fase", _F2} };
 
-                    f2->salvarFase();
+                if (rodando == Jogo::_fimDeJogo) {
+
+                    // Tente ler o arquivo JSON existente
+                    json jsonData;
+                    std::ifstream inputFile("Rank.json");
+
+                    if (inputFile.is_open()) {
+                        try {
+                            inputFile >> jsonData;
+                            inputFile.close();
+                        }
+                        catch (const json::exception& e) {
+                            std::cerr << "Erro ao ler o arquivo JSON: " << e.what() << std::endl;
+
+                        }
+                    }
+
+
+                    jsonData.push_back(json{ {"Nome", inputText}, {"Pontos", pontuacao} });
+
+                    // Salvar o JSON atualizado de volta no arquivo
+                    std::ofstream outputFile("Rank.json");
+                    if (outputFile.is_open()) {
+                        outputFile << jsonData.dump(4); // Salvando com identação de 4 espaços
+                        outputFile.close();
+                    }
+                    else {
+                        std::cerr << "Erro ao abrir o arquivo JSON para escrita!" << std::endl;
+
+                    }
                 }
 
-                std::ofstream outputFile("map.json");
-                if (!outputFile.is_open()) {
-                    std::cerr << "Erro ao abrir o arquivo JSON para escrita!" << std::endl;
-                }
-                else {
-
-                    outputFile << jMap.dump(4); // Salvando com identação de 4 espaços
-                    outputFile.flush();
-                    outputFile.close();
-                }
+                rodando = Jogo::_menu;
             }
-
-			rodando = Jogo::_menu;
 		}
 
         switch (rodando)
         {
         case Jogo::_menu:
+
+            if (atualizarPontuacao) {
+
+                atualizaPontuacao();
+                atualizarPontuacao = false;
+            }
+
+           
+
+
             menu->fases = false;
             menu->atualiza();
 
+            for (const auto& text : rank) {
+                gerenciadorGrafico->draw(text);
+            }
+
             break;
         case Jogo::_menuFases:
+
+
+            pontuacao = 0;
+
             menu->fases = true;
             menu->atualiza();
 
@@ -122,10 +190,28 @@ void Jogo::executar()
 
             gerenciadorGrafico->draw(spriteFinal);
 
+            window->setKeyRepeatEnabled(false);
+
+            if (event.type == sf::Event::TextEntered) {
+                if (event.text.unicode < 128) { // Verifica se o caractere é ASCII
+                    if (event.text.unicode == '\b' && !inputText.empty()) {
+                        // Apaga o último caractere se 'Backspace' for pressionado
+                        inputText.pop_back();
+                    }
+                    else if (event.text.unicode >= 32) {
+                        // Adiciona o caractere à string se não for 'Backspace'
+                        inputText += static_cast<char>(event.text.unicode);
+                    }
+                    text.setString(inputText); // Atualiza o texto exibido
+
+                    Sleep(100); // Espera 100ms para evitar múltiplas entradas
+                }
+            }
+
+            
+
             break;
         default:
-
-
 
             break;
         }
@@ -142,6 +228,14 @@ void Jogo::executar()
         }
 #endif
 
+        if (rodando != Jogo::_menu) {
+            atualizarPontuacao = true;
+        }
+
+        if(rodando == Jogo::_fimDeJogo)
+		{
+			window->draw(text);
+		}
         window->display();
 
     }
@@ -162,4 +256,88 @@ void Jogo::CriaFase2(bool n, bool carregar)
     f2 = new Fase2(n, this, carregar);
 
     
+}
+
+void Jogo::atualizaPontuacao()
+{
+    
+    // Abre o arquivo JSON
+    std::ifstream arquivo("Rank.json");
+
+    // Verifica se o arquivo foi aberto com sucesso
+    if (!arquivo.is_open()) {
+        std::cerr << "Não foi possível abrir o arquivo " << "Rank" << std::endl;
+        return;
+    }
+
+    // Carrega o JSON a partir do arquivo
+    json j;
+    arquivo >> j;
+
+    std::vector<std::string> nomes;
+    std::vector<int> pontos;
+
+
+    // Itera sobre cada objeto no JSON e exibe nome e pontos
+    for (const auto& item : j) {
+        std::string n = item.at("Nome").get<std::string>();
+        int p = item.at("Pontos").get<int>();
+        
+        nomes.push_back(n);
+        pontos.push_back(p);
+
+    }
+
+    int n = pontos.size();
+    bool trocado;
+
+    int nRank = 10;
+
+    for(size_t i = 0; i < nomes.size() && i < nRank; ++i)
+	{
+        int n = pontos.size();
+        bool trocado;
+
+        // Loop para realizar as passagens pelo vetor
+        for (int i = 0; i < n - 1 ; i++) {
+            trocado = false;
+
+            // Loop para comparar e trocar elementos adjacentes
+            for (int j = 0; j < n - i - 1; j++) {
+                if (pontos[j] < pontos[j + 1]) {
+                    // Troca os elementos se estiverem na ordem errada
+                    std::swap(pontos[j], pontos[j + 1]);
+                    std::swap(nomes[j], nomes[j + 1]);
+                    trocado = true;
+                }
+            }
+
+            // Se nenhum elemento foi trocado, o vetor já está ordenado
+            if (!trocado)
+                break;
+        }
+	}
+
+
+    for (size_t i = 0; i < nomes.size() && i < nRank; ++i) {
+        sf::Text text;
+
+        // Define a string do texto com o nome e a pontuação
+        text.setString(std::to_string(i+1) + " - " + nomes[i] + " : " + std::to_string(pontos[i]) + "pts");
+
+        // Define a fonte do texto
+        text.setFont(font);
+
+        // Define o tamanho do texto
+        text.setCharacterSize(16);
+
+        // Define a cor do texto
+        text.setFillColor(sf::Color::Black);
+
+        // Define a posição do texto (ajustando para cada linha)
+        text.setPosition(600, 100 + i * 30);
+
+        // Adiciona o texto ao vetor
+        rank.push_back(text);
+    }
 }

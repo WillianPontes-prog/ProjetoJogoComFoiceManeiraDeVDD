@@ -1,6 +1,6 @@
 #pragma once
 #include "GerenciadorGrafico.h"
-
+#include <windows.h>
 #include "Menu.h"
 
 class Menu;
@@ -20,7 +20,14 @@ private:
 	sf::Texture texturaVenceu;
 	sf::Sprite	spriteFinal;
 	
+	sf::Font font;
+	std::string inputText;
+	sf::Text text;
 
+	int pontuacao;
+	bool atualizarPontuacao;
+
+	std::vector<sf::Text> rank;
 
 public:
 
@@ -41,5 +48,12 @@ public:
 	void setarModoDeJogo(modos m) { rodando = m; };
 	void CriaFase1(bool n, bool carregar);
 	void CriaFase2(bool n, bool carregar);
+
+	void operator++(){pontuacao++; };
+	int getPontuacao()			{ return pontuacao; };
+
+	void atualizaPontuacao();
+
+	
 };
 

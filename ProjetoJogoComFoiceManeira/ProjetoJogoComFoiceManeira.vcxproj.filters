@@ -212,6 +212,7 @@
     <None Include="tileds\MapaF1.json" />
     <None Include="tileds\MapaF2.json" />
     <None Include="map.json" />
+    <None Include="Rank.json" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="PIXEAB.TTF">

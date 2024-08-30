@@ -6,8 +6,8 @@
 GerenciadorDeColisoes::GerenciadorDeColisoes(Fase* fase):
     listaJogador(new Lista<Jogador*>()),
     listaPlataforma(new Lista<Plataforma*>()),
-    listaInimigos(new Lista<Inimigo*>()),
-    listaObstaculos(new Lista<Obstaculo*>()),
+    listaInimigos(new std::vector<Inimigo*>()),
+    listaObstaculos(new std::list<Obstaculo*>()),
     mudarFase(nullptr)
 {
     this->fase = fase;
@@ -158,7 +158,7 @@ void GerenciadorDeColisoes::tratarColisoes()
         
         //--itera sobre todos os obstaculos--\\
         ======================================
-        for (Lista<Obstaculo*>::iterator it = listaObstaculos->begin(); it != listaObstaculos->end(); ++it) {
+        for (std::list<Obstaculo*>::iterator it = listaObstaculos->begin(); it != listaObstaculos->end(); ++it) {
 
             if (ChecarColisao((*itJog)->getBody(), (*it)->getBody())) {
                 ObstaculoDano* obstaculo1 = dynamic_cast<ObstaculoDano*>(*it);
@@ -189,7 +189,7 @@ void GerenciadorDeColisoes::tratarColisoes()
 
     //--itera sobre cada inimigo--\\
    ================================
-    for (Lista<Inimigo*>::iterator itIni = listaInimigos->begin(); itIni != listaInimigos->end(); ++itIni) {
+    for (std::vector<Inimigo*>::iterator itIni = listaInimigos->begin(); itIni != listaInimigos->end(); ++itIni) {
 
         sf::RectangleShape bodyTemp;
 
@@ -348,5 +348,4 @@ void GerenciadorDeColisoes::danoJogador(Jogador* jogador, int dirX)
     jogador->setVspd(-8);
     jogador->setHspd(dirX * 6);
 }
-
 

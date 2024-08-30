@@ -205,14 +205,14 @@ void Fase::criarZumbinana(float posX, float posY, float vida)
     i->setGerenciadorGrafico();
 
     listaEntidades->incluir(i);
-    getListaInimigos()->adicionarElemento(i);
+    getListaInimigos()->push_back(i);
 }
 
 
-Lista<Jogador*>* Fase::getListaJogadores()      { return	gerenciadorDeColisoes->getListaJogadores(); }
-Lista<Plataforma*>* Fase::getListaPlataforma()  { return	gerenciadorDeColisoes->getListaPlataforma(); }
-Lista<Inimigo*>* Fase::getListaInimigos()       { return    gerenciadorDeColisoes->getListaInimigos(); }
-Lista<Obstaculo*>* Fase::getListaObstaculos()   { return    gerenciadorDeColisoes->getListaObstaculos(); }
+Lista<Jogador*>* Fase::getListaJogadores()          { return	gerenciadorDeColisoes->getListaJogadores(); }
+Lista<Plataforma*>* Fase::getListaPlataforma()      { return	gerenciadorDeColisoes->getListaPlataforma(); }
+std::vector<Inimigo*>* Fase::getListaInimigos()     { return    gerenciadorDeColisoes->getListaInimigos(); }
+std::list<Obstaculo*>* Fase::getListaObstaculos()   { return    gerenciadorDeColisoes->getListaObstaculos(); }
 
 MudarFase* Fase::getMudarFase()
 {

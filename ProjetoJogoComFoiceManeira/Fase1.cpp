@@ -113,7 +113,7 @@ void Fase1::criarTeleporte(float posX, float posY)
     o->setGerenciadorGrafico();
 
     listaEntidades->incluir(o);
-    getListaObstaculos()->adicionarElemento(o);
+    getListaObstaculos()->push_back(o);
 }
 
 void Fase1::criarZumbiFriorento(float posX, float posY, float vida)
@@ -135,7 +135,7 @@ void Fase1::criarZumbiFriorento(float posX, float posY, float vida)
         i->setGerenciadorGrafico();
 
         listaEntidades->incluir(i);
-        getListaInimigos()->adicionarElemento(i);
+        getListaInimigos()->push_back(i);
 
         numZumbiFriorento[0]++;
     }

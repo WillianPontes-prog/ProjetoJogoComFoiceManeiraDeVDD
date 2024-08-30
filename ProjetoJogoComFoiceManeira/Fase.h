@@ -55,8 +55,8 @@ public:
 	
 	Lista<Jogador*>* getListaJogadores();
 	Lista<Plataforma*>* getListaPlataforma();
-	Lista<Inimigo*>* getListaInimigos();
-	Lista<Obstaculo*>* getListaObstaculos();
+	std::vector<Inimigo*>* getListaInimigos();
+	std::list<Obstaculo*>* getListaObstaculos();
 	
 	MudarFase* getMudarFase();
 	void setMudarFase(MudarFase* m);

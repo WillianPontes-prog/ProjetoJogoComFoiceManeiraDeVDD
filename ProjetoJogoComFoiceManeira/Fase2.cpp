@@ -115,7 +115,7 @@ void Fase2::criarChefao(float posX, float posY, int vida)
 
     chefao->setPosicao2(pos);
 	listaEntidades->incluir(chefao);
-	getListaInimigos()->adicionarElemento(chefao);
+	getListaInimigos()->push_back(chefao);
 
     nChefao++;
 }
@@ -126,12 +126,12 @@ void Fase2::criarFogo(float posX, float posY)
     o->setGerenciadorGrafico();
 
     listaEntidades->incluir(o);
-    getListaObstaculos()->adicionarElemento(o);
+    getListaObstaculos()->push_back(o);
 }
 
 bool Fase2::checarMudarFase()
 {
-    if (getListaInimigos()->tamanho() == 0)
+    if (getListaInimigos()->size() == 0)
         return true;
 
 

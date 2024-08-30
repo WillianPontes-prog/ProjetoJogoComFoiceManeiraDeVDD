@@ -16,6 +16,7 @@ void ListaEntidade::percorrer(GerenciadorDeColisoes* gdc)
 {
     pontosPorPasso = 0;
 
+    
 	for (Lista<Entidade*>::iterator it = listaEntidades->begin();it!=listaEntidades->end(); )
 	{
 		(*it)->atualiza();
@@ -26,7 +27,14 @@ void ListaEntidade::percorrer(GerenciadorDeColisoes* gdc)
             if (ini->getVida() <= 0) {
                 Inimigo* inimigo = ini;
                 it = listaEntidades->removerElemento(it);
-                gdc->getListaInimigos()->removerElemento(inimigo);
+
+
+                auto it = std::find(gdc->getListaInimigos()->begin(), gdc->getListaInimigos()->end(), inimigo);
+                if (it != gdc->getListaInimigos()->end()) {
+                    gdc->getListaInimigos()->erase(it);
+                }
+
+                
 
                 pontosPorPasso++;
 

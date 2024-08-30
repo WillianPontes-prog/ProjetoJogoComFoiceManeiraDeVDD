@@ -28,6 +28,7 @@
 
 using namespace Fases;
 using namespace Obstaculos;
+using namespace Personagens;
 
 namespace Gerenciadores {
 

@@ -5,6 +5,7 @@
 using namespace Listas;
 using namespace Gerenciadores;
 using namespace Obstaculos;
+using namespace Personagens;
 
 namespace Fases {
 

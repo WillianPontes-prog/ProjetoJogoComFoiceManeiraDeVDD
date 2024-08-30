@@ -15,7 +15,7 @@ namespace Obstaculos {
 
 		void atualiza();
 		float getAtrito() { return atrito; }
-		void Obstacular(Jogador* j);
+		void Obstacular(Personagens::Jogador* j);
 		json toJson() {
 			return json{
 			{classe, Tipo::_plataforma},

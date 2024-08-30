@@ -13,7 +13,7 @@ namespace Obstaculos{
 		~Obstaculo();
 
 		virtual void atualiza() = 0;
-		virtual void Obstacular(Jogador* j) = 0;
+		virtual void Obstacular(Personagens::Jogador* j) = 0;
 		virtual json toJson() = 0;
 	};
 

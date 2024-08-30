@@ -14,9 +14,9 @@ namespace Gerenciadores {
     class GerenciadorDeColisoes
     {
     private:
-        Listas::Lista<Jogador*>* listaJogador;
+        Listas::Lista<Personagens::Jogador*>* listaJogador;
         Listas::Lista<Obstaculos::Plataforma*>* listaPlataforma;
-        std::vector<Inimigo*>* listaInimigos;
+        std::vector<Personagens::Inimigo*>* listaInimigos;
         std::list<Obstaculos::Obstaculo*>* listaObstaculos;
 
         MudarFase* mudarFase;
@@ -41,11 +41,11 @@ namespace Gerenciadores {
             else { return (valor / abs(valor)); }
         }
 
-        void danoJogador(Jogador* jogador, int dirX);
+        void danoJogador(Personagens::Jogador* jogador, int dirX);
 
-        Listas::Lista<Jogador*>* getListaJogadores();
+        Listas::Lista<Personagens::Jogador*>* getListaJogadores();
         Listas::Lista<Obstaculos::Plataforma*>* getListaPlataforma();
-        std::vector<Inimigo*>* getListaInimigos();
+        std::vector<Personagens::Inimigo*>* getListaInimigos();
         std::list<Obstaculos::Obstaculo*>* getListaObstaculos();
 
         MudarFase* getMudarFase() { return mudarFase; };

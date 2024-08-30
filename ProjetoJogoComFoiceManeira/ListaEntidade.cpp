@@ -2,6 +2,7 @@
 #include "Inimigo.h"
 
 using namespace Gerenciadores;
+using namespace Personagens;
 
 namespace Listas{
 

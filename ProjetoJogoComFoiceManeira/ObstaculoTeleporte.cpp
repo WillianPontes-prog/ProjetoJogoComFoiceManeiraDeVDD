@@ -1,6 +1,8 @@
 
 #include "ObstaculoTeleporte.h"
 
+using namespace Personagens;
+
 namespace Obstaculos {
 	ObstaculoTeleporte::ObstaculoTeleporte(sf::Vector2f posicao) :
 		Obstaculo(posicao.x, posicao.y)

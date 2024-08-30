@@ -5,7 +5,7 @@
 using namespace Fases;
 using namespace Listas;
 using namespace Obstaculos;
-
+using namespace Personagens;
 namespace Gerenciadores {
 
     GerenciadorDeColisoes::GerenciadorDeColisoes(Fase* fase) :

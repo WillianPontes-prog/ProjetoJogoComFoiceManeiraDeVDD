@@ -2,6 +2,8 @@
 #include "Zumbinana.h"
 #include "EstadoAtacando.h"
 
+using namespace Personagens;
+
 void EstadoAndando::atualiza(Zumbinana* inimigo) {
     sf::Vector2f posicao = inimigo->BuscarJogador();
     inimigo->move();

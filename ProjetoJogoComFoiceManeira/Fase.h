@@ -62,9 +62,9 @@ namespace Fases{
 		bool continunando;
 
 
-		Listas::Lista<Jogador*>* getListaJogadores();
+		Listas::Lista<Personagens::Jogador*>* getListaJogadores();
 		Listas::Lista<Obstaculos::Plataforma*>* getListaPlataforma();
-		std::vector<Inimigo*>* getListaInimigos();
+		std::vector<Personagens::Inimigo*>* getListaInimigos();
 		std::list<Obstaculos::Obstaculo*>* getListaObstaculos();
 
 		MudarFase* getMudarFase();

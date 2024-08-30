@@ -12,7 +12,7 @@ namespace Obstaculos {
 		~ObstaculoDano() {};
 
 		void atualiza();
-		void Obstacular(Jogador* j);
+		void Obstacular(Personagens::Jogador* j);
 		json toJson() {
 			return json{
 			{classe, Tipo::_obstaculoDano},

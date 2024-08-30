@@ -2,6 +2,7 @@
 
 using namespace Fases;
 using namespace Obstaculos;
+using namespace Personagens;
 
 void Fase1::carregarFase()
 {

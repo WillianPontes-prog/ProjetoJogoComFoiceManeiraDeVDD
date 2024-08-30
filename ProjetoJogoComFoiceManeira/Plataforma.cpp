@@ -21,7 +21,7 @@ namespace Obstaculos {
 		}
 	}
 
-	void Plataforma::Obstacular(Jogador* j)
+	void Plataforma::Obstacular(Personagens::Jogador* j)
 	{
 		j->setSobAtrito(true);
 		j->setHspd(j->getHspd() * getAtrito());

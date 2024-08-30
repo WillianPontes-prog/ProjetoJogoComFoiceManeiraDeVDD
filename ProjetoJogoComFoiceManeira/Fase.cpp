@@ -162,13 +162,18 @@ void Fase::criarJogador(float posX, float posY, int vida, bool j2)
 {
     Arma* arm; 
     bool voar = false;
+    BuilderArma b =  BuilderArma();
 
     if (j2) {
-        arm = new Arma(8, 1, 35, 12, sf::Color::Magenta, sf::Vector2f(8, 8));
+		b.buildArmaJogador2();
+		b.buildRoxo();
+		arm = b.getArma();
         voar = true;
     }
 	else {
-		arm = new Arma(16, 2, 80, 15, sf::Color::Yellow, sf::Vector2f(15,8));
+        b.buildArmaJogador1();
+        b.buildAzul();
+        arm = b.getArma();
 	}
 
 	Jogador* j = new Jogador(posX, posY, vida, arm, j2, voar);
@@ -200,7 +205,11 @@ void Fase::criarMudarFase(float posX, float posY)
 
 void Fase::criarZumbinana(float posX, float posY, float vida)
 {   
-    Arma* arma = new Arma(80,1,30,5,sf::Color::Red,sf::Vector2f(15,4));
+    BuilderArma b = BuilderArma();
+    b.buildArmaZumbinana();
+    b.buildAmarelo();
+    Arma* arma = b.getArma();
+    
     Zumbinana* i = new Zumbinana(getListaJogadores(), posX, posY, vida, arma);
     i->setGerenciadorGrafico();
 

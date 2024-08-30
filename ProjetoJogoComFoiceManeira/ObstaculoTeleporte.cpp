@@ -20,5 +20,7 @@ void ObstaculoTeleporte::atualiza()
 void ObstaculoTeleporte::Obstacular(Jogador* jogador)
 {
 	jogador->setPosition(jogador->getPosicaoInicial());
+	jogador->setHspd(0);
+	jogador->setVspd(0);
 
 }

@@ -1,5 +1,7 @@
 #include "Fase1.h"
 
+using namespace Fases;
+
 void Fase1::carregarFase()
 {
     json j = lerArquivoJSON("save.json");

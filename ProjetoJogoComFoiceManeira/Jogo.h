@@ -3,18 +3,22 @@
 #include <windows.h>
 #include "Menu.h"
 #include "GerenciadorDeComandos.h"
+#include <stack>
 
 class Menu;
-class Fase1;
-class Fase2;
+
+namespace Fases{
+	class Fase1;
+	class Fase2;
+}
 
 class Jogo
 {
 private:
 	GerenciadorDeComandos gerenciadorDeComandos;
 	GerenciadorGrafico* gerenciadorGrafico;
-	Fase1* f1;
-	Fase2* f2;
+	Fases::Fase1* f1;
+	Fases::Fase2* f2;
 
 	Menu* menu;
 	
@@ -29,7 +33,7 @@ private:
 	int pontuacao;
 	bool atualizarPontuacao;
 
-	std::vector<sf::Text> rank;
+	std::stack<sf::Text> rank;
 
 public:
 
@@ -51,7 +55,7 @@ public:
 	void CriaFase1(bool n, bool carregar);
 	void CriaFase2(bool n, bool carregar);
 
-	void operator++(){pontuacao++; };
+	void operator++()			{pontuacao++; };
 	int getPontuacao()			{ return pontuacao; };
 
 	void atualizaPontuacao();
@@ -59,5 +63,8 @@ public:
 	void adicionarObserver(Observer* observer) {
 		gerenciadorDeComandos.adicionarObserver(observer);
 	}
+
+	void drawPontuacao();
+
 };
 

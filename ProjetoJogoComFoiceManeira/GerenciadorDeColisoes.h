@@ -5,7 +5,9 @@
 #include "Inimigo.h"
 #include <vector>
 
-class Fase;
+namespace Fases {
+	class Fase;
+}
 class MudarFase;
 
 class GerenciadorDeColisoes
@@ -18,21 +20,21 @@ private:
 
     MudarFase* mudarFase;
 
-    Fase* fase;
+    Fases::Fase* fase;
 
 public:
-    GerenciadorDeColisoes(Fase* fase);
+    GerenciadorDeColisoes(Fases::Fase* fase);
     ~GerenciadorDeColisoes();
 
     void tratarColisoes();
 
-    int ChecarColisao(const sf::RectangleShape& rect1, const sf::RectangleShape& rect2) {
+    const int ChecarColisao(const sf::RectangleShape& rect1, const sf::RectangleShape& rect2) {
         sf::FloatRect bounds1 = rect1.getGlobalBounds();
         sf::FloatRect bounds2 = rect2.getGlobalBounds();
         return bounds1.intersects(bounds2);
     }
 
-    int NumeroMinimo(float valor)
+    int NumeroMinimo(const float valor)
     {
         if (valor == 0) { return 0; }
         else { return (valor / abs(valor)); }

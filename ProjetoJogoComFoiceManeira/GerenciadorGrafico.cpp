@@ -26,7 +26,7 @@ GerenciadorGrafico* GerenciadorGrafico::instance = nullptr;
 #define SPR_MENU "imagens/BackgroungMenu.png"
 
 
-
+using namespace Fases;
 
 void GerenciadorGrafico::carregarTexturas()
 {

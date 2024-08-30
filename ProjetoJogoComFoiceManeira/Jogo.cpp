@@ -4,6 +4,7 @@
 
 #define FPS 60
 
+using namespace Fases;
 
 Jogo::Jogo():
 	gerenciadorGrafico(GerenciadorGrafico::getInstance()),
@@ -159,9 +160,7 @@ void Jogo::executar()
             menu->fases = false;
             menu->atualiza();
 
-            for (const auto& text : rank) {
-                gerenciadorGrafico->draw(text);
-            }
+            drawPontuacao();
 
             break;
         case Jogo::_menuFases:
@@ -335,7 +334,9 @@ void Jogo::atualizaPontuacao()
 	}
 
 
-    rank.clear();
+    while (!rank.empty()) {
+        rank.pop();
+    }
 
     for (size_t i = 0; i < nomes.size() && i < nRank; ++i) {
         sf::Text text;
@@ -358,6 +359,15 @@ void Jogo::atualizaPontuacao()
         text.setPosition(600, 100 + i * 30);
 
         // Adiciona o texto ao vetor
-        rank.push_back(text);
+        rank.push(text);
+    }
+}
+
+void Jogo::drawPontuacao()
+{
+    stack<sf::Text> rankCopy = rank;
+    while (!rankCopy.empty()) {
+        gerenciadorGrafico->draw(rankCopy.top());
+        rankCopy.pop();
     }
 }

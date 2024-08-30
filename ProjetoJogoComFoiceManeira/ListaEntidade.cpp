@@ -10,6 +10,11 @@ pontosPorPasso(0)
 
 ListaEntidade::~ListaEntidade()
 {
+    for (Lista<Entidade*>::iterator it = listaEntidades->begin(); it != listaEntidades->end(); it++)
+	{
+		delete *it;
+	}
+	delete listaEntidades;
 }
 
 void ListaEntidade::percorrer(GerenciadorDeColisoes* gdc)
@@ -73,7 +78,7 @@ json ListaEntidade::toJson()
 
             j.push_back((*it)->toJson());
 
-            EntidadeColisao* ec = dynamic_cast<EntidadeColisao*>(*it);
+            EntidadeColidivel* ec = dynamic_cast<EntidadeColidivel*>(*it);
             if (ec) {
                 for (auto it = ec->getListaProjetil()->begin(); it != ec->getListaProjetil()->end(); it++)
                 {

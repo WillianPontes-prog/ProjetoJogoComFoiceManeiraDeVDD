@@ -2,7 +2,7 @@
 #include "Entidade.h"
 #include "Arma.h"
 
-class EntidadeColisao : public Entidade {
+class EntidadeColidivel : public Entidade {
 protected:
 
     Lista<Projetil*>* listaProjetil;
@@ -27,19 +27,19 @@ protected:
     bool sobAtrito;
 
 public:
-    EntidadeColisao(int posX = 0, int posY = 0, int vida = 5, Arma* arma = NULL);
-    ~EntidadeColisao();
+    EntidadeColidivel(int posX = 0, int posY = 0, int vida = 5, Arma* arma = NULL);
+    ~EntidadeColidivel();
 
-    void setVelocidade(float velocidade) { this->velocidade = velocidade; };
+    void setVelocidade(const float velocidade) { this->velocidade = velocidade; };
 
     virtual void move() = 0;
     virtual void atualiza() = 0;
 
-    float getHspd() { return hspd; };
-    float getVspd() { return vspd; };
+    const float getHspd() { return hspd; };
+    const float getVspd() { return vspd; };
 
-    void setHspd(float hspd) { this->hspd = hspd; };
-    void setVspd(float vspd) { this->vspd = vspd; };
+    void setHspd(const float hspd) { this->hspd = hspd; };
+    void setVspd(const float vspd) { this->vspd = vspd; };
 
     void setNoChao(bool noChao) { this->noChao = noChao; };
 
@@ -58,8 +58,8 @@ public:
     void setArma(Arma* arma) { this->arma = arma; };
     Arma* getArma() { return arma; };   
 
-    int getVida() { return vida; }
+    const int getVida() { return vida; }
 
-    void setSobAtrito(bool sobAtrito) { this->sobAtrito = sobAtrito; };
-    float getSobAtrito() { return sobAtrito; };
+    void    setSobAtrito(const bool sobAtrito) { this->sobAtrito = sobAtrito; };
+    const float   getSobAtrito() { return sobAtrito; };
 };

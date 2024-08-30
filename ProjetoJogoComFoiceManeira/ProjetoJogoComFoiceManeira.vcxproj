@@ -146,7 +146,7 @@
     <ClInclude Include="ZumbiDragao.h" />
     <ClInclude Include="Ente.h" />
     <ClInclude Include="Entidade.h" />
-    <ClInclude Include="EntidadeColisao.h" />
+    <ClInclude Include="EntidadeColidivel.h" />
     <ClInclude Include="Estado.h" />
     <ClInclude Include="EstadoAndando.h" />
     <ClInclude Include="EstadoAtacando.h" />
@@ -213,7 +213,7 @@
     <ClCompile Include="ZumbiDragao.cpp" />
     <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Entidade.cpp" />
-    <ClCompile Include="EntidadeColisao.cpp" />
+    <ClCompile Include="EntidadeColidivel.cpp" />
     <ClCompile Include="EstadoAndando.cpp" />
     <ClCompile Include="EstadoAtacando.cpp" />
     <ClCompile Include="Fase.cpp" />

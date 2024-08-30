@@ -1,9 +1,9 @@
 #pragma once
-#include "EntidadeColisao.h"
+#include "EntidadeColidivel.h"
 #include "Jogador.h"
 #include "Lista.h"
 
-class Inimigo : public EntidadeColisao {
+class Inimigo : public EntidadeColidivel {
 
 protected:
 	Lista<Jogador*>* listaJogadores;

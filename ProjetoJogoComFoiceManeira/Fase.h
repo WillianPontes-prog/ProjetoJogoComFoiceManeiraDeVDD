@@ -29,71 +29,70 @@ class ListaEntidade;
 class Jogo;
 class GerenciadorDeColisoes;
 
+namespace Fases{
+	class Fase : public Ente
+	{
+	protected:
+
+		GerenciadorDeColisoes* gerenciadorDeColisoes;
+
+		sf::Texture* texturaFundo;
+		sf::Sprite spriteFundo;
+		bool Jogadores;
+
+		ListaEntidade* listaEntidades;
+
+		virtual void carregarFase() = 0;
+
+		Jogo* jg;
+
+		int numZumbinana[4];
+
+		bool comPlataforma;
+
+	public:
+		Fase(bool Jogadores, Jogo* jg, bool continuar = 0);
+		~Fase();
+
+		bool continunando;
 
 
-class Fase : public Ente
-{
-protected:
+		Lista<Jogador*>* getListaJogadores();
+		Lista<Plataforma*>* getListaPlataforma();
+		std::vector<Inimigo*>* getListaInimigos();
+		std::list<Obstaculo*>* getListaObstaculos();
 
-	GerenciadorDeColisoes* gerenciadorDeColisoes;
+		MudarFase* getMudarFase();
+		void setMudarFase(MudarFase* m);
 
-	sf::Texture* texturaFundo;
-	sf::Sprite spriteFundo;
-	bool Jogadores;
+		void atualiza();
+		virtual void criaEntidades(float posX, float posY, int n) = 0;
 
-	ListaEntidade* listaEntidades;
+		json lerArquivoJSON(const std::string caminho);
+		void gerarFase(vector<vector<vector<int>>> mapa);
+		vector<vector<vector<int>>> extrairCamadas(const json& mapa, int numLayers);
 
-	virtual void carregarFase() = 0;
+		void setSpriteFundo(sf::Texture* texture);
+		void setJogadores(bool jogadores) { Jogadores = jogadores; };
 
-	Jogo* jg;
-
-	int numZumbinana[4];
-
-	bool comPlataforma;
-
-public:
-	Fase(bool Jogadores, Jogo* jg, bool continuar = 0);
-	~Fase();
-
-	bool continunando;
-
-	
-	Lista<Jogador*>* getListaJogadores();
-	Lista<Plataforma*>* getListaPlataforma();
-	std::vector<Inimigo*>* getListaInimigos();
-	std::list<Obstaculo*>* getListaObstaculos();
-	
-	MudarFase* getMudarFase();
-	void setMudarFase(MudarFase* m);
-
-	void atualiza();
-	virtual void criaEntidades(float posX, float posY, int n) = 0;
-
-	json lerArquivoJSON(const std::string caminho); 
-	void gerarFase(vector<vector<vector<int>>> mapa);
-	vector<vector<vector<int>>> extrairCamadas(const json& mapa, int numLayers);
-
-	void setSpriteFundo(sf::Texture* texture);
-	void setJogadores(bool jogadores) { Jogadores = jogadores; };
-
-	void salvarFase();
+		void salvarFase();
 
 
-	//------------metodos de criação de entidades-----------------\\
-	================================================================
-	void criarJogador(float posX = 0, float posY = 0, int vida = 5, bool j2 = false);
+		//------------metodos de criação de entidades-----------------\\
+		================================================================
+		void criarJogador(float posX = 0, float posY = 0, int vida = 5, bool j2 = false);
 
-	void criarPlataforma(float posX = 0, float posY = 0, bool aleatoria = false);
+		void criarPlataforma(float posX = 0, float posY = 0, bool aleatoria = false);
 
-	void criarMudarFase(float posX = 0, float posY = 0);
+		void criarMudarFase(float posX = 0, float posY = 0);
 
-	void criarZumbinana(float posX = 0, float posY = 0, float vida = 5);
+		void criarZumbinana(float posX = 0, float posY = 0, float vida = 5);
 
 
 
-	
 
-	void carregarProjeteis(float posX, float posY, float tamX, float tamY, int tempo, int velocidade, int dano, sf::Color cor, sf::Vector2f dir);
-	
-};
 
+		void carregarProjeteis(float posX, float posY, float tamX, float tamY, int tempo, int velocidade, int dano, sf::Color cor, sf::Vector2f dir);
+
+	};
+}

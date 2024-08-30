@@ -2,6 +2,7 @@
 #include "Jogo.h"
 #include "MudarFase.h"
 
+using namespace Fases;
 
 GerenciadorDeColisoes::GerenciadorDeColisoes(Fase* fase):
     listaJogador(new Lista<Jogador*>()),

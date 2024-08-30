@@ -1,6 +1,6 @@
-#include "EntidadeColisao.h"
+#include "EntidadeColidivel.h"
 
-EntidadeColisao::EntidadeColisao(int posX, int posY, int vida, Arma* arma) : 
+EntidadeColidivel::EntidadeColidivel(int posX, int posY, int vida, Arma* arma) : 
 	Entidade(posX, posY, 32, 32), 
 	listaProjetil(new Lista<Projetil*>),
 	arma(arma),
@@ -20,14 +20,14 @@ EntidadeColisao::EntidadeColisao(int posX, int posY, int vida, Arma* arma) :
     }
 }
 
-EntidadeColisao::~EntidadeColisao()
+EntidadeColidivel::~EntidadeColidivel()
 {
     delete arma;
 
     delete listaProjetil;
 }
 
-void EntidadeColisao::drawVida(float posX, float poY, sf::Sprite sprVida)
+void EntidadeColidivel::drawVida(float posX, float poY, sf::Sprite sprVida)
 {
 	for(int i = 0; i < vida; i++){
 		sprVida.setPosition(posX + (i * 32), poY);
@@ -35,7 +35,7 @@ void EntidadeColisao::drawVida(float posX, float poY, sf::Sprite sprVida)
 	}
 }
 
-void EntidadeColisao::disparar()
+void EntidadeColidivel::disparar()
 {
     if (arma != NULL) {
 
@@ -49,7 +49,7 @@ void EntidadeColisao::disparar()
     }
 }
 
-void EntidadeColisao::atualizaProjetil() {
+void EntidadeColidivel::atualizaProjetil() {
 
     for (Lista<Projetil*>::iterator it = listaProjetil->begin(); it != listaProjetil->end(); )
     {

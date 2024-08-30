@@ -3,27 +3,27 @@
 #include "ZumbiDragao.h"
 
 
+namespace Fases {
+	class Fase2 : public Fase
+	{
+	protected:
 
-class Fase2 : public Fase
-{
-protected:
-	
 
-	int numFogo[4];
-	int numZumbiDragao[4];
+		int numFogo[4];
+		int numZumbiDragao[4];
 
-	void carregarFase();
+		void carregarFase();
 
-public:
-	Fase2(bool Jogadores, Jogo* jg, bool carregar = false);
-	~Fase2();
+	public:
+		Fase2(bool Jogadores, Jogo* jg, bool carregar = false);
+		~Fase2();
 
-	void criaEntidades(float posX, float posY, int n);
+		void criaEntidades(float posX, float posY, int n);
 
-	void criarChefao(float posX, float posY, int vida);
+		void criarChefao(float posX, float posY, int vida);
 
-	void criarFogo(float posX = 0, float posY = 0);
+		void criarFogo(float posX = 0, float posY = 0);
 
-	bool checarMudarFase();
-};
-
+		bool checarMudarFase();
+	};
+}

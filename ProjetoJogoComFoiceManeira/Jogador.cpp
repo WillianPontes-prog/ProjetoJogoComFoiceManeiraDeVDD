@@ -2,7 +2,7 @@
 
 
 Jogador::Jogador(float posX, float posY, int vida, Arma* arma, bool jogador2, bool voar): 
-	EntidadeColisao(posX, posY, vida, arma),
+    EntidadeColidivel(posX, posY, vida, arma),
     state(Normal),
     posicaoInicial(posX, posY),
     jogador2(jogador2),

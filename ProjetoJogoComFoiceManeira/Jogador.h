@@ -1,9 +1,9 @@
 #pragma once
-#include "EntidadeColisao.h"
+#include "EntidadeColidivel.h"
 #include "Observer.h"
 
 
-class Jogador : public EntidadeColisao, public Observer 
+class Jogador : public EntidadeColidivel, public Observer
 {
 public:
 	enum State {

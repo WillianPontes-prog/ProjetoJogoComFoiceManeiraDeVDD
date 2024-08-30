@@ -1,5 +1,7 @@
 #include "Arma.h"
 
+using namespace Listas;
+
 Arma::Arma(int tempoDeRecarga,int dano, int tempoMaximo, int velocidade, sf::Vector2f tamanho):
 	tempoDeRecarga(tempoDeRecarga),
 	dano(dano),
@@ -22,4 +24,8 @@ void Arma::disparar(sf::Vector2f posicao, sf::Vector2f direcao)
 
 }
 
+void Arma::setListaProjetil(Listas::Lista<Projetil*>* lista)
+{
+	listaProjetil = lista;
+}
 

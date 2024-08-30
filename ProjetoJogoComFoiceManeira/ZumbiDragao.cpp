@@ -1,5 +1,7 @@
 #include "ZumbiDragao.h"
 
+using namespace Listas;
+
 ZumbiDragao::ZumbiDragao(Lista<Jogador*>* listaJogadores, float posX, float posY, float vida, int chanceTeleporte, Arma* arma):
 	Inimigo(listaJogadores, posX, posY, vida,arma),
 	chanceTeleporte(chanceTeleporte),

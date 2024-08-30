@@ -13,10 +13,10 @@ class MudarFase;
 class GerenciadorDeColisoes
 {
 private:
-    Lista<Jogador*>*    listaJogador;
-    Lista<Plataforma*>* listaPlataforma;
-    std::vector<Inimigo*>* listaInimigos;
-    std::list<Obstaculo*>*  listaObstaculos;
+    Listas::Lista<Jogador*>*    listaJogador;
+    Listas::Lista<Plataforma*>* listaPlataforma;
+    std::vector<Inimigo*>*      listaInimigos;
+    std::list<Obstaculo*>*      listaObstaculos;
 
     MudarFase* mudarFase;
 
@@ -42,8 +42,8 @@ public:
 
     void danoJogador(Jogador* jogador, int dirX);
 
-    Lista<Jogador*>* getListaJogadores() { return listaJogador; };
-    Lista<Plataforma*>* getListaPlataforma() { return listaPlataforma; };
+    Listas::Lista<Jogador*>* getListaJogadores();
+    Listas::Lista<Plataforma*>* getListaPlataforma();
     std::vector<Inimigo*>* getListaInimigos() { return listaInimigos; };
     std::list<Obstaculo*>* getListaObstaculos() { return listaObstaculos; };
 

@@ -2,6 +2,7 @@
 #include "Jogo.h"
 #include "GerenciadorDeColisoes.h"
 
+using namespace Listas;
 
 namespace Fases {
 

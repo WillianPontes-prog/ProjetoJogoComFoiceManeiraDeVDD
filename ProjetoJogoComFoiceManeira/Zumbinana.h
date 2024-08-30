@@ -10,7 +10,7 @@ private:
 
 
 public:
-    Zumbinana(Lista<Jogador*>* listaJogadores = nullptr, float posX = 0, float posY = 0, float vida = 5, Arma* arma = nullptr);
+    Zumbinana(Listas::Lista<Jogador*>* listaJogadores = nullptr, float posX = 0, float posY = 0, float vida = 5, Arma* arma = nullptr);
     ~Zumbinana();
 
     void atualiza();

@@ -2,6 +2,8 @@
 #include "EstadoAndando.h"
 #include <cstdlib> // para rand()
 
+using namespace Listas;
+
 Zumbinana::Zumbinana(Lista<Jogador*>* listaJogadores, float posX, float posY, float vida, Arma* arma)
     : Inimigo(listaJogadores, posX, posY, vida, arma), estadoAtual(new EstadoAndando()),  directionX(1)
 {

@@ -5,19 +5,20 @@
 
 class GerenciadorDeColisoes;
 
-class ListaEntidade {
-private:
-    Lista<Entidade*>* listaEntidades;
-    int pontosPorPasso;
+namespace Listas {
+    class ListaEntidade {
+    private:
+        Lista<Entidade*>* listaEntidades;
+        int pontosPorPasso;
 
-public:
-    ListaEntidade();
-	~ListaEntidade();
-    void percorrer(GerenciadorDeColisoes* gc);
-	void incluir(Entidade* entidade);
+    public:
+        ListaEntidade();
+        ~ListaEntidade();
+        void percorrer(GerenciadorDeColisoes* gc);
+        void incluir(Entidade* entidade);
 
-    json toJson();
+        json toJson();
 
-    int getPontosPorPasso() { return pontosPorPasso; }
-};
-
+        int getPontosPorPasso() { return pontosPorPasso; }
+    };
+}

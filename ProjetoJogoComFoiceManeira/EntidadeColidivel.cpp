@@ -1,5 +1,7 @@
 #include "EntidadeColidivel.h"
 
+using namespace Listas;
+
 EntidadeColidivel::EntidadeColidivel(int posX, int posY, int vida, Arma* arma) : 
 	Entidade(posX, posY, 32, 32), 
 	listaProjetil(new Lista<Projetil*>),
@@ -66,5 +68,10 @@ void EntidadeColidivel::atualizaProjetil() {
         
     }
 
+}
+
+Listas::Lista<Projetil*>* EntidadeColidivel::getListaProjetil()
+{
+    return listaProjetil;
 }
 

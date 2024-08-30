@@ -3,6 +3,7 @@
 #include "MudarFase.h"
 
 using namespace Fases;
+using namespace Listas;
 
 GerenciadorDeColisoes::GerenciadorDeColisoes(Fase* fase):
     listaJogador(new Lista<Jogador*>()),
@@ -42,6 +43,16 @@ void GerenciadorDeColisoes::danoJogador(Jogador* jogador, int dirX)
 
     jogador->setVspd(-8);
     jogador->setHspd(dirX * 6);
+}
+
+Listas::Lista<Jogador*>* GerenciadorDeColisoes::getListaJogadores()
+{
+    return listaJogador;
+}
+
+Listas::Lista<Plataforma*>* GerenciadorDeColisoes::getListaPlataforma()
+{
+    return listaPlataforma;
 }
 
 void GerenciadorDeColisoes::tratarColisaoJogObst()

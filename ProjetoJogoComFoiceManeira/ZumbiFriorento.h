@@ -7,7 +7,7 @@ private:
     int directionX;
 
 public:
-    ZumbiFriorento(Lista<Jogador*>* listaJogadores = NULL, float posX = 0, float posY = 0, float vida = 5);
+    ZumbiFriorento(Listas::Lista<Jogador*>* listaJogadores = NULL, float posX = 0, float posY = 0, float vida = 5);
     ~ZumbiFriorento();
 
     void atualiza();

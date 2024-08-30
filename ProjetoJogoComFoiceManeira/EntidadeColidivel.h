@@ -2,10 +2,11 @@
 #include "Entidade.h"
 #include "Arma.h"
 
+
 class EntidadeColidivel : public Entidade {
 protected:
 
-    Lista<Projetil*>* listaProjetil;
+    Listas::Lista<Projetil*>* listaProjetil;
     Arma* arma;
 
     float velocidade;
@@ -53,7 +54,7 @@ public:
 
     virtual void sacarArma() = 0;
 
-    Lista<Projetil*>* getListaProjetil() { return listaProjetil; };
+    Listas::Lista<Projetil*>* getListaProjetil();
 
     void setArma(Arma* arma) { this->arma = arma; };
     Arma* getArma() { return arma; };   

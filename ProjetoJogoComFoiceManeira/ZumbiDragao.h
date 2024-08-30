@@ -13,7 +13,7 @@ private:
 
 
 public:
-	ZumbiDragao(Lista<Jogador*>* listaJogadores = NULL, float posX = 0, float posY = 0, float vida = 100, int chanceTeleporte= 600, Arma* arma=nullptr);
+	ZumbiDragao(Listas::Lista<Jogador*>* listaJogadores = NULL, float posX = 0, float posY = 0, float vida = 100, int chanceTeleporte= 600, Arma* arma=nullptr);
 	~ZumbiDragao();
 
 	void atualiza();

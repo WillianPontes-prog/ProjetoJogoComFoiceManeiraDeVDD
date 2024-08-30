@@ -1,6 +1,6 @@
 #include "Inimigo.h"
 
-
+using namespace Listas;
 
 Inimigo::Inimigo(Lista<Jogador*>* listaJogadores, float posX, float posY, float vida, Arma* arma):
 	EntidadeColidivel(posX, posY, vida, arma),

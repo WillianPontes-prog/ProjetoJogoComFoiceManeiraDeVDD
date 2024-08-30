@@ -4,7 +4,7 @@
 
 class Arma {
 private:
-	Lista<Projetil*>* listaProjetil;
+	Listas::Lista<Projetil*>* listaProjetil;
 	int tempoDeRecarga;
 	int tempoMaximo;
 	int dano;
@@ -17,7 +17,7 @@ public:
 	~Arma();
 	void disparar(sf::Vector2f posicao, sf::Vector2f direcao);
 	int getTempoDeRecarga() { return tempoDeRecarga; };
-	void setListaProjetil(Lista<Projetil*>* lista) { listaProjetil = lista; }
+	void setListaProjetil(Listas::Lista<Projetil*>* lista);
 	void setCor(sf::Color c) { cor = c; }
 
 	int getdano() { return dano; }

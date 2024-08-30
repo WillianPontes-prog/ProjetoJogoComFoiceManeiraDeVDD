@@ -24,7 +24,9 @@ using namespace std;
 
 using json = nlohmann::json;
 
-class ListaEntidade;
+namespace Listas {
+	class ListaEntidade;
+}
 
 class Jogo;
 class GerenciadorDeColisoes;
@@ -40,7 +42,7 @@ namespace Fases{
 		sf::Sprite spriteFundo;
 		bool Jogadores;
 
-		ListaEntidade* listaEntidades;
+		Listas::ListaEntidade* listaEntidades;
 
 		virtual void carregarFase() = 0;
 
@@ -57,8 +59,8 @@ namespace Fases{
 		bool continunando;
 
 
-		Lista<Jogador*>* getListaJogadores();
-		Lista<Plataforma*>* getListaPlataforma();
+		Listas::Lista<Jogador*>* getListaJogadores();
+		Listas::Lista<Plataforma*>* getListaPlataforma();
 		std::vector<Inimigo*>* getListaInimigos();
 		std::list<Obstaculo*>* getListaObstaculos();
 

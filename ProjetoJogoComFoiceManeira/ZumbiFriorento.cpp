@@ -1,5 +1,7 @@
 #include "ZumbiFriorento.h"
 
+using namespace Listas;
+
 ZumbiFriorento::ZumbiFriorento(Lista<Jogador*>* listaJogadores, float posX, float posY, float vida):
 	Inimigo(listaJogadores, posX, posY, vida),
 	directionX(1)

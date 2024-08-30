@@ -6,12 +6,12 @@
 class Inimigo : public EntidadeColidivel {
 
 protected:
-	Lista<Jogador*>* listaJogadores;
+	Listas::Lista<Jogador*>* listaJogadores;
 
 	
 
 public:
-	Inimigo(Lista<Jogador*>* listaJogadores = NULL, float posX = 0, float posY = 0, float vida = 5, Arma* arma = nullptr);
+	Inimigo(Listas::Lista<Jogador*>* listaJogadores = NULL, float posX = 0, float posY = 0, float vida = 5, Arma* arma = nullptr);
 	~Inimigo();
 
 	sf::Vector2f BuscarJogador();

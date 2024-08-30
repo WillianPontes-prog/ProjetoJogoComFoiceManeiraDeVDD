@@ -87,7 +87,9 @@ void Fase1::carregarFase()
 
 Fase1::Fase1(bool Jogadores, Jogo* jg, bool carregar):
 	Fase(Jogadores, jg, carregar),
-    numZumbiFriorento{0, 3, 5, 0}
+    numZumbiFriorento{0, 3, 5, 0},
+    numTeleporte{0, 3, 6, 0}
+    
 {
     setGerenciadorGrafico();
 
@@ -136,11 +138,34 @@ void Fase1::criaEntidades(float posX, float posY, int n)
 
 void Fase1::criarTeleporte(float posX, float posY)
 {
-    ObstaculoTeleporte* o = new ObstaculoTeleporte(sf::Vector2f(posX, posY));
-    o->setGerenciadorGrafico();
 
-    listaEntidades->incluir(o);
-    getListaObstaculos()->push_back(o);
+    int chance = rand() % 2;
+
+    if (numTeleporte[2] - numTeleporte[3] <= numTeleporte[1]) {
+        chance = 1;
+    }
+
+
+    if (numTeleporte[0] > numTeleporte[2]) {
+        chance = 0;
+    }
+
+    if (continunando) {
+        chance = 1;
+    }
+
+    if (chance) {
+        ObstaculoTeleporte* o = new ObstaculoTeleporte(sf::Vector2f(posX, posY));
+        o->setGerenciadorGrafico();
+
+        listaEntidades->incluir(o);
+        getListaObstaculos()->push_back(o);
+
+        numTeleporte[0]++;
+    }
+
+    numTeleporte[3]++;
+    
 }
 
 void Fase1::criarZumbiFriorento(float posX, float posY, float vida)
@@ -155,6 +180,10 @@ void Fase1::criarZumbiFriorento(float posX, float posY, float vida)
 
     if (numZumbiFriorento[0] > numZumbiFriorento[2]) {
         chance = 0;
+    }
+
+    if (continunando) {
+        chance = 1;
     }
 
     if (chance) {

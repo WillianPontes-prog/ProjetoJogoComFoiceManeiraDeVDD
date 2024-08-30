@@ -24,7 +24,7 @@ void ZumbiDragao::atualiza()
 	sf::Vector2f posicao = BuscarJogador();
 	Teleporte();
 	move();
-	if (std::abs(posicao.x) < 400 && std::abs(posicao.y) < 215) {
+	if (std::abs(posicao.x) < 250 && std::abs(posicao.y) < 180) {
 		if (tempoRecarregando == arma->getTempoDeRecarga()) {
 			sacarArma();
 		}

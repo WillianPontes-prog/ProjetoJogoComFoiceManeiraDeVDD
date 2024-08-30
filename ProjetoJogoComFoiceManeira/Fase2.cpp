@@ -12,6 +12,16 @@ void Fase2::carregarFase() {
             float posX = item.at(pX).get<float>();
             float posY = item.at(pY).get<float>();
             int vida = -1;
+            int tamX = -1;
+            int tamY = -1;
+            int tempo = -1;
+            int velocidade = -1;
+            int dano = -1;
+            int corR = -1;
+            int corG = -1;
+            int corB = -1;
+            float direcaoX = -1;
+            float direcaoY = -1;
 
             switch (classType)
             {
@@ -48,6 +58,23 @@ void Fase2::carregarFase() {
                 criarMudarFase(posX, posY);
 
                 break;
+            case Entidade::Tipo::_projetil:
+
+                tamX = item.at(TAM_X).get<int>();
+                tamY = item.at(TAM_Y).get<int>();
+                tempo = item.at(TEMPO).get<int>();
+                velocidade = item.at(VELOCIDADE).get<int>();
+                dano = item.at(DANO).get<int>();
+                corR = item.at(COR_R).get<int>();
+                corG = item.at(COR_G).get<int>();
+                corB = item.at(COR_B).get<int>();
+                direcaoX = item.at(DIRECAO_X).get<float>();
+                direcaoY = item.at(DIRECAO_Y).get<float>();
+
+
+                carregarProjeteis(posX, posY, tamX, tamY, tempo, velocidade, dano, sf::Color(corR, corG, corB), sf::Vector2f(direcaoX, direcaoY));
+
+                break;
             default:
 
                 break;
@@ -59,7 +86,8 @@ void Fase2::carregarFase() {
 
 Fase2::Fase2(bool Jogadores, Jogo* jg, bool carregar) :
     Fase(Jogadores, jg, carregar),
-    nChefao(0)
+    numFogo{ 0, 3, 5, 0 },
+    numZumbiDragao{ 0, 3, 4, 0 }
 {
     setGerenciadorGrafico();
 
@@ -85,7 +113,7 @@ void Fase2::criaEntidades(float posX, float posY, int n)
             criarJogador(posX, posY, 5, true);
         break;
     case 2520:  //chefao
-		criarChefao(posX, posY, 20);
+		criarChefao(posX, posY, 10);
 		break;
     case 2505:  //Plataforma
         criarPlataforma(posX, posY);
@@ -96,6 +124,7 @@ void Fase2::criaEntidades(float posX, float posY, int n)
     case 2511: //Fogo
         criarFogo(posX, posY);
         break;
+       
     default:
 
         break;
@@ -104,33 +133,90 @@ void Fase2::criaEntidades(float posX, float posY, int n)
 
 void Fase2::criarChefao(float posX, float posY, int vida)
 {
-    BuilderArma b = BuilderArma();
-	b.buildArmaChefe();
-	b.buildVermelho();
-	Arma* arma = b.getArma();
-    ZumbiDragao* chefao = new ZumbiDragao(getListaJogadores(), posX, posY, vida, 600, arma);
-    chefao->setGerenciadorGrafico();
+    int chance = rand() % 2;
 
-    sf::Vector2f pos = sf::Vector2f(25*32, 13*32);
-
-    if(nChefao == 1){
-        pos = sf::Vector2f(15*32, 5*32);
+    if (numZumbiDragao[2] - numZumbiDragao[3] <= numZumbiDragao[1]) {
+        chance = 1;
     }
 
-    chefao->setPosicao2(pos);
-	listaEntidades->incluir(chefao);
-	getListaInimigos()->push_back(chefao);
 
-    nChefao++;
+    if (numZumbiDragao[0] > numZumbiDragao[2]) {
+        chance = 0;
+    }
+
+    if (continunando) {
+        chance = 1;
+    }
+
+    if (chance) {
+        BuilderArma b = BuilderArma();
+        b.buildArmaChefe();
+        b.buildVermelho();
+        Arma* arma = b.getArma();
+        ZumbiDragao* chefao = new ZumbiDragao(getListaJogadores(), posX, posY, vida, 1000, arma);
+        chefao->setGerenciadorGrafico();
+
+        sf::Vector2f pos = sf::Vector2f(25 * 32, 13 * 32);
+
+        switch (numZumbiDragao[0])
+        {
+        case 1:
+            pos = sf::Vector2f(15 * 32, 5 * 32);
+
+            break;
+        case 2:
+            pos = sf::Vector2f(11 * 32, 9 * 32);
+
+            break;
+        case 3:
+            pos = sf::Vector2f(5 * 32, 3 * 32);
+
+            break;
+        default:
+            break;
+        }
+        
+
+
+        chefao->setPosicao2(pos);
+        listaEntidades->incluir(chefao);
+        getListaInimigos()->push_back(chefao);
+
+        numZumbiDragao[0]++;
+    }
+    numZumbiDragao[3]++;
+    
 }
 
 void Fase2::criarFogo(float posX, float posY)
 {
-    ObstaculoDano* o = new ObstaculoDano(posX, posY, 1);
-    o->setGerenciadorGrafico();
+    int chance = rand() % 2;
 
-    listaEntidades->incluir(o);
-    getListaObstaculos()->push_back(o);
+    if (numFogo[2] - numFogo[3] <= numFogo[1]) {
+        chance = 1;
+    }
+
+
+    if (numFogo[0] > numFogo[2]) {
+        chance = 0;
+    }
+
+    if (continunando) {
+        chance = 1;
+    }
+
+    if (chance) {
+        ObstaculoDano* o = new ObstaculoDano(posX, posY, 1);
+        o->setGerenciadorGrafico();
+
+        listaEntidades->incluir(o);
+        getListaObstaculos()->push_back(o);
+
+        numFogo[0]++;
+    }
+    numFogo[3]++;
+    
+    
 }
 
 bool Fase2::checarMudarFase()

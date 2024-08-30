@@ -47,6 +47,8 @@ protected:
 
 	Jogo* jg;
 
+	int numZumbinana[4];
+
 public:
 	Fase(bool Jogadores, Jogo* jg, bool continuar = 0);
 	~Fase();

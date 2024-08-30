@@ -7,7 +7,10 @@
 class Fase2 : public Fase
 {
 protected:
-	int nChefao;
+	
+
+	int numFogo[4];
+	int numZumbiDragao[4];
 
 	void carregarFase();
 

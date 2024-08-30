@@ -13,7 +13,7 @@ MudarFase::~MudarFase()
 
 void MudarFase::atualiza()
 {
-	drawBody();
+	//drawBody();
 }
 
 void MudarFase::executa()

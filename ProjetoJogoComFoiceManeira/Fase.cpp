@@ -10,7 +10,8 @@ Fase::Fase(bool Jogadores, Jogo* jg, bool continuar) :
 	gerenciadorDeColisoes(new GerenciadorDeColisoes(this)),
     jg(jg),
     continunando(continuar),
-	Ente()
+	Ente(),
+    numZumbinana{ 0, 3, 4, 0 }
 {
 	this->setGerenciadorGrafico();
 
@@ -201,20 +202,41 @@ void Fase::criarMudarFase(float posX, float posY)
     setMudarFase(m);
 }
 
-
-
 void Fase::criarZumbinana(float posX, float posY, float vida)
 {   
-    BuilderArma b = BuilderArma();
-    b.buildArmaZumbinana();
-    b.buildAmarelo();
-    Arma* arma = b.getArma();
-    
-    Zumbinana* i = new Zumbinana(getListaJogadores(), posX, posY, vida, arma);
-    i->setGerenciadorGrafico();
 
-    listaEntidades->incluir(i);
-    getListaInimigos()->push_back(i);
+    int chance = rand() % 2;
+
+    if (numZumbinana[2] - numZumbinana[3] <= numZumbinana[1]) {
+        chance = 1;
+    }
+
+
+    if (numZumbinana[0] > numZumbinana[2]) {
+        chance = 0;
+    }
+
+    if (continunando) {
+        chance = 1;
+    }
+
+    if (chance) {
+
+        BuilderArma b = BuilderArma();
+        b.buildArmaZumbinana();
+        b.buildAmarelo();
+        Arma* arma = b.getArma();
+
+        Zumbinana* i = new Zumbinana(getListaJogadores(), posX, posY, vida, arma);
+        i->setGerenciadorGrafico();
+
+        listaEntidades->incluir(i);
+        getListaInimigos()->push_back(i);
+
+        numZumbinana[0]++;
+    }
+
+    numZumbinana[3]++;
 }
 
 void Fase::carregarProjeteis(float posX, float posY, float tamX, float tamY, int tempo, int velocidade, int dano, sf::Color cor, sf::Vector2f dir)
@@ -225,9 +247,6 @@ void Fase::carregarProjeteis(float posX, float posY, float tamX, float tamY, int
     listaEntidades->incluir(p);
         
 }
-
-
-
 
 Lista<Jogador*>* Fase::getListaJogadores()          { return	gerenciadorDeColisoes->getListaJogadores(); }
 Lista<Plataforma*>* Fase::getListaPlataforma()      { return	gerenciadorDeColisoes->getListaPlataforma(); }

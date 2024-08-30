@@ -15,9 +15,9 @@ GerenciadorGrafico* GerenciadorGrafico::instance = nullptr;
 #define SPR_INIMIGO2 "imagens/inimigo2.png"
 
 #define SPR_BCK_FASE1 "imagens/BCK_fase1.png"
-#define SPR_BCK_FASE1_PLAT "imagens/Fase_1.png"
+#define SPR_BCK_FASE1_PLAT "imagens/MapaFase1.png"
 
-#define SPR_FASE2_PLAT "imagens/Fase_2.png"
+#define SPR_FASE2_PLAT "imagens/MapaFase2.png"
 
 #define SPR_TELEPORTADOR "imagens/Teleportador.png"
 #define SPR_FOGO "imagens/fogo.png"

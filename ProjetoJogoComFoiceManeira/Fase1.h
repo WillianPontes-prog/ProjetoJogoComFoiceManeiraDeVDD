@@ -7,6 +7,8 @@ class Fase1 : public Fase
 {
 protected:
 	int numZumbiFriorento[4];
+	int numTeleporte[4];
+	
 
 	void carregarFase();
 

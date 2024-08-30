@@ -30,8 +30,8 @@ Jogo::Jogo():
     
     text.setFont(font);
     text.setCharacterSize(24); // Tamanho da fonte
-    text.setFillColor(sf::Color::White); // Cor do texto
-    text.setPosition(190, 520); // Posição inicial do texto
+    text.setFillColor(sf::Color::Black); // Cor do texto
+    text.setPosition(gerenciadorGrafico->getWindow()->getSize().x/2, 540); // Posição inicial do texto
     
     
 
@@ -202,7 +202,19 @@ void Jogo::executar()
                         // Adiciona o caractere à string se não for 'Backspace'
                         inputText += static_cast<char>(event.text.unicode);
                     }
+
                     text.setString(inputText); // Atualiza o texto exibido
+
+                    sf::FloatRect textBounds = text.getLocalBounds();
+
+                    // Calcular a posição central (assumindo que queremos centralizar na janela)
+                    float posX = (gerenciadorGrafico->getWindow()->getSize().x/2 - textBounds.width) / 2.0f;
+                    
+
+                    // Ajustar a posição do texto
+                    text.setPosition(posX - textBounds.left, text.getPosition().y);
+
+                    
 
                     Sleep(100); // Espera 100ms para evitar múltiplas entradas
                 }
@@ -319,8 +331,12 @@ void Jogo::atualizaPontuacao()
 	}
 
 
+    rank.clear();
+
     for (size_t i = 0; i < nomes.size() && i < nRank; ++i) {
         sf::Text text;
+
+
 
         // Define a string do texto com o nome e a pontuação
         text.setString(std::to_string(i+1) + " - " + nomes[i] + " : " + std::to_string(pontos[i]) + "pts");

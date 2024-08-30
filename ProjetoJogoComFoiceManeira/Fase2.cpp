@@ -104,7 +104,11 @@ void Fase2::criaEntidades(float posX, float posY, int n)
 
 void Fase2::criarChefao(float posX, float posY, int vida)
 {
-    ZumbiDragao* chefao = new ZumbiDragao(getListaJogadores(), posX, posY, vida, 600, new Arma(90,1, 90, 10,sf::Color::Green,sf::Vector2f(20,10)));
+    BuilderArma b = BuilderArma();
+	b.buildArmaChefe();
+	b.buildVermelho();
+	Arma* arma = b.getArma();
+    ZumbiDragao* chefao = new ZumbiDragao(getListaJogadores(), posX, posY, vida, 600, arma);
     chefao->setGerenciadorGrafico();
 
     sf::Vector2f pos = sf::Vector2f(25*32, 13*32);

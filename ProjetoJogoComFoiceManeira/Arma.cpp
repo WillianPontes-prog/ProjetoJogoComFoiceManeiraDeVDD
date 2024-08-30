@@ -1,11 +1,10 @@
 #include "Arma.h"
 
-Arma::Arma(int tempoDeRecarga,int dano, int tempoMaximo, int velocidade, sf::Color c, sf::Vector2f tamanho):
+Arma::Arma(int tempoDeRecarga,int dano, int tempoMaximo, int velocidade, sf::Vector2f tamanho):
 	tempoDeRecarga(tempoDeRecarga),
 	dano(dano),
 	tempoMaximo(tempoMaximo),
 	velocidade(velocidade),
-	cor(c),
 	tamanho(tamanho),
 	listaProjetil(NULL)
 {

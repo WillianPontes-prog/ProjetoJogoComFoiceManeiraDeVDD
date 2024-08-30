@@ -15,6 +15,7 @@
 #include "GerenciadorDeColisoes.h"
 #include "ZumbiFriorento.h"
 #include "Zumbinana.h"
+#include "BuilderArma.h"
 #include "Projetil.h"
 #include "ListaEntidade.h"
 #include "MudarFase.h"

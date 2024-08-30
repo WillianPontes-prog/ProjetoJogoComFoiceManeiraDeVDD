@@ -2,7 +2,7 @@
 #include "Zumbinana.h"
 #include "EstadoAndando.h"
 
-using namespace Personagens;
+using namespace Entidades::Personagens;
 
 void EstadoAtacando::atualiza(Zumbinana* inimigo) {
     inimigo->atualizaProjetil();

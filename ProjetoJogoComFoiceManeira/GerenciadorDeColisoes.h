@@ -14,10 +14,10 @@ namespace Gerenciadores {
     class GerenciadorDeColisoes
     {
     private:
-        Listas::Lista<Personagens::Jogador*>* listaJogador;
-        Listas::Lista<Obstaculos::Plataforma*>* listaPlataforma;
-        std::vector<Personagens::Inimigo*>* listaInimigos;
-        std::list<Obstaculos::Obstaculo*>* listaObstaculos;
+        Listas::Lista<Entidades::Personagens::Jogador*>* listaJogador;
+        Listas::Lista<Entidades::Obstaculos::Plataforma*>* listaPlataforma;
+        std::vector<Entidades::Personagens::Inimigo*>* listaInimigos;
+        std::list<Entidades::Obstaculos::Obstaculo*>* listaObstaculos;
 
         MudarFase* mudarFase;
 
@@ -41,12 +41,12 @@ namespace Gerenciadores {
             else { return (valor / abs(valor)); }
         }
 
-        void danoJogador(Personagens::Jogador* jogador, int dirX);
+        void danoJogador(Entidades::Personagens::Jogador* jogador, int dirX);
 
-        Listas::Lista<Personagens::Jogador*>* getListaJogadores();
-        Listas::Lista<Obstaculos::Plataforma*>* getListaPlataforma();
-        std::vector<Personagens::Inimigo*>* getListaInimigos();
-        std::list<Obstaculos::Obstaculo*>* getListaObstaculos();
+        Listas::Lista<Entidades::Personagens::Jogador*>* getListaJogadores();
+        Listas::Lista<Entidades::Obstaculos::Plataforma*>* getListaPlataforma();
+        std::vector<Entidades::Personagens::Inimigo*>* getListaInimigos();
+        std::list<Entidades::Obstaculos::Obstaculo*>* getListaObstaculos();
 
         MudarFase* getMudarFase() { return mudarFase; };
         void setMudarFase(MudarFase* m) { mudarFase = m; };

@@ -2,20 +2,22 @@
 #include "Entidade.h"
 #include "Jogador.h"
 
-namespace Obstaculos{
+namespace Entidades {
+	namespace Obstaculos {
 
-	class Obstaculo : public Entidade
-	{
-	protected:
+		class Obstaculo : public Entidade
+		{
+		protected:
 
-	public:
-		Obstaculo(int posX = 0, int posY = 0);
-		~Obstaculo();
+		public:
+			Obstaculo(int posX = 0, int posY = 0);
+			~Obstaculo();
 
-		virtual void atualiza() = 0;
-		virtual void Obstacular(Personagens::Jogador* j) = 0;
-		virtual json toJson() = 0;
-	};
+			virtual void atualiza() = 0;
+			virtual void Obstacular(Personagens::Jogador* j) = 0;
+			virtual json toJson() = 0;
+		};
 
 
+	}
 }

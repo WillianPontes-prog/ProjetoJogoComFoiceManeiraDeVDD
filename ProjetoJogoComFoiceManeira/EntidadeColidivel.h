@@ -3,66 +3,68 @@
 #include "Arma.h"
 
 
-namespace Personagens{
-    class EntidadeColidivel : public Entidade {
-    protected:
+namespace Entidades {
+    namespace Personagens {
+        class EntidadeColidivel : public Entidade {
+        protected:
 
-        Listas::Lista<Projetil*>* listaProjetil;
-        Arma* arma;
+            Listas::Lista<Projetil*>* listaProjetil;
+            Arma* arma;
 
-        float velocidade;
+            float velocidade;
 
-        float hspd;
-        float vspd;
+            float hspd;
+            float vspd;
 
-        int vida;
+            int vida;
 
-        bool noChao;
+            bool noChao;
 
-        int tempoRecarregando;
+            int tempoRecarregando;
 
-        sf::Vector2f direcao;
+            sf::Vector2f direcao;
 
-        int maxTempoMachucado;
-        int tempoMachucado;
+            int maxTempoMachucado;
+            int tempoMachucado;
 
-        bool sobAtrito;
+            bool sobAtrito;
 
-    public:
-        EntidadeColidivel(int posX = 0, int posY = 0, int vida = 5, Arma* arma = NULL);
-        ~EntidadeColidivel();
+        public:
+            EntidadeColidivel(int posX = 0, int posY = 0, int vida = 5, Arma* arma = NULL);
+            ~EntidadeColidivel();
 
-        void setVelocidade(const float velocidade) { this->velocidade = velocidade; };
+            void setVelocidade(const float velocidade) { this->velocidade = velocidade; };
 
-        virtual void move() = 0;
-        virtual void atualiza() = 0;
+            virtual void move() = 0;
+            virtual void atualiza() = 0;
 
-        const float getHspd() { return hspd; };
-        const float getVspd() { return vspd; };
+            const float getHspd() { return hspd; };
+            const float getVspd() { return vspd; };
 
-        void setHspd(const float hspd) { this->hspd = hspd; };
-        void setVspd(const float vspd) { this->vspd = vspd; };
+            void setHspd(const float hspd) { this->hspd = hspd; };
+            void setVspd(const float vspd) { this->vspd = vspd; };
 
-        void setNoChao(bool noChao) { this->noChao = noChao; };
+            void setNoChao(bool noChao) { this->noChao = noChao; };
 
-        void drawVida(float posX, float poY, sf::Sprite sprVida);
+            void drawVida(float posX, float poY, sf::Sprite sprVida);
 
-        virtual void operator--() { vida--; };
+            virtual void operator--() { vida--; };
 
-        void disparar();
+            void disparar();
 
-        void atualizaProjetil();
+            void atualizaProjetil();
 
-        virtual void sacarArma() = 0;
+            virtual void sacarArma() = 0;
 
-        Listas::Lista<Projetil*>* getListaProjetil();
+            Listas::Lista<Projetil*>* getListaProjetil();
 
-        void setArma(Arma* arma) { this->arma = arma; };
-        Arma* getArma() { return arma; };   
+            void setArma(Arma* arma) { this->arma = arma; };
+            Arma* getArma() { return arma; };
 
-        const int getVida() { return vida; }
+            const int getVida() { return vida; }
 
-        void    setSobAtrito(const bool sobAtrito) { this->sobAtrito = sobAtrito; };
-        const float   getSobAtrito() { return sobAtrito; };
-    };
+            void    setSobAtrito(const bool sobAtrito) { this->sobAtrito = sobAtrito; };
+            const float   getSobAtrito() { return sobAtrito; };
+        };
+    }
 }

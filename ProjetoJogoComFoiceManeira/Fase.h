@@ -62,10 +62,10 @@ namespace Fases{
 		bool continunando;
 
 
-		Listas::Lista<Personagens::Jogador*>* getListaJogadores();
-		Listas::Lista<Obstaculos::Plataforma*>* getListaPlataforma();
-		std::vector<Personagens::Inimigo*>* getListaInimigos();
-		std::list<Obstaculos::Obstaculo*>* getListaObstaculos();
+		Listas::Lista<Entidades::Personagens::Jogador*>* getListaJogadores();
+		Listas::Lista<Entidades::Obstaculos::Plataforma*>* getListaPlataforma();
+		std::vector<Entidades::Personagens::Inimigo*>* getListaInimigos();
+		std::list<Entidades::Obstaculos::Obstaculo*>* getListaObstaculos();
 
 		MudarFase* getMudarFase();
 		void setMudarFase(MudarFase* m);

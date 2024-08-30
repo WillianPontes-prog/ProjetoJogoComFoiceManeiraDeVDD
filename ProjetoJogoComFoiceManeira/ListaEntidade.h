@@ -8,14 +8,14 @@ namespace Gerenciadores { class GerenciadorDeColisoes; }
 namespace Listas {
     class ListaEntidade {
     private:
-        Lista<Entidade*>* listaEntidades;
+        Lista<Entidades::Entidade*>* listaEntidades;
         int pontosPorPasso;
 
     public:
         ListaEntidade();
         ~ListaEntidade();
         void percorrer(Gerenciadores::GerenciadorDeColisoes* gc);
-        void incluir(Entidade* entidade);
+        void incluir(Entidades::Entidade* entidade);
 
         json toJson();
 

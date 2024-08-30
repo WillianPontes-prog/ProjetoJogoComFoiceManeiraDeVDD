@@ -1,8 +1,8 @@
 #include "Fase2.h"
 
 using namespace Fases;
-using namespace Obstaculos;
-using namespace Personagens;
+using namespace Entidades::Obstaculos;
+using namespace Entidades::Personagens;
 
 void Fase2::carregarFase() {
     json j = lerArquivoJSON("save.json");
@@ -30,39 +30,39 @@ void Fase2::carregarFase() {
             switch (classType)
             {
 
-            case Entidade::Tipo::_jogador:
+            case Entidades::Entidade::Tipo::_jogador:
                 vida = item.at(vd).get<int>();
                 criarJogador(posX, posY, vida, false);
 
                 break;
-            case Entidade::Tipo::_jogador2:
+            case Entidades::Entidade::Tipo::_jogador2:
                 vida = item.at(vd).get<int>();
                 criarJogador(posX, posY, vida, true);
 
                 break;
-            case Entidade::Tipo::_plataforma:
+            case Entidades::Entidade::Tipo::_plataforma:
                 criarPlataforma(posX, posY);
 
                 break;
-            case Entidade::Tipo::_zumbidragao:
+            case Entidades::Entidade::Tipo::_zumbidragao:
                 vida = item.at(vd).get<int>();
                 criarChefao(posX, posY, vida);
 
                 break;
-            case Entidade::Tipo::_zumbinana:
+            case Entidades::Entidade::Tipo::_zumbinana:
                 vida = item.at(vd).get<int>();
                 criarZumbinana(posX, posY, vida);
 
                 break;
-            case Entidade::Tipo::_obstaculoDano:
+            case Entidades::Entidade::Tipo::_obstaculoDano:
                 criarFogo(posX, posY);
 
                 break;
-            case Entidade::Tipo::_alternadorDeFase:
+            case Entidades::Entidade::Tipo::_alternadorDeFase:
                 criarMudarFase(posX, posY);
 
                 break;
-            case Entidade::Tipo::_projetil:
+            case Entidades::Entidade::Tipo::_projetil:
 
                 tamX = item.at(TAM_X).get<int>();
                 tamY = item.at(TAM_Y).get<int>();

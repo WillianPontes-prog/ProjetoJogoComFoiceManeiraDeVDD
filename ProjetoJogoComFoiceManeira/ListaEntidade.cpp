@@ -2,12 +2,12 @@
 #include "Inimigo.h"
 
 using namespace Gerenciadores;
-using namespace Personagens;
+using namespace Entidades::Personagens;
 
 namespace Listas{
 
     ListaEntidade::ListaEntidade():
-    listaEntidades(new Lista<Entidade*>()),
+    listaEntidades(new Lista<Entidades::Entidade*>()),
     pontosPorPasso(0)
     {
 
@@ -15,7 +15,7 @@ namespace Listas{
 
     ListaEntidade::~ListaEntidade()
     {
-        for (Lista<Entidade*>::iterator it = listaEntidades->begin(); it != listaEntidades->end(); it++)
+        for (Lista<Entidades::Entidade*>::iterator it = listaEntidades->begin(); it != listaEntidades->end(); it++)
 	    {
 		    delete *it;
 	    }
@@ -27,7 +27,7 @@ namespace Listas{
         pontosPorPasso = 0;
 
     
-	    for (Lista<Entidade*>::iterator it = listaEntidades->begin();it!=listaEntidades->end(); )
+	    for (Lista<Entidades::Entidade*>::iterator it = listaEntidades->begin();it!=listaEntidades->end(); )
 	    {
 		    (*it)->atualiza();
 
@@ -65,7 +65,7 @@ namespace Listas{
 
     }
 
-    void ListaEntidade::incluir(Entidade* entidade)
+    void ListaEntidade::incluir(Entidades::Entidade* entidade)
     {
 	    listaEntidades->adicionarElemento(entidade);
     }
@@ -75,7 +75,7 @@ namespace Listas{
 
         json j = json::array();
 
-	    for (Lista<Entidade*>::iterator it = listaEntidades->begin(); it != listaEntidades->end(); it++)
+	    for (Lista<Entidades::Entidade*>::iterator it = listaEntidades->begin(); it != listaEntidades->end(); it++)
 	    {
             if ((*it)->toJson() != nullptr) {
 

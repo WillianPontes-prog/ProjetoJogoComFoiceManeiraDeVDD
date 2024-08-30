@@ -1,30 +1,32 @@
 
 #include "ObstaculoTeleporte.h"
 
-using namespace Personagens;
+using namespace Entidades::Personagens;
 
-namespace Obstaculos {
-	ObstaculoTeleporte::ObstaculoTeleporte(sf::Vector2f posicao) :
-		Obstaculo(posicao.x, posicao.y)
-	{
+namespace Entidades {
+	namespace Obstaculos {
+		ObstaculoTeleporte::ObstaculoTeleporte(sf::Vector2f posicao) :
+			Obstaculo(posicao.x, posicao.y)
+		{
 
-	}
+		}
 
-	ObstaculoTeleporte::~ObstaculoTeleporte()
-	{
-	}
+		ObstaculoTeleporte::~ObstaculoTeleporte()
+		{
+		}
 
-	void ObstaculoTeleporte::atualiza()
-	{
-		atualizaSprite(getBody().getPosition().x, getBody().getPosition().y);
-		draw();
-	}
+		void ObstaculoTeleporte::atualiza()
+		{
+			atualizaSprite(getBody().getPosition().x, getBody().getPosition().y);
+			draw();
+		}
 
-	void ObstaculoTeleporte::Obstacular(Jogador* jogador)
-	{
-		jogador->setPosition(jogador->getPosicaoInicial());
-		jogador->setHspd(0);
-		jogador->setVspd(0);
+		void ObstaculoTeleporte::Obstacular(Jogador* jogador)
+		{
+			jogador->setPosition(jogador->getPosicaoInicial());
+			jogador->setHspd(0);
+			jogador->setVspd(0);
 
+		}
 	}
 }

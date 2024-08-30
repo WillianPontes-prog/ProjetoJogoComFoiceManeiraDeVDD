@@ -2,37 +2,39 @@
 
 using namespace Listas;
 
-namespace Personagens {
-	ZumbiFriorento::ZumbiFriorento(Lista<Jogador*>* listaJogadores, float posX, float posY, float vida) :
-		Inimigo(listaJogadores, posX, posY, vida),
-		directionX(1)
-	{
+namespace Entidades {
+	namespace Personagens {
+		ZumbiFriorento::ZumbiFriorento(Lista<Jogador*>* listaJogadores, float posX, float posY, float vida) :
+			Inimigo(listaJogadores, posX, posY, vida),
+			directionX(1)
+		{
 
-		velocidade = 2;
+			velocidade = 2;
 
-		if (!(rand() % 2))
-			directionX = -1;
-	}
+			if (!(rand() % 2))
+				directionX = -1;
+		}
 
-	ZumbiFriorento::~ZumbiFriorento()
-	{
-	}
+		ZumbiFriorento::~ZumbiFriorento()
+		{
+		}
 
-	void ZumbiFriorento::atualiza()
-	{
-		mudarCorDano();
-		move();
-		atualizaSprite(getBody().getPosition().x, getBody().getPosition().y);
-		draw();
-	}
+		void ZumbiFriorento::atualiza()
+		{
+			mudarCorDano();
+			move();
+			atualizaSprite(getBody().getPosition().x, getBody().getPosition().y);
+			draw();
+		}
 
-	void ZumbiFriorento::move()
-	{
+		void ZumbiFriorento::move()
+		{
 
-		hspd = velocidade * directionX;
+			hspd = velocidade * directionX;
 
-		sprite.setScale(directionX, 1);
+			sprite.setScale(directionX, 1);
 
-		vspd += GRAVIDADE;
+			vspd += GRAVIDADE;
+		}
 	}
 }

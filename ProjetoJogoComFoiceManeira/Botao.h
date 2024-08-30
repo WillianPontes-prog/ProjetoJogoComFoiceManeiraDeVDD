@@ -7,7 +7,7 @@
 
 class Jogo;
 
-class Botao:public Entidade {
+class Botao:public Entidades::Entidade {
 
 public:
 	enum tipoDoBotao {

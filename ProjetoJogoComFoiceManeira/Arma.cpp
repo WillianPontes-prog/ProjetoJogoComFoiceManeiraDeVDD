@@ -1,6 +1,7 @@
 #include "Arma.h"
 
 using namespace Listas;
+using namespace Entidades;
 
 Arma::Arma(int tempoDeRecarga,int dano, int tempoMaximo, int velocidade, sf::Vector2f tamanho):
 	tempoDeRecarga(tempoDeRecarga),

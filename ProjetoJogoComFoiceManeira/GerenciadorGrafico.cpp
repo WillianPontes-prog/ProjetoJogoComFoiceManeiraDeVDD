@@ -27,8 +27,8 @@
 
 
 using namespace Fases;
-using namespace Obstaculos;
-using namespace Personagens;
+using namespace Entidades::Obstaculos;
+using namespace Entidades::Personagens;
 
 namespace Gerenciadores {
 

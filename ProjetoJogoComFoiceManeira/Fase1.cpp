@@ -1,8 +1,8 @@
 #include "Fase1.h"
 
 using namespace Fases;
-using namespace Obstaculos;
-using namespace Personagens;
+using namespace Entidades::Obstaculos;
+using namespace Entidades::Personagens;
 
 void Fase1::carregarFase()
 {
@@ -31,39 +31,39 @@ void Fase1::carregarFase()
             switch (classType)
             {
 
-            case Entidade::Tipo::_jogador:
+            case Entidades::Entidade::Tipo::_jogador:
                 vida = item.at(vd).get<int>();
                 criarJogador(posX, posY, vida, false);
 
                 break;
-            case Entidade::Tipo::_jogador2:
+            case Entidades::Entidade::Tipo::_jogador2:
                 vida = item.at(vd).get<int>();
                 criarJogador(posX, posY, vida, true);
 
                 break;
-            case Entidade::Tipo::_plataforma:
+            case Entidades::Entidade::Tipo::_plataforma:
                 criarPlataforma(posX, posY);
 
                 break;
-            case Entidade::Tipo::_zumbifriorento:
+            case Entidades::Entidade::Tipo::_zumbifriorento:
                 vida = item.at(vd).get<int>();
                 criarZumbiFriorento(posX, posY, vida);
 
                 break;
-            case Entidade::Tipo::_zumbinana:
+            case Entidades::Entidade::Tipo::_zumbinana:
                 vida = item.at(vd).get<int>();
                 criarZumbinana(posX, posY, vida);
 
                 break;
-            case Entidade::Tipo::_obstaculoTeleporte:
+            case Entidades::Entidade::Tipo::_obstaculoTeleporte:
                 criarTeleporte(posX, posY);
 
                 break;
-            case Entidade::Tipo::_alternadorDeFase:
+            case Entidades::Entidade::Tipo::_alternadorDeFase:
                 criarMudarFase(posX, posY);
 
                 break;
-            case Entidade::Tipo::_projetil:
+            case Entidades::Entidade::Tipo::_projetil:
 
                 tamX = item.at(TAM_X).get<int>();
                 tamY = item.at(TAM_Y).get<int>();

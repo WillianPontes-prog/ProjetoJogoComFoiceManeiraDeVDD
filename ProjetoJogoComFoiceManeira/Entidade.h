@@ -23,34 +23,37 @@
 
 #define GRAVIDADE 0.5
 using json = nlohmann::json;
-class Entidade : public Ente {
-protected:
-    sf::RectangleShape body;
 
-public:
+namespace Entidades {
+    class Entidade : public Ente {
+    protected:
+        sf::RectangleShape body;
 
-    enum Tipo {
-        _jogador,
-        _jogador2,
-        _zumbifriorento,
-		_zumbidragao,
-		_zumbinana,
-		_plataforma,
-        _obstaculoTeleporte,
-        _obstaculoDano,
-        _alternadorDeFase,
-        _projetil
+    public:
+
+        enum Tipo {
+            _jogador,
+            _jogador2,
+            _zumbifriorento,
+            _zumbidragao,
+            _zumbinana,
+            _plataforma,
+            _obstaculoTeleporte,
+            _obstaculoDano,
+            _alternadorDeFase,
+            _projetil
+        };
+
+        Entidade(float posX = 0, float posY = 0, float tamX = 32, float tamY = 32);
+        ~Entidade();
+        virtual void atualiza() = 0;
+        sf::RectangleShape getBody() { return body; };
+        sf::RectangleShape* getBodyPtr() { return &body; };
+        void setPosition(sf::Vector2f pos) { body.setPosition(pos); };
+
+        void drawBody();
+        virtual json toJson() = 0;
+
+
     };
-
-    Entidade(float posX = 0, float posY = 0, float tamX = 32, float tamY = 32);
-    ~Entidade();
-    virtual void atualiza() = 0;
-    sf::RectangleShape getBody() { return body; };
-    sf::RectangleShape* getBodyPtr() { return &body; };
-    void setPosition(sf::Vector2f pos) { body.setPosition(pos); };
-    
-    void drawBody();
-    virtual json toJson() = 0;
-
-   
-};
+}

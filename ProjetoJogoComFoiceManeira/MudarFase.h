@@ -5,7 +5,7 @@
 
 class Jogo;
 
-class MudarFase :  public Entidade
+class MudarFase :  public Entidades::Entidade
 {
 private:
 	Jogo* jg;

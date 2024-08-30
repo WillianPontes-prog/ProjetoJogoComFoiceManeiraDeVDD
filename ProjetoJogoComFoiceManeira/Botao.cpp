@@ -1,5 +1,7 @@
 #include "Botao.h"
 
+using namespace Entidades;
+
 Botao::Botao(float x, float y, float width, float height, std::string text, tipoDoBotao _type, Jogo* jg):
 	Entidade( x, y, width, height)
 {

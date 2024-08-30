@@ -4,15 +4,15 @@
 
 using namespace Fases;
 using namespace Listas;
-using namespace Obstaculos;
-using namespace Personagens;
+using namespace Entidades::Obstaculos;
+using namespace Entidades::Personagens;
 namespace Gerenciadores {
 
     GerenciadorDeColisoes::GerenciadorDeColisoes(Fase* fase) :
-        listaJogador(new Lista<Jogador*>()),
-        listaPlataforma(new Lista<Plataforma*>()),
-        listaInimigos(new std::vector<Inimigo*>()),
-        listaObstaculos(new std::list<Obstaculo*>()),
+        listaJogador(new Lista<Entidades::Personagens::Jogador*>()),
+        listaPlataforma(new Lista<Entidades::Obstaculos::Plataforma*>()),
+        listaInimigos(new std::vector<Entidades::Personagens::Inimigo*>()),
+        listaObstaculos(new std::list<Entidades::Obstaculos::Obstaculo*>()),
         mudarFase(nullptr)
     {
         this->fase = fase;
@@ -53,7 +53,7 @@ namespace Gerenciadores {
         return listaJogador;
     }
 
-    Listas::Lista<Obstaculos::Plataforma*>* GerenciadorDeColisoes::getListaPlataforma()
+    Listas::Lista<Entidades::Obstaculos::Plataforma*>* GerenciadorDeColisoes::getListaPlataforma()
     {
         return listaPlataforma;
     }
@@ -63,7 +63,7 @@ namespace Gerenciadores {
         return listaInimigos;
     }
 
-    std::list<Obstaculos::Obstaculo*>* GerenciadorDeColisoes::getListaObstaculos()
+    std::list<Entidades::Obstaculos::Obstaculo*>* GerenciadorDeColisoes::getListaObstaculos()
     {
         return listaObstaculos;
     }
@@ -372,7 +372,7 @@ namespace Gerenciadores {
 
             for (Lista<Jogador*>::iterator itJog = listaJogador->begin(); itJog != listaJogador->end(); ++itJog) {
 
-                for (Lista<Projetil*>::iterator itProjI = (*itIni)->getListaProjetil()->begin(); itProjI != (*itIni)->getListaProjetil()->end(); ++itProjI) {
+                for (Lista<Entidades::Projetil*>::iterator itProjI = (*itIni)->getListaProjetil()->begin(); itProjI != (*itIni)->getListaProjetil()->end(); ++itProjI) {
 
                     if (ChecarColisao((*itJog)->getBody(), (*itProjI)->getBody())) {
 
@@ -409,7 +409,7 @@ namespace Gerenciadores {
 
 
                 //==iteração sobre todos os tiros de cada jogador=====================================================================================================================
-                for (Lista<Projetil*>::iterator itProjJ = (*itJog)->getListaProjetil()->begin(); itProjJ != (*itJog)->getListaProjetil()->end(); ++itProjJ) {
+                for (Lista<Entidades::Projetil*>::iterator itProjJ = (*itJog)->getListaProjetil()->begin(); itProjJ != (*itJog)->getListaProjetil()->end(); ++itProjJ) {
 
 
 

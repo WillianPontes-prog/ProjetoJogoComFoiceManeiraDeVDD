@@ -5,8 +5,8 @@
 class EstadoAtacando : public Estado
 {
 public:
-    void atualiza(Personagens::Zumbinana* inimigo) override;
-    void move(Personagens::Zumbinana* inimigo) override;
-    void sacarArma(Personagens::Zumbinana* inimigo) override;
-    void SwitchState(Personagens::Zumbinana* inimigo) override;
+    void atualiza(Entidades::Personagens::Zumbinana* inimigo) ;
+    void move(Entidades::Personagens::Zumbinana* inimigo) ;
+    void sacarArma(Entidades::Personagens::Zumbinana* inimigo) ;
+    void SwitchState(Entidades::Personagens::Zumbinana* inimigo) ;
 };

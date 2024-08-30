@@ -1,7 +1,8 @@
 #include "ObstaculoDano.h"
 
-using namespace Personagens; 
+using namespace Entidades::Personagens;
 
+namespace Entidades {
 	namespace Obstaculos {
 		void ObstaculoDano::atualiza()
 		{
@@ -14,3 +15,4 @@ using namespace Personagens;
 			j->operator--();
 		}
 	}
+}

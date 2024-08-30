@@ -1,5 +1,4 @@
 #include "Jogador.h"
-#include "GerenciadorDeComandos.h"
 
 
 Jogador::Jogador(float posX, float posY, int vida, Arma* arma, bool jogador2, bool voar): 
@@ -31,14 +30,14 @@ void Jogador::move()
 {
 
     //movimentação Esquerda
-    if ((!jogador2 && GerenciadorDeComandos::Esquerda()) || (jogador2 && GerenciadorDeComandos::EsquerdaV2())) {
+    if (WASD[1]) {
         hspd = -velocidade;
         direcao.x = -1;
         sprite.setScale(-1, 1);
         
     }
     //movimentação Direita
-    else if ((!jogador2 && GerenciadorDeComandos::Direita()) || (jogador2 && GerenciadorDeComandos::DireitaV2())) {
+    else if (WASD[3]) {
         hspd = velocidade;
         direcao.x = 1;
         sprite.setScale(1, 1);
@@ -51,7 +50,7 @@ void Jogador::move()
 
     vspd += GRAVIDADE;
 
-    if (((!jogador2 && GerenciadorDeComandos::Cima()) || (jogador2 && GerenciadorDeComandos::CimaV2())) && noChao)
+    if (WASD[0] && noChao)
 	{
         if(voador)
 			vspd = -4;
@@ -126,7 +125,14 @@ void Jogador::atualiza()
         atualizaSprite(getBody().getPosition().x, getBody().getPosition().y);
         draw();
     }
-    
+
+    WASD[0] = 0;
+    WASD[1] = 0;
+    WASD[2] = 0;
+    WASD[3] = 0;
+
+    gun = 0;
+
 }
 
 void Jogador::setState(State state)
@@ -141,8 +147,8 @@ void Jogador::setState(State state)
 
 void Jogador::sacarArma()
 {
-    if ((!jogador2 && GerenciadorDeComandos::Disparar())
-        ||(jogador2 && GerenciadorDeComandos::DispararV2())) {
+    if ((!jogador2 && gun)
+        ||(jogador2 && gun)) {
         disparar();
         setState(Recarregando);
     }

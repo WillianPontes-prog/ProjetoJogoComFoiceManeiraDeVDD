@@ -130,6 +130,10 @@ void Fase1::criaEntidades(float posX, float posY, int n)
     case 2536:
         criarMudarFase(posX, posY);
         break;
+    case 2509: //plataforma aleatoria
+        if (comPlataforma) {
+            criarPlataforma(posX, posY, true);
+        }
     default:
 
     break;

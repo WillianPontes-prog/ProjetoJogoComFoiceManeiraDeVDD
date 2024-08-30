@@ -2,6 +2,7 @@
 #include "GerenciadorGrafico.h"
 #include <windows.h>
 #include "Menu.h"
+#include "GerenciadorDeComandos.h"
 
 class Menu;
 class Fase1;
@@ -10,6 +11,7 @@ class Fase2;
 class Jogo
 {
 private:
+	GerenciadorDeComandos gerenciadorDeComandos;
 	GerenciadorGrafico* gerenciadorGrafico;
 	Fase1* f1;
 	Fase2* f2;
@@ -54,6 +56,8 @@ public:
 
 	void atualizaPontuacao();
 
-	
+	void adicionarObserver(Observer* observer) {
+		gerenciadorDeComandos.adicionarObserver(observer);
+	}
 };
 

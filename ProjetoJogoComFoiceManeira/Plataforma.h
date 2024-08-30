@@ -6,9 +6,10 @@ class Plataforma : public Obstaculo
 {
 private:
 	float atrito;
+	bool aleatoria;
 
 public:
-	Plataforma(int posX = 0, int posY = 0);
+	Plataforma(int posX = 0, int posY = 0, bool aleatoria = false);
 	~Plataforma();
 
 	void atualiza();

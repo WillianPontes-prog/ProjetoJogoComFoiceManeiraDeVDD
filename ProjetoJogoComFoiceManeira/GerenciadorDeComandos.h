@@ -1,34 +1,26 @@
-#pragma once
+#ifndef GERENCIADORDECOMANDOS_H
+#define GERENCIADORDECOMANDOS_H
+
 #include <SFML/Graphics.hpp>
+#include <vector>
+#include "Observer.h"
 
 class GerenciadorDeComandos {
+public:
+    // Método para adicionar observadores
+    void adicionarObserver(Observer* observer);
+
+    // Método para remover observadores
+    void removerObserver(Observer* observer);
+
+    // Método para processar eventos de teclado
+    void processarEvento();
 
 private:
-    static int isPJump;
-    static int isPJumpV2;
+    // Notifica todos os observadores
+    void notificar(int tecla);
 
-public:
-
-    GerenciadorDeComandos() {}
-    ~GerenciadorDeComandos() {};
-
-    static int Esquerda();
-    static int Direita();
-    static int Baixo();
-    static int Cima();
-
-    static int Pular();
-    static int Disparar();
-
-    static int Click();
-
-    static int EsquerdaV2();
-    static int DireitaV2();
-    static int BaixoV2();
-    static int CimaV2();
-
-    static int PularV2();
-    static int DispararV2();
-
-
+    std::vector<Observer*> observers;
 };
+
+#endif // GERENCIADORDECOMANDOS_H

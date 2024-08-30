@@ -1,7 +1,7 @@
 #include "Plataforma.h"
 
-Plataforma::Plataforma(int posX, int posY)
-	: Obstaculo(posX, posY), atrito(0.8f)
+Plataforma::Plataforma(int posX, int posY, bool aleatoria)
+	: Obstaculo(posX, posY), atrito(0.8f), aleatoria(aleatoria)
 {
 	
 	atualizaSprite(posX, posY);
@@ -14,7 +14,10 @@ Plataforma::~Plataforma()
 
 void Plataforma::atualiza()
 {
-	//drawBody();
+	if (aleatoria) {
+		draw();
+		atualizaSprite(getBody().getPosition().x, getBody().getPosition().y);
+	}
 }
 
 void Plataforma::Obstacular(Jogador* j)

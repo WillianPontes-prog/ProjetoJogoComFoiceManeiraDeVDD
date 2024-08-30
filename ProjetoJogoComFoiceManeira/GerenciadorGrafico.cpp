@@ -21,8 +21,10 @@ GerenciadorGrafico* GerenciadorGrafico::instance = nullptr;
 
 #define SPR_TELEPORTADOR "imagens/Teleportador.png"
 #define SPR_FOGO "imagens/fogo.png"
+#define SPR_PLATAFORMA "imagens/chaoQueAsvezesSome.png"
 
 #define SPR_MENU "imagens/BackgroungMenu.png"
+
 
 
 
@@ -71,6 +73,10 @@ void GerenciadorGrafico::carregarTexturas()
     if (!tChefao->loadFromFile("imagens/Chefao.png")) {
         throw std::runtime_error("Erro ao carregar a textura!");
     }
+
+    if (!tPlataforma->loadFromFile(SPR_PLATAFORMA)) {
+        throw std::runtime_error("Erro ao carregar a textura!");
+    }
 }
 
 GerenciadorGrafico::GerenciadorGrafico():
@@ -84,7 +90,8 @@ GerenciadorGrafico::GerenciadorGrafico():
     tFogo(new sf::Texture()),
     tMenu(new sf::Texture()),
     tFase2Plat(new sf::Texture()),
-    tChefao(new sf::Texture())
+    tChefao(new sf::Texture()),
+    tPlataforma(new sf::Texture())
 {
     // Resolução original
     sf::Vector2u originalResolution(960, 640);
@@ -166,8 +173,12 @@ void GerenciadorGrafico::atualiza()
 
 sf::Texture* GerenciadorGrafico::devolveImagemEnte(Ente* e)
 {
-    Jogador* j = dynamic_cast<Jogador*>(e);
+    Plataforma* p = dynamic_cast<Plataforma*>(e);
+    if (p) {
+		return tPlataforma;
+	}
 
+    Jogador* j = dynamic_cast<Jogador*>(e);
     if (j) {
         if (!j->getJogador2())
             return tJogador1;

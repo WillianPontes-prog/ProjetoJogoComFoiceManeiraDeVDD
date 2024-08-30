@@ -13,6 +13,8 @@ Fase::Fase(bool Jogadores, Jogo* jg, bool continuar) :
 	Ente(),
     numZumbinana{ 0, 3, 4, 0 }
 {
+    comPlataforma = (rand() % 2);
+
 	this->setGerenciadorGrafico();
 
     if (!continunando) {
@@ -177,16 +179,18 @@ void Fase::criarJogador(float posX, float posY, int vida, bool j2)
         arm = b.getArma();
 	}
 
+    
 	Jogador* j = new Jogador(posX, posY, vida, arm, j2, voar);
+    jg->adicionarObserver(j);
 	j->setGerenciadorGrafico();
 
     listaEntidades->incluir(j);
 	getListaJogadores()->adicionarElemento(j);
 }
 
-void Fase::criarPlataforma(float posX, float posY)
+void Fase::criarPlataforma(float posX, float posY, bool aleatoria)
 {
-	Plataforma* p = new Plataforma(posX, posY);
+	Plataforma* p = new Plataforma(posX, posY, aleatoria);
 	p->setGerenciadorGrafico();
 
     listaEntidades->incluir(p);

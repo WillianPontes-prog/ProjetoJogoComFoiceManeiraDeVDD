@@ -2,7 +2,8 @@
 
 Menu::Menu(Jogo* jg): 
     Ente(),
-    fases(false)
+    fases(false),
+    WS(0)
 {
     continua = 0;
     botaoSelecionado = 0;
@@ -38,7 +39,8 @@ void Menu::move()
     if (fases) {
        MaxNumBotoes = botoesFases.size();
     }
-    if (!GerenciadorDeComandos::Cima() && !GerenciadorDeComandos::Baixo())
+
+    if (!WS)
     {
         flagBotaoPressionado = 0;
     }
@@ -46,13 +48,13 @@ void Menu::move()
     if (!flagBotaoPressionado) {
 
         // Verifica se a tecla para baixo está pressionada
-        if (GerenciadorDeComandos::Baixo()) {
+        if (WS == -1) {
             // Verifica se o botão selecionado é o último da lista
             botaoSelecionado++;
             flagBotaoPressionado = 1;
         }
         // Verifica se a tecla para cima está pressionada
-        if (GerenciadorDeComandos::Cima()) {
+        if (WS == 1) {
             // Verifica se o botão selecionado é o primeiro da lista
             botaoSelecionado--;
             flagBotaoPressionado = 1;
@@ -86,7 +88,7 @@ void Menu::atualiza()
             {
                 botoes[i]->set_Pressed(true);
 
-                if (GerenciadorDeComandos::Click()) {
+                if (click) {
                     botoes[i]->executar();
                 }
             }
@@ -106,7 +108,7 @@ void Menu::atualiza()
             {
                 botoesFases[i]->set_Pressed(true);
 
-                if (GerenciadorDeComandos::Click()) {
+                if (click) {
                     botoesFases[i]->executar();
                 }
             }
@@ -118,4 +120,7 @@ void Menu::atualiza()
             botoesFases[i]->atualiza();
         }
     }
+
+    WS = 0;
+    click = 0;
 }

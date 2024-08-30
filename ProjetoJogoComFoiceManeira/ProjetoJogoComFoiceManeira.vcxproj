@@ -142,6 +142,7 @@
     <ClInclude Include="Arma.h" />
     <ClInclude Include="Botao.h" />
     <ClInclude Include="BuilderArma.h" />
+    <ClInclude Include="Observer.h" />
     <ClInclude Include="ZumbiDragao.h" />
     <ClInclude Include="Ente.h" />
     <ClInclude Include="Entidade.h" />
@@ -191,6 +192,7 @@
     <Image Include="Imagens\BackgroungMenu.jpeg" />
     <Image Include="Imagens\BackgroungMenu.png" />
     <Image Include="Imagens\BCK_fase1.png" />
+    <Image Include="Imagens\chaoQueAsvezesSome.png" />
     <Image Include="Imagens\chefao.png" />
     <Image Include="Imagens\fimDeJogo.png" />
     <Image Include="Imagens\fogo.png" />

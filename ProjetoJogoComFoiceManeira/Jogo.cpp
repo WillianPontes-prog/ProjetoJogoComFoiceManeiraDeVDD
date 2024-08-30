@@ -54,6 +54,7 @@ void Jogo::executar()
     sf::Clock clock;
 #endif // SHOW_FPS
 
+    gerenciadorDeComandos.adicionarObserver(menu);
     sf::RenderWindow* window = gerenciadorGrafico->getWindow();
 
     window->setFramerateLimit(FPS);
@@ -135,9 +136,12 @@ void Jogo::executar()
                     }
                 }
 
+                Sleep(100); // Espera 100ms para evitar múltiplas entradas
                 rodando = Jogo::_menu;
             }
 		}
+
+        gerenciadorDeComandos.processarEvento();
 
         switch (rodando)
         {

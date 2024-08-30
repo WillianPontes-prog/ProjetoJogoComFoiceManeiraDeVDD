@@ -124,7 +124,11 @@ void Fase2::criaEntidades(float posX, float posY, int n)
     case 2511: //Fogo
         criarFogo(posX, posY);
         break;
-       
+    case 2509: //plataforma aleatoria
+        if (comPlataforma) {
+            criarPlataforma(posX, posY, true);
+        }
+		break;
     default:
 
         break;

@@ -1,51 +1,53 @@
 #include "GerenciadorDeComandos.h"
 
-int GerenciadorDeComandos::isPJump = 0;
-int GerenciadorDeComandos::isPJumpV2 = 0;
-
-int GerenciadorDeComandos::Esquerda() { return sf::Keyboard::isKeyPressed(sf::Keyboard::A); }
-int GerenciadorDeComandos::EsquerdaV2() { return sf::Keyboard::isKeyPressed(sf::Keyboard::Left); }
-
-int GerenciadorDeComandos::Direita() { return sf::Keyboard::isKeyPressed(sf::Keyboard::D); }
-int GerenciadorDeComandos::DireitaV2() { return sf::Keyboard::isKeyPressed(sf::Keyboard::Right); }
-
-int GerenciadorDeComandos::Baixo() { return sf::Keyboard::isKeyPressed(sf::Keyboard::S); }
-int GerenciadorDeComandos::BaixoV2() { return sf::Keyboard::isKeyPressed(sf::Keyboard::Down); }
-
-int GerenciadorDeComandos::Cima() { return sf::Keyboard::isKeyPressed(sf::Keyboard::W); }
-int GerenciadorDeComandos::CimaV2() { return sf::Keyboard::isKeyPressed(sf::Keyboard::Up); }
-
-int GerenciadorDeComandos::Pular() {
-
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && !isPJump)
-    {
-        isPJump = 1;
-        return sf::Keyboard::isKeyPressed(sf::Keyboard::W);
-    }
-    else if (!sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-    {
-        isPJump = 0;
-    }
-
-    return 0;
+void GerenciadorDeComandos::adicionarObserver(Observer* observer) {
+    observers.push_back(observer);
 }
 
-int GerenciadorDeComandos::PularV2() {
-
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !isPJumpV2)
-    {
-        isPJumpV2 = 1;
-        return sf::Keyboard::isKeyPressed(sf::Keyboard::Up);
-    }
-    else if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-    {
-        isPJumpV2 = 0;
-    }
-
-    return 0;
+void GerenciadorDeComandos::removerObserver(Observer* observer) {
+    observers.erase(std::remove(observers.begin(), observers.end(), observer), observers.end());
 }
 
-int GerenciadorDeComandos::Disparar() { return sf::Keyboard::isKeyPressed(sf::Keyboard::Z); }
-int GerenciadorDeComandos::DispararV2() { return sf::Keyboard::isKeyPressed(sf::Keyboard::M); }
+void GerenciadorDeComandos::processarEvento() {
+    
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+        notificar(sf::Keyboard::W);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+        notificar(sf::Keyboard::A);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+        notificar(sf::Keyboard::S);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+        notificar(sf::Keyboard::D);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::F)) {
+        notificar(sf::Keyboard::F);
+    }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Z)){
+		notificar(sf::Keyboard::Z);
+	}
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+        notificar(sf::Keyboard::Up);
+    }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+		notificar(sf::Keyboard::Down);
+	}
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+    	notificar(sf::Keyboard::Left);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+        notificar(sf::Keyboard::Right);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::M)) {
+        notificar(sf::Keyboard::M);
+    }
+    
+}
 
-int GerenciadorDeComandos::Click() { return sf::Keyboard::isKeyPressed(sf::Keyboard::Z); }
+void GerenciadorDeComandos::notificar(int tecla) {
+    for (Observer* observer : observers) {
+        observer->onNotify(tecla);
+    }
+}

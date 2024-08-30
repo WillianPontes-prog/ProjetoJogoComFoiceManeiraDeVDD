@@ -49,6 +49,8 @@ protected:
 
 	int numZumbinana[4];
 
+	bool comPlataforma;
+
 public:
 	Fase(bool Jogadores, Jogo* jg, bool continuar = 0);
 	~Fase();
@@ -81,7 +83,7 @@ public:
 	================================================================
 	void criarJogador(float posX = 0, float posY = 0, int vida = 5, bool j2 = false);
 
-	void criarPlataforma(float posX = 0, float posY = 0);
+	void criarPlataforma(float posX = 0, float posY = 0, bool aleatoria = false);
 
 	void criarMudarFase(float posX = 0, float posY = 0);
 

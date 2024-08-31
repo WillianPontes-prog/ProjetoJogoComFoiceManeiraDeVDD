@@ -1,6 +1,6 @@
 #include "Fase.h"
-#include "../Jogo.h"
-#include "../GerenciadorDeColisoes.h"
+#include "Jogo.h"
+#include "GerenciadorDeColisoes.h"
 
 using namespace Listas;
 using namespace Gerenciadores;

@@ -1,5 +1,5 @@
 #pragma once
-#include "Fase.h"
+#include "Fases/Fase.h"
 #include "ObstaculoDano.h"
 #include "ObstaculoTeleporte.h"
 #include "Inimigo.h"

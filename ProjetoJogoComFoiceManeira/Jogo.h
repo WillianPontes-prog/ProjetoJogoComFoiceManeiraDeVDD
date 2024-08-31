@@ -1,8 +1,8 @@
 #pragma once
-#include "GerenciadorGrafico.h"
+#include "Gerenciadores/GerenciadorGrafico.h"
 #include <windows.h>
 #include "Menu.h"
-#include "GerenciadorDeComandos.h"
+#include "Gerenciadores/GerenciadorDeComandos.h"
 #include <stack>
 
 class Menu;

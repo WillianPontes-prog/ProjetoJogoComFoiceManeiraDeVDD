@@ -1,6 +1,6 @@
 #pragma once
 #include "Inimigo.h"
-#include "Estado.h"
+#include "Estados/Estado.h"
 
 namespace Entidades {
     namespace Personagens {

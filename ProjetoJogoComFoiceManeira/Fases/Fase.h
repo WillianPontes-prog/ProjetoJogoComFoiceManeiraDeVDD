@@ -7,17 +7,17 @@
 #include <fstream>
 
 #include "Ente.h"
-#include "Lista.h"
-#include "Jogador.h"
-#include "Plataforma.h"
+#include "Listas/Lista.h"
+#include "Entidades/Personagens/Jogador.h"
+#include "Entidades/Obstaculos/Plataforma.h"
 #include <vector>
 #include "json.hpp"
-#include "GerenciadorDeColisoes.h"
-#include "ZumbiFriorento.h"
-#include "Zumbinana.h"
+#include "Gerenciadores/GerenciadorDeColisoes.h"
+#include "Entidades/Personagens/ZumbiFriorento.h"
+#include "Entidades/Personagens/Zumbinana.h"
 #include "BuilderArma.h"
-#include "Projetil.h"
-#include "ListaEntidade.h"
+#include "Entidades/Projetil.h"
+#include "Listas/ListaEntidade.h"
 #include "MudarFase.h"
 
 using namespace std;

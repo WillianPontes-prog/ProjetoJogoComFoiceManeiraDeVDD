@@ -1,5 +1,5 @@
         #pragma once
-#include "Entidade.h"
+#include "Entidades/Entidade.h"
 #include "Arma.h"
 
 

@@ -8,66 +8,15 @@
         },
         {
             "class": 3,
-            "posX": 480.0,
-            "posY": 160.0,
+            "posX": 64.0,
+            "posY": 128.0,
             "vida": 10
-        },
-        {
-            "class": 9,
-            "corB": 0,
-            "corG": 0,
-            "corR": 255,
-            "dano": 1,
-            "direcaox": -0.841400682926178,
-            "direcaoy": 0.5404118299484253,
-            "posX": -675.9603271484375,
-            "posY": 943.5719604492188,
-            "tempo": 54,
-            "tx": 20.0,
-            "ty": 10.0,
-            "velocidade": 4.0
         },
         {
             "class": 3,
             "posX": 256.0,
             "posY": 128.0,
             "vida": 10
-        },
-        {
-            "class": 9,
-            "corB": 0,
-            "corG": 0,
-            "corR": 255,
-            "dano": 1,
-            "direcaox": -0.9292468428611755,
-            "direcaoy": 0.3694595694541931,
-            "posX": -885.415283203125,
-            "posY": 617.5652465820313,
-            "tempo": 38,
-            "tx": 20.0,
-            "ty": 10.0,
-            "velocidade": 4.0
-        },
-        {
-            "class": 9,
-            "corB": 0,
-            "corG": 0,
-            "corR": 255,
-            "dano": 1,
-            "direcaox": -0.22061723470687866,
-            "direcaoy": 0.9753604531288147,
-            "posX": -15.861310005187988,
-            "posY": 1454.1827392578125,
-            "tempo": 71,
-            "tx": 20.0,
-            "ty": 10.0,
-            "velocidade": 4.0
-        },
-        {
-            "class": 4,
-            "posX": 418.5,
-            "posY": 192.0,
-            "vida": 5
         },
         {
             "aleatoria": false,
@@ -197,7 +146,7 @@
         },
         {
             "class": 4,
-            "posX": 815.5,
+            "posX": 863.5,
             "posY": 288.0,
             "vida": 5
         },
@@ -215,7 +164,7 @@
         },
         {
             "class": 4,
-            "posX": 385.5,
+            "posX": 269.5,
             "posY": 320.0,
             "vida": 5
         },
@@ -241,11 +190,6 @@
             "aleatoria": false,
             "class": 5,
             "posX": 0.0,
-            "posY": 320.0
-        },
-        {
-            "class": 7,
-            "posX": 288.0,
             "posY": 320.0
         },
         {
@@ -416,21 +360,6 @@
             "vida": 10
         },
         {
-            "class": 9,
-            "corB": 0,
-            "corG": 0,
-            "corR": 255,
-            "dano": 1,
-            "direcaox": -0.9784871935844421,
-            "direcaoy": -0.2063075453042984,
-            "posX": -950.7619018554688,
-            "posY": 143.44302368164063,
-            "tempo": 41,
-            "tx": 20.0,
-            "ty": 10.0,
-            "velocidade": 4.0
-        },
-        {
             "aleatoria": false,
             "class": 5,
             "posX": 512.0,
@@ -456,9 +385,9 @@
         },
         {
             "class": 0,
-            "posX": 129.0,
-            "posY": 480.0,
-            "vida": 5
+            "posX": 108.0,
+            "posY": 576.0,
+            "vida": 4
         },
         {
             "class": 7,
@@ -479,7 +408,7 @@
         },
         {
             "class": 4,
-            "posX": 780.5,
+            "posX": 829.5,
             "posY": 480.0,
             "vida": 5
         },
@@ -600,24 +529,6 @@
             "aleatoria": false,
             "class": 5,
             "posX": 64.0,
-            "posY": 512.0
-        },
-        {
-            "aleatoria": true,
-            "class": 5,
-            "posX": 96.0,
-            "posY": 512.0
-        },
-        {
-            "aleatoria": true,
-            "class": 5,
-            "posX": 128.0,
-            "posY": 512.0
-        },
-        {
-            "aleatoria": true,
-            "class": 5,
-            "posX": 160.0,
             "posY": 512.0
         },
         {

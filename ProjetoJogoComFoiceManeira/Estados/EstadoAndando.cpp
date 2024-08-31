@@ -1,5 +1,5 @@
 #include "EstadoAndando.h"
-#include "Zumbinana.h"
+#include "Entidades/Personagens/Zumbinana.h"
 #include "EstadoAtacando.h"
 
 using namespace Entidades::Personagens;

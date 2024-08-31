@@ -1,7 +1,7 @@
 #pragma once
 #include "Botao.h" 
 #include "Jogo.h"
-#include"GerenciadorDeComandos.h"
+#include"Gerenciadores/GerenciadorDeComandos.h"
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include "Observer.h"

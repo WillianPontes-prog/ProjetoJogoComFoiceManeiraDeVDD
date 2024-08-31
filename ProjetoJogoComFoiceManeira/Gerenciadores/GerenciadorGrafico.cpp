@@ -1,7 +1,7 @@
 #include "GerenciadorGrafico.h"
 
-#include "Jogador.h"
-#include "Inimigo.h"
+#include "Entidades/Personagens/Jogador.h"
+#include "Entidades/Personagens/Inimigo.h"
 #include "Fases/Fase1.h"
 #include "Fases/Fase2.h"
 #include "Menu.h"

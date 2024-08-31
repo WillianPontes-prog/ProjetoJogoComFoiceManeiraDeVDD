@@ -2,7 +2,7 @@
 #include<iostream>
 #include<string>
 #include <SFML/Graphics.hpp>
-#include"GerenciadorGrafico.h"
+#include"Gerenciadores/GerenciadorGrafico.h"
 
 
 namespace Gerenciadores { class GerenciadorGrafico; }

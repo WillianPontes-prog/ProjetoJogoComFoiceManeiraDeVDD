@@ -1,7 +1,7 @@
 #pragma once
 #include"Lista.h"
-#include"Entidade.h"
-#include"GerenciadorDeColisoes.h"
+#include"Entidades/Entidade.h"
+#include"Gerenciadores/GerenciadorDeColisoes.h"
 
 namespace Gerenciadores { class GerenciadorDeColisoes; }
 

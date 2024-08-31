@@ -1,5 +1,5 @@
 #include "Zumbinana.h"
-#include "EstadoAndando.h"
+#include "Estados/EstadoAndando.h"
 #include <cstdlib> // para rand()
 
 using namespace Listas;

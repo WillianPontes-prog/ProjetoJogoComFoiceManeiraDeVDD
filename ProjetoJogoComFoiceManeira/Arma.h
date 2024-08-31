@@ -1,6 +1,6 @@
 #pragma once
-#include"Lista.h"
-#include"Projetil.h"
+#include"Listas/Lista.h"
+#include"Entidades/Projetil.h"
 
 class Arma {
 private:

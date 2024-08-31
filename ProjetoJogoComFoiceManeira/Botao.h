@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Jogo.h"
-#include "Entidade.h"
+#include "Entidades/Entidade.h"
 #include <fstream>
 #include <iostream>
 

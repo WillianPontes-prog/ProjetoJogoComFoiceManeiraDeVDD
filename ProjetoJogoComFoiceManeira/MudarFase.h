@@ -1,7 +1,7 @@
 #pragma once
-#include "Fase.h"
+#include "Fases/Fase.h"
 #include "Jogo.h"
-#include "Entidade.h"
+#include "Entidades/Entidade.h"
 
 class Jogo;
 

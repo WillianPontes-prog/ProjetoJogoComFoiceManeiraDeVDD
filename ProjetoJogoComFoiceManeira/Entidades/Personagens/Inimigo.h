@@ -1,7 +1,7 @@
 #pragma once
 #include "EntidadeColidivel.h"
 #include "Jogador.h"
-#include "Lista.h"
+#include "Listas/Lista.h"
 
 namespace Entidades {
 	namespace Personagens {

@@ -1,5 +1,5 @@
 #include "ListaEntidade.h"
-#include "Inimigo.h"
+#include "Entidades/Personagens/Inimigo.h"
 
 using namespace Gerenciadores;
 using namespace Entidades::Personagens;

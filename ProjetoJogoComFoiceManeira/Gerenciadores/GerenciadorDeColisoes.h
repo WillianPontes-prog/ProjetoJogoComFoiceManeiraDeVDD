@@ -1,8 +1,8 @@
 #pragma once
 #include "Fases/Fase.h"
-#include "ObstaculoDano.h"
-#include "ObstaculoTeleporte.h"
-#include "Inimigo.h"
+#include "Entidades/Obstaculos/ObstaculoDano.h"
+#include "Entidades/Obstaculos/ObstaculoTeleporte.h"
+#include "Entidades/Personagens/Inimigo.h"
 #include <vector>
 
 namespace Fases {

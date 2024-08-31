@@ -2,8 +2,8 @@
 
 #include "Jogador.h"
 #include "Inimigo.h"
-#include "Fase1.h"
-#include "Fase2.h"
+#include "Fases/Fase1.h"
+#include "Fases/Fase2.h"
 #include "Menu.h"
 
 

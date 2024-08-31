@@ -21,7 +21,8 @@ namespace Entidades {
 				return json{
 				{classe, Tipo::_plataforma},
 				{pX, getBody().getPosition().x},
-				{pY, getBody().getPosition().y}
+				{pY, getBody().getPosition().y},
+				{"aleatoria", aleatoria}
 				};
 			}
 		};

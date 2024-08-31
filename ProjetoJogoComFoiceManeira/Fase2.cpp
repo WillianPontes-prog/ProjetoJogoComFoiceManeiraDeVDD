@@ -26,6 +26,7 @@ void Fase2::carregarFase() {
             int corB = -1;
             float direcaoX = -1;
             float direcaoY = -1;
+            bool aleatoria = false;
 
             switch (classType)
             {
@@ -41,7 +42,8 @@ void Fase2::carregarFase() {
 
                 break;
             case Entidades::Entidade::Tipo::_plataforma:
-                criarPlataforma(posX, posY);
+                aleatoria = item.at("aleatoria").get<bool>();
+                criarPlataforma(posX, posY, aleatoria);
 
                 break;
             case Entidades::Entidade::Tipo::_zumbidragao:

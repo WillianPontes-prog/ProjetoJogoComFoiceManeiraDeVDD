@@ -1,11 +1,10 @@
-#include "Fase1.h"
+#include "Fase2.h"
 
 using namespace Fases;
 using namespace Entidades::Obstaculos;
 using namespace Entidades::Personagens;
 
-void Fase1::carregarFase()
-{
+void Fase2::carregarFase() {
     json j = lerArquivoJSON("save.json");
 
     auto outerArray = j.get<std::vector<std::vector<json>>>();
@@ -27,7 +26,6 @@ void Fase1::carregarFase()
             int corB = -1;
             float direcaoX = -1;
             float direcaoY = -1;
-            bool aleatoria = false;
 
             switch (classType)
             {
@@ -43,13 +41,12 @@ void Fase1::carregarFase()
 
                 break;
             case Entidades::Entidade::Tipo::_plataforma:
-                aleatoria = item.at("aleatoria").get<bool>();
-                criarPlataforma(posX, posY, aleatoria);
+                criarPlataforma(posX, posY);
 
                 break;
-            case Entidades::Entidade::Tipo::_zumbifriorento:
+            case Entidades::Entidade::Tipo::_zumbidragao:
                 vida = item.at(vd).get<int>();
-                criarZumbiFriorento(posX, posY, vida);
+                criarChefao(posX, posY, vida);
 
                 break;
             case Entidades::Entidade::Tipo::_zumbinana:
@@ -57,8 +54,8 @@ void Fase1::carregarFase()
                 criarZumbinana(posX, posY, vida);
 
                 break;
-            case Entidades::Entidade::Tipo::_obstaculoTeleporte:
-                criarTeleporte(posX, posY);
+            case Entidades::Entidade::Tipo::_obstaculoDano:
+                criarFogo(posX, posY);
 
                 break;
             case Entidades::Entidade::Tipo::_alternadorDeFase:
@@ -91,25 +88,24 @@ void Fase1::carregarFase()
     }
 }
 
-Fase1::Fase1(bool Jogadores, Jogo* jg, bool carregar):
-	Fase(Jogadores, jg, carregar),
-    numZumbiFriorento{0, 3, 5, 0},
-    numTeleporte{0, 3, 6, 0}
-    
+Fase2::Fase2(bool Jogadores, Jogo* jg, bool carregar) :
+    Fase(Jogadores, jg, carregar),
+    numFogo{ 0, 3, 5, 0 },
+    numZumbiDragao{ 0, 3, 4, 0 }
 {
     setGerenciadorGrafico();
 
-    if(!carregar)
-        gerarFase(extrairCamadas(lerArquivoJSON("tileds/MapaF1.json"), 2));
+    if (!carregar)
+        gerarFase(extrairCamadas(lerArquivoJSON("tileds/MapaF2.json"), 3));
     else
         carregarFase();
 }
 
-Fase1::~Fase1()
+Fase2::~Fase2()
 {
 }
 
-void Fase1::criaEntidades(float posX, float posY, int n)
+void Fase2::criaEntidades(float posX, float posY, int n)
 {
     switch (n)
     {
@@ -117,46 +113,42 @@ void Fase1::criaEntidades(float posX, float posY, int n)
         criarJogador(posX, posY, 5);
         break;
     case 2525:  //Jogador 2
-        if(Jogadores)
+        if (Jogadores)
             criarJogador(posX, posY, 5, true);
         break;
-    case 2520:  //Inimigo1
-        
-		criarZumbiFriorento(posX, posY);
+    case 2520:  //chefao
+		criarChefao(posX, posY, 10);
 		break;
     case 2505:  //Plataforma
         criarPlataforma(posX, posY);
         break;
-    case 2511:  //tp
-		criarTeleporte(posX, posY);
-        break;
     case 2522:  //Inimigo2
-		criarZumbinana(posX, posY);
-		break;
-    case 2536:
-        criarMudarFase(posX, posY);
+        criarZumbinana(posX, posY);
+        break;
+    case 2511: //Fogo
+        criarFogo(posX, posY);
         break;
     case 2509: //plataforma aleatoria
         if (comPlataforma) {
             criarPlataforma(posX, posY, true);
         }
+		break;
     default:
 
-    break;
+        break;
     }
 }
 
-void Fase1::criarTeleporte(float posX, float posY)
+void Fase2::criarChefao(float posX, float posY, int vida)
 {
-
     int chance = rand() % 2;
 
-    if (numTeleporte[2] - numTeleporte[3] <= numTeleporte[1]) {
+    if (numZumbiDragao[2] - numZumbiDragao[3] <= numZumbiDragao[1]) {
         chance = 1;
     }
 
 
-    if (numTeleporte[0] > numTeleporte[2]) {
+    if (numZumbiDragao[0] > numZumbiDragao[2]) {
         chance = 0;
     }
 
@@ -165,46 +157,82 @@ void Fase1::criarTeleporte(float posX, float posY)
     }
 
     if (chance) {
-        ObstaculoTeleporte* o = new ObstaculoTeleporte(sf::Vector2f(posX, posY));
+        BuilderArma b = BuilderArma();
+        b.buildArmaChefe();
+        b.buildVermelho();
+        Arma* arma = b.getArma();
+        ZumbiDragao* chefao = new ZumbiDragao(getListaJogadores(), posX, posY, vida, 1000, arma);
+        chefao->setGerenciadorGrafico();
+
+        sf::Vector2f pos = sf::Vector2f(25 * 32, 13 * 32);
+
+        switch (numZumbiDragao[0])
+        {
+        case 1:
+            pos = sf::Vector2f(15 * 32, 5 * 32);
+
+            break;
+        case 2:
+            pos = sf::Vector2f(11 * 32, 9 * 32);
+
+            break;
+        case 3:
+            pos = sf::Vector2f(5 * 32, 3 * 32);
+
+            break;
+        default:
+            break;
+        }
+        
+
+
+        chefao->setPosicao2(pos);
+        listaEntidades->incluir(chefao);
+        getListaInimigos()->push_back(chefao);
+
+        numZumbiDragao[0]++;
+    }
+    numZumbiDragao[3]++;
+    
+}
+
+void Fase2::criarFogo(float posX, float posY)
+{
+    int chance = rand() % 2;
+
+    if (numFogo[2] - numFogo[3] <= numFogo[1]) {
+        chance = 1;
+    }
+
+
+    if (numFogo[0] > numFogo[2]) {
+        chance = 0;
+    }
+
+    if (continunando) {
+        chance = 1;
+    }
+
+    if (chance) {
+        ObstaculoDano* o = new ObstaculoDano(posX, posY, 1);
         o->setGerenciadorGrafico();
 
         listaEntidades->incluir(o);
         getListaObstaculos()->push_back(o);
 
-        numTeleporte[0]++;
+        numFogo[0]++;
     }
-
-    numTeleporte[3]++;
+    numFogo[3]++;
+    
     
 }
 
-void Fase1::criarZumbiFriorento(float posX, float posY, float vida)
+bool Fase2::checarMudarFase()
 {
+    if (getListaInimigos()->size() == 0)
+        return true;
 
-    int chance = rand() % 2;
 
-    if(numZumbiFriorento[2] - numZumbiFriorento[3] <= numZumbiFriorento[1]){
-        chance = 1;
-	}
-    
-
-    if (numZumbiFriorento[0] > numZumbiFriorento[2]) {
-        chance = 0;
-    }
-
-    if (continunando) {
-        chance = 1;
-    }
-
-    if (chance) {
-        ZumbiFriorento* i = new ZumbiFriorento(getListaJogadores(), posX, posY, vida);
-        i->setGerenciadorGrafico();
-
-        listaEntidades->incluir(i);
-        getListaInimigos()->push_back(i);
-
-        numZumbiFriorento[0]++;
-    }
-
-    numZumbiFriorento[3]++;
+    return false;
 }
+

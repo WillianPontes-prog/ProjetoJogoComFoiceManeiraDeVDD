@@ -1,793 +1,749 @@
 [
     [
         {
-            "class": 4,
-            "posX": 405.5,
-            "posY": 32.0,
-            "vida": 5
+            "class": 3,
+            "posX": 832.0,
+            "posY": 64.0,
+            "vida": 10
         },
         {
-            "class": 4,
-            "posX": 310.5,
-            "posY": 32.0,
-            "vida": 5
-        },
-        {
-            "class": 5,
-            "posX": 256.0,
-            "posY": 64.0
-        },
-        {
-            "class": 5,
-            "posX": 288.0,
-            "posY": 64.0
-        },
-        {
-            "class": 5,
-            "posX": 320.0,
-            "posY": 64.0
-        },
-        {
-            "class": 5,
-            "posX": 352.0,
-            "posY": 64.0
-        },
-        {
-            "class": 5,
-            "posX": 384.0,
-            "posY": 64.0
-        },
-        {
-            "class": 5,
-            "posX": 416.0,
-            "posY": 64.0
-        },
-        {
-            "class": 5,
-            "posX": 448.0,
-            "posY": 64.0
-        },
-        {
-            "class": 5,
+            "class": 3,
             "posX": 480.0,
-            "posY": 64.0
-        },
-        {
-            "class": 5,
-            "posX": 512.0,
-            "posY": 64.0
-        },
-        {
-            "class": 5,
-            "posX": 256.0,
-            "posY": 96.0
-        },
-        {
-            "class": 5,
-            "posX": 288.0,
-            "posY": 96.0
-        },
-        {
-            "class": 5,
-            "posX": 320.0,
-            "posY": 96.0
-        },
-        {
-            "class": 5,
-            "posX": 352.0,
-            "posY": 96.0
-        },
-        {
-            "class": 5,
-            "posX": 384.0,
-            "posY": 96.0
-        },
-        {
-            "class": 5,
-            "posX": 416.0,
-            "posY": 96.0
-        },
-        {
-            "class": 5,
-            "posX": 448.0,
-            "posY": 96.0
-        },
-        {
-            "class": 5,
-            "posX": 480.0,
-            "posY": 96.0
-        },
-        {
-            "class": 5,
-            "posX": 512.0,
-            "posY": 96.0
-        },
-        {
-            "class": 8,
-            "posX": 0.0,
-            "posY": 128.0
-        },
-        {
-            "class": 5,
-            "posX": 288.0,
-            "posY": 128.0
-        },
-        {
-            "class": 2,
-            "posX": 682.0,
             "posY": 160.0,
+            "vida": 10
+        },
+        {
+            "class": 9,
+            "corB": 0,
+            "corG": 0,
+            "corR": 255,
+            "dano": 1,
+            "direcaox": -0.841400682926178,
+            "direcaoy": 0.5404118299484253,
+            "posX": -675.9603271484375,
+            "posY": 943.5719604492188,
+            "tempo": 54,
+            "tx": 20.0,
+            "ty": 10.0,
+            "velocidade": 4.0
+        },
+        {
+            "class": 3,
+            "posX": 256.0,
+            "posY": 128.0,
+            "vida": 10
+        },
+        {
+            "class": 9,
+            "corB": 0,
+            "corG": 0,
+            "corR": 255,
+            "dano": 1,
+            "direcaox": -0.9292468428611755,
+            "direcaoy": 0.3694595694541931,
+            "posX": -885.415283203125,
+            "posY": 617.5652465820313,
+            "tempo": 38,
+            "tx": 20.0,
+            "ty": 10.0,
+            "velocidade": 4.0
+        },
+        {
+            "class": 9,
+            "corB": 0,
+            "corG": 0,
+            "corR": 255,
+            "dano": 1,
+            "direcaox": -0.22061723470687866,
+            "direcaoy": 0.9753604531288147,
+            "posX": -15.861310005187988,
+            "posY": 1454.1827392578125,
+            "tempo": 71,
+            "tx": 20.0,
+            "ty": 10.0,
+            "velocidade": 4.0
+        },
+        {
+            "class": 4,
+            "posX": 418.5,
+            "posY": 192.0,
             "vida": 5
         },
         {
-            "class": 8,
-            "posX": 0.0,
-            "posY": 160.0
-        },
-        {
-            "class": 5,
-            "posX": 288.0,
-            "posY": 160.0
-        },
-        {
-            "class": 6,
-            "posX": 608.0,
-            "posY": 160.0
-        },
-        {
-            "class": 6,
-            "posX": 896.0,
-            "posY": 160.0
-        },
-        {
-            "class": 8,
-            "posX": 0.0,
-            "posY": 192.0
-        },
-        {
-            "class": 2,
-            "posX": 202.0,
-            "posY": 224.0,
-            "vida": 5
-        },
-        {
-            "class": 5,
-            "posX": 288.0,
-            "posY": 192.0
-        },
-        {
-            "class": 2,
-            "posX": 382.0,
-            "posY": 224.0,
-            "vida": 5
-        },
-        {
-            "class": 5,
-            "posX": 576.0,
-            "posY": 192.0
-        },
-        {
-            "class": 5,
-            "posX": 608.0,
-            "posY": 192.0
-        },
-        {
-            "class": 5,
-            "posX": 640.0,
-            "posY": 192.0
-        },
-        {
-            "class": 5,
-            "posX": 672.0,
-            "posY": 192.0
-        },
-        {
-            "class": 5,
-            "posX": 704.0,
-            "posY": 192.0
-        },
-        {
-            "class": 5,
-            "posX": 736.0,
-            "posY": 192.0
-        },
-        {
+            "aleatoria": false,
             "class": 5,
             "posX": 768.0,
-            "posY": 192.0
+            "posY": 160.0
         },
         {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 800.0,
+            "posY": 160.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 832.0,
+            "posY": 160.0
+        },
+        {
+            "aleatoria": false,
             "class": 5,
             "posX": 864.0,
-            "posY": 192.0
+            "posY": 160.0
         },
         {
+            "aleatoria": false,
             "class": 5,
             "posX": 896.0,
-            "posY": 192.0
+            "posY": 160.0
         },
         {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 928.0,
+            "posY": 160.0
+        },
+        {
+            "aleatoria": false,
             "class": 5,
             "posX": 928.0,
             "posY": 192.0
         },
         {
-            "class": 8,
-            "posX": 0.0,
-            "posY": 224.0
-        },
-        {
-            "class": 6,
-            "posX": 160.0,
-            "posY": 224.0
-        },
-        {
+            "aleatoria": false,
             "class": 5,
-            "posX": 288.0,
+            "posX": 416.0,
             "posY": 224.0
         },
         {
-            "class": 6,
-            "posX": 320.0,
+            "aleatoria": false,
+            "class": 5,
+            "posX": 448.0,
             "posY": 224.0
         },
         {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 480.0,
+            "posY": 224.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 512.0,
+            "posY": 224.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 544.0,
+            "posY": 224.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 576.0,
+            "posY": 224.0
+        },
+        {
+            "aleatoria": false,
             "class": 5,
             "posX": 608.0,
             "posY": 224.0
         },
         {
+            "aleatoria": false,
             "class": 5,
             "posX": 928.0,
             "posY": 224.0
         },
         {
+            "aleatoria": false,
             "class": 5,
             "posX": 0.0,
             "posY": 256.0
         },
         {
+            "aleatoria": false,
             "class": 5,
             "posX": 32.0,
             "posY": 256.0
         },
         {
+            "aleatoria": false,
             "class": 5,
             "posX": 64.0,
             "posY": 256.0
         },
         {
+            "aleatoria": false,
             "class": 5,
             "posX": 96.0,
             "posY": 256.0
         },
         {
+            "aleatoria": false,
             "class": 5,
-            "posX": 128.0,
+            "posX": 512.0,
             "posY": 256.0
         },
         {
+            "aleatoria": false,
             "class": 5,
-            "posX": 160.0,
-            "posY": 256.0
-        },
-        {
-            "class": 5,
-            "posX": 192.0,
-            "posY": 256.0
-        },
-        {
-            "class": 5,
-            "posX": 224.0,
-            "posY": 256.0
-        },
-        {
-            "class": 5,
-            "posX": 256.0,
-            "posY": 256.0
-        },
-        {
-            "class": 5,
-            "posX": 288.0,
-            "posY": 256.0
-        },
-        {
-            "class": 5,
-            "posX": 320.0,
-            "posY": 256.0
-        },
-        {
-            "class": 5,
-            "posX": 352.0,
-            "posY": 256.0
-        },
-        {
-            "class": 5,
-            "posX": 384.0,
-            "posY": 256.0
-        },
-        {
-            "class": 2,
-            "posX": 446.0,
-            "posY": 288.0,
-            "vida": 5
-        },
-        {
-            "class": 5,
-            "posX": 608.0,
+            "posX": 544.0,
             "posY": 256.0
         },
         {
             "class": 4,
-            "posX": 726.5,
+            "posX": 815.5,
             "posY": 288.0,
             "vida": 5
         },
         {
+            "aleatoria": false,
             "class": 5,
             "posX": 928.0,
             "posY": 256.0
         },
         {
+            "aleatoria": false,
             "class": 5,
-            "posX": 384.0,
+            "posX": 0.0,
             "posY": 288.0
         },
         {
+            "class": 4,
+            "posX": 385.5,
+            "posY": 320.0,
+            "vida": 5
+        },
+        {
+            "aleatoria": false,
             "class": 5,
-            "posX": 608.0,
+            "posX": 512.0,
             "posY": 288.0
         },
         {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 544.0,
+            "posY": 288.0
+        },
+        {
+            "aleatoria": false,
             "class": 5,
             "posX": 928.0,
             "posY": 288.0
         },
         {
+            "aleatoria": false,
             "class": 5,
-            "posX": 320.0,
+            "posX": 0.0,
             "posY": 320.0
         },
         {
-            "class": 5,
-            "posX": 352.0,
+            "class": 7,
+            "posX": 288.0,
             "posY": 320.0
         },
         {
-            "class": 5,
-            "posX": 384.0,
-            "posY": 320.0
-        },
-        {
-            "class": 5,
-            "posX": 416.0,
-            "posY": 320.0
-        },
-        {
-            "class": 5,
-            "posX": 448.0,
-            "posY": 320.0
-        },
-        {
-            "class": 5,
-            "posX": 480.0,
-            "posY": 320.0
-        },
-        {
+            "aleatoria": false,
             "class": 5,
             "posX": 512.0,
             "posY": 320.0
         },
         {
+            "aleatoria": false,
             "class": 5,
             "posX": 544.0,
             "posY": 320.0
         },
         {
-            "class": 5,
+            "class": 7,
             "posX": 576.0,
             "posY": 320.0
         },
         {
-            "class": 5,
-            "posX": 608.0,
-            "posY": 320.0
-        },
-        {
-            "class": 5,
-            "posX": 640.0,
-            "posY": 320.0
-        },
-        {
-            "class": 5,
-            "posX": 672.0,
-            "posY": 320.0
-        },
-        {
-            "class": 5,
-            "posX": 704.0,
-            "posY": 320.0
-        },
-        {
-            "class": 5,
-            "posX": 736.0,
-            "posY": 320.0
-        },
-        {
+            "aleatoria": false,
             "class": 5,
             "posX": 768.0,
             "posY": 320.0
         },
         {
+            "aleatoria": false,
             "class": 5,
             "posX": 800.0,
             "posY": 320.0
         },
         {
+            "aleatoria": false,
             "class": 5,
             "posX": 832.0,
             "posY": 320.0
         },
         {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 864.0,
+            "posY": 320.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 896.0,
+            "posY": 320.0
+        },
+        {
+            "aleatoria": false,
             "class": 5,
             "posX": 928.0,
             "posY": 320.0
         },
         {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 0.0,
+            "posY": 352.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 256.0,
+            "posY": 352.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 288.0,
+            "posY": 352.0
+        },
+        {
+            "aleatoria": false,
             "class": 5,
             "posX": 320.0,
             "posY": 352.0
         },
         {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 352.0,
+            "posY": 352.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 384.0,
+            "posY": 352.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 416.0,
+            "posY": 352.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 448.0,
+            "posY": 352.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 480.0,
+            "posY": 352.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 512.0,
+            "posY": 352.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 544.0,
+            "posY": 352.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 576.0,
+            "posY": 352.0
+        },
+        {
+            "aleatoria": false,
             "class": 5,
             "posX": 928.0,
             "posY": 352.0
         },
         {
+            "aleatoria": false,
             "class": 5,
-            "posX": 288.0,
+            "posX": 0.0,
             "posY": 384.0
         },
         {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 512.0,
+            "posY": 384.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 544.0,
+            "posY": 384.0
+        },
+        {
+            "aleatoria": false,
             "class": 5,
             "posX": 928.0,
             "posY": 384.0
         },
         {
+            "aleatoria": false,
             "class": 5,
-            "posX": 32.0,
+            "posX": 0.0,
             "posY": 416.0
         },
         {
+            "class": 3,
+            "posX": 160.0,
+            "posY": 96.0,
+            "vida": 10
+        },
+        {
+            "class": 9,
+            "corB": 0,
+            "corG": 0,
+            "corR": 255,
+            "dano": 1,
+            "direcaox": -0.9784871935844421,
+            "direcaoy": -0.2063075453042984,
+            "posX": -950.7619018554688,
+            "posY": 143.44302368164063,
+            "tempo": 41,
+            "tx": 20.0,
+            "ty": 10.0,
+            "velocidade": 4.0
+        },
+        {
+            "aleatoria": false,
             "class": 5,
-            "posX": 64.0,
+            "posX": 512.0,
             "posY": 416.0
         },
         {
+            "aleatoria": false,
             "class": 5,
-            "posX": 96.0,
+            "posX": 544.0,
             "posY": 416.0
         },
         {
-            "class": 5,
-            "posX": 288.0,
-            "posY": 416.0
-        },
-        {
-            "class": 4,
-            "posX": 832.5,
-            "posY": 448.0,
-            "vida": 5
-        },
-        {
+            "aleatoria": false,
             "class": 5,
             "posX": 928.0,
             "posY": 416.0
         },
         {
+            "aleatoria": false,
             "class": 5,
             "posX": 0.0,
             "posY": 448.0
-        },
-        {
-            "class": 5,
-            "posX": 128.0,
-            "posY": 448.0
-        },
-        {
-            "class": 5,
-            "posX": 256.0,
-            "posY": 448.0
-        },
-        {
-            "class": 5,
-            "posX": 928.0,
-            "posY": 448.0
-        },
-        {
-            "class": 5,
-            "posX": 0.0,
-            "posY": 480.0
         },
         {
             "class": 0,
-            "posX": 399.0,
+            "posX": 129.0,
             "posY": 480.0,
             "vida": 5
         },
         {
+            "class": 7,
+            "posX": 384.0,
+            "posY": 448.0
+        },
+        {
+            "aleatoria": false,
             "class": 5,
-            "posX": 128.0,
+            "posX": 512.0,
+            "posY": 448.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 544.0,
+            "posY": 448.0
+        },
+        {
+            "class": 4,
+            "posX": 780.5,
+            "posY": 480.0,
+            "vida": 5
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 928.0,
+            "posY": 448.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 0.0,
             "posY": 480.0
         },
         {
+            "aleatoria": false,
             "class": 5,
             "posX": 224.0,
             "posY": 480.0
         },
         {
+            "aleatoria": false,
             "class": 5,
-            "posX": 608.0,
+            "posX": 256.0,
             "posY": 480.0
         },
         {
-            "class": 2,
-            "posX": 762.0,
-            "posY": 512.0,
-            "vida": 5
-        },
-        {
+            "aleatoria": false,
             "class": 5,
-            "posX": 832.0,
+            "posX": 288.0,
             "posY": 480.0
         },
         {
+            "aleatoria": false,
             "class": 5,
-            "posX": 864.0,
+            "posX": 320.0,
             "posY": 480.0
         },
         {
+            "aleatoria": false,
             "class": 5,
-            "posX": 896.0,
+            "posX": 352.0,
             "posY": 480.0
         },
         {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 384.0,
+            "posY": 480.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 416.0,
+            "posY": 480.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 448.0,
+            "posY": 480.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 480.0,
+            "posY": 480.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 512.0,
+            "posY": 480.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 544.0,
+            "posY": 480.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 672.0,
+            "posY": 480.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 704.0,
+            "posY": 480.0
+        },
+        {
+            "class": 7,
+            "posX": 800.0,
+            "posY": 480.0
+        },
+        {
+            "aleatoria": false,
             "class": 5,
             "posX": 928.0,
             "posY": 480.0
         },
         {
+            "aleatoria": false,
             "class": 5,
             "posX": 0.0,
             "posY": 512.0
         },
         {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 32.0,
+            "posY": 512.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 64.0,
+            "posY": 512.0
+        },
+        {
+            "aleatoria": true,
+            "class": 5,
+            "posX": 96.0,
+            "posY": 512.0
+        },
+        {
+            "aleatoria": true,
             "class": 5,
             "posX": 128.0,
             "posY": 512.0
         },
         {
+            "aleatoria": true,
             "class": 5,
             "posX": 160.0,
             "posY": 512.0
         },
         {
+            "aleatoria": false,
             "class": 5,
             "posX": 192.0,
             "posY": 512.0
         },
         {
+            "aleatoria": false,
             "class": 5,
-            "posX": 384.0,
+            "posX": 512.0,
             "posY": 512.0
         },
         {
+            "aleatoria": false,
             "class": 5,
-            "posX": 416.0,
+            "posX": 544.0,
             "posY": 512.0
         },
         {
+            "aleatoria": false,
             "class": 5,
-            "posX": 448.0,
+            "posX": 672.0,
             "posY": 512.0
         },
         {
+            "aleatoria": false,
             "class": 5,
-            "posX": 480.0,
+            "posX": 704.0,
             "posY": 512.0
         },
         {
+            "aleatoria": false,
             "class": 5,
-            "posX": 608.0,
+            "posX": 736.0,
             "posY": 512.0
         },
         {
-            "class": 6,
+            "aleatoria": false,
+            "class": 5,
+            "posX": 768.0,
+            "posY": 512.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
             "posX": 800.0,
             "posY": 512.0
         },
         {
+            "aleatoria": false,
             "class": 5,
             "posX": 832.0,
             "posY": 512.0
         },
         {
+            "aleatoria": false,
             "class": 5,
-            "posX": 0.0,
+            "posX": 864.0,
+            "posY": 512.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 896.0,
+            "posY": 512.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 928.0,
+            "posY": 512.0
+        },
+        {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 64.0,
             "posY": 544.0
         },
         {
+            "aleatoria": false,
             "class": 5,
-            "posX": 320.0,
+            "posX": 192.0,
             "posY": 544.0
         },
         {
-            "class": 5,
-            "posX": 352.0,
-            "posY": 544.0
-        },
-        {
-            "class": 5,
-            "posX": 448.0,
-            "posY": 544.0
-        },
-        {
+            "aleatoria": false,
             "class": 5,
             "posX": 576.0,
             "posY": 544.0
         },
         {
+            "aleatoria": false,
             "class": 5,
             "posX": 608.0,
             "posY": 544.0
         },
         {
+            "aleatoria": false,
             "class": 5,
             "posX": 640.0,
             "posY": 544.0
         },
         {
-            "class": 5,
-            "posX": 672.0,
-            "posY": 544.0
-        },
-        {
-            "class": 5,
-            "posX": 704.0,
-            "posY": 544.0
-        },
-        {
-            "class": 5,
-            "posX": 736.0,
-            "posY": 544.0
-        },
-        {
-            "class": 5,
-            "posX": 768.0,
-            "posY": 544.0
-        },
-        {
-            "class": 5,
-            "posX": 800.0,
-            "posY": 544.0
-        },
-        {
-            "class": 5,
-            "posX": 0.0,
-            "posY": 576.0
-        },
-        {
-            "class": 5,
-            "posX": 320.0,
-            "posY": 576.0
-        },
-        {
-            "class": 5,
-            "posX": 352.0,
-            "posY": 576.0
-        },
-        {
-            "class": 5,
-            "posX": 448.0,
-            "posY": 576.0
-        },
-        {
-            "class": 6,
-            "posX": 544.0,
-            "posY": 576.0
-        },
-        {
-            "class": 5,
-            "posX": 576.0,
-            "posY": 576.0
-        },
-        {
-            "class": 5,
-            "posX": 32.0,
-            "posY": 608.0
-        },
-        {
+            "aleatoria": false,
             "class": 5,
             "posX": 64.0,
-            "posY": 608.0
+            "posY": 576.0
         },
         {
+            "aleatoria": false,
+            "class": 5,
+            "posX": 160.0,
+            "posY": 576.0
+        },
+        {
+            "aleatoria": false,
             "class": 5,
             "posX": 96.0,
             "posY": 608.0
         },
         {
+            "aleatoria": false,
             "class": 5,
             "posX": 128.0,
-            "posY": 608.0
-        },
-        {
-            "class": 5,
-            "posX": 160.0,
-            "posY": 608.0
-        },
-        {
-            "class": 5,
-            "posX": 192.0,
-            "posY": 608.0
-        },
-        {
-            "class": 5,
-            "posX": 224.0,
-            "posY": 608.0
-        },
-        {
-            "class": 5,
-            "posX": 256.0,
-            "posY": 608.0
-        },
-        {
-            "class": 5,
-            "posX": 288.0,
-            "posY": 608.0
-        },
-        {
-            "class": 5,
-            "posX": 320.0,
-            "posY": 608.0
-        },
-        {
-            "class": 5,
-            "posX": 352.0,
-            "posY": 608.0
-        },
-        {
-            "class": 5,
-            "posX": 384.0,
-            "posY": 608.0
-        },
-        {
-            "class": 5,
-            "posX": 416.0,
-            "posY": 608.0
-        },
-        {
-            "class": 5,
-            "posX": 448.0,
-            "posY": 608.0
-        },
-        {
-            "class": 5,
-            "posX": 480.0,
-            "posY": 608.0
-        },
-        {
-            "class": 5,
-            "posX": 512.0,
-            "posY": 608.0
-        },
-        {
-            "class": 5,
-            "posX": 544.0,
-            "posY": 608.0
-        },
-        {
-            "class": 5,
-            "posX": 576.0,
             "posY": 608.0
         }
     ]

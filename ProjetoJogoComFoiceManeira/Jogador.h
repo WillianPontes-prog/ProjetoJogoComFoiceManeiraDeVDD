@@ -55,8 +55,8 @@ namespace Entidades {
 
 			sf::Vector2f getPosicaoInicial() { return posicaoInicial; };
 
-			bool getJogador2() { return jogador2; };
-			bool getVoador() { return voador; };
+			const bool getJogador2() const { return jogador2; };
+			const bool getVoador() const { return voador; };
 
 			void onNotify(int tecla) override {
 				switch (tecla) {

@@ -1,6 +1,6 @@
 #pragma once
 #include "Fase.h"
-#include "../ZumbiDragao.h"
+#include "ZumbiDragao.h"
 
 
 namespace Fases {

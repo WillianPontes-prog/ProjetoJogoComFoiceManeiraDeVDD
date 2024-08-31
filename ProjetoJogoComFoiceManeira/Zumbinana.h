@@ -20,13 +20,13 @@ namespace Entidades {
             void sacarArma();
             void SwitchState(Estado* novoEstado);
 
-            int getDirectionX() { return directionX; }
-            float getVelocidade() { return velocidade; }
+            const int getDirectionX() const { return directionX; }
+            const float getVelocidade() const { return velocidade; }
             void invertDirectionX() { directionX = -directionX; }
             void setEstado(Estado* novoEstado);
-            int getTempoCarregando() { return tempoRecarregando; }
+            const int getTempoCarregando() const { return tempoRecarregando; }
             void setTempoCarregando(int tempo) { tempoRecarregando = tempo; }
-            int getTempoMax() { return arma->getTempoDeRecarga(); }
+            const int getTempoMax() const { return arma->getTempoDeRecarga(); }
             void operator-() { tempoRecarregando--; }
             void AtacaJogador();
 

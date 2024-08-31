@@ -38,8 +38,8 @@ namespace Entidades {
             virtual void move() = 0;
             virtual void atualiza() = 0;
 
-            const float getHspd() { return hspd; };
-            const float getVspd() { return vspd; };
+            const float getHspd() const{ return hspd; };
+            const float getVspd() const { return vspd; };
 
             void setHspd(const float hspd) { this->hspd = hspd; };
             void setVspd(const float vspd) { this->vspd = vspd; };
@@ -61,7 +61,7 @@ namespace Entidades {
             void setArma(Arma* arma) { this->arma = arma; };
             Arma* getArma() { return arma; };
 
-            const int getVida() { return vida; }
+            const int getVida() const { return vida; }
 
             void    setSobAtrito(const bool sobAtrito) { this->sobAtrito = sobAtrito; };
             const float   getSobAtrito() { return sobAtrito; };

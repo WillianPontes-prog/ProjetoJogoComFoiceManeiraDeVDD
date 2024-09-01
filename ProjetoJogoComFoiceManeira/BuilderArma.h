@@ -30,6 +30,9 @@ public:
 	void buildAzul() {
 		if (arma) { arma->setCor(sf::Color::Blue); };
 	};
+	void buildBranco() {
+		if (arma) { arma->setCor(sf::Color::White); };
+	};
 	Arma* getArma() {
 		return arma;
 	};

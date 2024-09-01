@@ -22,6 +22,7 @@ namespace Gerenciadores {
         sf::Texture* tInimigo2;
 
         sf::Texture* tFase1;
+		sf::Texture* tFase2;
         sf::Texture* tFase1Plat;
         sf::Texture* tFase2Plat;
 

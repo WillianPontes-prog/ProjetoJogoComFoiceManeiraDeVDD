@@ -17,6 +17,7 @@
 #define SPR_BCK_FASE1 "imagens/BCK_fase1.png"
 #define SPR_BCK_FASE1_PLAT "imagens/MapaFase1.png"
 
+#define SPR_BCK_FASE2 "imagens/BCK_fase2.png"
 #define SPR_FASE2_PLAT "imagens/MapaFase2.png"
 
 #define SPR_TELEPORTADOR "imagens/Teleportador.png"
@@ -56,6 +57,10 @@ namespace Gerenciadores {
             throw std::runtime_error("Erro ao carregar a textura!");
         }
 
+		if (!tFase2->loadFromFile(SPR_BCK_FASE2)) {
+			throw std::runtime_error("Erro ao carregar a textura!");
+		}
+
         if (!tInimigo1->loadFromFile(SPR_INIMIGO1)) {
             throw std::runtime_error("Erro ao carregar a textura!");
         }
@@ -88,6 +93,7 @@ namespace Gerenciadores {
     GerenciadorGrafico::GerenciadorGrafico() :
         tJogador1(new sf::Texture()),
         tFase1(new sf::Texture()),
+        tFase2(new sf::Texture()),
         tInimigo1(new sf::Texture()),
         tFase1Plat(new sf::Texture()),
         tJogador2(new sf::Texture()),
@@ -210,7 +216,7 @@ namespace Gerenciadores {
 
         Fase2* f2 = dynamic_cast<Fase2*>(e);
         if (f2) {
-            f2->setSpriteFundo(tFase1);
+            f2->setSpriteFundo(tFase2);
             return tFase2Plat;
         }
 

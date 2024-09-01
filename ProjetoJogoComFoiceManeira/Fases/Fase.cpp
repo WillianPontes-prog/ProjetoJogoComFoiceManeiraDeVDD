@@ -182,7 +182,7 @@ namespace Fases {
         }
         else {
             b.buildArmaJogador1();
-            b.buildAzul();
+            b.buildBranco();
             arm = b.getArma();
         }
 

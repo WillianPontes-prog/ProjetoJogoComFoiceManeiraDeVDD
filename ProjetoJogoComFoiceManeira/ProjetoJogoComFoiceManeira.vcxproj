@@ -190,6 +190,7 @@
     <Image Include="Imagens\BackgroungMenu.jpeg" />
     <Image Include="Imagens\BackgroungMenu.png" />
     <Image Include="Imagens\BCK_fase1.png" />
+    <Image Include="Imagens\BCK_fase2.png" />
     <Image Include="Imagens\chaoQueAsvezesSome.png" />
     <Image Include="Imagens\chefao.png" />
     <Image Include="Imagens\fimDeJogo.png" />

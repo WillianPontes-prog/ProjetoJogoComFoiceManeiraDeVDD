@@ -29,6 +29,10 @@ namespace Gerenciadores {
 
         void tratarColisoes();
 
+        /**
+        Esta função foi inspirada no trabalho de Jean Carlos, membro  do gruppo Peteco.
+        */
+
         const int ChecarColisao(const sf::RectangleShape& rect1, const sf::RectangleShape& rect2) {
             sf::FloatRect bounds1 = rect1.getGlobalBounds();
             sf::FloatRect bounds2 = rect2.getGlobalBounds();
